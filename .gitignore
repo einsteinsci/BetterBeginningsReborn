@@ -1,19 +1,13 @@
-/.gradle/*
-/build/*
+
 /eclipse/*
-/out/*
 /asm/*
-/libs/*
 /bin/*
-/run/*
 /libs/
 /.settings/*
 *.psd
 *.iml
 *.ipr
 *.iws
-*.psd
-*.idea/*
 *.db
 *.pdn
 *.launch
@@ -24,7 +18,6 @@
 /.gradle/
 /build/
 /Additional Mods
-forge*.jar
 .idea/
 out/
 run/
