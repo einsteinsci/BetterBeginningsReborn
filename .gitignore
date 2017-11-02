@@ -24,3 +24,7 @@
 /.gradle/
 /build/
 /Additional Mods
+forge*.jar
+.idea/
+out/
+run/
