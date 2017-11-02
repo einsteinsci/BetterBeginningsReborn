@@ -1,0 +1,14 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "betterbeginnings:items/rockHammer"
+	},
+	"display": {
+        "thirdperson_righthand": {
+            "rotation": [ 0, 90, 0 ],
+            "translation": [ 0, 3, 1.2 ],
+            "scale": [ 0.55, 0.55, 0.55 ]
+        }
+	}
+	
+}

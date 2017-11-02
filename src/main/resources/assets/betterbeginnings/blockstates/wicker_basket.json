@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"normal": {
+			"model": "betterbeginnings:wickerBasket"
+		},
+		"inventory": {
+			"model": "betterbeginnings:wickerBasket",
+			"transform": "forge:default-block"
+		}
+	}
+}

@@ -1,0 +1,106 @@
+{
+    "overrides": 
+	[
+		{
+			 "predicate": 
+			 {
+                "blocking": 1
+            },
+            "model": "betterbeginnings:item/wicker_shield_blocking"
+		}
+    ],
+	"display": 
+	{
+        "thirdperson_righthand": 
+		{
+            "rotation": [ 0, -90, 0 ],
+            "translation": [ -3.5, -5, 4 ],
+            "scale": [ 1, 1, 1 ]
+        },
+		"firstperson_righthand": 
+		{
+			"rotation": [ 0, 0, -5 ],
+			"translation": [ -1.25, -13.00, 7.25 ],
+			"scale": [ 1.25, 1.25, 1.25 ]
+		},
+        "gui": 
+		{
+            "rotation": [ 15, 155, 5 ],
+            "translation": [ 2, -1, 0 ],
+            "scale": [ 0.65, 0.65, 0.65 ]
+        },
+        "fixed": 
+		{
+            "rotation": [ 0, 180, 0 ],
+            "translation": [ -2, 4, -5],
+            "scale":[ 0.5, 0.5, 0.5]
+        },
+        "ground": 
+		{
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 4, 4, 2],
+            "scale":[ 0.25, 0.25, 0.25]
+        }
+    },
+	"__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+	"textures": {
+		"0": "betterbeginnings:items/wicker_shield"
+	},
+	"elements": [{
+		"name": "Shield",
+		"from": [2.0, 0.0, 0.0],
+		"to": [14.0, 22.0, 1.0],
+		"faces": {
+			"north": {
+				"texture": "#0",
+				"uv": [0.5, 0.5, 6.5, 11.5]
+			},
+			"east": {
+				"texture": "#0",
+				"uv": [0.0, 0.5, 0.5, 11.5]
+			},
+			"south": {
+				"texture": "#0",
+				"uv": [10.0, 0.5, 16.0, 11.5]
+			},
+			"west": {
+				"texture": "#0",
+				"uv": [16.0, 0.5, 15.5, 11.5]
+			},
+			"up": {
+				"texture": "#0",
+				"uv": [6.0, 0.0, 0.5, 0.5]
+			},
+			"down": {
+				"texture": "#0",
+				"uv": [10.0, 0.0, 15.5, 0.5]
+			}
+		}
+	}, {
+		"name": "Handle",
+		"from": [7.0, 8.0, 1.0],
+		"to": [9.0, 14.0, 7.0],
+		"faces": {
+			"east": {
+				"texture": "#0",
+				"uv": [8.0, 13.0, 11.0, 16.0]
+			},
+			"south": {
+				"texture": "#0",
+				"uv": [7.0, 13.0, 8.0, 16.0]
+			},
+			"west": {
+				"texture": "#0",
+				"uv": [4.0, 13.0, 7.0, 16.0]
+			},
+			"up": {
+				"texture": "#0",
+				"uv": [7.0, 10.0, 8.0, 13.0]
+			},
+			"down": {
+				"texture": "#0",
+				"uv": [8.0, 10.0, 9.0, 13.0]
+			}
+		}
+	}]
+}

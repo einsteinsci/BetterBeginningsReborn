@@ -1,0 +1,179 @@
+tile.betterbeginnings.kiln.name=Kiln
+tile.betterbeginnings.kiln_lit.name=Kiln (Lit)
+tile.betterbeginnings.double_workbench.name=Crafting Table
+tile.betterbeginnings.brick_oven.name=Brick Oven
+tile.betterbeginnings.brick_oven_lit.name=Brick Oven (Lit)
+tile.betterbeginnings.smelter.name=Smelter
+tile.betterbeginnings.smelter_lit.name=Smelter (Lit)
+tile.betterbeginnings.infusion_repair_station.name=Infusion Repair Station
+tile.betterbeginnings.obsidian_kiln.name=Obsidian Kiln
+tile.betterbeginnings.obsidian_kiln_lit.name=Obsidian Kiln (Lit)
+tile.betterbeginnings.nether_brick_oven.name=Nether Brick Oven
+tile.betterbeginnings.nether_brick_oven_lit.name=Nether Brick Oven (Lit)
+tile.betterbeginnings.ender_smelter.name=Ender Smelter
+tile.betterbeginnings.ender_smelter_lit.name=Ender Smelter (Lit)
+tile.betterbeginnings.redstone_kiln.name=Redstone Kiln
+tile.betterbeginnings.redstone_kiln_lit.name=Redstone Kiln (Lit)
+tile.betterbeginnings.campfire.name=Campfire
+tile.betterbeginnings.campfire_lit.name=Campfire (Lit)
+tile.betterbeginnings.wicker_basket.name=Wicker Basket
+
+item.betterbeginnings.flint_knife.name=Flint Knife
+item.betterbeginnings.bone_knife.name=Bone Knife
+item.betterbeginnings.iron_knife.name=Iron Knife
+item.betterbeginnings.gold_knife.name=Golden Knife
+item.betterbeginnings.diamond_knife.name=Diamond Knife
+item.betterbeginnings.pan.name=Pan
+item.betterbeginnings.rotisserie.name=Rotisserie
+item.betterbeginnings.infusion_scroll.name=Infusion Scroll
+item.betterbeginnings.sugar_cane_strips.name=Sugar Cane Strips
+
+item.betterbeginnings.flint_hatchet.name=Flint Hatchet
+item.betterbeginnings.bone_pickaxe.name=Bone Pickaxe
+item.betterbeginnings.noob_wood_sword.name=Wooden Sword
+
+item.betterbeginnings.bone_shard.name=Bone Shard
+item.betterbeginnings.leather_strip.name=Leather Strip
+item.betterbeginnings.iron_nugget.name=Iron Nugget
+item.betterbeginnings.fire_bow.name=Fire Bow
+item.betterbeginnings.silk.name=Silk
+item.betterbeginnings.thread.name=Thread
+item.betterbeginnings.twine.name=Twine
+item.betterbeginnings.cloth.name=Cloth
+item.betterbeginnings.chain.name=Chain
+item.betterbeginnings.marshmallow.name=Marshmallow
+item.betterbeginnings.marshmallow_cooked.name=Browned Marshmallow
+item.betterbeginnings.roasting_stick.name=Roasting Stick
+item.betterbeginnings.roasting_stick_raw_mallow.name=Marshmallow on a Stick
+item.betterbeginnings.roasting_stick_cooked_mallow.name=Browned Marshmallow on a Stick
+item.betterbeginnings.rock_hammer.name=Rock Hammer
+item.betterbeginnings.wicker_shield.name=Wicker Shield
+
+item.betterbeginnings.charred_meat.name=Charred Meat
+item.betterbeginnings.charred_chicken.name=Charred Chicken
+item.betterbeginnings.charred_mutton.name=Charred Mutton
+item.betterbeginnings.charred_rabbit.name=Charred Rabbit
+item.betterbeginnings.charred_fish.name=Charred Fish
+item.betterbeginnings.charred_unknown.name=Charred ???
+
+item.betterbeginnings.test_item.name=Test Item
+item.betterbeginnings.kilnCart.name=Minecart With Kiln
+
+itemGroup.tabBetterBeginnings=Better Beginnings
+
+container.craftingdouble=Advanced Crafting
+container.craftingdouble.warning=Additional Materials Required!
+container.crafting.needsBigBoyBench=Double workbench is required!
+container.kiln=Kiln
+container.brickoven=Brick Oven
+container.smelter=Smelter
+container.infusion=Infusion Repair
+container.infusion.needed=Needed
+container.infusion.taken=Taken
+container.infusion.level=L
+container.obsidianKiln=Obsidian Kiln
+container.netherbrickoven=Nether Brick Oven
+container.enderSmelter=Ender Smelter
+container.redstoneKiln=Redstone Kiln
+container.campfire=Campfire
+container.campfire.woodFuelsOnly=Only wood fuels are accepted.
+container.wicker_basket=Wicker Basket
+
+achievement.flintKnife=Survival of the Fittest
+achievement.flintKnife.desc=Craft a flint knife out of two flint
+achievement.makeString=String it Out
+achievement.makeString.desc=Make string with a knife and some wool
+achievement.makeTwine=The Other String
+achievement.makeTwine.desc=Make twine with a knife and some vines
+achievement.upgradeKnife=Bleeding Edge
+achievement.upgradeKnife.desc=Make a better knife
+achievement.makeSticks=I'm a sapling, I'm a sapling...
+achievement.makeSticks.desc=Make a stick with a sapling and a knife
+achievement.makeHatchet=The Tiny Axe
+achievement.makeHatchet.desc=Make a flint hatchet with flint, a stick, and a leather strip
+achievement.doubleWorkbench=Getting Complicated
+achievement.doubleWorkbench.desc=Put two crafting tables down to make a double workbench
+achievement.makeSword=Like a Knife, but Bigger
+achievement.makeSword.desc=Craft a sword with your double workbench
+achievement.infusionRepair=Infused with Antioxidants!
+achievement.infusionRepair.desc=Craft a Repair Infusion Station
+achievement.repairNoobSword=Magical Practice board
+achievement.repairNoobSword.desc=Repair your wooden sword
+achievement.boneShards=Chicken Bones
+achievement.boneShards.desc=Make bone shards with your knife and a bone
+achievement.bonePick=Skeleton Repurposing
+achievement.bonePick.desc=Craft a bone pickaxe
+achievement.makeKiln=Warm Topic
+achievement.makeKiln.desc=Craft a Kiln
+achievement.charredMeat=Tastes like Charcoal
+achievement.charredMat.desc=Eat overcooked meat
+achievement.obsidianKiln=Hotter Topic
+achievement.obsidianKiln.desc=Upgrade your Kiln into an Obsidian Kiln
+achievement.makeSmelter=I'm smelting! Smelting!
+achievement.makeSmelter.desc=Craft a smelter
+achievement.enderSmelter=The end of the road
+achievement.enderSmelter.desc=Upgrade your Smelter into an Ender Smelter
+achievement.oreDoubling=Double Trouble
+achievement.oreDoubling.desc=Get extra ores in an Ender Smelter
+achievement.makeBrickOven=Food Furnace
+achievement.makeBrickOven.desc=Craft a Brick Oven
+achievement.cake=More Lies
+achievement.cake.desc=Bake a cake
+achievement.netherBrickOven=Lava-Powered Food
+achievement.netherBrickOven.desc=Upgrade your Brick Oven into a Nether Brick Oven
+achievement.notchApple=Food of the Gods
+achievement.notchApple.desc=Bake an enchanted golden apple
+
+entity.betterbeginnings.kilnCart.name=Minecart With Kiln
+
+death.face=%1$s broke their face on a %2$s.
+death.diffusion=%s$s has faded into nonexistence.
+
+blockbreak.fail=Almost. Once more should do it.
+blockbreak.success=Ouch! But at least it worked.
+blockbreak.wrongtool=Wrong tool!
+blockbreak.wrongtool.message=Requires %1$s %2$s.
+t
+command.jsongen.complete=JSON recipe generation complete!
+
+diffusion.toomanyenchants=Too many enchantments on this item! Max 8
+
+//JEI Descriptions
+betterbeginnings.knives.jeiDescription=When used to break vegetation(vines, grass, ferns, dead bushes, etc.), knives have a chance to silk touch the block. They can be thrown by pressing and releasing right-mouse. The longer right-mouse is pressed(up to a maximum), the more damage is dealt.
+
+betterbeginnings.infusion_scroll.jeiDescription=When right-clicked on an Infusion Repair Station, the name and amount of the next item needed will be printed into chat. If the next item needed is experience, the number of needed levels will be printed.
+
+betterbeginnings.rock_hammer.jeiDescription=Breaks stone into cobblestone, cobblestone into gravel, and gravel into sand.
+
+betterbeginnings.rotisserie.jeiDescription=When put in the utensil slot of the Campfire GUI, this allows the campfire to turn raw meat into cooked meat.
+
+betterbeginnings.pan.jeiDescription=When put in the utensil slot of the Campfire GUI, this allows the campfire to turn raw meat into cooked meat and doubles the cooking speed.
+
+betterbeginnings.wicker_shield.jeiDescription=An early-game shield. It has low durability. In future versions it will be vulnerable to fire.
+
+betterbeginnings.kiln.jeiDescription=Specializes in basic smelting recipes such as: \n * baking bricks out of clay \n * melting sand into glass \n * turning cobblestone into stone \n\n Any fuel except blaze rods and lava will work in the kiln.
+
+betterbeginnings.obsidian_kiln.jeiDescription=An upgraded version of the kiln, which processes items much faster. Can use hot fuels like blaze rods and lava.
+
+betterbeginnings.brick_oven.jeiDescription=A type of furnace designed for making food. Some other items are also made using an oven.
+
+betterbeginnings.nether_brick_oven.jeiDescription=An upgraded form of the brick oven, that cooks slightly faster. Uses lava instead of solid fuels.
+
+betterbeginnings.smelter.jeiDescription=Used to smelt ores into their respective products. Ore blocks go in the upper left slot, fuel in the bottom slot, and some kind of "booster" in the upper right slot (such as gravel). Most recipes require at least one "booster" in order to smelt the ores. More valuable ores require more boosters to smelt. The Smelter only accepts charcoal as fuel.
+
+betterbeginnings.ender_smelter.jeiDescription=An upgraded form of the smelter, made with the energy drawn from the end. It has an innate chance of doubling ores (75%), even with gravel as a booster. Requires a booster, but processes much faster. Can use ender pearls and eyes as fuel.
+
+betterbeginnings.campfire.jeiDescription=Needs to be lit with a fire bow or flint and steel in order to process. When fuel or input runs out, it will begin to smoke. If more fuel/input is not added, it will go out and need to be lit again. The campfire in the centre of the GUI indicates how much longer it will stay lit.
+
+betterbeginnings.wicker_basket.jeiDescription=An early-game chest alternative. It has a 9 slot inventory, with each slot storing a stack. The model renders the items the basket contains. Only players can insert/extract items.
+
+betterbeginnings.infusion_repair_station.jeiDescription=Sneak right click this block in-world with an empty hand for info.
+
+//JEI Categories
+betterbeginnings.kilnCategory.name=Kiln Recipes
+betterbeginnings.ovenCategory.name=Oven Recipes
+betterbeginnings.smelterCategory.name=Smelter Recipes
+betterbeginnings.campfireCategory.name=Campfire Recipes
+betterbeginnings.advCraftingCategory.name=Advanced Crafting
+
+smelter.jeiBonusText=Output: %d + Booster bonus

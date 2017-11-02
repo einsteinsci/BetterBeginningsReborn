@@ -1,0 +1,16 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "betterbeginnings:items/boneKnife"
+	},
+    "overrides":
+    [
+    	{
+    		"predicate":
+    		{
+    			"betterbeginnings:thrown":1
+    		},
+    		"model":"betterbeginnings:item/thrown_knife"
+    	}
+    ]
+}
