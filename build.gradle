@@ -33,6 +33,10 @@ minecraft {
     version = project.mcversion + "-" + project.forgeversion
     runDir = "run"
 	replace '${version}', project.modversion
+
+    // dynamic source code version
+    replace "@version@", project.version
+    replaceIn "${mod_reference}"
     
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.

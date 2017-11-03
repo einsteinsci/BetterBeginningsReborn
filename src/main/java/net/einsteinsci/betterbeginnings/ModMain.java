@@ -37,7 +37,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModMain
 {
 	public static final String MODID = "betterbeginnings";
-	public static final String VERSION = "b0.9.8-R7c";
+	public static final String VERSION = "@version@";
 	public static final String NAME = "BetterBeginnings";
 	
 	@Instance(ModMain.MODID)
