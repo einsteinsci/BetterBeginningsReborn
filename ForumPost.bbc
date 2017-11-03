@@ -1,0 +1,444 @@
+[header=3][color=#ff0000]Notice[/color][/header]
+[p][color=#ff0000]First off, I sincerely apologize for abandoning this mod for so long without any notice. You all deserve better than that, and I take full responsibility for any frustrations caused by this lack of communication to Daomephsta. I had a lot of personal issues at the time, but that is no excuse for leaving everyone in the dark and disappearing like I did. For now, I will be returning to this mod and try to update and continue this mod in a way that encourages compatibility and interaction with other mods.[/color][/p]
+
+[p]BetterBeginnings started out with a goal of vanilla-like features with high compatibility. Over time though, I had added more and more features under the assumption that BB was the only content mod installed, and this has obviously led to very poor compatibility, contrary to my initial goals. I hope to return to that ideal with this mod in the future, and focus more on BetterBeginnings' place within a modded playthrough rather than trying to force it into a modpack's backbone. I also want to refocus development on the early-game, even if early-game is by modded standards rather than vanilla. Hopefully these features will make the mod more like Tiny Progressions and less like GregTech.[/p]
+
+[indent=auto][p][img]https://raw.githubusercontent.com/einsteinsci/BetterBeginningsReborn/master/src/main/resources/logo.png[/img][/p][/indent]
+
+[header=1]BetterBeginnings Mod - Currently being updated to 1.12[/header]
+[p]A mod to extend the beginning portion of Minecraft's early game and diversifying vanilla gameplay without breaking too much from the typical gameplay flow.[p]
+[p]The early stage of Minecraft tends to be quick and easy. Punch three longs, make a crafting table, make a wood pick, mine three stone, and that's it. No more early game. With BetterBeginnings, you will spend much more time "on the move", simply trying to survive the terrifying world you live in. Punching trees? Wood tools? Haha...no. While this mod started as a purely early-game extension, it now adds a variety of features to aid and expand upon the vanilla playstyle.[/p]
+
+[header=2]1.12 Update and Redesign[/header]
+[p]This mod is in dire need of a rework. The current version is clunky and has poor compatibility. Its core design discourages its use in modpacks, and forces modpack authors to work far too hard to get this mod to pair well with other mods. With the update, I will be reverting the mod back to its alpha development state, as many severe changes, many of which will likely be game-breaking. Stability will have to come after the rework, once this mod can play nice with others.[/p]
+[spoiler=Updating and catch-up todo][list]
+[*]Update properly to MC 1.12. I will not update to 1.9 or even 1.10, as then I would be playing a game of catch-up or developing for two versions at once (not a good thing). No further updates will come to the 1.7.10 branch, even for bugfixes, at least not from myself. The 1.8 branch will become the 1.12 branch, so the 1.8 code will be moved to its own branch, though with no further updates from myself. The only 1.10 version will be the one developed by Daomephsta during my absence.
+[*]Return mod status to "alpha" development as heavy changes are on their way.
+[*]Redesign the old JSON recipe thing. JSON recipes are annoying and jank (sorry MC1.13), and far too verbose for modpack authors. Instead, the JSON recipe parser will be replaced by a built-in ZenScript parser, so modpack authors can copy BB-related code from MineTweaker as a quick and dirty alternative. This ZenScript parser will automatically disable itself if MineTweaker is detected during startup.
+[*]Redesign kiln, brick oven, and smelter to be improvements to the furnace rather than replacements. This should greatly enhance compatibility without diverting too much from vanilla gameplay. All furnaces will be significantly sped up and otherwise improved to encourage use while still leaving room for higher-tier machinery by other mods, such as EnderIO and Thermal Expansion. The smelters in particular will require significant redesigns to neither be obsolete or overpowered.
+[*]Remove advanced crafting from the default configuration, and balance the rest of the mod accordingly. While this was an interesting idea, and part of the core inspiration for the mod, this particular feature was incredibly problematic in many ways, and was very annoying to play with and to develop. It was buggy, difficult to balance, overly grindy, and a major pain for compatibility. This feature will become deprecated and no new features will be added to expand upon it.
+[/list][/spoiler]
+
+[header=3]1.7.10 and 1.8 Versions[/header]
+[p]I will not be working on the original MC 1.7.10 version of the mod. 1.7.10 is extremely outdated, and only used in a few legacy packs now. However, Daomephsta has been working hard on maintaining it, and has released a few bugfixes over the past year. If you wish to continue development for that version, feel free to fork the code from its [url=https://github.com/Leviathan143/betterbeginnings-MC1.7]updated repository[/url].[/p]
+
+[p]There will be no more updates to the MC 1.8 version of this mod. 1.8 is also very outdated, with little in the modding scene for it to be worth playing. If you wish to continue development for that version, feel free to fork its code from the [url=https://github.com/einsteinsci/betterbeginnings]original repository[/url].[/p]
+
+[header=3]1.10.2 Version[/header]
+[p]During my absence Daomephsta has updated BetterBeginnings to MC 1.10.2 and is working hard on it with active development for that version. This includes new features such as a wicker basket and shield for early game. While I will be focusing on the 1.12 version of the game, I will not be working on the 1.10.2 branch. Daomephsta instead will be continuing that branch as deemed necessary. If you wish to contribute, feel free to fork the code from the [url=https://github.com/Leviathan143/betterbeginnings-MODIFIED]maintained repository[/url].[/p]
+
+[header=2]Feature Overview[/header]
+[list]
+[*]A variety of early-game tools to make you work to get that first stone pickaxe.
+[*]Most blocks require the correct tool in order to be broken. No more punching trees!
+[*]Three different furnaces are used in place of the vanilla furnace: The kiln, the brick oven, and the smelter. Each covers different purposes of smelting, with upgrades and recipes to reflect this.*
+[*]Advanced, double crafting tables, to craft more complex items.*
+[*]Infusion Repair, as a better, more reliable way to repair enchanted tools.
+[*]Diffusion Extraction, to extract enchantments from tools.
+[*]Campfires, for [s]cooking[/s] charring food to a crisp in the early-game.
+[*]Config options with in-game toggle support.*
+[*]JEI/NEI and Minetweaker/CraftTweaker support.*
+[/list]
+[p][size=small][i]* This feature will be heavily reworked with the 1.12 update for better compatibility and configurability.[/i][/size][/p]
+
+[header=2]Downloads[/header]
+[p]Beta 0.9.8 R7c for MC 1.10.2, as updated by Daomephsta: ([url=http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/wip-mods/2192122-betterbeginnings-mod-9000-downloads?comment=826]Release post[/url]) ([url=https://github.com/Leviathan143/betterbeginnings-MODIFIED]Source[/url])[/p]
+[mod="1.10.2"]230120-betterbeginnings-mod[/mod]
+[p]Beta 0.9.6 R2a for MC 1.7.10, as maintained by Daomephsta: ([url=http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/wip-mods/2192122-betterbeginnings-mod-9000-downloads?comment=830]Bugfix post[/url]) ([url=https://github.com/Leviathan143/betterbeginnings-MC1.7]Source[/url])[/p]
+[mod="1.7.10"]230120-betterbeginnings-mod[/mod]
+[p][url=https://minecraft.curseforge.com/projects/betterbeginnings-mod/files]All CurseForge Downloads[/url][/p]
+[spoiler=Archive][p]Beta 0.9.7 R1 for MC 1.8 (abandoned): ([url=http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/wip-mods/2192122-betterbeginnings-mod-9000-downloads?comment=661]Old release post[/url]) ([url=https://github.com/einsteinsci/betterbeginnings]Abandoned source[/url])[/p]
+[p]Versions before 0.9.3 are not available, to combat reposting. These files were originally hosted on MediaFire, before the advent of CurseForge.[/p][/spoiler]
+
+[header=2]Installing[/header]
+[numlist]
+[*]Download the latest stable version of Forge for your Minecraft version at [url=https://files.minecraftforge.net/]files.minecraftforge.net[/url]. Get the installer.
+[*]Run the installer.
+[*]Run the Minecraft version you wish BetterBeginnings with at least once with Forge.
+[*]Put the BetterBeginnings JAR file in your .minecraft/mods/ folder.
+[*]Run Minecraft.
+[*]Profit!
+[/numlist]
+
+[header=2]BetterBeginnings Wiki[/header]
+[p]Full info can be found on the [url=https://github.com/Leviathan143/betterbeginnings-MODIFIED/wiki]GitHub wiki[/url]! Please note that this links to Daomephsta's repository. A new wiki on the 1.12 repository will be created once the update and rework is finished.[/p]
+
+[header=2]FAQ[/header]
+[spoiler=Please actually read this][header=4]Can I use this in my modpack?[/header]
+[p]Absolutely. This mod is open-source under a copyleft license, so feel free to use it as you like. However, if you redistribute your modpack with the mod file included directly (rather than linked such as via Twitch), please link back to the source code of whichever version you're using, or this forum post. This ensures the source code is as accessible as the mod itself. While there's no requirement to ask or notify me, it would be nice to let me know about it; I might be interested in playing it.[/p]
+
+[header=4]I found a bug! Where do I report it?[/header]
+[p]You can report bugs on the issues tab for the version of the mod you're downloading, with the exception of 1.8. There will be no more official updates to the 1.8 branch of the mod - even for bugfixes.[/p]
+
+[header=4]When will you update this?[/header]
+[p]You're really not supposed to ask that question. If you're asking this, we're probably already working on it. When a new version of the game gets released, there's a big process that goes on before any actual updating goes on. First we have to wait for the Minecraft version to stabilize so that MCP and Forge can get to work without it getting undone a week later. Next is to wait on MCP to update, followed by Forge. Then we have to wait on Forge to have a stable version as well so we don't have to re-release the mod every week. Only then can we get to work. With large, heavily internal updates (such as 1.8), this can take a very long time.[/p]
+
+[header=4]1.6.4 version?[/header]
+[p]While 1.6.4 was a fantastic version for modding, arguably a "golden age", it is extremely old. Even by "legacy" standards, it's still very old. There are many great mods and modpacks from that version, but it's not worth the time for myself or Daomephsta to backport it, especially not with the 1.12 version on its way. If you want to and know how, feel free to backport it yourself from the source code.[/p]
+
+[header=4]1.9/1.11 version?[/header]
+[p]1.9 and 1.11 were too short-lived to be worth updating to. 1.12 is the current version of the game, the one mods are currently updating to. 1.10 is the current standard with large modpacks, as most mods for that version have become quite stable. 1.7.10 is the current "legacy" standard for old modpacks or old mods that never got updated past 1.8.[/p]
+
+[header=4]The furnaces don't work with other mod's recipes! How do I cook a Harvestcraft meal in the Brick Oven?[/header]
+[p]This is something I really want to get working properly in the upcoming rework. For now you can use CraftTweaker (1.10.2) or MineTweaker (1.7.10/1.8) to script the recipes in. Alternatively, if you are using the 1.8 or 1.10.2 versions of the mod, you can use the built-in JSON recipe system to set and replace the mod's recipes. (This feature will be removed in the upcoming rework, as it causes more problems than it fixes.)[/p]
+
+[header=4]How do I light the campfire?[/header]
+[p]Put the campfire down on the ground, put your item to be smelted in the top slot, with some [i]wooden[/i] fuel in the bottom (coal and charcoal won't work), and then you have to light it. You can light the campfire with either flint & steel or a BetterBeginnings fire bow. If the campfire starts smoking, it's out of fuel; put more wooden fuel in while it's still smoking or else you'll have to light it again.[/p]
+
+[header=4]That's not how furnaces work in real life![/header]
+[p]It's not supposed to be. Instead this mod aims for balance and what makes sense on a very basic level. Cooking meat in the same fires you use to smelt ores into ingots does not make sense.[/p]
+
+[header=4]Is this mod compatible with _____?[/header]
+[p]On a basic level, almost certainly. That's the whole point of Forge. However, for interaction-related bugs and oversights, those are likely to happen with a few mods. We will try to resolve those issues when we can.[/p]
+
+[header=4]Ur mod suckz becus idk[/header]
+[p]That's neither informative or helpful. What am I supposed to do with that?[/p][/spoiler]
+
+[header=2]Mod Spotlights[/header]
+[p]These mod spotlights, while informative for their versions, are all quite outdated at this point. They will become very inaccurate in the Reborn update.[/p]
+[spoiler=Spotlights][p][url=https://www.youtube.com/watch?v=x-ZlhAsX8YQ]SerenHD Review for 0.9.6 (MC 1.8)[/url][/p]
+[p][url=https://www.youtube.com/watch?v=s5hsE3yfR3c]Logdotzip Review for 0.8.2 (MC 1.7.10)[/url][/p]
+[p][url=https://www.youtube.com/watch?v=Q4WDer2IgbY]Sensible Minecraft Review for 0.9.0 (MC 1.7.10)[/url][/p][/spoiler]
+
+[header=2]Credits[/header]
+[list]
+[*]Daomephsta, for a great deal of work continuing, updating, and maintaining this mod for the past two years, even in my absence.
+[*]AnonTheMouse, for the [url=http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/requests-ideas-for-mods/2146340-need-an-idea-why-not-noobcraft-req]original idea[/url] that eventually became this mod.
+[*]Knoxx093, for fixing some of the more troubling bugs, as well as cleaning up some of the less organized regions of the code.
+[*]iLiminate, for helping code a large portion of this mod in its early stages. iLiminate has since left due to a lack of time, however.
+[*]YiChenCraft, for the recent translation into simplified Chinese.
+[*]Adaptivity, for help with version info and a translation into Russian.
+[*][url=https://www.jetbrains.com/idea/]IntelliJ IDEA[/url], for being the best Java IDE.
+[*][url=http://www.getpaint.net/index.html]Paint.NET[/url], because it's awesome. All my textures were made with it. Textures made by Daomephsta and iLiminate may have been made with other programs.
+[*]The modding community at MCForums for helping me resolve countless issues.
+[/list]
+
+[header=2]Contributing[/header]
+[p]You can find links to the source code in several places scattered throughout this post, but here they are again just in case:[/p]
+[list]
+[*][b][url=https://github.com/Leviathan143/betterbeginnings-MODIFIED]MC 1.10.2 version, in active development by Daomephsta[/url][/b]. Currently this is the "main" branch of the mod.
+[*][url=https://github.com/Leviathan143/betterbeginnings-MC1.7]MC 1.7.10 version, in bugfix-only maintenance by Daomephsta[/url]. This is in bugfix-only mode, so no new features will be added to this version. The only releases for 1.7.10 you will see are bugfixes and optimizations.
+[*][url=https://github.com/einsteinsci/betterbeginnings]MC 1.8 version, abandoned last year for personal reasons[/url]. This version is not in active development by Daomephsta or myself. No new features, optimizations, or bugfixes will come to this version of the mod. However, you are free to fork this and continue it on your own if you see fit.
+[*][url=https://github.com/einsteinsci/BetterBeginningsReborn]MC 1.12.x "Reborn" branch, currently in the early stages of being updated[/url]. This version of the mod will be updated to 1.12, followed by drastic changes to the features and code structure of the mod. Currently there are no releases yet for this branch. After the initial update release, this version will in alpha for quite some time, during which it will likely have game-breaking changes.
+[/list]
+[p]In all of these branches, feel free to submit a Pull Request (1.8 included) if you wish to help us make the mod better. In the versions with active development (not 1.8), feel free to submit an issue if you find a bug.[/p]
+
+[p]We are also in need of a texture artist. Currently all textures are made by iLiminate, Daomephsta, and myself. None of us are texture artists, so we make due with what we can come up with. We also need a new logo, as the current one is too similar to a particular toy franchise's logo. A new logo needs to fit a horizontal banner shape - detailed enough to look good at the top of this thread, but small enough to fit in a signature without adding a scroll bar.[/p]
+
+[header=2]Changelog[/header]
+[spoiler=Daomephsta's 1.10.2 version][header=4]Beta 0.9.8 R7c for MC 1.10.2[/header]
+[list]
+[*]The campfire is no longer referred to as Smelter in minetweaker logs.
+[*]Fixed campfire recipes remaining in JEI when removed through MineTweaker.
+[*]Fixed untextured potion in beacon recipe.
+[*]Made all removeOutput() functions stack-size insensitive, to conform to vanilla Minetweaker standards.
+[*]Fixed alsoAxes and alsoPicaxes configs not working.
+[*]Invalid JSON recipes no longer caused an NPE. Instead BB logs as many descriptive errors as it can, then asks FML to safely shut down the JVM.
+[*]The Minecart with Kiln will no longer replace the Minecart with Furnace if the furnace module is disabled. Existing Minecart with Kiln entities will remain.
+[*]Fixed achievement chat hover.
+[*]Added Simplified Chinese Translation thanks to YiChenCraft.
+[/list]
+
+[header=4]Beta 0.9.8 R6c for MC 1.10.2[/header]
+[list]
+[*]Implemented throwable knives. Press and release right-mouse to throw knives.
+[*]Fixed JEI documentation. Some items/block weren't documented, though they should have been.
+[*]Some internal cleanup
+[*]Fixed harvest tweaks still applying when "Module - Block breaking" is false
+[*]Fixed hoppers pulling fuel out
+[*]Fixed allowStringAsToolBinding not affecting recipes
+[*]Fixed the Obsidian Kiln having the same speed as the standard Kiln. The Obsidian Kiln now smelts one item every 5 seconds rather than every 12.5 seconds.
+[/list]
+
+[header=4]Beta 0.9.8 R5c for MC 1.10.2[/header]
+[list]
+[*]Added Wicker Baskets
+[*]Fixed issues with blocks that have -1 harvest level
+[*]Fixed ACT not crafting multiple outputs when supplied with sufficient inputs if the recipe was not an ACT recipe
+[*]Fix ovens consuming container items
+[*]Improve block breaking algorithm
+[/list]
+
+[header=4]Beta 0.9.8 R4c for MC 1.10.2[/header]
+[list]
+[*]Fix catalyst size having to match exactly
+[*]Potions no longer stack, due to the brewing stand not supporting that
+[*]makeStuffStackable config now actually has an effect
+[*]Fix issues with OreDict wildcard damage
+[/list]
+
+[header=4]Beta 0.9.8 R3c for MC 1.10.2[/header]
+[p][b][color=#ff0000]Important: This update changes internal registry names. Backup your worlds in case migration fails.[/color][/b][/p]
+[p][b][color=#ff0000]Important: This update will regenerate the .json recipe files. All changes will be lost![color][/b] If you have made changes to the JSON configs, make a copy before updating BB so that you can easily readd your changes to the regenerated files.[/p]
+[p][b][color=#ff0000]Important: Remove all items from IRSs before updating to b0.9.8-R3c, or they will be lost![/color][/b][/p]
+[list]
+[*]Fixed oredict problems with ACT catalysts
+[*]Build against JEI 3.14.3.403
+[*]Fixed crash if mods attempt to convert a specialised furnace item into its corresponding blockstate
+[*]Improved OreRecipeElement system
+[*]Added OreDict support to all BB machines that didn't have it.
+[*]ACT no longer destroys container items
+[*]Changed registry and unlocalised names from camelCase to snake_case in preparation for the 1.11 port. BB will automatically migrate the ids
+[*]Completely rewrote the Infusion Repair Station.
+[*]Added CraftTweaker integration. Documentation can be found [url=https://github.com/Leviathan143/betterbeginnings-MODIFIED/wiki/CraftTweaker-Integration]here[/url].
+[/list]
+
+[header=4]Beta 0.9.8 R2c for MC 1.10.2[/header]
+[list]
+[*]Fix item hint not disappearing even though the correct item is inserted.
+[*]Fix catalyst quantities sometimes displaying incorrectly in JEI.
+[*]Fix Items remaining in the Infusion Repair Station clientside.
+[/list]
+
+[header=4]Beta 0.9.8 R1c for MC 1.10.2[/header]
+[list]
+[*]Implemented JSON config auto-regeneration system. When an update adds new recipes, the appropriate JSON config files will be automatically regenerated. If you have made changes to the JSON configs, make a copy before updating BB so that you can easily readd your changes to the regenerated files. This behaviour can be turned off in BB's config
+[*]Added the beginnings of a Wicker Basket for early game storage. WIP, currently non-functional and uncraftable
+[*]Fix Enchantment Diffusion not giving a properly enchanted book. There is still a client-server desync issue that causes items to continue rendering on the table clientside after they have been consumed.
+[*]Added chain. It is used to craft chainmail. Will have more uses in future updates.
+[*]Added Sugar Cane Strips, used to craft the Wicker Shield. Will have more uses in future updates.
+[*]Added comparator support to Nether Brick Oven. The emitted redstone level depends on the amount of fluid in the NBO's fuel tank
+[*]NBO fuel tank now only accepts lava
+[*]NBO fuel tank can now be filled/emptied by right-clicking on the NBO with full/empty fluid containers
+[*]Added Wicker Shield as an early game substitute for the vanilla shield.
+[*]Fixed crash when getting tooltip for certain items in the double workbench
+[/list]
+
+[header=4]Beta 0.9.7 R1c-pre1 for MC 1.10.2[/header]
+[list]
+[*]Updated to 1.10.2
+[*]Removed NEI integration
+[*]Added JEI integration
+[*]Tweaked attack damage of knives
+[*]Set attack speeds for knives and rock hammer
+[*]Campfires are no longer automatable
+[*]Bugfix: Fixed packet threading
+[/list][/spoiler]
+
+[spoiler=Daomephsta's 1.7.10 version][header=4]Beta 0.9.6 R2a for MC 1.7.10[/header]
+[list]
+[*]MT removeOutput() functions are no longer stack size sensitive, to conform to MT standards.
+[*]Fixed oredict issues with ACT catalysts.
+[/list]
+
+[header=4]Beta 0.9.6 R1a for MC 1.7.10[/header]
+[list]
+[*]Port 1.10.2 MT support to 1.7.10
+[*]Fix catalyst size having to match exactly with the recipe catalysts
+[*]Fix FMLRenderAccessLibrary crash
+[*]Fix catalysts having incorrect stacksizes in NEI
+[/list]
+
+[header=4]Beta 0.9.5 R7a for MC 1.7.10[/header]
+[list]
+[*]Fixed MineTweaker-related crash.
+[/list][/spoiler]
+
+[spoiler=Older Changes][header=4]Beta 0.9.7 R1[/header]
+[list]
+[*]JSON loading complete for Kiln, Smelter, Brick Oven, Advanced Crafting, and Recipe Removal.
+[*]JSON loading now supports 'include' files, which support mod dependencies
+[*]All Kiln, Smelter, Brick Oven, and Advanced Crafting recipes are moved to JSON loading and fully customizeable.
+[*][color=#ff0000]DELETE YOUR config/betterbeginnings/kiln FOLDER BEFORE UPDATING, OR YOU WILL NOT BE ABLE TO USE THE KILN![/color]
+[*]Added tooltip to roasting stick to indicate use with marshmallows.
+[*]Bugfix: Smelter Boosters act as either 50% or 100% regardless of actual boost value.
+[*]Bugfix: Occasional NEI crash with campfire recipes.
+[*]Bugfix: Repair Infusion doesn't work with bows, fishing rods, and flint & steel.
+[/list]
+
+[header=4]Beta 0.9.5 (1.7.10) R7[/header]
+[list]
+[*]Full Minetweaker support, thanks to [s]Leviathan143[/s] Daomephsta!
+[*]Bugfix: Duplication glitch. Don't go back to an old version to abuse it.
+[/list]
+
+[header=4]Beta 0.9.6 (1.8 only) R1[/header]
+[list]
+[*]Updated to Forge 1577.
+[*]Lots of internal changes, including a major code cleanup by Leviathan143.
+[*]Major rework of smelters. Ore doubling is now dependent on smelter and "booster" (replaces gravel) in addition to the recipe.
+[*]Moved config file to its own folder. [b]Delete or move the old config file when updating.[/b]
+[*]Reworked campfire. Rotisserie now cooks slower than without, and pan cooks faster. Base campfire speed buffed.
+[*]Changed campfire recipe to require three sticks and either a sapling, leaf block, vine, or tall grass ("itemKindling"). See NEI for details.
+[*]Changed roasting stick recipe to use two sticks and a knife (shapeless).
+[*]Changed rotisserie recipe to require two roasting sticks and two of either string or twine ("itemStringTough") in an X pattern (see NEI).
+[*]Added ability to make twine out of tall grass and ferns.
+[*]Charred meat is now a meta-item, with differing textures based on its origin. The food value of each is the same no matter what though.
+[*]Increased food value of charred meat to 2.5 shanks, and decreased saturation to 2.0.
+[*]Added "shortcut" recipe for leather strips from rabbit hide.
+[*]Bugfix: Single Workbench closes instantly when opened.
+[*]Bugfix: Duplication glitch. Don't go back to an old version to abuse it.
+[*]Bugfix: Custom names for furnaces appear to not persist after world unload.
+[*]Bugfix: Rabbits and sheep dropping cooked rabbit and mutton when on fire even when "Flaming animals drop charred meat" is set to true.
+[*]Bugfix: Recipes involving knives act funny when ProjectE is installed.
+[/list]
+
+[header=4]Beta 0.9.5 (1.7.10) R6[/header]
+[list]
+[*]Some minor internal changes.
+[*]Bugfix: Duplication glitch. Don't go back to an old version to abuse it.
+[*]Bugfix: Recipes involving knives act funny when ProjectE is installed.
+[/list]
+
+[header=4]Beta 0.9.5 (1.8 & 1.7.10) R5[/header]
+[list]
+[*]Added recipe for blaze powder that does not require the nether. Configurable.
+[*]Added blaze powder back as a catalyst for diamond pickaxe. Configurable.
+[*]Bugfix: OreDictionary catalyst items not consumed when not the primary item.
+[*]Bugfix: Tools with multiple types are not treated as both pickaxes and axes even when added to config.
+[/list]
+
+[header=4]Beta 0.9.5 (1.8 & 1.7.10) R4[/header]
+[list]
+[*]Bugfix: Config options for "Always Breakable", "Also Pickaxes", and "Also Axes" now function properly. They now load postinit instead of preinit.
+[/list]
+
+[header=4]Beta 0.9.5 (1.8) R3 (hotfix)[/header]
+[list]
+[*]Bugfix: Server (?) crashes with NullPointerException from trying to access a null list of "always breakable" blocks.
+[/list]
+
+[header=4]Beta 0.9.5 (1.8 & 1.7.10) R2[/header]
+[list]
+[*][color=#ff0000]WARNING: I have moved a config option to a different category. Please delete the "general > always breakable" option, or your entire betterbeginnings.cfg file.[/color]
+[*]Added compatibility feature to denote items as axes and pickaxes. See config for details.
+[*]Bugfix: Moved always breakable list to the tweaks category, and made it actually work now.
+[*]Bugfix: Knives consumed when used in crafting recipes at double workbench (now fixed in both versions).
+[*]Bugfix: Ghost items in double workbench show for all recipes, not just the first one (only applies to 1.7.10).
+[/list]
+
+[header=4]Beta 0.9.5 (1.8 & 1.7.10) R1[/header]
+[list]
+[*]New versioning system. Releases for different versions of MC will have a letter attached indicating which part of the mod version. For example: "R1a" for MC 1.8.
+[*]Added enchantment diffusion, a new mechanic using cloth and the repair infusion table. See info above (and wiki) for details.
+[*]Renamed "Spit" to "Rotisserie". This will delete all spit objects in your world. However, as the item is extremely cheap, you almost certainly won't lose much at all.
+[*]Block break requirement messages changed to use more human-readable tool tier names in 1.8, to match 1.7.10.
+[*]Bugfix (MAJOR): Cannot craft diamond pickaxe as it requires blaze powder, which requires a nether portal, and thus obsidian, and thus a diamond pickaxe.
+[*]Bugfix: Block-breaking mechanics now ignore fake players. This means no more crashing with BC Quarries.
+[*]Bugfix: Knives consumed when used in crafting recipes at double workbench (bug was 1.8 only).
+[/list]
+
+[header=4]Beta 0.9.4 (1.8 & 1.7.10) R1 & 2[/header]
+[list]
+[*]Block breaking mechanics no longer have localization support (part of first bugfix below).
+[*]String and twine can now be used as tool bindings in place of leather strips, though at a higher cost (configgable).
+[*]Added config option for furnaces "module". Disabling this module will revert to vanilla smelting.
+[*]Removed cloth armor.
+[*]Bugfix: Dedicated server losing sync with client on block break event.
+[*]Bugfix: Infusion Repair Table renders as plain block (no TESR), sometimes crashing. (1.8 only)
+[*]Bugfix: Hammer treated as fists in block breaking algorithm.
+[/list]
+
+[header=4]Beta 0.9.4 (1.8 & 1.7.10) pre-1 & 2[/header]
+[list]
+[*]Campfire is mostly redone; now is quite useful in early-game.
+[*]Added NEI support for campfire.
+[*]Added 'Spit' (not that kind of spit) as early-game alternative to pan, crafted out of two roasting sticks.
+[*]Infusion scroll messages are now language-independent (1.8 only).
+[*]Infusion scroll is now shiny (1.8 only).
+[*]Made marshmallows on sticks stackable up to 10.
+[*]Updated 1.7.10 pan texture to match 1.8.
+[*]Bugfix: TESR causes dedicated server to crash on startup (1.8 only).
+[*]Bugfix: Various furnaces appear to be off when they are actually on.
+[*]Bugfix: Right-clicking roasting sticks resets stack size to 1.
+[*]Bugfix: Hopper drains fuel out of kilns.
+[*]Bugfix: Shift-clicking food into regular brick oven crashes game.
+[*]Bugfix: Infusion scroll is stackable. It shouldn't be.
+[*]Bugfix: Knives rendering weird when held in third-person.
+[/list]
+
+[header=4]Beta 0.9.3 (1.8 & 1.7.10) pre-1 & 2[/header]
+[list]
+[*]Various config changes. You probably should delete your config file (.minecraft/config/betterbeginnings.cfg).
+[*]Fire Bow and Campfire are now properly marked as WIP.
+[*]Block break messages are now language-independent.
+[*]Updated Smelter and Campfire optional recipes to the new Kiln recipes from 0.9.2.
+[*]Added vanilla crafting table to "craftingTableWood" ore dictionary entry.
+[*]Removed loading blocks and items through reflection. (1.8 only)
+[*]Roasting stick is stackable up to 10.
+[*]Marshmallows are now craftable. See NEI for details.
+[/list]
+
+[header=4]Beta 0.9.2 (1.7.10) pre-2[/header]
+[list]
+[*]Full NEI integration
+[*][i]Various[/i] recipe-related tweaks and changes. See [url=https://github.com/einsteinsci/betterbeginnings/issues/69]Issue #69[/url] for full list.
+[*]Now requires Forge 1448
+[/list]
+
+[header=4]Beta 0.9.2 (1.8) pre-1[/header]
+[list]
+[*]Full NEI integration
+[*][i]Various[/i] recipe-related tweaks and changes, many of which specific to 1.8. See [url=https://github.com/einsteinsci/betterbeginnings/issues/69]Issue #69[/url] for full list.
+[*]You can now see tooltips when rolling over catalyst preview items (which replaced ghost items)
+[*]Now requires Forge 1450
+[*]Bugfix: Crash/Disconnect/Freeze when interacting with Nether Brick Oven in various ways
+[/list]
+
+[header=4]Beta 0.9.1 (1.7.10)[/header]
+[list]
+[*]Bugfix: Certain blocks not breakable
+[*]Bugfix: Cactus Green is unobtainable
+[*]Bugfix: Crash when crafting Iron Helmet
+[*]Bugfix: Flint Knife, Bone Pickaxe, and Flint Hatchet all usable as fuel in kilsn.
+[*]Bugfix: Knife has no restrictions on block breaking
+[/list]
+
+[header=4]Beta 0.9.1 (1.8) pre-1[/header]
+[list]
+[*]Updated to 1.8 (duh)
+[*]Now requires Forge 1334
+[*][i]Completely[/i] reworked repair infusion mechanics. Now is 100% GUI-free!
+[*]Fixed a ton of bugs in 1.7.10 version (see above)
+[*]Various graphical tweaks to deal with 1.8 rendering system
+[/list]
+
+[header=4]Beta 0.9.0[/header]
+[list]
+[*]Renamed config options. Config file will need to be deleted when updating to this release.
+[*]Lots of compatibility
+[*]Now requires Forge 1230
+[*]Recipes now use ore dictionary when possible
+[*]Campfire! And a use for those marshmallows!
+[*]Rock hammer allows you to get gravel by smashing cobblestone. That's not its only use, though.
+[*]Bugfix: Nether Brick Oven now can actually accept (and save) fluid stored in its tank through BC pipes.
+[*]Bugfix (sorta): Kilns lose track of cooking progress. This one somehow fixed itself.
+[/list]
+
+[header=4]Beta 0.8.4[/header]
+[list]
+[*]Added more achievements
+[*]Bugfix: Ender smelter no longer drops regular smelter when broken
+[*]Bugfix: Nether brick oven no longer drops regular brick oven when broken
+[*]Bugfix: Duplication glitch. Not saying anything more.
+[*]Bugfix: Fixed crash with smelter
+[*]Bugfix: Catalysts deleted when closing double workbench
+[*]Bugfix: Can't make hardened clay in kilns
+[/list]
+
+[header=4]Beta 0.8.3[/header]
+[list]
+[*]Added Twine, alternative for string.
+[*]Thread can now be used in place of string in many recipes.
+[*]String is now obtainable from wool.
+[*]More config options, especially recipe-related.
+[*]Small crafting table recipes and smelter recipes are now ore dictionary compatible.
+[*]Bugfix: Obsidian kiln no longer drops regular kiln when broken.
+[*]Bugfix: Bows now require string and sticks when repaired via repair infusion station.
+[*]Bugfix: Food is no longer craftable in bare crafting table.
+[/list]
+
+[header=4]Beta 0.8.2[/header]
+[list]
+[*]Added Nether Brick Oven recipe.
+[*]'Lots of bones' mechanic only works on peaceful now (configurable)
+[*]Fixed crash with repair table.
+[/list]
+
+[header=4]Beta 0.8.1[/header]
+[list]
+[*]Initial release
+[/list][/spoiler]
+
+[header=2]Legal Stuff[/header]
+[p]This mod is open-source, licensed under a GNU GPL v3.0 License. It is available within License.txt in the repository, and is [url=https://www.gnu.org/licenses/gpl-3.0.txt]Linked here[/url]. This copyleft license does not mean the mod is public domain. When redistributing this mod, whether through a legitimate modpack or reposting it on a malware-infested advertising site (which unfortunately is allowed, provided you follow the other requirements), you [i]must[/i] provide source code and this license. In the place of my source code, linking back to this page or the CurseForge project page is also allowed. If you modify the source code in any way, you must link back to [i]your own[/i] source code containing the modifications, in which case, linking to this page and the official CurseForge page is not enough.[/p]
