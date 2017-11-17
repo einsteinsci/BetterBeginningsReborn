@@ -6,7 +6,7 @@
 [indent=auto][p][img]https://raw.githubusercontent.com/einsteinsci/BetterBeginningsReborn/master/src/main/resources/logo.png[/img][/p][/indent]
 
 [header=1]BetterBeginnings Mod - Currently being updated to 1.12[/header]
-[p]A mod to extend the beginning portion of Minecraft's early game and diversifying vanilla gameplay without breaking too much from the typical gameplay flow.[p]
+[p]A mod to extend the beginning portion of Minecraft's early game and diversify vanilla gameplay, without breaking too much from the typical gameplay flow.[p]
 [p]The early stage of Minecraft tends to be quick and easy. Punch three longs, make a crafting table, make a wood pick, mine three stone, and that's it. No more early game. With BetterBeginnings, you will spend much more time "on the move", simply trying to survive the terrifying world you live in. Punching trees? Wood tools? Haha...no. While this mod started as a purely early-game extension, it now adds a variety of features to aid and expand upon the vanilla playstyle.[/p]
 
 [header=2]1.12 Update and Redesign[/header]
@@ -20,12 +20,12 @@
 [/list][/spoiler]
 
 [header=3]1.7.10 and 1.8 Versions[/header]
-[p]I will not be working on the original MC 1.7.10 version of the mod. 1.7.10 is extremely outdated, and only used in a few legacy packs now. However, Daomephsta has been working hard on maintaining it, and has released a few bugfixes over the past year. If you wish to continue development for that version, feel free to fork the code from its [url=https://github.com/Leviathan143/betterbeginnings-MC1.7]updated repository[/url].[/p]
+[p]I will no longer be working on the original MC 1.7.10 version of the mod. 1.7.10 is extremely outdated, and only used in a few legacy packs now. However, Daomephsta has been working hard on maintaining it, and has released a few bugfixes over the past year. If you wish to continue development for that version, feel free to fork the code from its [url=https://github.com/Leviathan143/betterbeginnings-MC1.7]maintained repository[/url].[/p]
 
 [p]There will be no more updates to the MC 1.8 version of this mod. 1.8 is also very outdated, with little in the modding scene for it to be worth playing. If you wish to continue development for that version, feel free to fork its code from the [url=https://github.com/einsteinsci/betterbeginnings]original repository[/url].[/p]
 
 [header=3]1.10.2 Version[/header]
-[p]During my absence Daomephsta has updated BetterBeginnings to MC 1.10.2 and is working hard on it with active development for that version. This includes new features such as a wicker basket and shield for early game. While I will be focusing on the 1.12 version of the game, I will not be working on the 1.10.2 branch. Daomephsta instead will be continuing that branch as deemed necessary. If you wish to contribute, feel free to fork the code from the [url=https://github.com/Leviathan143/betterbeginnings-MODIFIED]maintained repository[/url].[/p]
+[p]During my absence Daomephsta has updated BetterBeginnings to MC 1.10.2 and is working hard on it with active development for that version. This includes new features such as a wicker basket and shield for early game. While I will be focusing on the 1.12 version of the game, I will not be working on the 1.10.2 branch. Daomephsta instead will be continuing that branch as deemed necessary. If you wish to contribute, feel free to fork the code from the [url=https://github.com/Leviathan143/betterbeginnings-MODIFIED]updated repository[/url].[/p]
 
 [header=2]Feature Overview[/header]
 [list]
@@ -54,9 +54,9 @@
 [numlist]
 [*]Download the latest stable version of Forge for your Minecraft version at [url=https://files.minecraftforge.net/]files.minecraftforge.net[/url]. Get the installer.
 [*]Run the installer.
-[*]Run the Minecraft version you wish BetterBeginnings with at least once with Forge.
+[*]Run Minecraft at least once with the newly installed Forge.
 [*]Put the BetterBeginnings JAR file in your .minecraft/mods/ folder.
-[*]Run Minecraft.
+[*]Run Minecraft again.
 [*]Profit!
 [/numlist]
 
@@ -74,7 +74,7 @@
 [p]You're really not supposed to ask that question. If you're asking this, we're probably already working on it. When a new version of the game gets released, there's a big process that goes on before any actual updating goes on. First we have to wait for the Minecraft version to stabilize so that MCP and Forge can get to work without it getting undone a week later. Next is to wait on MCP to update, followed by Forge. Then we have to wait on Forge to have a stable version as well so we don't have to re-release the mod every week. Only then can we get to work. With large, heavily internal updates (such as 1.8), this can take a very long time.[/p]
 
 [header=4]1.6.4 version?[/header]
-[p]While 1.6.4 was a fantastic version for modding, arguably a "golden age", it is extremely old. Even by "legacy" standards, it's still very old. There are many great mods and modpacks from that version, but it's not worth the time for myself or Daomephsta to backport it, especially not with the 1.12 version on its way. If you want to and know how, feel free to backport it yourself from the source code.[/p]
+[p]While 1.6.4 was a fantastic version for modding, arguably a "golden age", it is extremely old. Even by "legacy" standards, it's still very old. There are many great mods and modpacks from that version, but it's not worth the time for myself or Daomephsta to backport it, especially not with the 1.12 version in the works. If you want to and know how, feel free to backport it yourself from the source code.[/p]
 
 [header=4]1.9/1.11 version?[/header]
 [p]1.9 and 1.11 were too short-lived to be worth updating to. 1.12 is the current version of the game, the one mods are currently updating to. 1.10 is the current standard with large modpacks, as most mods for that version have become quite stable. 1.7.10 is the current "legacy" standard for old modpacks or old mods that never got updated past 1.8.[/p]
@@ -441,4 +441,4 @@
 [/list][/spoiler]
 
 [header=2]Legal Stuff[/header]
-[p]This mod is open-source, licensed under a GNU GPL v3.0 License. It is available within License.txt in the repository, and is [url=https://www.gnu.org/licenses/gpl-3.0.txt]Linked here[/url]. This copyleft license does not mean the mod is public domain. When redistributing this mod, whether through a legitimate modpack or reposting it on a malware-infested advertising site (which unfortunately is allowed, provided you follow the other requirements), you [i]must[/i] provide source code and this license. In the place of my source code, linking back to this page or the CurseForge project page is also allowed. If you modify the source code in any way, you must link back to [i]your own[/i] source code containing the modifications, in which case, linking to this page and the official CurseForge page is not enough.[/p]
+[p]This mod is open-source, licensed under a GNU GPL v3.0 License. It is available within License.txt in the repository, and is [url=https://www.gnu.org/licenses/gpl-3.0.txt]Linked here[/url]. This copyleft license does not mean the mod is public domain. When redistributing this mod, whether through a legitimate modpack or reposting it on a malware-infested advertising site (which unfortunately is allowed, provided you follow the other requirements), you [i]must[/i] provide source code and this license. In the place of my source code, linking back to this page or the CurseForge project page is also allowed. If you modify the source code or distributed file in any way, you must link back to [i]your own[/i] source code containing the modifications, in which case, linking to this page and the official CurseForge page is not enough.[/p]

@@ -1,0 +1,57 @@
+<p><a href="http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/wip-mods/2192122-betterbeginnings-mod-reborn"><img src="https://raw.githubusercontent.com/einsteinsci/BetterBeginningsReborn/master/src/main/resources/logo.png" alt="BetterBeginnings Logo" /></a></p>
+
+<h3 style="color: #ff0000;">Notice</h3>
+<p style="color: #ff0000;">First off, I sincerely apologize for abandoning this mod for so long without any notice. You all deserve better than that, and I take full responsibility for any frustrations caused by this lack of communication to Daomephsta. I had a lot of personal issues at the time, but that is no excuse for leaving everyone in the dark and disappearing like I did. For now, I will be returning to this mod and try to update and continue this mod in a way that encourages compatibility and interaction with other mods.</p>
+<p>BetterBeginnings started out with a goal of vanilla-like features with high compatibility. Over time though, I had added more and more features under the assumption that BB was the only content mod installed, and this has obviously led to very poor compatibility, contrary to my initial goals. I hope to return to that ideal with this mod in the future, and focus more on BetterBeginnings' place within a modded playthrough rather than trying to force it into a modpack's backbone. I also want to refocus development on the early-game, even if early-game is by modded standards rather than vanilla. Hopefully these features will make the mod more like Tiny Progressions and less like GregTech.</p>
+
+<h1>BetterBeginnings Mod - Currently being updated to 1.12</h1>
+<p>A mod to extend the beginning portion of Minecraft's early game and diversify vanilla gameplay, without breaking too much from the typical gameplay flow.</p>
+<p>The early stage of Minecraft tends to be quick and easy. Punch three longs, make a crafting table, make a wood pick, mine three stone, and that's it. No more early game. With BetterBeginnings, you will spend much more time "on the move", simply trying to survive the terrifying world you live in. Punching trees? Wood tools? Haha...no. While this mod started as a purely early-game extension, it now adds a variety of features to aid and expand upon the vanilla playstyle.</p>
+
+<h2>1.12 Update and Redesign</h2>
+<p>This mod is in dire need of a rework. The current version is clunky and has poor compatibility. Its core design discourages its use in modpacks, and forces modpack authors to work far too hard to get this mod to pair well with other mods. With the update, I will be reverting the mod back to its alpha development state, as many severe changes, many of which will likely be game-breaking. Stability will have to come after the rework, once this mod can play nice with others.</p>
+
+<h3>Updating Todo:</h3>
+<div class="spoiler">
+	<ul>
+		<li>Update properly to MC 1.12. I will not update to 1.9 or even 1.10, as then I would be playing a game of catch-up or developing for two versions at once (not a good thing). No further updates will come to the 1.7.10 branch, even for bugfixes, not from myself. The 1.8 branch will become the 1.12 branch, so the 1.8 code will be moved to its own branch, though with no further updates from myself. The only 1.10 version will be the one developed by Daomephsta during my absence.</li>
+		<li>Return mod status to "alpha" development as heavy changes are on their way.</li>
+		<li>Redesign the old JSON recipe thing. JSON recipes are annoying and jank (sorry MC1.13), and far too verbose for modpack authors. Instead, the JSON recipe parser will be replaced by a built-in ZenScript parser, so modpack authors can copy BB-related code from MineTweaker as a quick and dirty alternative. This ZenScript parser will automatically disable itself if MineTweaker is detected during startup.</li>
+		<li>Redesign kiln, brick oven, and smelter to be improvements to the furnace rather than replacements. This should greatly enhance compatibility without diverting too much from vanilla gameplay. All furnaces will be significantly sped up and otherwise improved to encourage use while still leaving room for higher-tier machinery by other mods, such as EnderIO and Thermal Expansion. The smelters in particular will require significant redesigns to neither be obsolete or overpowered.</li>
+		<li>Remove advanced crafting from the default configuration, and balance the rest of the mod accordingly. While this was an interesting idea, and part of the core inspiration for the mod, this particular feature was incredibly problematic in many ways, and was very annoying to play with and to develop. It was buggy, difficult to balance, overly grindy, and a major pain for compatibility. This feature will become deprecated and no new features will be added to expand upon it.</li>
+	</ul>
+</div>
+
+<h3>1.7.10 and 1.8 Versions</h3>
+<p>I will no longer be working on the original MC 1.7.10 version of the mod. 1.7.10 is extremely outdated, and only used in a few legacy packs now. However, Daomephsta has been working hard on maintaining it, and has released a few bugfixes over the past year. If you wish to continue development for that version, feel free to fork the code from its <a href="https://github.com/Leviathan143/betterbeginnings-MC1.7">updated repository</a>.</p>
+<p>There will be no more updates to the MC 1.8 version of this mod. 1.8 is also very outdated, with little in the modding scene for it to be worth playing. If you wish to continue development for that version, feel free to fork its code from the <a href="https://github.com/einsteinsci/betterbeginnings">original repository</a>.</p>
+
+<h3>1.10.2 Version</h3>
+<p>During my absence Daomephsta has updated BetterBeginnings to MC 1.10.2 and is working hard on it with active development for that version. This includes new features such as a wicker basket and shield for early game. While I will be focusing on the 1.12 version of the game, I will not be working on the 1.10.2 branch. Daomephsta instead will be continuing that branch as deemed necessary. If you wish to contribute, feel free to fork the code from the <a href="https://github.com/Leviathan143/betterbeginnings-MODIFIED">maintained repository</a>.</p>
+
+<h2>Feature Overview</h2>
+<ul>
+	<li>A variety of early-game tools to make you work to get that first stone pickaxe.</li>
+	<li>Most blocks require the correct tool in order to be broken. No more punching trees!</li>
+	<li>Three different furnaces are used in place of the vanilla furnace: The kiln, the brick oven, and the smelter. Each covers different purposes of smelting, with upgrades and recipes to reflect this.*</li>
+	<li>Advanced, double crafting tables, to craft more complex items.*</li>
+	<li>Infusion Repair, as a better, more reliable way to repair enchanted tools.</li>
+	<li>Diffusion Extraction, to extract enchantments from tools.</li>
+	<li>Campfires, for <del>cooking</del> charring food to a crisp in the early-game.</li>
+	<li>Config options with in-game toggle support.*</li>
+	<li>JEI/NEI and Minetweaker/CraftTweaker support.*</li>
+</ul>
+<p style="font-size: 0.8em;"><em>* This feature will be heavily reworked in the 1.12 update for better compatibility and configurability.</em></p>
+
+<h2>Installing</h2>
+<ol>
+	<li>Download the latest stable version of Forge for your Minecraft version at <a href="https://files.minecraftforge.net/">files.minecraftforge.net</a>. Get the installer.</li>
+	<li>Run the installer.</li>
+	<li>Run Minecraft at least once with the newly installed Forge.</li>
+	<li>Put the BetterBeginnings JAR file in your .minecraft/mods/ folder.</li>
+	<li>Run Minecraft again.</li>
+	<li>Profit!</li>
+</ol>
+
+<h2>More Info</h2>
+<p>Full information can be found on the <strong><a href="http://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/wip-mods/2192122-betterbeginnings-mod-reborn">MCForums post</a></strong>, which is be updated more regularly than this description.</p>
