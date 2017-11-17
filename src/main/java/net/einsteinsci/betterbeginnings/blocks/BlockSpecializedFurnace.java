@@ -22,123 +22,125 @@ import net.minecraftforge.items.IItemHandler;
 
 public abstract class BlockSpecializedFurnace extends BlockHorizontal implements IBBName
 {
-	protected boolean isLit;
+    protected boolean isLit;
 
-	protected BlockSpecializedFurnace(Material materialIn) 
-	{
-		super(materialIn);
-	}
+    protected BlockSpecializedFurnace(Material materialIn)
+    {
+        super(materialIn);
+    }
 
-	// Drop stuff everywhere
-	@Override
-	public void breakBlock(World world, BlockPos pos, IBlockState state)
-	{
-		if(!(world.getBlockState(pos).getBlock() instanceof BlockSpecializedFurnace))
-		{
-			TileEntity tileentity = world.getTileEntity(pos);
+    // Drop stuff everywhere
+    @Override
+    public void breakBlock(World world, BlockPos pos, IBlockState state)
+    {
+        if(!(world.getBlockState(pos).getBlock() instanceof BlockSpecializedFurnace))
+        {
+            TileEntity tileentity = world.getTileEntity(pos);
 
-			if (tileentity instanceof TileEntitySpecializedFurnace)
-			{
-				IItemHandler itemHandler = CapUtils.getItemHandler(tileentity);
-				Util.dropInventory(world, pos, itemHandler);
-				world.updateComparatorOutputLevel(pos, this);
-			}
-		}
+            if (tileentity instanceof TileEntitySpecializedFurnace)
+            {
+                IItemHandler itemHandler = CapUtils.getItemHandler(tileentity);
+                Util.dropInventory(world, pos, itemHandler);
+                world.updateComparatorOutputLevel(pos, this);
+            }
+        }
 
-		super.breakBlock(world, pos, state);
-	}
+        super.breakBlock(world, pos, state);
+    }
 
-	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
-	    float hitZ, int meta, EntityLivingBase placer, ItemStack stack)
-	{
-	    return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
-	}
+    // TODO: resolve deprecation
+    @Override
+    public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY,
+        float hitZ, int meta, EntityLivingBase placer)
+    {
+        return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+    }
 
-	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
-			ItemStack stack)
-	{
-		world.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
+    @Override
+    public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
+            ItemStack stack)
+    {
+        world.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
 
-		if (stack.hasDisplayName())
-		{
-			TileEntity teBase = world.getTileEntity(pos);
-			if (teBase instanceof TileEntitySpecializedFurnace)
-			{
-				TileEntitySpecializedFurnace tileEntity = (TileEntitySpecializedFurnace)teBase;
-				tileEntity.setBlockName(stack.getDisplayName());
-			}
-		}
-	}
+        if (stack.hasDisplayName())
+        {
+            TileEntity teBase = world.getTileEntity(pos);
+            if (teBase instanceof TileEntitySpecializedFurnace)
+            {
+                TileEntitySpecializedFurnace tileEntity = (TileEntitySpecializedFurnace)teBase;
+                tileEntity.setBlockName(stack.getDisplayName());
+            }
+        }
+    }
 
-	@Override
-	protected BlockStateContainer createBlockState()
-	{
-		return new BlockStateContainer(this, FACING);
-	}
+    @Override
+    protected BlockStateContainer createBlockState()
+    {
+        return new BlockStateContainer(this, FACING);
+    }
 
-	@Override
-	public IBlockState getStateFromMeta(int meta) 
-	{
-		return this.getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta));
-	}
+    // TODO: resolve deprecation
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta));
+    }
 
-	@Override
-	public int getMetaFromState(IBlockState state)
-	{
-		return state.getValue(FACING).getHorizontalIndex();
-	}
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        return state.getValue(FACING).getHorizontalIndex();
+    }
 
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state)
-	{
-		return EnumBlockRenderType.MODEL;
-	}
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state)
+    {
+        return EnumBlockRenderType.MODEL;
+    }
 
-	public EnumParticleTypes getFlameParticle()
-	{
-		return EnumParticleTypes.FLAME;
-	}
+    public EnumParticleTypes getFlameParticle()
+    {
+        return EnumParticleTypes.FLAME;
+    }
 
-	@Override
-	public boolean hasTileEntity(IBlockState state) 
-	{
-		return true;
-	}
+    @Override
+    public boolean hasTileEntity(IBlockState state)
+    {
+        return true;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
-	{
-		if (isLit)
-		{
-			double d0 = (double)pos.getX() + 0.5D;
-			double d1 = (double)pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
-			double d2 = (double)pos.getZ() + 0.5D;
-			double d3 = 0.52D;
-			double d4 = rand.nextDouble() * 0.6D - 0.3D;
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
+    {
+        if (isLit)
+        {
+            double d0 = (double)pos.getX() + 0.5D;
+            double d1 = (double)pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
+            double d2 = (double)pos.getZ() + 0.5D;
+            double d3 = 0.52D;
+            double d4 = rand.nextDouble() * 0.6D - 0.3D;
 
-			switch (state.getValue(FACING))
-			{
-			case WEST:
-				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - d3, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
-				world.spawnParticle(getFlameParticle(), d0 - d3, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
-				break;
-			case EAST:
-				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d3, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
-				world.spawnParticle(getFlameParticle(), d0 + d3, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
-				break;
-			case NORTH:
-				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 - d3, 0.0D, 0.0D, 0.0D);
-				world.spawnParticle(getFlameParticle(), d0 + d4, d1, d2 - d3, 0.0D, 0.0D, 0.0D);
-				break;
-			case SOUTH:
-				world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 + d3, 0.0D, 0.0D, 0.0D);
-				world.spawnParticle(getFlameParticle(), d0 + d4, d1, d2 + d3, 0.0D, 0.0D, 0.0D);
-			default:
-				break;
-			}
-		}
-	}
+            switch (state.getValue(FACING))
+            {
+            case WEST:
+                world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - d3, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                world.spawnParticle(getFlameParticle(), d0 - d3, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                break;
+            case EAST:
+                world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d3, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                world.spawnParticle(getFlameParticle(), d0 + d3, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                break;
+            case NORTH:
+                world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 - d3, 0.0D, 0.0D, 0.0D);
+                world.spawnParticle(getFlameParticle(), d0 + d4, d1, d2 - d3, 0.0D, 0.0D, 0.0D);
+                break;
+            case SOUTH:
+                world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 + d3, 0.0D, 0.0D, 0.0D);
+                world.spawnParticle(getFlameParticle(), d0 + d4, d1, d2 + d3, 0.0D, 0.0D, 0.0D);
+            default:
+                break;
+            }
+        }
+    }
 }

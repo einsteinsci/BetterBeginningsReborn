@@ -56,91 +56,91 @@ public class RegisterItems
 
     public static void register()
     {
-	RegisterHelper.registerItem(flintKnife);
-	RegisterHelper.registerItem(boneKnife);
-	RegisterHelper.registerItem(ironKnife);
-	RegisterHelper.registerItem(goldKnife);
-	RegisterHelper.registerItem(diamondKnife);
+    RegisterHelper.registerItem(flintKnife);
+    RegisterHelper.registerItem(boneKnife);
+    RegisterHelper.registerItem(ironKnife);
+    RegisterHelper.registerItem(goldKnife);
+    RegisterHelper.registerItem(diamondKnife);
 
-	RegisterHelper.registerItem(flintHatchet);
-	RegisterHelper.registerItem(bonePickaxe);
+    RegisterHelper.registerItem(flintHatchet);
+    RegisterHelper.registerItem(bonePickaxe);
 
-	RegisterHelper.registerItem(boneShard);
-	RegisterHelper.registerItem(testItem);
-	RegisterHelper.registerItem(silk);
-	RegisterHelper.registerItem(thread);
-	RegisterHelper.registerItem(cloth);
-	RegisterHelper.registerItem(twine);
-	RegisterHelper.registerItem(leatherStrip);
-	RegisterHelper.registerItem(ironNugget);
-	RegisterHelper.registerItem(fireBow);
-	RegisterHelper.registerItem(rockHammer);
-	RegisterHelper.registerItem(pan);
-	RegisterHelper.registerItem(rotisserie);
-	RegisterHelper.registerItem(infusionScroll);
-	RegisterHelper.registerItem(sugarCaneStrips);
-	RegisterHelper.registerItem(chain);
+    RegisterHelper.registerItem(boneShard);
+    RegisterHelper.registerItem(testItem);
+    RegisterHelper.registerItem(silk);
+    RegisterHelper.registerItem(thread);
+    RegisterHelper.registerItem(cloth);
+    RegisterHelper.registerItem(twine);
+    RegisterHelper.registerItem(leatherStrip);
+    RegisterHelper.registerItem(ironNugget);
+    RegisterHelper.registerItem(fireBow);
+    RegisterHelper.registerItem(rockHammer);
+    RegisterHelper.registerItem(pan);
+    RegisterHelper.registerItem(rotisserie);
+    RegisterHelper.registerItem(infusionScroll);
+    RegisterHelper.registerItem(sugarCaneStrips);
+    RegisterHelper.registerItem(chain);
 
-	RegisterHelper.registerItem(charredMeat);
+    RegisterHelper.registerItem(charredMeat);
 
-	RegisterHelper.registerItem(marshmallow);
-	RegisterHelper.registerItem(roastingStick);
-	RegisterHelper.registerItem(marshmallowCooked);
-	RegisterHelper.registerItem(roastingStickCookedMallow);
-	RegisterHelper.registerItem(roastingStickRawMallow);
+    RegisterHelper.registerItem(marshmallow);
+    RegisterHelper.registerItem(roastingStick);
+    RegisterHelper.registerItem(marshmallowCooked);
+    RegisterHelper.registerItem(roastingStickCookedMallow);
+    RegisterHelper.registerItem(roastingStickRawMallow);
 
-	RegisterHelper.registerItem(noobWoodSword);
-	RegisterHelper.registerItem(wickerShield);
+    RegisterHelper.registerItem(noobWoodSword);
+    RegisterHelper.registerItem(wickerShield);
 
-	oreDictRegistry();
+    oreDictRegistry();
     }
 
     public static void oreDictRegistry()
     {
-	OreDictionary.registerOre("nuggetIron", ironNugget);
+    OreDictionary.registerOre("nuggetIron", ironNugget);
 
-	OreDictionary.registerOre("itemKnife", new ItemStack(flintKnife, 1, OreDictionary.WILDCARD_VALUE));
-	OreDictionary.registerOre("itemKnife", new ItemStack(boneKnife, 1, OreDictionary.WILDCARD_VALUE));
-	OreDictionary.registerOre("itemKnife", new ItemStack(ironKnife, 1, OreDictionary.WILDCARD_VALUE));
-	OreDictionary.registerOre("itemKnife", new ItemStack(goldKnife, 1, OreDictionary.WILDCARD_VALUE));
-	OreDictionary.registerOre("itemKnife", new ItemStack(diamondKnife, 1, OreDictionary.WILDCARD_VALUE));
+    OreDictionary.registerOre("itemKnife", new ItemStack(flintKnife, 1, OreDictionary.WILDCARD_VALUE));
+    OreDictionary.registerOre("itemKnife", new ItemStack(boneKnife, 1, OreDictionary.WILDCARD_VALUE));
+    OreDictionary.registerOre("itemKnife", new ItemStack(ironKnife, 1, OreDictionary.WILDCARD_VALUE));
+    OreDictionary.registerOre("itemKnife", new ItemStack(goldKnife, 1, OreDictionary.WILDCARD_VALUE));
+    OreDictionary.registerOre("itemKnife", new ItemStack(diamondKnife, 1, OreDictionary.WILDCARD_VALUE));
 
-	OreDictionary.registerOre("itemString", new ItemStack(Items.STRING));
-	OreDictionary.registerOre("itemString", new ItemStack(thread));
-	OreDictionary.registerOre("itemString", new ItemStack(twine));
+    OreDictionary.registerOre("itemString", new ItemStack(Items.STRING));
+    OreDictionary.registerOre("itemString", new ItemStack(thread));
+    OreDictionary.registerOre("itemString", new ItemStack(twine));
 
-	OreDictionary.registerOre("itemStringTough", new ItemStack(Items.STRING));
-	OreDictionary.registerOre("itemStringTough", new ItemStack(twine));
+    OreDictionary.registerOre("itemStringTough", new ItemStack(Items.STRING));
+    OreDictionary.registerOre("itemStringTough", new ItemStack(twine));
 
-	// Don't forget to wildcard
-	OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.SAPLING, 1, OreDictionary.WILDCARD_VALUE));
-	OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.LEAVES, 1, OreDictionary.WILDCARD_VALUE));
-	OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.LEAVES2, 1, OreDictionary.WILDCARD_VALUE));
-	OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.VINE));
-	OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.TALLGRASS, 1, OreDictionary.WILDCARD_VALUE));
+    // Don't forget to wildcard
+    OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.SAPLING, 1, OreDictionary.WILDCARD_VALUE));
+    OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.LEAVES, 1, OreDictionary.WILDCARD_VALUE));
+    OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.LEAVES2, 1, OreDictionary.WILDCARD_VALUE));
+    OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.VINE));
+    OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.TALLGRASS, 1, OreDictionary.WILDCARD_VALUE));
     }
 
     public static void tweakVanilla()
     {
-	((ItemFood) Items.BEEF).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 20, 0), 20);
-	((ItemFood) Items.PORKCHOP).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 25, 0), 25);
-	((ItemFood) Items.FISH).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 30, 1), 60); // Both fish types here
-	((ItemFood) Items.MUTTON).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 20, 0), 25);
-	((ItemFood) Items.RABBIT).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 25, 0), 30);
-
-	if(BBConfig.makeStuffStackable)
-	{
-	    // Let's face it, the vanilla stack sizes for these suck.
-	    Items.MINECART.setMaxStackSize(16);
-	    // Strangely enough the oak one doesn't change name.
-	    Items.OAK_DOOR.setMaxStackSize(16);
-	    Items.SPRUCE_DOOR.setMaxStackSize(16);
-	    Items.BIRCH_DOOR.setMaxStackSize(16);
-	    Items.ACACIA_DOOR.setMaxStackSize(16);
-	    Items.DARK_OAK_DOOR.setMaxStackSize(16);
-	    Items.IRON_DOOR.setMaxStackSize(16);
-	}
-	
-	if(BBConfig.moduleFurnaces) Items.FURNACE_MINECART.setUnlocalizedName(ModMain.MODID + ".kilnCart");
+        ((ItemFood) Items.BEEF).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 20, 0), 20);
+        ((ItemFood) Items.PORKCHOP).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 25, 0), 25);
+        ((ItemFood) Items.FISH).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 30, 1), 60); // Both fish types here
+        ((ItemFood) Items.MUTTON).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 20, 0), 25);
+        ((ItemFood) Items.RABBIT).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 25, 0), 30);
+        
+        if(BBConfig.makeStuffStackable)
+        {
+            // Let's face it, the vanilla stack sizes for these suck.
+            Items.MINECART.setMaxStackSize(16);
+            // Strangely enough the oak one doesn't change name.
+            Items.OAK_DOOR.setMaxStackSize(16);
+            Items.SPRUCE_DOOR.setMaxStackSize(16);
+            Items.BIRCH_DOOR.setMaxStackSize(16);
+            Items.ACACIA_DOOR.setMaxStackSize(16);
+            Items.DARK_OAK_DOOR.setMaxStackSize(16);
+            Items.IRON_DOOR.setMaxStackSize(16);
+        }
+        
+        if(BBConfig.moduleFurnaces) Items.FURNACE_MINECART.setUnlocalizedName(ModMain.MODID + ".kilnCart");
     }
 }

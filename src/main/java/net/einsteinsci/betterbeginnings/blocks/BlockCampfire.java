@@ -34,179 +34,181 @@ import net.minecraftforge.items.IItemHandler;
 
 public class BlockCampfire extends Block implements IBBName
 {
-	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.15F, 0.0F, 0.15F, 0.85F, 0.5F, 0.85F);
-	private static boolean isAlteringLit;
-	private final boolean isLit; // strange why...
+    private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.15F, 0.0F, 0.15F, 0.85F, 0.5F, 0.85F);
+    private static boolean isAlteringLit;
+    private final boolean isLit; // strange why...
 
-	public BlockCampfire(boolean lit)
-	{
-		super(Material.WOOD);
-		setResistance(3.0F);
-		setHardness(0.5F);
+    public BlockCampfire(boolean lit)
+    {
+        super(Material.WOOD);
+        setResistance(3.0F);
+        setHardness(0.5F);
 
-		if (!lit)
-		{
-			setLightLevel(0.0f);
-			setCreativeTab(ModMain.tabBetterBeginnings);
-		}
-		else
-		{
-			setLightLevel(0.875f);
-		}
+        if (!lit)
+        {
+            setLightLevel(0.0f);
+            setCreativeTab(ModMain.tabBetterBeginnings);
+        }
+        else
+        {
+            setLightLevel(0.875f);
+        }
 
-		isLit = lit;
-	}
+        isLit = lit;
+    }
 
-	@Override
-	public String getName()
-	{
-		return isLit ? "campfire_lit" : "campfire";
-	}
+    @Override
+    public String getName()
+    {
+        return isLit ? "campfire_lit" : "campfire";
+    }
 
-	public static void updateBlockState(boolean lit, World world, BlockPos pos)
-	{
-		TileEntity tileEntity = world.getTileEntity(pos);
-		isAlteringLit = true;
+    public static void updateBlockState(boolean lit, World world, BlockPos pos)
+    {
+        TileEntity tileEntity = world.getTileEntity(pos);
+        isAlteringLit = true;
 
-		if (lit)
-		{
-			world.setBlockState(pos, RegisterBlocks.campfireLit.getDefaultState(), 3);
-		}
-		else
-		{
-			world.setBlockState(pos, RegisterBlocks.campfire.getDefaultState(), 3);
-		}
+        if (lit)
+        {
+            world.setBlockState(pos, RegisterBlocks.campfireLit.getDefaultState(), 3);
+        }
+        else
+        {
+            world.setBlockState(pos, RegisterBlocks.campfire.getDefaultState(), 3);
+        }
 
-		isAlteringLit = false;
+        isAlteringLit = false;
 
-		if (tileEntity != null)
-		{
-			tileEntity.validate();
-			world.setTileEntity(pos, tileEntity);
-		}
-	}
+        if (tileEntity != null)
+        {
+            tileEntity.validate();
+            world.setTileEntity(pos, tileEntity);
+        }
+    }
 
-	@Override
-	public boolean isFullCube(IBlockState state)
-	{
-		return false;
-	}
-	
-	@Override
-	public boolean isOpaqueCube(IBlockState state) 
-	{
-		return false;
-	}
+    @Override
+    public boolean isFullCube(IBlockState state)
+    {
+        return false;
+    }
+    
+    @Override
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return false;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
-	{
-		TileEntityCampfire tile = (TileEntityCampfire)world.getTileEntity(pos);
-		
-		if (tile.campfireState == TileEntityCampfire.STATE_BURNING)
-		{
-			for (int i = 0; i < 3; i++)
-			{
-				double ry = rand.nextDouble() * 0.5 + 0.15;
-				double rx = rand.nextDouble() * 0.4 + 0.3;
-				double rz = rand.nextDouble() * 0.4 + 0.3;
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand)
+    {
+        TileEntityCampfire tile = (TileEntityCampfire)world.getTileEntity(pos);
+        
+        if (tile.campfireState == TileEntityCampfire.STATE_BURNING)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                double ry = rand.nextDouble() * 0.5 + 0.15;
+                double rx = rand.nextDouble() * 0.4 + 0.3;
+                double rz = rand.nextDouble() * 0.4 + 0.3;
 
-				double vx = rand.nextDouble() * 0.02 - 0.01;
-				double vy = rand.nextDouble() * 0.05 + 0.03;
-				double vz = rand.nextDouble() * 0.02 - 0.01;
-				world.spawnParticle(EnumParticleTypes.FLAME, pos.getX() + rx, pos.getY() + ry, pos.getZ() + rz,
-				                    vx, vy, vz);
-			}
-		}
-		else if (tile.campfireState == TileEntityCampfire.STATE_DECAYING)
-		{
-			for (int i = 0; i < 2; i++)
-			{
-				double ry = rand.nextDouble() * 0.5 + 0.15;
-				double rx = rand.nextDouble() * 0.4 + 0.3;
-				double rz = rand.nextDouble() * 0.4 + 0.3;
+                double vx = rand.nextDouble() * 0.02 - 0.01;
+                double vy = rand.nextDouble() * 0.05 + 0.03;
+                double vz = rand.nextDouble() * 0.02 - 0.01;
+                world.spawnParticle(EnumParticleTypes.FLAME, pos.getX() + rx, pos.getY() + ry, pos.getZ() + rz,
+                                    vx, vy, vz);
+            }
+        }
+        else if (tile.campfireState == TileEntityCampfire.STATE_DECAYING)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                double ry = rand.nextDouble() * 0.5 + 0.15;
+                double rx = rand.nextDouble() * 0.4 + 0.3;
+                double rz = rand.nextDouble() * 0.4 + 0.3;
 
-				double vx = rand.nextDouble() * 0.02 - 0.01;
-				double vy = rand.nextDouble() * 0.05 + 0.03;
-				double vz = rand.nextDouble() * 0.02 - 0.01;
-				world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, pos.getX() + rx, pos.getY() + ry, pos.getZ() + rz,
-				                    vx, vy, vz);
-			}
-		}
-	}
+                double vx = rand.nextDouble() * 0.02 - 0.01;
+                double vy = rand.nextDouble() * 0.05 + 0.03;
+                double vz = rand.nextDouble() * 0.02 - 0.01;
+                world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, pos.getX() + rx, pos.getY() + ry, pos.getZ() + rz,
+                                    vx, vy, vz);
+            }
+        }
+    }
 
-	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int par3)
-	{
-		return Item.getItemFromBlock(RegisterBlocks.campfire);
-	}
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int par3)
+    {
+        return Item.getItemFromBlock(RegisterBlocks.campfire);
+    }
 
-	@Override
-	public boolean canPlaceBlockAt(World world, BlockPos pos)
-	{
-		return world.getBlockState(pos).getBlock().isReplaceable(world, pos) &&
-			world.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP);
-	}
+    @Override
+    public boolean canPlaceBlockAt(World world, BlockPos pos)
+    {
+        return world.getBlockState(pos).getBlock().isReplaceable(world, pos) &&
+            world.isSideSolid(pos.offset(EnumFacing.DOWN), EnumFacing.UP);
+    }
 
-	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
-	{
-		if (heldItem != null)
-		{
-			Item item = heldItem.getItem();
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
+        ItemStack heldItem = player.getHeldItem(hand);
+        
+        if (heldItem != ItemStack.EMPTY)
+        {
+            Item item = heldItem.getItem();
 
-			if (item instanceof ItemFlintAndSteel || item instanceof ItemFireBow)
-			{
-				return false;
-			}
-		}
+            if (item instanceof ItemFlintAndSteel || item instanceof ItemFireBow)
+            {
+                return false;
+            }
+        }
 
-		player.openGui(ModMain.modInstance, BBGuiHandler.CAMPFIRE_ID, world, pos.getX(), pos.getY(), pos.getZ());
+        player.openGui(ModMain.modInstance, BBGuiHandler.CAMPFIRE_ID, world, pos.getX(), pos.getY(), pos.getZ());
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) 
-	{
-		return BOUNDING_BOX;
-	}
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+        return BOUNDING_BOX;
+    }
 
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state)
-	{
-		return EnumBlockRenderType.MODEL;
-	}
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state)
+    {
+        return EnumBlockRenderType.MODEL;
+    }
 
-	// Drop stuff everywhere
-	@Override
-	public void breakBlock(World world, BlockPos pos, IBlockState state)
-	{
-		if (!isAlteringLit)
-		{
-			TileEntity tileentity = world.getTileEntity(pos);
+    // Drop stuff everywhere
+    @Override
+    public void breakBlock(World world, BlockPos pos, IBlockState state)
+    {
+        if (!isAlteringLit)
+        {
+            TileEntity tileentity = world.getTileEntity(pos);
 
-			if (tileentity instanceof TileEntityCampfire)
-			{
-				IItemHandler itemHandler = CapUtils.getItemHandler(tileentity);
-				Util.dropInventory(world, pos, itemHandler);
-				world.updateComparatorOutputLevel(pos, this);
-			}
-		}
+            if (tileentity instanceof TileEntityCampfire)
+            {
+                IItemHandler itemHandler = CapUtils.getItemHandler(tileentity);
+                Util.dropInventory(world, pos, itemHandler);
+                world.updateComparatorOutputLevel(pos, this);
+            }
+        }
 
-		super.breakBlock(world, pos, state);
-	}
-		
-	@Override
-	public boolean hasTileEntity(IBlockState state) 
-	{
-		return true;
-	}
+        super.breakBlock(world, pos, state);
+    }
+    
+    @Override
+    public boolean hasTileEntity(IBlockState state)
+    {
+        return true;
+    }
 
-	@Override
-	public TileEntity createTileEntity(World world, IBlockState state)
-	{
-		return new TileEntityCampfire();
-	}
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state)
+    {
+        return new TileEntityCampfire();
+    }
 }

@@ -21,73 +21,74 @@ import net.minecraft.world.World;
 
 public class BlockSmelter extends BlockSpecializedFurnace
 {
-	public BlockSmelter(boolean lit)
-	{
-		super(Material.ROCK);
+    public BlockSmelter(boolean lit)
+    {
+        super(Material.ROCK);
 
-		if (lit)
-		{
-			setLightLevel(0.875F);
-		}
-		else
-		{
-			setLightLevel(0F);
-			setCreativeTab(ModMain.tabBetterBeginnings);
-		}
+        if (lit)
+        {
+            setLightLevel(0.875F);
+        }
+        else
+        {
+            setLightLevel(0F);
+            setCreativeTab(ModMain.tabBetterBeginnings);
+        }
 
-		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-		setHardness(1.5f);
-		setResistance(10.0f);
+        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+        setHardness(1.5f);
+        setResistance(10.0f);
 
-		isLit = lit;
-	}
+        isLit = lit;
+    }
 
-	@Override
-	public String getName()
-	{
-		return isLit ? "smelter_lit" : "smelter";
-	}
+    @Override
+    public String getName()
+    {
+        return isLit ? "smelter_lit" : "smelter";
+    }
 
-	public static void updateBlockState(boolean lit, World world, BlockPos pos)
-	{
-		IBlockState state = world.getBlockState(pos);
-		TileEntity tileEntity = world.getTileEntity(pos);
+    public static void updateBlockState(boolean lit, World world, BlockPos pos)
+    {
+        IBlockState state = world.getBlockState(pos);
+        TileEntity tileEntity = world.getTileEntity(pos);
 
-		if (lit)
-		{
-			world.setBlockState(pos, RegisterBlocks.smelterLit.getDefaultState()
-					.withProperty(FACING, state.getValue(FACING)), 3);
-		}
-		else
-		{
-			world.setBlockState(pos, RegisterBlocks.smelter.getDefaultState()
-					.withProperty(FACING, state.getValue(FACING)), 3);
-		}
+        if (lit)
+        {
+            world.setBlockState(pos, RegisterBlocks.smelterLit.getDefaultState()
+                    .withProperty(FACING, state.getValue(FACING)), 3);
+        }
+        else
+        {
+            world.setBlockState(pos, RegisterBlocks.smelter.getDefaultState()
+                    .withProperty(FACING, state.getValue(FACING)), 3);
+        }
 
-		if (tileEntity != null)
-		{
-			tileEntity.validate();
-			world.setTileEntity(pos, tileEntity);
-		}
-	}
+        if (tileEntity != null)
+        {
+            tileEntity.validate();
+            world.setTileEntity(pos, tileEntity);
+        }
+    }
 
-	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int par3)
-	{
-		return Item.getItemFromBlock(RegisterBlocks.smelter);
-	}
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int par3)
+    {
+        return Item.getItemFromBlock(RegisterBlocks.smelter);
+    }
 
-	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
-	{
-		player.openGui(ModMain.modInstance, BBGuiHandler.SMELTER_ID, world, pos.getX(), pos.getY(), pos.getZ());
+    @Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side,
+        float hitX, float hitY, float hitZ)
+    {
+        player.openGui(ModMain.modInstance, BBGuiHandler.SMELTER_ID, world, pos.getX(), pos.getY(), pos.getZ());
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	public TileEntity createTileEntity(World world, IBlockState state)
-	{
-		return new TileEntitySmelter();
-	}
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state)
+    {
+        return new TileEntitySmelter();
+    }
 }

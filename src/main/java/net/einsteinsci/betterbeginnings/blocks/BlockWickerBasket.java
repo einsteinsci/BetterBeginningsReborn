@@ -24,64 +24,64 @@ public class BlockWickerBasket extends Block implements IBBName
 {
     public BlockWickerBasket() 
     {
-	super(Material.WOOD);
-	setCreativeTab(ModMain.tabBetterBeginnings);
-	setHardness(1.25F);
-	setSoundType(SoundType.WOOD);
+        super(Material.WOOD);
+        setCreativeTab(ModMain.tabBetterBeginnings);
+        setHardness(1.25F);
+        setSoundType(SoundType.WOOD);
     }
 
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player,
-	    EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) 
+        EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-	player.openGui(ModMain.modInstance, BBGuiHandler.WICKER_BASKET_ID, world, pos.getX(), pos.getY(), pos.getZ());
-	return true;
+        player.openGui(ModMain.modInstance, BBGuiHandler.WICKER_BASKET_ID, world, pos.getX(), pos.getY(), pos.getZ());
+        return true;
     }
 
     @Override
     public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer,
-	    ItemStack stack)
+        ItemStack stack)
     {
-	if (stack.hasDisplayName())
-	{
-	    TileEntity teBase = world.getTileEntity(pos);
-	    if (teBase instanceof TileEntityWickerBasket)
-	    {
-		TileEntityWickerBasket tileEntity = (TileEntityWickerBasket)teBase;
-		tileEntity.setBlockName(stack.getDisplayName());
-	    }
-	}
+        if (stack.hasDisplayName())
+        {
+            TileEntity teBase = world.getTileEntity(pos);
+            if (teBase instanceof TileEntityWickerBasket)
+            {
+            TileEntityWickerBasket tileEntity = (TileEntityWickerBasket)teBase;
+            tileEntity.setBlockName(stack.getDisplayName());
+            }
+        }
     }
 
     // Drop stuff everywhere
     @Override
     public void breakBlock(World world, BlockPos pos, IBlockState state)
     {
-	if(!(world.getBlockState(pos).getBlock() instanceof BlockWickerBasket))
-	{
-	    TileEntity tileentity = world.getTileEntity(pos);
-
-	    if (tileentity instanceof TileEntityWickerBasket)
-	    {
-		IItemHandler itemHandler = CapUtils.getItemHandler(tileentity);
-		Util.dropInventory(world, pos, itemHandler);
-		world.updateComparatorOutputLevel(pos, this);
-	    }
-	}
-
-	super.breakBlock(world, pos, state);
+        if(!(world.getBlockState(pos).getBlock() instanceof BlockWickerBasket))
+        {
+            TileEntity tileentity = world.getTileEntity(pos);
+    
+            if (tileentity instanceof TileEntityWickerBasket)
+            {
+            IItemHandler itemHandler = CapUtils.getItemHandler(tileentity);
+            Util.dropInventory(world, pos, itemHandler);
+            world.updateComparatorOutputLevel(pos, this);
+            }
+        }
+    
+        super.breakBlock(world, pos, state);
     }
 
     @Override
     public boolean hasTileEntity(IBlockState state) 
     {
-	return true;
+        return true;
     }
 
     @Override
     public TileEntity createTileEntity(World world, IBlockState state) 
     {
-	return new TileEntityWickerBasket();
+        return new TileEntityWickerBasket();
     }
     
     public boolean isOpaqueCube(IBlockState state)
@@ -97,6 +97,6 @@ public class BlockWickerBasket extends Block implements IBBName
     @Override
     public String getName() 
     {
-	return "wicker_basket";
+        return "wicker_basket";
     }
 }
