@@ -2,6 +2,7 @@ package net.einsteinsci.betterbeginnings;
 
 import java.io.File;
 
+import net.minecraft.item.ItemStack;
 import org.apache.logging.log4j.Level;
 
 import net.einsteinsci.betterbeginnings.commands.JsonGenerateCommand;
@@ -18,7 +19,7 @@ import net.einsteinsci.betterbeginnings.util.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.AchievementPage;
+//import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -26,11 +27,14 @@ import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.*;
-import net.minecraftforge.fml.common.event.FMLMissingMappingsEvent.MissingMapping;
+import net.minecraftforge.fml.common.event.FMLMissingMappingsEvent.MissingMapping; //???
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+// 1.12 UPDATE: LIST OF DISABLED FEATURES
+// - Achievements (will be replaced with equivalent advancements)
 
 @Mod(modid = ModMain.MODID, version = ModMain.VERSION, name = ModMain.NAME,
      guiFactory = "net.einsteinsci.betterbeginnings.config.BBConfigGuiFactory")
@@ -47,9 +51,9 @@ public class ModMain
 	{
 		@Override
 		@SideOnly(Side.CLIENT)
-		public Item getTabIconItem()
+		public ItemStack getTabIconItem()
 		{
-			return RegisterItems.flintKnife;
+			return new ItemStack(RegisterItems.flintKnife);
 		}
 	};
 	
@@ -133,7 +137,7 @@ public class ModMain
 
 		MinecraftForge.EVENT_BUS.register(RegisterItems.wickerShield);
 		RegisterItems.tweakVanilla();
-		AchievementPage.registerAchievementPage(new AchievementPage(NAME, RegisterAchievements.getAchievements()));
+		//AchievementPage.registerAchievementPage(new AchievementPage(NAME, RegisterAchievements.getAchievements()));
 		if(Loader.isModLoaded("MineTweaker3")) CraftTweakerCompat.register();
 		LogUtil.logDebug("Finished post-initialization.");
 	}
@@ -144,24 +148,25 @@ public class ModMain
 		e.registerServerCommand(new JsonGenerateCommand());
 	}
 	
+	// What is this for?
 	@EventHandler
 	public void remapIDs(FMLMissingMappingsEvent e)
 	{
-	    for(MissingMapping mapping : e.get())
-	    {
-		switch (mapping.type)
+		for(MissingMapping mapping : e.get())
 		{
-		case BLOCK:
-		    mapping.remap(RegistryUtil.getBlockFromRegistry(Util.CASE_CONVERTER.convert(mapping.name)));
-		    break;
-		    
-		case ITEM:
-		    mapping.remap(RegistryUtil.getItemFromRegistry(Util.CASE_CONVERTER.convert(mapping.name)));
-		    break;
+			switch (mapping.type)
+			{
+			case BLOCK:
+				mapping.remap(RegistryUtil.getBlockFromRegistry(Util.CASE_CONVERTER.convert(mapping.name)));
+				break;
+				
+			case ITEM:
+				mapping.remap(RegistryUtil.getItemFromRegistry(Util.CASE_CONVERTER.convert(mapping.name)));
+				break;
 
-		default:
-		    break;
-		}
+			default:
+				break;
+			}
 	    }
 	}
 }

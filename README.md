@@ -1,8 +1,11 @@
 Better Beginnings Reborn
 ========================
 
+Better Beginnings mod for Minecraft v1.12.x. Update *very* WIP. Requires Forge (building with 14.23.0.2491).
 
-Better Beginnings mod for Minecraft v1.12.x. Update not yet started. Requires Forge (built with 12.18.3.2185).
+Notice:
+-------
+The update is currently in the "update to bare minimum" stage. **That means any code here has is pushed with the expectation for it not to run, or even compile.** Do not post bugs related to it not compiling or running, only post bugs for code design issues that will cause severe problems if "fixed" to fit Forge 1.12 standards.
 
 Kind of complicated. See the [forum topic](http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/wip-mods/2192122-betterbeginnings-mod).
 
