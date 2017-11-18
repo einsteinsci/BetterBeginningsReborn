@@ -16,41 +16,43 @@ import net.minecraftforge.event.ForgeEventFactory;
 
 public class ItemRoastingStick extends Item implements IBBName
 {
+    public ItemRoastingStick()
+    {
+        setCreativeTab(ModMain.tabBetterBeginnings);
+        setMaxStackSize(10);
+    }
 
-	public ItemRoastingStick()
-	{
-		setCreativeTab(ModMain.tabBetterBeginnings);
-		setMaxStackSize(10);
-	}
+    // TODO: This seems like it should be a crafting recipe.
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    {
+        ItemStack stack = player.getHeldItem(hand);
+        
+        if (player.inventory.hasItemStack(new ItemStack(RegisterItems.marshmallow)))
+        {
+            stack.setCount(stack.getCount() - 1);
+            ItemStack mallowStick = new ItemStack(RegisterItems.roastingStickRawMallow);
+            if (!player.inventory.addItemStackToInventory(mallowStick))
+            {
+                EntityItem drop = new EntityItem(world, player.posX, player.posY, player.posZ, mallowStick);
 
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand)
-	{
-		if (player.inventory.hasItemStack(new ItemStack(RegisterItems.marshmallow)))
-		{
-			stack.stackSize -= 1;
-			ItemStack mallowStick = new ItemStack(RegisterItems.roastingStickRawMallow);
-			if (!player.inventory.addItemStackToInventory(mallowStick))
-			{
-				EntityItem drop = new EntityItem(world, player.posX, player.posY, player.posZ, mallowStick);
+                world.spawnEntity(drop);
+            }
 
-				world.spawnEntity(drop);
-			}
+            stack.setCount(stack.getCount() - 1); // Why is this done twice?
+            if (stack.getCount() <= 0)
+            {
+                player.inventory.setItemStack(ItemStack.EMPTY);
+                ForgeEventFactory.onPlayerDestroyItem(player, stack, hand);
+            }
+        }
+        player.inventoryContainer.detectAndSendChanges();
+        return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
+    }
 
-			stack.stackSize--;
-			if (stack.stackSize <= 0)
-			{
-				player.inventory.setItemStack(null);
-				ForgeEventFactory.onPlayerDestroyItem(player, stack, hand);
-			}
-		}
-		player.inventoryContainer.detectAndSendChanges();
-		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
-	}
-
-	@Override
-	public String getName()
-	{
-		return "roasting_stick";
-	}
+    @Override
+    public String getName()
+    {
+        return "roasting_stick";
+    }
 }

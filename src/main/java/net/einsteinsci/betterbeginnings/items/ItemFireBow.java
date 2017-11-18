@@ -17,103 +17,107 @@ import net.minecraft.world.World;
 
 public class ItemFireBow extends Item implements IBBName
 {
-	public ItemFireBow()
-	{
-		super();
+    public ItemFireBow()
+    {
+        super();
 
-		setMaxStackSize(1);
-		setMaxDamage(8);
+        setMaxStackSize(1);
+        setMaxDamage(8);
 
-		setCreativeTab(ModMain.tabBetterBeginnings);
-	}
+        setCreativeTab(ModMain.tabBetterBeginnings);
+    }
 
-	@Override
-	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos,
-			EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
-	{
-		int x = pos.getX();
-		int y = pos.getY();
-		int z = pos.getZ();
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos,
+            EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
+  
+        ItemStack stack = player.getHeldItem(hand);
+        
+        if (world.getBlockState(pos).getBlock() instanceof BlockCampfire)
+        {
+            stack.damageItem(1, player);
+            return EnumActionResult.SUCCESS;
+        }
 
-		if (world.getBlockState(pos).getBlock() instanceof BlockCampfire)
-		{
-			stack.damageItem(1, player);
-			return EnumActionResult.SUCCESS;
-		}
+        switch (side)
+        {
+        case UP:
+            ++y;
+            break;
+        case DOWN:
+            --y;
+            break;
+        case NORTH:
+            --z;
+            break;
+        case SOUTH:
+            ++z;
+            break;
+        case EAST:
+            ++x;
+            break;
+        case WEST:
+            --x;
+            break;
+        default:
+            break;
+        }
+        
+        if (side == EnumFacing.DOWN)
+        {
+            --y;
+        }
 
-		switch (side) 
-		{
-		case UP:
-			++y;
-			break;
-		case DOWN:
-			--y;
-			break;
-		case NORTH:
-			--z;
-			break;
-		case SOUTH:
-			++z;
-			break;
-		case EAST:
-			++x;
-			break;
-		case WEST:
-			--x;
-			break;
-		default:
-			break;
-		}
-		if (side == EnumFacing.DOWN)
-		{
-			--y;
-		}
+        if (side == EnumFacing.UP)
+        {
+            ++y;
+        }
 
-		if (side == EnumFacing.UP)
-		{
-			++y;
-		}
+        if (side == EnumFacing.NORTH)
+        {
+            --z;
+        }
 
-		if (side == EnumFacing.NORTH)
-		{
-			--z;
-		}
+        if (side == EnumFacing.SOUTH)
+        {
+            ++z;
+        }
 
-		if (side == EnumFacing.SOUTH)
-		{
-			++z;
-		}
+        if (side == EnumFacing.WEST)
+        {
+            --x;
+        }
 
-		if (side == EnumFacing.WEST)
-		{
-			--x;
-		}
+        if (side == EnumFacing.EAST)
+        {
+            ++x;
+        }
 
-		if (side == EnumFacing.EAST)
-		{
-			++x;
-		}
+        if (!player.canPlayerEdit(pos, side, stack))
+        {
+            return EnumActionResult.PASS;
+        }
+        else
+        {
+            if (world.isAirBlock(pos))
+            {
+                world.playSound((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, SoundEvents.ITEM_FLINTANDSTEEL_USE,
+                    SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F, false);
+                world.setBlockState(pos, Blocks.FIRE.getDefaultState());
+            }
 
-		if (!player.canPlayerEdit(pos, side, stack))
-		{
-			return EnumActionResult.PASS;
-		}
-		else
-		{
-			if (world.isAirBlock(pos))
-			{
-				world.playSound((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F, false);
-				world.setBlockState(pos, Blocks.FIRE.getDefaultState());
-			}
+            stack.damageItem(1, player);
+            return EnumActionResult.SUCCESS;
+        }
+    }
 
-			stack.damageItem(1, player);
-			return EnumActionResult.SUCCESS;
-		}
-	}
-
-	@Override
-	public String getName()
-	{
-		return "fire_bow";
-	}
+    @Override
+    public String getName()
+    {
+        return "fire_bow";
+    }
 }

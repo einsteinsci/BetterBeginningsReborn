@@ -15,49 +15,51 @@ import net.minecraftforge.event.ForgeEventFactory;
 
 public class ItemRoastingStickMallow extends Item implements IBBName
 {
-	boolean isCooked;
+    boolean isCooked;
 
-	public ItemRoastingStickMallow(boolean cooked)
-	{
-		isCooked = cooked;
-		setCreativeTab(ModMain.tabBetterBeginnings);
-		setMaxStackSize(10);
-	}
+    public ItemRoastingStickMallow(boolean cooked)
+    {
+        isCooked = cooked;
+        setCreativeTab(ModMain.tabBetterBeginnings);
+        setMaxStackSize(10);
+    }
 
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) 
-	{	
-		if (isCooked)
-		{
-			player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.marshmallowCooked));
-			player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.roastingStick));
-			stack.stackSize -= 1;
-		}
-		else
-		{
-			player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.marshmallow));
-			player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.roastingStick));
-			stack.stackSize -= 1;
-		}
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
+    {
+        ItemStack stack = player.getHeldItem(hand);
+        
+        if (isCooked)
+        {
+            player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.marshmallowCooked));
+            player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.roastingStick));
+            stack.setCount(stack.getCount() - 1);
+        }
+        else
+        {
+            player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.marshmallow));
+            player.inventory.addItemStackToInventory(new ItemStack(RegisterItems.roastingStick));
+            stack.setCount(stack.getCount() - 1);
+        }
 
-		if (stack.stackSize <= 0)
-		{
-			player.inventory.setItemStack(null);
-			ForgeEventFactory.onPlayerDestroyItem(player, stack, hand);
-		}
-		player.inventoryContainer.detectAndSendChanges();
-		return ActionResult.newResult(EnumActionResult.PASS, stack);
-	}
-	@Override
-	public String getName()
-	{
-		if (isCooked)
-		{
-			return "roasting_stick_cooked_mallow";
-		}
-		else
-		{
-		    return "roasting_stick_raw_mallow";
-		}
-	}
+        if (stack.getCount() <= 0)
+        {
+            player.inventory.setItemStack(ItemStack.EMPTY);
+            ForgeEventFactory.onPlayerDestroyItem(player, stack, hand);
+        }
+        player.inventoryContainer.detectAndSendChanges();
+        return ActionResult.newResult(EnumActionResult.PASS, stack);
+    }
+    @Override
+    public String getName()
+    {
+        if (isCooked)
+        {
+            return "roasting_stick_cooked_mallow";
+        }
+        else
+        {
+            return "roasting_stick_raw_mallow";
+        }
+    }
 }

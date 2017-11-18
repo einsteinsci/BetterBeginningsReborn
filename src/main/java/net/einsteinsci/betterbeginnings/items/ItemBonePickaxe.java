@@ -2,6 +2,8 @@ package net.einsteinsci.betterbeginnings.items;
 
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.register.IBBName;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 
@@ -24,7 +26,7 @@ public class ItemBonePickaxe extends ItemPickaxe implements IBBName
 	}
 
 	@Override
-	public int getHarvestLevel(ItemStack stack, String toolClass)
+	public int getHarvestLevel(ItemStack stack, String toolClass, EntityPlayer player, IBlockState blockstate)
 	{
 		return toolMaterial.getHarvestLevel();
 	}

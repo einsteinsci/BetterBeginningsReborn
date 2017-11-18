@@ -19,37 +19,37 @@ public class ItemInfusionScroll extends Item implements IBBName
 {
     public ItemInfusionScroll()
     {
-	super();
-	setCreativeTab(ModMain.tabBetterBeginnings);
-	setMaxStackSize(1);
+        super();
+        setCreativeTab(ModMain.tabBetterBeginnings);
+        setMaxStackSize(1);
     }
 
     @Override
     public boolean hasEffect(ItemStack stack)
     {
-	return true;
+        return true;
     }
 
     @Override
-    public EnumActionResult onItemUseFirst(ItemStack stack, EntityPlayer player, World world, BlockPos pos,
-	    EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) 
+    public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos,
+        EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand)
     {
-	TileEntity te = world.getTileEntity(pos);
-	if(te instanceof TileEntityInfusionRepair)
-	{
-	    Stack<RecipeElement> pendingIngredients = ((TileEntityInfusionRepair)te).getPendingIngredients();
-	    if(!pendingIngredients.isEmpty())
-	    {
-		RecipeElement element = pendingIngredients.peek();
-		player.sendMessage(new TextComponentString(element.toFriendlyString()));
-	    }
-	}
-	return EnumActionResult.SUCCESS;
+        TileEntity te = world.getTileEntity(pos);
+        if(te instanceof TileEntityInfusionRepair)
+        {
+            Stack<RecipeElement> pendingIngredients = ((TileEntityInfusionRepair)te).getPendingIngredients();
+            if(!pendingIngredients.isEmpty())
+            {
+                RecipeElement element = pendingIngredients.peek();
+                player.sendMessage(new TextComponentString(element.toFriendlyString()));
+            }
+        }
+        return EnumActionResult.SUCCESS;
     }
 
     @Override
     public String getName()
     {
-	return "infusion_scroll";
+        return "infusion_scroll";
     }
 }

@@ -6,22 +6,22 @@ import net.minecraft.item.Item;
 
 public class ItemResource extends Item implements IBBName
 {	
-	String name;
-	
-	public ItemResource() 
-	{
-		setCreativeTab(ModMain.tabBetterBeginnings);
-	}
-	
-	@Override
-	public String getName() 
-	{
-		return name;
-	}
-	
-	public ItemResource setName(String name) 
-	{
-		this.name = name;
-		return this;
-	}
+    private String name;
+    
+    public ItemResource()
+    {
+        setCreativeTab(ModMain.tabBetterBeginnings);
+    }
+    
+    @Override
+    public String getName()
+    {
+        return name;
+    }
+    
+    public ItemResource setName(String name)
+    {
+        this.name = name;
+        return this;
+    }
 }

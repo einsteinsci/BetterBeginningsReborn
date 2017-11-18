@@ -6,15 +6,15 @@ import net.minecraft.item.ItemFood;
 
 public class ItemMarshmallow extends ItemFood implements IBBName
 {
-	public ItemMarshmallow()
-	{
-		super(1, 2.0f, false);
-		setCreativeTab(ModMain.tabBetterBeginnings);
-	}
+    public ItemMarshmallow()
+    {
+        super(1, 2.0f, false);
+        setCreativeTab(ModMain.tabBetterBeginnings);
+    }
 
-	@Override
-	public String getName()
-	{
-		return "marshmallow";
-	}
+    @Override
+    public String getName()
+    {
+        return "marshmallow";
+    }
 }

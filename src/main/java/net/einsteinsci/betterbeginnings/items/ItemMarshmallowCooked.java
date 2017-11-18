@@ -8,16 +8,16 @@ import net.minecraft.potion.PotionEffect;
 
 public class ItemMarshmallowCooked extends ItemFood implements IBBName
 {
-	public ItemMarshmallowCooked()
-	{
-		super(5, 6.0f, false);
-		setCreativeTab(ModMain.tabBetterBeginnings);
-		setPotionEffect(new PotionEffect(MobEffects.SPEED, 15, 0), 0.8f);
-	}
+    public ItemMarshmallowCooked()
+    {
+        super(5, 6.0f, false);
+        setCreativeTab(ModMain.tabBetterBeginnings);
+        setPotionEffect(new PotionEffect(MobEffects.SPEED, 15, 0), 0.8f);
+    }
 
-	@Override
-	public String getName()
-	{
-		return "marshmallow_cooked";
-	}
+    @Override
+    public String getName()
+    {
+        return "marshmallow_cooked";
+    }
 }
