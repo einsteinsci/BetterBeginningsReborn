@@ -11,6 +11,7 @@ import net.einsteinsci.betterbeginnings.register.recipe.BrickOvenRecipeHandler;
 import net.einsteinsci.betterbeginnings.util.*;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.*;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Tuple;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
@@ -54,7 +55,7 @@ public class BrickOvenConfig implements IJsonConfig
 			for (int x = 0; x < recipe.recipeWidth; x++)
 			{
 				int i = y * 3 + x;
-				Object obj = recipe.recipeItems[i];
+				Object obj = recipe.recipeItems.get(i);
 
 				char token = current;
 				Tuple<Boolean, Character> res = RegistryUtil.getRecipeCharacter(map, obj, current);
@@ -100,7 +101,7 @@ public class BrickOvenConfig implements IJsonConfig
 			for (int x = 0; x < width; x++)
 			{
 				int i = y * 3 + x;
-				Object obj = recipe.getInput()[i];
+				Object obj = recipe.getIngredients().get(i);
 
 				char token = current;
 				Tuple<Boolean, Character> res = RegistryUtil.getRecipeCharacter(map, obj, current);
@@ -133,7 +134,7 @@ public class BrickOvenConfig implements IJsonConfig
 	public static JsonBrickOvenShapelessRecipe convert(ShapelessOreRecipe recipe)
 	{
 		List<Object> inputs = new ArrayList<>();
-		for (Object obj : recipe.getInput())
+		for (Object obj : recipe.getIngredients())
 		{
 			if (obj instanceof ItemStack)
 			{
@@ -273,8 +274,9 @@ public class BrickOvenConfig implements IJsonConfig
 
 	private void _addCraftingRecipes()
 	{
-		for (Object obj : CraftingManager.getInstance().getRecipeList())
+		for (ResourceLocation key : CraftingManager.REGISTRY.getKeys())
 		{
+			Object obj = CraftingManager.REGISTRY.getObject(key);
 			if (!(obj instanceof IRecipe))
 			{
 				continue;

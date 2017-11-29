@@ -94,7 +94,7 @@ public class JsonLoadedItemStack
 
 	public JsonLoadedItemStack(ItemStack stack)
 	{
-		this(RegistryUtil.getForgeName(stack), stack.stackSize, stack.getMetadata(), stack.getTagCompound());
+		this(RegistryUtil.getForgeName(stack), stack.getCount(), stack.getMetadata(), stack.getTagCompound());
 	}
 
 	public List<ItemStack> getItemStacks()
