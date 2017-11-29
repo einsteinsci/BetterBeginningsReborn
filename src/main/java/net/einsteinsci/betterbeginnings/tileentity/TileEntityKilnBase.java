@@ -45,7 +45,7 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 						CapUtils.decrementStack(mainHandler, SLOT_FUEL, 1);
 						
 						ItemStack fuel = mainHandler.getStackInSlot(SLOT_FUEL);
-						if (fuel.stackSize == 0)
+						if (fuel.getCount() == 0)
 						{
 							mainHandler.setStackInSlot(SLOT_FUEL, ForgeHooks.getContainerItem(fuel));
 						}
@@ -105,7 +105,7 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 				return false;
 			}
 
-			int size = mainHandler.getStackInSlot(SLOT_OUTPUT).stackSize + stack.stackSize;
+			int size = mainHandler.getStackInSlot(SLOT_OUTPUT).getCount() + stack.getCount();
 			return size <= mainHandler.getStackInSlot(SLOT_OUTPUT).getMaxStackSize();
 		}
 	}
@@ -123,12 +123,12 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 			}
 			else if (mainHandler.getStackInSlot(SLOT_OUTPUT).getItem() == itemStack.getItem())
 			{
-				CapUtils.incrementStack(mainHandler, SLOT_OUTPUT, itemStack.stackSize);
+				CapUtils.incrementStack(mainHandler, SLOT_OUTPUT, itemStack.getCount());
 			}
 
 			CapUtils.decrementStack(mainHandler, SLOT_INPUT, 1);
 
-			if (mainHandler.getStackInSlot(SLOT_INPUT).stackSize <= 0)
+			if (mainHandler.getStackInSlot(SLOT_INPUT).getCount() <= 0)
 			{
 				mainHandler.setStackInSlot(SLOT_INPUT, null);
 			}

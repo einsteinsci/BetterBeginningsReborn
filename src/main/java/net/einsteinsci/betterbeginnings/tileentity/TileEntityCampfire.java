@@ -170,9 +170,9 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 				{
 					if (stackFuel() != null)
 					{
-						stackFuel().stackSize--;
+						stackFuel().shrink(1);
 
-						if (stackFuel().stackSize == 0)
+						if (stackFuel().getCount() == 0)
 						{
 							mainHandler.setStackInSlot(SLOT_FUEL, stackFuel().getItem().getContainerItem(stackFuel()));
 						}
@@ -258,7 +258,7 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 			return false; // instant no if output doesn't match recipe
 		}
 
-		int resultSize = stackOutput().stackSize + potentialResult.stackSize;
+		int resultSize = stackOutput().getCount() + potentialResult.getCount();
 		boolean canFit = resultSize <= STACK_LIMIT;
 		boolean canFitWithItem = resultSize <= stackOutput().getMaxStackSize();
 		return canFit && canFitWithItem;
@@ -291,12 +291,12 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 			}
 			else if (stackOutput().isItemEqual(potentialResult))
 			{
-				CapUtils.incrementStack(mainHandler, SLOT_OUTPUT, potentialResult.stackSize);
+				CapUtils.incrementStack(mainHandler, SLOT_OUTPUT, potentialResult.getCount());
 			}
 
-			stackInput().stackSize--;
+			stackInput().shrink(1);
 
-			if (stackInput().stackSize <= 0)
+			if (stackInput().getCount() <= 0)
 			{
 				mainHandler.setStackInSlot(SLOT_INPUT, null);
 			}
@@ -352,9 +352,9 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 				currentItemBurnTime = burnTime;
 				if (stackFuel() != null)
 				{
-					stackFuel().stackSize--;
+					stackFuel().shrink(1);
 
-					if (stackFuel().stackSize == 0)
+					if (stackFuel().getCount() == 0)
 					{
 						mainHandler.setStackInSlot(SLOT_FUEL, stackFuel().getItem().getContainerItem(stackFuel()));
 					}

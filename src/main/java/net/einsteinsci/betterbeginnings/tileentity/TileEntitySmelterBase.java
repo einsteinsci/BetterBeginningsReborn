@@ -83,7 +83,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 					{
 						CapUtils.decrementStack(mainHandler, FUEL, 1);
 
-						if (mainHandler.getStackInSlot(FUEL).stackSize == 0)
+						if (mainHandler.getStackInSlot(FUEL).getCount() == 0)
 						{
 							mainHandler.setStackInSlot(FUEL, ForgeHooks.getContainerItem(mainHandler.getStackInSlot(FUEL)));
 						}
@@ -135,7 +135,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 				return false;
 			}
 
-			if (boostersNeeded > mainHandler.getStackInSlot(BOOSTER).stackSize)
+			if (boostersNeeded > mainHandler.getStackInSlot(BOOSTER).getCount())
 			{
 				return false;
 			}
@@ -149,7 +149,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 				return false;
 			}
 
-			int resultCount = mainHandler.getStackInSlot(OUTPUT).stackSize + getMaxNextOutputCount();
+			int resultCount = mainHandler.getStackInSlot(OUTPUT).getCount() + getMaxNextOutputCount();
 			return resultCount <= mainHandler.getStackInSlot(OUTPUT).getMaxStackSize();
 		}
 	}
@@ -165,7 +165,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 			if (mainHandler.getStackInSlot(OUTPUT) == null)
 			{
 				ItemStack stack = result.copy();
-				stack.stackSize = outputCount;
+				stack.setCount(outputCount);
 				mainHandler.setStackInSlot(OUTPUT, stack);
 			}
 			else if (mainHandler.getStackInSlot(OUTPUT).getItem() == result.getItem())
@@ -177,13 +177,13 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 
 			CapUtils.decrementStack(mainHandler, INPUT, 1);
 
-			if (mainHandler.getStackInSlot(INPUT).stackSize <= 0)
+			if (mainHandler.getStackInSlot(INPUT).getCount() <= 0)
 			{
 				mainHandler.setStackInSlot(INPUT, null);
 			}
 			CapUtils.decrementStack(mainHandler, BOOSTER, gravelUsed);
 
-			if (mainHandler.getStackInSlot(BOOSTER).stackSize <= 0)
+			if (mainHandler.getStackInSlot(BOOSTER).getCount() <= 0)
 			{
 				mainHandler.setStackInSlot(BOOSTER, null);
 			}
@@ -247,7 +247,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 	public final int getOutputCountFromBoostLevel(int roundedBoost)
 	{
 		int countPerBoost = SmelterRecipeHandler.instance().getBonusPerBoost(mainHandler.getStackInSlot(INPUT));
-		int countUnboosted = SmelterRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(INPUT)).stackSize;
+		int countUnboosted = SmelterRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(INPUT)).getCount();
 		return countUnboosted + (roundedBoost - 1) * countPerBoost;
 	}
 

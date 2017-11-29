@@ -30,7 +30,7 @@ public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 			}
 			else if (mainHandler.getStackInSlot(OUTPUT).getItem() == itemStack.getItem())
 			{
-				CapUtils.incrementStack(mainHandler, OUTPUT, itemStack.stackSize);
+				CapUtils.incrementStack(mainHandler, OUTPUT, itemStack.getCount());
 			}
 
 			for (int i = INPUTSTART; i < mainHandler.getSlots(); ++i)
@@ -47,7 +47,7 @@ public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 					{
 					    CapUtils.decrementStack(mainHandler, i, 1);
 
-					    if (mainHandler.getStackInSlot(i).stackSize <= 0)
+					    if (mainHandler.getStackInSlot(i).getCount() <= 0)
 					    {
 						mainHandler.setStackInSlot(i, null);//STACKNULL
 					    }
@@ -91,7 +91,7 @@ public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 				return false;
 			}
 
-			int result = mainHandler.getStackInSlot(OUTPUT).stackSize + stack.stackSize;
+			int result = mainHandler.getStackInSlot(OUTPUT).getCount() + stack.getCount();
 			return  result <= mainHandler.getStackInSlot(OUTPUT).getMaxStackSize();
 		}
 	}
@@ -119,7 +119,7 @@ public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 					if (mainHandler.getStackInSlot(FUEL) != null)//STACKNULL
 					{
 						CapUtils.decrementStack(mainHandler, FUEL, 1);
-						if (mainHandler.getStackInSlot(FUEL).stackSize == 0)
+						if (mainHandler.getStackInSlot(FUEL).getCount() == 0)
 						{
 							mainHandler.setStackInSlot(FUEL, ForgeHooks.getContainerItem(mainHandler.getStackInSlot(FUEL)));
 						}

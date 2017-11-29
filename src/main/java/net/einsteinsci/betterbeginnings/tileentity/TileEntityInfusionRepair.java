@@ -1,6 +1,8 @@
 package net.einsteinsci.betterbeginnings.tileentity;
 
-import java.util.*;
+import java.util.List;
+import java.util.Random;
+import java.util.Stack;
 
 import javax.annotation.Nullable;
 
@@ -9,7 +11,9 @@ import net.einsteinsci.betterbeginnings.inventory.ItemHandlerInfusionRepair;
 import net.einsteinsci.betterbeginnings.register.RegisterItems;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.ElementRegistry;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.RecipeElement;
-import net.einsteinsci.betterbeginnings.util.*;
+import net.einsteinsci.betterbeginnings.util.CapUtils;
+import net.einsteinsci.betterbeginnings.util.InfusionRepairUtil;
+import net.einsteinsci.betterbeginnings.util.Prep1_11;
 import net.einsteinsci.betterbeginnings.util.Util;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
@@ -17,21 +21,30 @@ import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemEnchantedBook;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ITickable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.ClickEvent.Action;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.Constants.NBT;
-import net.minecraftforge.items.*;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.ItemHandlerHelper;
 
 public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 {
@@ -112,9 +125,9 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 	    else
 		return;
 	    ItemStack newStack = heldItem.copy();
-	    newStack.stackSize = 1;
+	    newStack.setCount(1);
 	    mainHandler.setStackInSlot(heldItem.isItemEnchanted() ? SLOT_ENCH_ITEM : 1, newStack);
-	    heldItem.stackSize--;
+	    heldItem.shrink(1);
 	}
     }
 
@@ -151,7 +164,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		markDirty();
 		world.notifyBlockUpdate(pos, state, state, 8);
 	    }
-	    if(entityItem.getEntityItem().stackSize == 0)
+	    if(entityItem.getItem().getCount() == 0)
 		entityItem.setDead();
 	}
     }
@@ -159,7 +172,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
     private boolean tryAbsorbDroppedItem(EntityItem item, IBlockState state)
     {
 	ItemStack newStack = Prep1_11.getEmptyStack();
-	ItemStack stack = item.getEntityItem();
+	ItemStack stack = item.getItem();
 	switch(mode)
 	{
 	case DIFFUSION:
@@ -167,8 +180,8 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 	    if(stack.getItem() == Items.BOOK || stack.isItemEnchanted())
 	    {
 		newStack = stack.copy();
-		newStack.stackSize = 1;
-		if(!world.isRemote) stack.stackSize--;
+		newStack.setCount(1);
+		if(!world.isRemote) stack.shrink(1);
 	    }
 	    break;
 	case REPAIR:
@@ -177,14 +190,14 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 	    if(currentIngredient.matches(stack))
 	    {
 		newStack = stack.copy();
-		newStack.stackSize = Math.min(currentIngredient.getStackSize(), stack.stackSize);
-		currentIngredient.setStackSize(currentIngredient.getStackSize() - Math.min(currentIngredient.getStackSize(), stack.stackSize));
+		newStack.setCount(Math.min(currentIngredient.getStackSize(), stack.getCount()));
+		currentIngredient.setStackSize(currentIngredient.getStackSize() - Math.min(currentIngredient.getStackSize(), stack.getCount()));
 
 		if(currentIngredient.getStackSize() <= 0)
 		{
 		    pendingIngredients.pop();
 		}
-		if(!world.isRemote) stack.stackSize -= newStack.stackSize;
+		if(!world.isRemote) stack.shrink(newStack.getCount());
 		markDirty();
 	    }
 	    break;
@@ -206,7 +219,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		ItemStack slotStack = mainHandler.getStackInSlot(s);
 		if (ItemHandlerHelper.canItemStacksStack(newStack, slotStack))
 		{
-		    CapUtils.incrementStack(mainHandler, s, newStack.stackSize);
+		    CapUtils.incrementStack(mainHandler, s, newStack.getCount());
 		    slotFound = true;
 		    break;
 		}
@@ -291,7 +304,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 
 		    //Create an enchanted book for the enchantment
 		    ItemStack enchBook = new ItemStack(Items.ENCHANTED_BOOK);
-		    Items.ENCHANTED_BOOK.addEnchantment(enchBook, chosenEnchData);
+		    ItemEnchantedBook.addEnchantment(enchBook, chosenEnchData);
 
 		    //Spawn the enchanted book & the disenchanted item
 		    if(!world.isRemote)
@@ -356,7 +369,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		if(!playersOnTop.isEmpty())
 		{
 		    EntityPlayer player = playersOnTop.get(0);
-		    player.removeExperienceLevel(1);
+		    player.onEnchant(enchItem, 1);
 		    xpLevelsTaken++;
 		    world.notifyBlockUpdate(pos, state, state, 8);
 		    markDirty();
