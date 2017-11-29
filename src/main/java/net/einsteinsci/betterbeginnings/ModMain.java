@@ -12,7 +12,7 @@ import net.einsteinsci.betterbeginnings.config.BBConfigFolderLoader;
 import net.einsteinsci.betterbeginnings.event.BBEventHandler;
 import net.einsteinsci.betterbeginnings.network.*;
 import net.einsteinsci.betterbeginnings.register.*;
-import net.einsteinsci.betterbeginnings.register.achievement.RegisterAchievements;
+//import net.einsteinsci.betterbeginnings.register.achievement.RegisterAchievements;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.ElementRegistry;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntitySmelterBase;
 import net.einsteinsci.betterbeginnings.util.*;
