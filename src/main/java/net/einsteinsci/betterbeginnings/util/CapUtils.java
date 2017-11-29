@@ -54,14 +54,14 @@ public class CapUtils
 	public static void incrementStack(IItemHandlerModifiable handler, int slot, int amount)
 	{
 		ItemStack stack = handler.getStackInSlot(slot).copy();
-		stack.stackSize += amount;
+		stack.grow(amount);
 		handler.setStackInSlot(slot, stack);
 	}
 	
 	public static void decrementStack(IItemHandlerModifiable handler, int slot, int amount)
 	{
 		ItemStack stack = handler.getStackInSlot(slot).copy();
-		stack.stackSize -= amount;
+		stack.shrink(amount);
 		handler.setStackInSlot(slot, stack);
 	}
 }
