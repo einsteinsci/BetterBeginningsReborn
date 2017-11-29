@@ -25,8 +25,8 @@ public class GuiWickerBasket extends GuiContainer
     protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
 	String string = tileBasket.hasCustomName() ? tileBasket.getName() : I18n.format(tileBasket.getName());
-	fontRendererObj.drawString(string, 8, 6, 4210752);
-	fontRendererObj.drawString(I18n.format("container.inventory"), 8, ySize - 128, 4210752);
+	fontRenderer.drawString(string, 8, 6, 4210752);
+	fontRenderer.drawString(I18n.format("container.inventory"), 8, ySize - 128, 4210752);
     }
 
     @Override

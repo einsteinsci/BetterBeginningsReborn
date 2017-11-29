@@ -31,7 +31,7 @@ public class GuiCampfire extends GuiContainer
 
 	public void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		fontRendererObj.drawString(I18n.format("container.inventory"), 8, ySize - 96 + 4, 4210752);
+		fontRenderer.drawString(I18n.format("container.inventory"), 8, ySize - 96 + 4, 4210752);
 
 		int k = (width - xSize) / 2;
 		int l = (height - ySize) / 2;

@@ -15,6 +15,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag.TooltipFlags;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
@@ -48,8 +49,8 @@ public class GuiDoubleWorkbench extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
-		// I'm guessing the really big number at the end is the z layer.
-		fontRendererObj.drawString(I18n.format("container.craftingdouble"), 33 + 20, 6, 4210752);
+		//The really big number at the end is the colour
+		fontRenderer.drawString(I18n.format("container.craftingdouble"), 33 + 20, 6, 4210752);
 
 		int k = (width - xSize) / 2;
 		int l = (height - ySize) / 2;
@@ -120,7 +121,7 @@ public class GuiDoubleWorkbench extends GuiContainer
 
 		boolean adv = Minecraft.getMinecraft().gameSettings.advancedItemTooltips;
 		int id = Item.getIdFromItem(stack.getItem());
-		lines.addAll(stack.getTooltip(container.getOpeningPlayer(), adv));
+		lines.addAll(stack.getTooltip(container.getOpeningPlayer(), adv ? TooltipFlags.ADVANCED : TooltipFlags.NORMAL));
 		lines.set(0, lines.get(0) + " " + id);
 
 		if (warn)
@@ -182,7 +183,7 @@ public class GuiDoubleWorkbench extends GuiContainer
 							{
 								if(matStack != null)
 								{
-									if(stack.stackSize > matStack.stackSize)
+									if(stack.getCount() > matStack.getCount())
 									{
 										matStack = stack;
 									}
@@ -195,13 +196,13 @@ public class GuiDoubleWorkbench extends GuiContainer
 						}
 						boolean hasMatStack = (matStack != null);
 						if (!hasMatStack ||
-							(matStack.stackSize < needed.stackSize || !neededElement.matches(matStack)))
+							(matStack.getCount() < needed.getCount() || !neededElement.matches(matStack)))
 						{
 					        RenderHelper.enableGUIStandardItemLighting();
 							drawItemStack(needed, k + slot.xPos + CATALYST_X_OFFSET,
 								l + slot.yPos,
 								"" + ((matStack == null || neededElement.matchesCheckSize(matStack)) ?
-										needed.stackSize : needed.stackSize - matStack.stackSize));
+										needed.getCount() : needed.getCount() - matStack.getCount()));
 						}
 					}
 
@@ -235,7 +236,7 @@ public class GuiDoubleWorkbench extends GuiContainer
 		}
 		if (font == null)
 		{
-			font = fontRendererObj;
+			font = fontRenderer;
 		}
 
 		this.itemRender.renderItemOverlayIntoGUI(font, stack, xPos, yPos, note);

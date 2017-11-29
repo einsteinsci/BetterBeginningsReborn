@@ -26,8 +26,8 @@ public class GuiObsidianKiln extends GuiContainer
 	{
 		String string = tileKiln.hasCustomName() ? tileKiln.getName() :
 				I18n.format(tileKiln.getName());
-		fontRendererObj.drawString(string, xSize / 2 - fontRendererObj.getStringWidth(string), 6, 4210752);
-		fontRendererObj.drawString(I18n.format("container.inventory"), 8, ySize - 94, 4210752);
+		fontRenderer.drawString(string, xSize / 2 - fontRenderer.getStringWidth(string), 6, 4210752);
+		fontRenderer.drawString(I18n.format("container.inventory"), 8, ySize - 94, 4210752);
 	}
 
 	@Override

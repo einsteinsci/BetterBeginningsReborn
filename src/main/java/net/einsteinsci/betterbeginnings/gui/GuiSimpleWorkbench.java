@@ -38,8 +38,8 @@ public class GuiSimpleWorkbench extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	{
 		// I'm guessing the really big number at the end is the z layer.
-		fontRendererObj.drawString(I18n.format("container.crafting"), 28, 6, 4210752);
-		fontRendererObj.drawString(I18n.format("container.inventory"), 8, ySize - 96 + 2, 4210752);
+		fontRenderer.drawString(I18n.format("container.crafting"), 28, 6, 4210752);
+		fontRenderer.drawString(I18n.format("container.inventory"), 8, ySize - 96 + 2, 4210752);
 
 		int k = (width - xSize) / 2;
 		int l = (height - ySize) / 2;

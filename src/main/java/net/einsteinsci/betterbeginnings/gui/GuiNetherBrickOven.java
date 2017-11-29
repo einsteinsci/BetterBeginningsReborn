@@ -36,7 +36,7 @@ public class GuiNetherBrickOven extends GuiContainer
 	{
 		String string = tileBrickOven.hasCustomName() ? tileBrickOven.getName() :
 						I18n.format(tileBrickOven.getName());
-		fontRendererObj.drawString(string, 40, 6, 4210752);
+		fontRenderer.drawString(string, 40, 6, 4210752);
 
 		int k = (width - xSize) / 2;
 		int l = (height - ySize) / 2;

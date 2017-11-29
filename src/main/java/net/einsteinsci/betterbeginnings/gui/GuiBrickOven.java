@@ -32,8 +32,8 @@ public class GuiBrickOven extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
 		String string = tileBrickOven.hasCustomName() ? tileBrickOven.getName() : I18n.format(tileBrickOven.getName());
-		fontRendererObj.drawString(string, xSize / 2 - fontRendererObj.getStringWidth(string), 6, 4210752);
-		fontRendererObj.drawString(I18n.format("container.inventory"), 8, ySize - 94, 4210752);
+		fontRenderer.drawString(string, xSize / 2 - fontRenderer.getStringWidth(string), 6, 4210752);
+		fontRenderer.drawString(I18n.format("container.inventory"), 8, ySize - 94, 4210752);
 	}
 	
 	@Override
