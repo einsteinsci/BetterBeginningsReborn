@@ -177,8 +177,8 @@ public class AdvancedCraftingHandler
 			}
 		}
 
-		if (i == 2 && itemstack.getItem() == itemstack1.getItem() && itemstack.stackSize == 1 &&
-				itemstack1.stackSize == 1 && itemstack.getItem().isRepairable())
+		if (i == 2 && itemstack.getItem() == itemstack1.getItem() && itemstack.getCount() == 1 &&
+				itemstack1.getCount() == 1 && itemstack.getItem().isRepairable())
 		{
 			Item item = itemstack.getItem();
 			int j1 = item.getMaxDamage(itemstack) - itemstack.getItemDamage();
@@ -237,8 +237,8 @@ public class AdvancedCraftingHandler
 			}
 		}
 
-		if (i == 2 && itemstack.getItem() == itemstack1.getItem() && itemstack.stackSize == 1 &&
-			itemstack1.stackSize == 1 && itemstack.getItem().isRepairable())
+		if (i == 2 && itemstack.getItem() == itemstack1.getItem() && itemstack.getCount() == 1 &&
+			itemstack1.getCount() == 1 && itemstack.getItem().isRepairable())
 		{
 			Item item = itemstack.getItem();
 			int j1 = item.getMaxDamage(itemstack) - itemstack.getItemDamage();

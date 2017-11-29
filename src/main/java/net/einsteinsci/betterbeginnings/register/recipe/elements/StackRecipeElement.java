@@ -16,7 +16,7 @@ public class StackRecipeElement extends RecipeElement
 	
 	public StackRecipeElement(NBTTagCompound nbt)
 	{
-	    this(ItemStack.loadItemStackFromNBT(nbt));
+	    this(new ItemStack(nbt));
 	}
 
 	public StackRecipeElement(ItemStack stack)
@@ -60,13 +60,13 @@ public class StackRecipeElement extends RecipeElement
 	@Override
 	public int getStackSize() 
 	{
-		return stack.stackSize;
+		return stack.getCount();
 	}
 
 	@Override
 	public void setStackSize(int size) 
 	{
-		stack.stackSize = size;
+		stack.setCount(size);
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class StackRecipeElement extends RecipeElement
 	@Override
 	public boolean matchesCheckSize(ItemStack stackGiven) 
 	{
-	    return stack.getItem() == stackGiven.getItem() && (stack.getItemDamage() == stackGiven.getItemDamage() || stack.getItemDamage() == OreDictionary.WILDCARD_VALUE) && ItemStack.areItemStackTagsEqual(stack, stackGiven) && stack.stackSize <= stackGiven.stackSize;
+	    return stack.getItem() == stackGiven.getItem() && (stack.getItemDamage() == stackGiven.getItemDamage() || stack.getItemDamage() == OreDictionary.WILDCARD_VALUE) && ItemStack.areItemStackTagsEqual(stack, stackGiven) && stack.getCount() <= stackGiven.getCount();
 	}
 	
 	public ItemStack getStack() 
@@ -112,7 +112,7 @@ public class StackRecipeElement extends RecipeElement
 	@Override
 	public int hashCode() 
 	{
-		return Objects.hashCode(stack.getItem(), stack.stackSize, stack.getItemDamage(), stack.getTagCompound());
+		return Objects.hashCode(stack.getItem(), stack.getCount(), stack.getItemDamage(), stack.getTagCompound());
 	}
 	
 	@Override
@@ -124,6 +124,6 @@ public class StackRecipeElement extends RecipeElement
 	@Override
 	public String toFriendlyString()
 	{
-	    return stack.getDisplayName() + " x " + stack.stackSize;
+	    return stack.getDisplayName() + " x " + stack.getCount();
 	}
 }

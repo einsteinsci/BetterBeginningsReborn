@@ -26,7 +26,7 @@ public class OreRecipeElement extends RecipeElement
 		for(ItemStack stack : OreDictionary.getOres(dictionaryEntry, false)) 
 		{
 		    	ItemStack newStack = stack.copy();
-		    	newStack.stackSize = size;
+		    	newStack.setCount(size);
 			cachedValidItems.add(newStack);
 		}
 		oreDictionaryEntry = dictionaryEntry;
@@ -57,7 +57,7 @@ public class OreRecipeElement extends RecipeElement
 	@Override
 	public boolean matchesCheckSize(ItemStack stackGiven) 
 	{
-		if(stackSize > stackGiven.stackSize) return false;
+		if(stackSize > stackGiven.getCount()) return false;
 		return matches(stackGiven);
 	}
 	
