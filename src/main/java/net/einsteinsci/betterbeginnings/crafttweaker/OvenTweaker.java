@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.crafttweaker;
+/*package net.einsteinsci.betterbeginnings.crafttweaker;
 
 import java.util.Iterator;
 import java.util.List;
@@ -290,4 +290,4 @@ public class OvenTweaker
 	    return output.toString();
 	}
     }
-}
+}*/

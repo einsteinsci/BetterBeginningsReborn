@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.crafttweaker;
+/*package net.einsteinsci.betterbeginnings.crafttweaker;
 
 import java.util.Collections;
 import java.util.List;
@@ -103,4 +103,4 @@ public class FuelTweaker
 	@Override
 	public Object getOverrideKey() {return null;}
     }
-}
+}*/

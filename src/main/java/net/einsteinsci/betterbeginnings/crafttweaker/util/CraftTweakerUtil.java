@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.crafttweaker.util;
+/*package net.einsteinsci.betterbeginnings.crafttweaker.util;
 
 import java.lang.reflect.Field;
 
@@ -161,4 +161,4 @@ public class CraftTweakerUtil
 	}
 	return ret;
     }
-}
+}*/

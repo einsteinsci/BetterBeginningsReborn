@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.crafttweaker;
+/*package net.einsteinsci.betterbeginnings.crafttweaker;
 
 import java.util.*;
 
@@ -162,4 +162,4 @@ public class KilnTweaker
 	    return targetOutput.toString();
 	}
     }
-}
+}*/

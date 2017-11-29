@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.crafttweaker;
+/*package net.einsteinsci.betterbeginnings.crafttweaker;
 
 import minetweaker.MineTweakerAPI;
 import minetweaker.MineTweakerImplementationAPI;
@@ -26,4 +26,4 @@ public class CraftTweakerCompat
 		//MineTweakerAPI.registerClass(InfusionRepairTweaker.class);
 		//MineTweakerAPI.registerClass(RockHammerTweaker.class);
 	}
-}
+}*/

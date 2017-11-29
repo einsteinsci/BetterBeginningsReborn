@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.crafttweaker.util;
+/*package net.einsteinsci.betterbeginnings.crafttweaker.util;
 
 import minetweaker.IUndoableAction;
 
@@ -24,4 +24,4 @@ public abstract class BaseAction implements IUndoableAction
     {
 	return null;
     }
-}
+}*/

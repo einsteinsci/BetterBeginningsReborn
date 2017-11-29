@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.crafttweaker.util;
+/*package net.einsteinsci.betterbeginnings.crafttweaker.util;
 
 public abstract class RemoveOutputAction extends BaseAction
 {
@@ -18,4 +18,4 @@ public abstract class RemoveOutputAction extends BaseAction
     {
 	return "Readding output " + recipeToString() + " to " + crafterName;
     }
-}
+}*/

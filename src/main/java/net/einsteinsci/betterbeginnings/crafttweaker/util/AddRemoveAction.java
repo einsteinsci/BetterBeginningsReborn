@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.crafttweaker.util;
+/*package net.einsteinsci.betterbeginnings.crafttweaker.util;
 
 public abstract class AddRemoveAction extends BaseAction
 {
@@ -43,4 +43,4 @@ public abstract class AddRemoveAction extends BaseAction
 	ADD,
 	REMOVE;
     }
-}
+}*/

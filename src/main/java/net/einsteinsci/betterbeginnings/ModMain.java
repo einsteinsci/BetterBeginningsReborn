@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Level;
 import net.einsteinsci.betterbeginnings.commands.JsonGenerateCommand;
 import net.einsteinsci.betterbeginnings.config.BBConfig;
 import net.einsteinsci.betterbeginnings.config.BBConfigFolderLoader;
-import net.einsteinsci.betterbeginnings.crafttweaker.CraftTweakerCompat;
+//import net.einsteinsci.betterbeginnings.crafttweaker.CraftTweakerCompat;
 import net.einsteinsci.betterbeginnings.event.BBEventHandler;
 import net.einsteinsci.betterbeginnings.network.*;
 import net.einsteinsci.betterbeginnings.register.*;
@@ -140,7 +140,7 @@ public class ModMain
         RegisterItems.tweakVanilla();
         // TODO: replace achievement registry with advancements
         //AchievementPage.registerAchievementPage(new AchievementPage(NAME, RegisterAchievements.getAchievements()));
-        if(Loader.isModLoaded("MineTweaker3")) CraftTweakerCompat.register();
+        //if(Loader.isModLoaded("MineTweaker3")) CraftTweakerCompat.register();
         LogUtil.logDebug("Finished post-initialization.");
     }
 
