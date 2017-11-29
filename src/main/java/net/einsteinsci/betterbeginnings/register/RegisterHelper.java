@@ -6,8 +6,9 @@ import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.config.json.SmelterConfig;
 import net.einsteinsci.betterbeginnings.register.recipe.SmelterRecipeHandler;
 import net.minecraft.block.Block;
-import net.minecraft.item.*;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class RegisterHelper
@@ -25,7 +26,7 @@ public class RegisterHelper
         }
         item.setRegistryName(name);
         item.setUnlocalizedName(ModMain.MODID + "." + name);
-        GameRegistry.register(item); // TODO: Replace with Forge registry constants.
+        // TODO: Forge registry events.
         RegisterItems.allItems.add(item);
     }
 
@@ -56,7 +57,6 @@ public class RegisterHelper
         
         block.setRegistryName(name);
         block.setUnlocalizedName(ModMain.MODID + "." + name);
-        GameRegistry.register(block); // TODO: Replace with Forge registry constants.
         RegisterBlocks.allBlocks.add(block);
     }
 

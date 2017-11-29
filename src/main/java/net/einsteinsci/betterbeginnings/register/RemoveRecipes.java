@@ -1,5 +1,13 @@
 package net.einsteinsci.betterbeginnings.register;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.logging.log4j.Level;
+
 import net.einsteinsci.betterbeginnings.config.BBConfig;
 import net.einsteinsci.betterbeginnings.util.LogUtil;
 import net.einsteinsci.betterbeginnings.util.Util;
@@ -7,10 +15,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.*;
-import org.apache.logging.log4j.Level;
-
-import java.util.*;
+import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistryModifiable;
 
 public class RemoveRecipes
 {
@@ -159,26 +168,24 @@ public class RemoveRecipes
 			removedRecipes.add(Items.RABBIT_STEW);
 		}
 
-		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
-		Iterator<IRecipe> iterator = recipes.iterator();
-
-		while (iterator.hasNext())
+		for(Entry<ResourceLocation, IRecipe> entry : ForgeRegistries.RECIPES.getEntries())
 		{
-			IRecipe recipe = iterator.next();
+			IRecipe recipe = entry.getValue();
 			ItemStack result = recipe.getRecipeOutput();
 
 			if (result != null)
 			{
 				Item item = result.getItem();
-				if (item == Item.getItemFromBlock(Blocks.CRAFTING_TABLE) &&
+				//TODO Figure out how to do this in 1.12
+				/*if (item == Item.getItemFromBlock(Blocks.CRAFTING_TABLE) &&
 					recipe.getRecipeSize() != 4)
 				{
 					continue;
-				}
+				}*/
 
 				if (item != null && removedRecipes.contains(item))
 				{
-					iterator.remove();
+					removeRecipe(entry.getKey());
 					continue;
 				}
 
@@ -196,10 +203,15 @@ public class RemoveRecipes
 
 				if (removeMe)
 				{
-					iterator.remove();
+					removeRecipe(entry.getKey());
 				}
 			}
 		}
+	}
+	
+	private static void removeRecipe(ResourceLocation identifier)
+	{
+		((IForgeRegistryModifiable<IRecipe>) ForgeRegistries.RECIPES).remove(identifier);
 	}
 
 	public static void removeFurnaceRecipes()

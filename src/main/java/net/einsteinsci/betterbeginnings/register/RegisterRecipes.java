@@ -1,19 +1,25 @@
 package net.einsteinsci.betterbeginnings.register;
 
 import net.einsteinsci.betterbeginnings.config.BBConfig;
-import net.einsteinsci.betterbeginnings.config.json.*;
+import net.einsteinsci.betterbeginnings.config.json.AdvancedCraftingConfig;
+import net.einsteinsci.betterbeginnings.config.json.BrickOvenConfig;
+import net.einsteinsci.betterbeginnings.config.json.CampfireConfig;
+import net.einsteinsci.betterbeginnings.config.json.KilnConfig;
+import net.einsteinsci.betterbeginnings.config.json.SmelterConfig;
 import net.einsteinsci.betterbeginnings.items.ItemCharredMeat;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.*;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class RegisterRecipes
 {
     public static void addShapelessRecipes()
     {
-	// Sticks from Saplings & Knife
+    	//TODO Reimplement as .json recipes
+	/*// Sticks from Saplings & Knife
 	GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.STICK), "treeSapling", "itemKnife"));
 
 	// Bone Shard
@@ -66,7 +72,7 @@ public class RegisterRecipes
 	GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(RegisterItems.sugarCaneStrips, 2),
 		Items.REEDS, "itemKnife"));
 
-	if(BBConfig.moduleFurnaces) GameRegistry.addShapelessRecipe(new ItemStack(Items.FURNACE_MINECART), Items.MINECART, RegisterBlocks.kiln);
+	if(BBConfig.moduleFurnaces) GameRegistry.addShapelessRecipe(new ItemStack(Items.FURNACE_MINECART), Items.MINECART, RegisterBlocks.kiln);*/
     }
 
     public static void addFurnaceRecipes()
@@ -1250,7 +1256,8 @@ public class RegisterRecipes
 
     public static void addShapedRecipes()
     {
-	// Rotisserie
+    	//TODO Reimplement as .json recipes
+	/*// Rotisserie
 	GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(RegisterItems.rotisserie), "/s", "s/",
 		'/', RegisterItems.roastingStick, 's', "itemStringTough"));
 	GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(RegisterItems.rotisserie), "s/", "/s",
@@ -1430,6 +1437,6 @@ public class RegisterRecipes
 			    'E', Items.ENDER_EYE,
 			    'P', Items.ENDER_PEARL));
 	    }
-	}
+	}*/
     }
 }
