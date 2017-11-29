@@ -63,7 +63,7 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 	{
 		super.addListener(listener);
 		
-		listener.sendProgressBarUpdate(this, FUEL_LEVEL_ID, tileEntity.currentItemBurnLength);
+		listener.sendWindowProperty(this, FUEL_LEVEL_ID, tileEntity.currentItemBurnLength);
 	}
 	
 	@Override
@@ -75,7 +75,7 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 		{	
 			if (lastFuelLevel != tileEntityNetherBrickOven.getFuelLevel())
 			{
-				listener.sendProgressBarUpdate(this, FUEL_LEVEL_ID, tileEntityNetherBrickOven.getFuelLevel());
+				listener.sendWindowProperty(this, FUEL_LEVEL_ID, tileEntityNetherBrickOven.getFuelLevel());
 			}
 		}
 		
@@ -165,7 +165,7 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 				return null;
 			}
 
-			if (itemstack1.stackSize == 0)
+			if (itemstack1.getCount() == 0)
 			{
 				slot.putStack(null);
 			}
@@ -174,12 +174,12 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 				slot.onSlotChanged();
 			}
 
-			if (itemstack1.stackSize == itemstack.stackSize)
+			if (itemstack1.getCount() == itemstack.getCount())
 			{
 				return null;
 			}
 
-			slot.onPickupFromSlot(player, itemstack1);
+			slot.onTake(player, itemstack1);
 		}
 
 		return itemstack;

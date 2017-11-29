@@ -61,10 +61,10 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 	{
 		super.addListener(listener);
 
-		listener.sendProgressBarUpdate(this, 0, tileEntity.cookTime);
-		listener.sendProgressBarUpdate(this, 1, tileEntity.burnTime);
-		listener.sendProgressBarUpdate(this, 2, tileEntity.currentItemBurnTime);
-		listener.sendProgressBarUpdate(this, 3, tileEntity.decayTime);
+		listener.sendWindowProperty(this, 0, tileEntity.cookTime);
+		listener.sendWindowProperty(this, 1, tileEntity.burnTime);
+		listener.sendWindowProperty(this, 2, tileEntity.currentItemBurnTime);
+		listener.sendWindowProperty(this, 3, tileEntity.decayTime);
 	}
 
 	@Override
@@ -76,19 +76,19 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 		{
 			if (lastCookTime != tileEntity.cookTime)
 			{
-				listener.sendProgressBarUpdate(this, 0, tileEntity.cookTime);
+				listener.sendWindowProperty(this, 0, tileEntity.cookTime);
 			}
 			if (lastBurnTime != tileEntity.burnTime)
 			{
-				listener.sendProgressBarUpdate(this, 1, tileEntity.burnTime);
+				listener.sendWindowProperty(this, 1, tileEntity.burnTime);
 			}
 			if (lastItemBurnTime != tileEntity.currentItemBurnTime)
 			{
-				listener.sendProgressBarUpdate(this, 2, tileEntity.currentItemBurnTime);
+				listener.sendWindowProperty(this, 2, tileEntity.currentItemBurnTime);
 			}
 			if (lastDecayTime != tileEntity.decayTime)
 			{
-				listener.sendProgressBarUpdate(this, 3, tileEntity.decayTime);
+				listener.sendWindowProperty(this, 3, tileEntity.decayTime);
 			}
 		}
 
@@ -158,7 +158,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 				return null;
 			}
 
-			if (itemstack.stackSize == 0)
+			if (itemstack.getCount() == 0)
 			{
 				slot.putStack(null);
 			}
@@ -166,11 +166,11 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 			{
 				slot.onSlotChanged();
 			}
-			if (itemstack.stackSize == itemstackCopy.stackSize)
+			if (itemstack.getCount() == itemstackCopy.getCount())
 			{
 				return null;
 			}
-			slot.onPickupFromSlot(player, itemstack);
+			slot.onTake(player, itemstack);
 		}
 		return itemstackCopy;
 	}

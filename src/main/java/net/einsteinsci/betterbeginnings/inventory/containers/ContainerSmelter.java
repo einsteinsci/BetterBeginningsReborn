@@ -100,7 +100,7 @@ public class ContainerSmelter extends ContainerSpecializedFurnace<TileEntitySmel
 			{
 				return null;
 			}
-			if (movedStack.stackSize == 0)
+			if (movedStack.getCount() == 0)
 			{
 				slot.putStack(null);
 			}
@@ -108,11 +108,11 @@ public class ContainerSmelter extends ContainerSpecializedFurnace<TileEntitySmel
 			{
 				slot.onSlotChanged();
 			}
-			if (movedStack.stackSize == movedStackDupe.stackSize)
+			if (movedStack.getCount() == movedStackDupe.getCount())
 			{
 				return null;
 			}
-			slot.onPickupFromSlot(player, movedStack);
+			slot.onTake(player, movedStack);
 		}
 		return movedStackDupe;
 	}

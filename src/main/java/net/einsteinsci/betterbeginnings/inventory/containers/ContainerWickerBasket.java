@@ -62,7 +62,7 @@ public class ContainerWickerBasket extends ContainerInvTileEntity<TileEntityWick
 		return null;
 	    }
 
-	    if (containedStack.stackSize == 0)
+	    if (containedStack.getCount() == 0)
 	    {
 		slot.putStack((ItemStack)null);
 	    }

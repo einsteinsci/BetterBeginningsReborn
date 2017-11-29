@@ -21,9 +21,9 @@ public abstract class ContainerSpecializedFurnace<T extends TileEntitySpecialize
 	{
 		super.addListener(listener);
 
-		listener.sendProgressBarUpdate(this, 0, tileEntity.cookTime);
-		listener.sendProgressBarUpdate(this, 1, tileEntity.burnTime);
-		listener.sendProgressBarUpdate(this, 2, tileEntity.currentItemBurnLength);
+		listener.sendWindowProperty(this, 0, tileEntity.cookTime);
+		listener.sendWindowProperty(this, 1, tileEntity.burnTime);
+		listener.sendWindowProperty(this, 2, tileEntity.currentItemBurnLength);
 	}
 
 	@Override
@@ -35,15 +35,15 @@ public abstract class ContainerSpecializedFurnace<T extends TileEntitySpecialize
 		{
 			if (lastCookTime != tileEntity.cookTime)
 			{
-				listener.sendProgressBarUpdate(this, 0, tileEntity.cookTime);
+				listener.sendWindowProperty(this, 0, tileEntity.cookTime);
 			}
 			if (lastBurnTime != tileEntity.burnTime)
 			{
-				listener.sendProgressBarUpdate(this, 1, tileEntity.burnTime);
+				listener.sendWindowProperty(this, 1, tileEntity.burnTime);
 			}
 			if (lastItemBurnTime != tileEntity.currentItemBurnLength)
 			{
-				listener.sendProgressBarUpdate(this, 2, tileEntity.currentItemBurnLength);
+				listener.sendWindowProperty(this, 2, tileEntity.currentItemBurnLength);
 			}
 		}
 

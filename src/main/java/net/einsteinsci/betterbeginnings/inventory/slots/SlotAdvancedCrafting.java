@@ -3,12 +3,12 @@ package net.einsteinsci.betterbeginnings.inventory.slots;
 import net.einsteinsci.betterbeginnings.inventory.containers.ContainerDoubleWorkbench;
 import net.einsteinsci.betterbeginnings.register.recipe.AdvancedRecipe;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.stats.AchievementList;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
@@ -66,8 +66,9 @@ public class SlotAdvancedCrafting extends Slot
     {
 	stack.onCrafting(thePlayer.world, thePlayer, amountCrafted);
 	amountCrafted = 0;
-
-	if (stack.getItem() == Item.getItemFromBlock(Blocks.CRAFTING_TABLE))
+	
+	//TODO Reimplement as advancements
+	/*if (stack.getItem() == Item.getItemFromBlock(Blocks.CRAFTING_TABLE))
 	{
 	    thePlayer.addStat(AchievementList.BUILD_WORK_BENCH, 1);
 	}
@@ -117,12 +118,12 @@ public class SlotAdvancedCrafting extends Slot
 	if (stack.getItem() == Item.getItemFromBlock(Blocks.BOOKSHELF))
 	{
 	    thePlayer.addStat(AchievementList.BOOKCASE, 1);
-	}
+	}*/
     }
 
     // onCraftingEvent?
     @Override
-    public void onPickupFromSlot(EntityPlayer player, ItemStack resultStack)
+    public ItemStack onTake(EntityPlayer player, ItemStack resultStack)
     {
 	FMLCommonHandler.instance().firePlayerCraftingEvent(player, resultStack, craftMatrix);
 	onCrafting(resultStack);
@@ -195,11 +196,11 @@ public class SlotAdvancedCrafting extends Slot
 	else
 	{
 	    //From SlotCrafting
-	    ItemStack[] remainingItems = CraftingManager.getInstance().getRemainingItems(craftMatrix, thePlayer.world);
-	    for(int s = 0; s < remainingItems.length; s++)
+	    NonNullList<ItemStack> remainingItems = CraftingManager.getRemainingItems(craftMatrix, thePlayer.world);
+	    for(int s = 0; s < remainingItems.size(); s++)
 	    {
 		ItemStack currentStack = craftMatrix.getStackInSlot(s);
-		ItemStack remnantStack = remainingItems[s];
+		ItemStack remnantStack = remainingItems.get(s);
 
 		if (currentStack != null)
 		{
@@ -215,7 +216,7 @@ public class SlotAdvancedCrafting extends Slot
 		    }
 		    else if (ItemStack.areItemsEqual(currentStack, remnantStack) && ItemStack.areItemStackTagsEqual(currentStack, remnantStack))
 		    {
-			remnantStack.stackSize += currentStack.stackSize;
+			remnantStack.grow(currentStack.getCount());
 			this.craftMatrix.setInventorySlotContents(s, remnantStack);
 		    }
 		    else if (!this.thePlayer.inventory.addItemStackToInventory(remnantStack))
@@ -225,6 +226,7 @@ public class SlotAdvancedCrafting extends Slot
 		}
 	    }
 	}
+	return resultStack;
     }
 
     /**
@@ -247,7 +249,7 @@ public class SlotAdvancedCrafting extends Slot
     {
 	if (getHasStack())
 	{
-	    amountCrafted += Math.min(amount, getStack().stackSize);
+	    amountCrafted += Math.min(amount, getStack().getCount());
 	}
 
 	return super.decrStackSize(amount);

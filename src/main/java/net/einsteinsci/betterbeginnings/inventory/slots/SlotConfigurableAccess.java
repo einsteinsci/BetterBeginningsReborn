@@ -48,7 +48,7 @@ public class SlotConfigurableAccess extends SlotItemHandler
 		if (getStack() != null)//STACKNULL
 		{
 			ItemStack stack;
-			if (getStack().stackSize <= amount)
+			if (getStack().getCount() <= amount)
 			{
 				stack = getStack();
 				((IItemHandlerModifiable)this.getItemHandler()).setStackInSlot(this.getSlotIndex(), null);//STACKNULL
@@ -58,7 +58,7 @@ public class SlotConfigurableAccess extends SlotItemHandler
 			{
 				stack = getStack().splitStack(amount);
 
-				if (getStack().stackSize == 0)
+				if (getStack().getCount() == 0)
 				{
 					((IItemHandlerModifiable)this.getItemHandler()).setStackInSlot(this.getSlotIndex(), null);//STACKNULL
 				}
@@ -79,7 +79,7 @@ public class SlotConfigurableAccess extends SlotItemHandler
 		int maxAdd = stack.getMaxStackSize();
 		if(currentStack == null ) return 64;
 		if(!ItemHandlerHelper.canItemStacksStack(stack, currentStack))  return 64;
-		int stackSize = currentStack.stackSize + stack.stackSize;
+		int stackSize = currentStack.getCount() + stack.getCount();
 		if(stackSize > maxAdd) stackSize = maxAdd;
 		return stackSize;
 	}
