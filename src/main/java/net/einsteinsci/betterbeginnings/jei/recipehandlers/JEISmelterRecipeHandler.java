@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.recipehandlers;
+/*package net.einsteinsci.betterbeginnings.jei.recipehandlers;
 
 import mezz.jei.api.recipe.IRecipeHandler;
 import mezz.jei.api.recipe.IRecipeWrapper;
@@ -37,4 +37,4 @@ public class JEISmelterRecipeHandler implements IRecipeHandler<SmelterRecipe>
 	{
 		return true;
 	}
-}
+}*/

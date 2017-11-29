@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.categories;
+/*package net.einsteinsci.betterbeginnings.jei.categories;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.*;
@@ -87,4 +87,4 @@ public class OvenRecipeCategory extends BlankRecipeCategory<IOvenRecipeWrapper>
 		flame.draw(minecraft, 70, 32);
 		arrow.draw(minecraft, 67, 11);
 	}
-}
+}*/

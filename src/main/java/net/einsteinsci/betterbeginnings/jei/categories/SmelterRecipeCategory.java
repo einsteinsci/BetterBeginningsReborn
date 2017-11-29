@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.categories;
+/*package net.einsteinsci.betterbeginnings.jei.categories;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.*;
@@ -66,4 +66,4 @@ public class SmelterRecipeCategory extends BlankRecipeCategory<SmelterRecipeWrap
 		flame.draw(minecraft, 18, 27);
 		arrow.draw(minecraft, 41, 25);
 	}
-}
+}*/

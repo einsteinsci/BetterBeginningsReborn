@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.wrappers;
+/*package net.einsteinsci.betterbeginnings.jei.wrappers;
 
 import java.awt.Color;
 import java.util.List;
@@ -50,4 +50,4 @@ public class SmelterRecipeWrapper extends BlankRecipeWrapper
 		mc.fontRendererObj.drawSplitString(I18n.format("smelter.jeiBonusText", recipe.getOutput().stackSize),
 				75, 48, 48, Color.gray.getRGB());
 	}
-}
+}*/

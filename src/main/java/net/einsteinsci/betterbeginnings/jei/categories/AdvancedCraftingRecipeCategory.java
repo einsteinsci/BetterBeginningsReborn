@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.categories;
+/*package net.einsteinsci.betterbeginnings.jei.categories;
 
 import java.util.List;
 
@@ -81,4 +81,4 @@ public class AdvancedCraftingRecipeCategory extends BlankRecipeCategory<Advanced
 	public void drawAnimations(Minecraft minecraft) 
 	{
 	}
-}
+}*/

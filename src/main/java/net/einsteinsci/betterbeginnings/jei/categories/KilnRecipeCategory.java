@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.categories;
+/*package net.einsteinsci.betterbeginnings.jei.categories;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.*;
@@ -65,4 +65,4 @@ public class KilnRecipeCategory extends BlankRecipeCategory<JEIKilnRecipeWrapper
 		flame.draw(minecraft, 2, 20);
 		arrow.draw(minecraft, 24, 18);
 	}
-}
+}*/

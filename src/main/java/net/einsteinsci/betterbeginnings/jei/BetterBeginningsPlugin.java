@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei;
+/*package net.einsteinsci.betterbeginnings.jei;
 
 
 
@@ -126,4 +126,4 @@ public class BetterBeginningsPlugin extends BlankModPlugin
 	{
 		return ModMain.MODID + "." + name + ".jeiDescription";
 	}
-}
+}*/

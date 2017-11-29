@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.recipehandlers;
+/*package net.einsteinsci.betterbeginnings.jei.recipehandlers;
 
 import mezz.jei.api.recipe.IRecipeHandler;
 import mezz.jei.api.recipe.IRecipeWrapper;
@@ -42,4 +42,4 @@ public class JEIOvenRecipeHandler implements IRecipeHandler<IBrickOvenRecipe>
 	{
 		return true;
 	}
-}
+}*/
