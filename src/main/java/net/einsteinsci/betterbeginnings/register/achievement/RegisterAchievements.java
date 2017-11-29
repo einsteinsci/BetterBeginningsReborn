@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.register.achievement;
+/*package net.einsteinsci.betterbeginnings.register.achievement;
 
 import net.einsteinsci.betterbeginnings.register.RegisterBlocks;
 import net.einsteinsci.betterbeginnings.register.RegisterItems;
@@ -90,4 +90,4 @@ public class RegisterAchievements
 	{
 		player.addStat(RegisterAchievements.get(achievementKey), 1);
 	}
-}
+}*/

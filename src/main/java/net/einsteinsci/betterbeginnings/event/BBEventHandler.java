@@ -14,7 +14,6 @@ import net.einsteinsci.betterbeginnings.items.ItemHammer;
 import net.einsteinsci.betterbeginnings.items.ItemKnife;
 import net.einsteinsci.betterbeginnings.register.RegisterBlocks;
 import net.einsteinsci.betterbeginnings.register.RegisterItems;
-import net.einsteinsci.betterbeginnings.register.achievement.RegisterAchievements;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityCampfire;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntitySmelterBase;
 import net.einsteinsci.betterbeginnings.util.ChatUtil;
@@ -34,7 +33,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFlintAndSteel;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.storage.loot.LootContext.EntityTarget;
 import net.minecraft.world.storage.loot.LootEntryItem;
@@ -323,7 +321,8 @@ public class BBEventHandler
     {
 	if (e.smelting.getItem() == Items.GOLDEN_APPLE && e.smelting.getItemDamage() == 1)
 	{
-	    RegisterAchievements.achievementGet(e.player, "notchApple");
+		//TODO Advancement 
+        //RegisterAchievements.achievementGet(e.player, "notchApple");
 	}
     }
 
@@ -355,7 +354,8 @@ public class BBEventHandler
 	    }
 	}
 
-	if (e.crafting.getItem() == RegisterItems.flintKnife)
+	//TODO Advancements
+    /*if (e.crafting.getItem() == RegisterItems.flintKnife)
 	{
 	    RegisterAchievements.achievementGet(e.player, "flintKnife");
 	}
@@ -435,12 +435,10 @@ public class BBEventHandler
 	{
 	    RegisterAchievements.achievementGet(e.player, "makeBrickOven");
 	}
-
-	//TODO Reimplement as advancement
-	/*if (e.crafting.getItem() == Item.getItemFromBlock(RegisterBlocks.doubleWorkbench))
+	if (e.crafting.getItem() == Item.getItemFromBlock(RegisterBlocks.doubleWorkbench))
 	{
 	    e.player.addStat(AchievementList.BUILD_WORK_BENCH, 1);
-	}*/
+	}
 
 	if (e.crafting.getItem() == Items.CAKE)
 	{
@@ -450,7 +448,7 @@ public class BBEventHandler
 	if (e.crafting.getItem() == Item.getItemFromBlock(RegisterBlocks.netherBrickOven))
 	{
 	    RegisterAchievements.achievementGet(e.player, "netherBrickOven");
-	}
+	}*/
     }
 
     @SubscribeEvent

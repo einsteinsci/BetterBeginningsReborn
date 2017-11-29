@@ -4,7 +4,6 @@ import java.util.List;
 
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.register.IBBName;
-import net.einsteinsci.betterbeginnings.register.achievement.RegisterAchievements;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -105,7 +104,8 @@ public class ItemCharredMeat extends ItemFood implements IBBName
     {
         super.onFoodEaten(stack, world, player);
 
-        RegisterAchievements.achievementGet(player, "charredMeat");
+        //TODO Advancement 
+        //RegisterAchievements.achievementGet(player, "charredMeat");
     }
 
     @Override
