@@ -10,11 +10,6 @@ public class ItemHandlerBase extends ItemStackHandler
 		super(slots);
 	}
 	
-	public ItemHandlerBase(ItemStack[] stacksIn) 
-	{
-		super(stacksIn);
-	}
-	
 	@Override
 	public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) 
 	{

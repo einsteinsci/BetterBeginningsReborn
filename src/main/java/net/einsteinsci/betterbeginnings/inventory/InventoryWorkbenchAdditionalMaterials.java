@@ -45,7 +45,7 @@ public class InventoryWorkbenchAdditionalMaterials implements IInventory
 		{
 			ItemStack itemstack;
 
-			if (stackList[slot].stackSize <= amount)
+			if (stackList[slot].getCount() <= amount)
 			{
 				itemstack = stackList[slot];
 				stackList[slot] = null;
@@ -56,7 +56,7 @@ public class InventoryWorkbenchAdditionalMaterials implements IInventory
 			{
 				itemstack = stackList[slot].splitStack(amount);
 
-				if (stackList[slot].stackSize == 0)
+				if (stackList[slot].getCount() == 0)
 				{
 					stackList[slot] = null;
 				}
@@ -91,6 +91,16 @@ public class InventoryWorkbenchAdditionalMaterials implements IInventory
 	{
 		stackList[slot] = stack;
 		container.onCraftMatrixChanged(this);
+	}
+	
+	@Override
+	public boolean isEmpty() 
+	{
+		for(ItemStack stack : stackList)
+		{
+			if(!stack.isEmpty()) return false;
+		}
+		return true;
 	}
 
 	@Override
