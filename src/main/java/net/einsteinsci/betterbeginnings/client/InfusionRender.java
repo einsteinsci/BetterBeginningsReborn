@@ -28,8 +28,8 @@ public class InfusionRender extends TileEntitySpecialRenderer<TileEntityInfusion
     , new Vec2f(1.75F, 5.75F), new Vec2f(-1.75F, 5.75F), new Vec2f(-5.75F, 1.75F), new Vec2f(-5.75F, -1.75F)};
 
     @Override
-    public void renderTileEntityAt(TileEntityInfusionRepair te, double x, double y, double z, float partialTicks,
-	    int destroyStage)
+    public void render(TileEntityInfusionRepair te, double x, double y, double z, float partialTicks,
+	    int destroyStage, float alpha)
     {
 	GlStateManager.pushMatrix();
 	GlStateManager.translate(x + 0.5F, y + 1.2F, z + 0.5F);

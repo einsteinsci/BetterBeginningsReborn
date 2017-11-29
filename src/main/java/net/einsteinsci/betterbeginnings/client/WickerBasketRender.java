@@ -16,8 +16,8 @@ public class WickerBasketRender extends TileEntitySpecialRenderer<TileEntityWick
     private final Random rand = new Random();
     
     @Override
-    public void renderTileEntityAt(TileEntityWickerBasket te, double x, double y, double z, float partialTicks,
-            int destroyStage)
+    public void render(TileEntityWickerBasket te, double x, double y, double z, float partialTicks,
+            int destroyStage, float alpha)
     {
 	rand.setSeed(te.getWorld().getSeed());
 	IItemHandler itemHandler = CapUtils.getItemHandler(te);
