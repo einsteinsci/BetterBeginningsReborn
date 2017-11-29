@@ -35,7 +35,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFlintAndSteel;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.stats.AchievementList;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.storage.loot.LootContext.EntityTarget;
 import net.minecraft.world.storage.loot.LootEntryItem;
@@ -341,9 +340,9 @@ public class BBEventHandler
 		{
 		    if (stack.getItem() instanceof ItemKnife)
 		    {
-			--stack.stackSize;
+			stack.shrink(1);
 
-			if (stack.stackSize <= 0)
+			if (stack.getCount() <= 0)
 			{
 			    e.craftMatrix.setInventorySlotContents(i, null);
 			}
@@ -437,10 +436,11 @@ public class BBEventHandler
 	    RegisterAchievements.achievementGet(e.player, "makeBrickOven");
 	}
 
-	if (e.crafting.getItem() == Item.getItemFromBlock(RegisterBlocks.doubleWorkbench))
+	//TODO Reimplement as advancement
+	/*if (e.crafting.getItem() == Item.getItemFromBlock(RegisterBlocks.doubleWorkbench))
 	{
 	    e.player.addStat(AchievementList.BUILD_WORK_BENCH, 1);
-	}
+	}*/
 
 	if (e.crafting.getItem() == Items.CAKE)
 	{
