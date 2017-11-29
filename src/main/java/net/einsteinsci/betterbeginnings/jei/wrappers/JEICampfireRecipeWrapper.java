@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.wrappers;
+/*package net.einsteinsci.betterbeginnings.jei.wrappers;
 
 import java.util.List;
 
@@ -31,4 +31,4 @@ public class JEICampfireRecipeWrapper extends BlankRecipeWrapper
 		ingredients.setInputLists(ItemStack.class, inputs);
 		ingredients.setOutput(ItemStack.class, output);
 	}
-}
+}*/

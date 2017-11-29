@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.wrappers;
+/*package net.einsteinsci.betterbeginnings.jei.wrappers;
 
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeWrapper;
@@ -22,4 +22,4 @@ public class JEIKilnRecipeWrapper extends BlankRecipeWrapper
 		ingredients.setInputs(ItemStack.class, input.getValidItems());
 		ingredients.setOutput(ItemStack.class, output);
 	}
-}
+}*/

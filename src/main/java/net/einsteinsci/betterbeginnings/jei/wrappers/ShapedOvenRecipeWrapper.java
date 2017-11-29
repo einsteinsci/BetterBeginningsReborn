@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.wrappers;
+/*package net.einsteinsci.betterbeginnings.jei.wrappers;
 
 import java.util.List;
 
@@ -40,4 +40,4 @@ public class ShapedOvenRecipeWrapper extends BlankRecipeWrapper implements IOven
 	{
 		return recipe.recipeHeight;
 	}
-}
+}*/

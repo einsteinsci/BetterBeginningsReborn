@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.wrappers;
+/*package net.einsteinsci.betterbeginnings.jei.wrappers;
 
 import java.util.List;
 
@@ -30,4 +30,4 @@ public class ShapelessOvenRecipeWrapper extends BlankRecipeWrapper implements IO
 		ingredients.setInputLists(ItemStack.class, recipeInputs);
 		ingredients.setOutput(ItemStack.class, recipe.getRecipeOutput());
 	}
-}
+}*/

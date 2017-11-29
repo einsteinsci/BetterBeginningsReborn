@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.wrappers;
+/*package net.einsteinsci.betterbeginnings.jei.wrappers;
 
 import java.util.Collections;
 import java.util.List;
@@ -69,4 +69,4 @@ public class AdvancedRecipeWrapper extends BlankRecipeWrapper
 	{
 		return recipe.recipeHeight;
 	}
-}
+}*/
