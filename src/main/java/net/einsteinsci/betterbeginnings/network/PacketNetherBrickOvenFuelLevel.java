@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
@@ -14,7 +15,7 @@ public class PacketNetherBrickOvenFuelLevel implements IMessage
 {
 	BlockPos pos;
 
-	FluidStack fluid;
+	FluidStack fluidStack;
 
 	public static class PacketHandler extends PacketHandlerBase<PacketNetherBrickOvenFuelLevel, IMessage>
 	{
@@ -23,7 +24,7 @@ public class PacketNetherBrickOvenFuelLevel implements IMessage
 			EntityPlayer player = ModMain.proxy.getPlayerFromMessageContext(ctx);
 
 			TileEntityNetherBrickOven oven = (TileEntityNetherBrickOven)player.world.getTileEntity(message.pos);
-			oven.setFuelLevel(message.fluid);
+			oven.setFuelLevel(message.fluidStack);
 		}
 	}
 
@@ -31,36 +32,34 @@ public class PacketNetherBrickOvenFuelLevel implements IMessage
 	{
 		pos = BlockPos.ORIGIN;
 
-		fluid = null;
+		fluidStack = null;
 	}
 
 	public PacketNetherBrickOvenFuelLevel(BlockPos loc, FluidStack fuel)
 	{
 		pos = loc;
 
-		fluid = fuel;
+		fluidStack = fuel;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void fromBytes(ByteBuf buf)
 	{
 		pos = new BlockPos(buf.readInt(), buf.readInt(), buf.readInt());
 
 		int level = buf.readInt();
-		int fluidId = buf.readInt();
+		String fluidId = ByteBufUtils.readUTF8String(buf);
 
 		if (level != 0)
 		{
-			fluid = new FluidStack(FluidRegistry.getFluid(fluidId), level);
+			fluidStack = new FluidStack(FluidRegistry.getFluid(fluidId), level);
 		}
 		else
 		{
-			fluid = null;
+			fluidStack = null;
 		}
 	}
-
-	@SuppressWarnings("deprecation")
+	
 	@Override
 	public void toBytes(ByteBuf buf)
 	{
@@ -68,10 +67,10 @@ public class PacketNetherBrickOvenFuelLevel implements IMessage
 		buf.writeInt(pos.getY());
 		buf.writeInt(pos.getZ());
 
-		if (fluid != null)
+		if (fluidStack != null)
 		{
-			buf.writeInt(fluid.amount);
-			buf.writeInt(FluidRegistry.getFluidID(fluid.getFluid()));
+			buf.writeInt(fluidStack.amount);
+			ByteBufUtils.writeUTF8String(buf, fluidStack.getFluid().getName());
 		}
 		else
 		{

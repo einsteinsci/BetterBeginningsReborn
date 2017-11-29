@@ -30,7 +30,7 @@ public class ServerProxy
 				LogUtil.log(Level.ERROR, "Message for CLIENT received for dedicated server");
 				return null;
 			case SERVER:
-				return ctx.getServerHandler().playerEntity;
+				return ctx.getServerHandler().player;
 			default:
 				LogUtil.log(Level.ERROR, "Invalid side in PacketHandler: " + ctx.side);
 				return null;

@@ -68,7 +68,7 @@ public class ClientProxy extends ServerProxy
 			}
 			case SERVER:
 			{
-				return ctx.getServerHandler().playerEntity;
+				return ctx.getServerHandler().player;
 			}
 			default:
 				LogUtil.log(Level.ERROR, "Invalid side in TestMsgHandler: " + ctx.side);
