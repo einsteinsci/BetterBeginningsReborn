@@ -137,6 +137,11 @@ public abstract class ItemKnife extends ItemTool implements IBBName
     {
         return true;
     }
+    
+    public float getDamageVsEntity()
+    {
+    	return this.damageVsEntity;
+    }
 
     @Override
     public abstract String getName();

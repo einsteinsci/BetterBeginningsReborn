@@ -6,13 +6,15 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -38,8 +40,8 @@ public class EntityThrownKnife extends EntityThrowable implements IEntityAdditio
 	{
 		super(world, thrower);
 		this.knife = knife;
-		this.knife.stackSize = 1;
-		this.baseDamage = ((ItemTool)knife.getItem()).getToolMaterial().getDamageVsEntity() + ItemKnife.BASE_DAMAGE;
+		this.knife.setCount(1);
+		this.baseDamage = ((ItemKnife) knife.getItem()).getDamageVsEntity();
 	}
 
 	@Override
@@ -68,7 +70,7 @@ public class EntityThrownKnife extends EntityThrowable implements IEntityAdditio
 				EntityLivingBase entityLiving = (EntityLivingBase) mop.entityHit;
 				int dmg = 2;
 				if(this.getThrower() instanceof EntityPlayer && ((EntityPlayer)this.getThrower()).capabilities.isCreativeMode) dmg = 0;
-				if(!world.isRemote && !knife.attemptDamageItem(dmg, rand))
+				if(!world.isRemote && !knife.attemptDamageItem(dmg, rand, (EntityPlayerMP) this.getThrower()))
 				{
 					entityLiving.attackEntityFrom(DamageSource.causeThrownDamage(mop.entityHit, this.getThrower()), baseDamage * force);
 					entityLiving.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, (int) (100 * force), 2, false, false));
@@ -124,7 +126,7 @@ public class EntityThrownKnife extends EntityThrowable implements IEntityAdditio
 	public void readEntityFromNBT(NBTTagCompound tagCompound) 
 	{
 		super.readEntityFromNBT(tagCompound);
-		knife = ItemStack.loadItemStackFromNBT(tagCompound.getCompoundTag(TAG_THROWN_KNIFE));
+		knife = new ItemStack(tagCompound.getCompoundTag(TAG_THROWN_KNIFE));
 	}
 
 	@Override
