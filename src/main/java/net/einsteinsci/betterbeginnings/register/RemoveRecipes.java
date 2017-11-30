@@ -25,6 +25,7 @@ public class RemoveRecipes
 
 	public static void remove()
 	{
+		/*Disabled due to advancements that reference removed recipes spamming the log with errors
 		List<Item> removedRecipes = new ArrayList<>();
 
 		// Be sure to get the correct quantity and damage
@@ -174,11 +175,11 @@ public class RemoveRecipes
 			{
 				Item item = result.getItem();
 				//TODO Figure out how to do this in 1.12
-				/*if (item == Item.getItemFromBlock(Blocks.CRAFTING_TABLE) &&
+				if (item == Item.getItemFromBlock(Blocks.CRAFTING_TABLE) &&
 					recipe.getRecipeSize() != 4)
 				{
 					continue;
-				}*/
+				}
 
 				if (item != null && removedRecipes.contains(item))
 				{
@@ -203,7 +204,7 @@ public class RemoveRecipes
 					removeRecipe(entry.getKey());
 				}
 			}
-		}
+		}*/
 	}
 	
 	private static void removeRecipe(ResourceLocation identifier)
