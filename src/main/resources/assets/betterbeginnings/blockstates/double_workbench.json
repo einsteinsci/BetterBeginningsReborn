@@ -1,25 +1,25 @@
 {
 	"variants": {
 		"connection=up": {
-			"model": "betterbeginnings:doubleWorkbench"
+			"model": "betterbeginnings:double_workbench"
 		},
 		"connection=down": {
-			"model": "betterbeginnings:doubleWorkbench"
+			"model": "betterbeginnings:double_workbench"
 		},
 		"connection=west": {
-			"model": "betterbeginnings:doubleWorkbench_w"
+			"model": "betterbeginnings:double_workbench_w"
 		},
 		"connection=east": {
-			"model": "betterbeginnings:doubleWorkbench_e"
+			"model": "betterbeginnings:double_workbench_e"
 		},
 		"connection=north": {
-			"model": "betterbeginnings:doubleWorkbench_n"
+			"model": "betterbeginnings:double_workbench_n"
 		},
 		"connection=south": {
-			"model": "betterbeginnings:doubleWorkbench_s"
+			"model": "betterbeginnings:double_workbench_s"
 		},
 		"inventory": {
-			"model": "betterbeginnings:doubleWorkbench"
+			"model": "betterbeginnings:double_workbench"
 		}
 	}
 }
