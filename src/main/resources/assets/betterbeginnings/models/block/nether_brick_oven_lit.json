@@ -1,8 +1,8 @@
 {
 	"parent": "block/orientable",
 	"textures": {
-		"top": "betterbeginnings:blocks/netherBrickOvenTop",
-		"front": "betterbeginnings:blocks/netherBrickOvenLit",
-		"side": "betterbeginnings:blocks/netherBrickOvenSide"
+		"top": "betterbeginnings:blocks/nether_brick_oven_top",
+		"front": "betterbeginnings:blocks/nether_brick_oven_lit",
+		"side": "betterbeginnings:blocks/nether_brick_oven_side"
 	}
 }

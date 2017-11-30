@@ -1,22 +1,22 @@
 {
 	"variants": {
 		"facing=north": {
-			"model": "betterbeginnings:redstoneKiln"
+			"model": "betterbeginnings:redstone_kiln"
 		},
 		"facing=south": {
-			"model": "betterbeginnings:redstoneKiln",
+			"model": "betterbeginnings:redstone_kiln",
 			"y": 180
 		},
 		"facing=west": {
-			"model": "betterbeginnings:redstoneKiln",
+			"model": "betterbeginnings:redstone_kiln",
 			"y": 270
 		},
 		"facing=east": {
-			"model": "betterbeginnings:redstoneKiln",
+			"model": "betterbeginnings:redstone_kiln",
 			"y": 90
 		},
 		"inventory": {
-			"model": "betterbeginnings:redstoneKiln"
+			"model": "betterbeginnings:redstone_kiln"
 		}
 	}
 }

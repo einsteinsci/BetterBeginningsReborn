@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "betterbeginnings:items/testItem"
+		"layer0": "betterbeginnings:items/test_item"
 	}
 }

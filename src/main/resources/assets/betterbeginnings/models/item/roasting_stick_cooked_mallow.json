@@ -1,6 +1,6 @@
 {
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "betterbeginnings:items/roastingStickCookedMallow"
+		"layer0": "betterbeginnings:items/roasting_stick_cooked_mallow"
 	}
 }

@@ -1,22 +1,22 @@
 {
 	"variants": {
 		"facing=north": {
-			"model": "betterbeginnings:brickOvenLit"
+			"model": "betterbeginnings:brick_oven_lit"
 		},
 		"facing=south": {
-			"model": "betterbeginnings:brickOvenLit",
+			"model": "betterbeginnings:brick_oven_lit",
 			"y": 180
 		},
 		"facing=west": {
-			"model": "betterbeginnings:brickOvenLit",
+			"model": "betterbeginnings:brick_oven_lit",
 			"y": 270
 		},
 		"facing=east": {
-			"model": "betterbeginnings:brickOvenLit",
+			"model": "betterbeginnings:brick_oven_lit",
 			"y": 90
 		},
 		"inventory": {
-			"model": "betterbeginnings:brickOvenLit"
+			"model": "betterbeginnings:brick_oven_lit"
 		}
 	}
 }

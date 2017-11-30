@@ -1,8 +1,8 @@
 {
 	"parent": "block/orientable",
 	"textures": {
-		"top": "betterbeginnings:blocks/enderSmelterTop",
-		"front": "betterbeginnings:blocks/enderSmelterLit",
-		"side": "betterbeginnings:blocks/enderSmelterSide"
+		"top": "betterbeginnings:blocks/ender_smelter_top",
+		"front": "betterbeginnings:blocks/ender_smelter_lit",
+		"side": "betterbeginnings:blocks/ender_smelter_side"
 	}
 }

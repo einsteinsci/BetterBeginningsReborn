@@ -1,7 +1,7 @@
 {
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "betterbeginnings:items/boneKnife"
+		"layer0": "betterbeginnings:items/bone_knife"
 	},
     "overrides":
     [

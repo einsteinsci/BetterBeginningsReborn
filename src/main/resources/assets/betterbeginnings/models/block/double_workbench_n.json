@@ -1,12 +1,12 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"particle": "betterbeginnings:blocks/workbenchFront",
+		"particle": "betterbeginnings:blocks/workbench_front",
 		"down": "blocks/planks_oak",
-		"up": "betterbeginnings:blocks/workbenchTopIfNorth",
-		"north": "betterbeginnings:blocks/workbenchFront",
-		"east": "betterbeginnings:blocks/workbenchSouthIfEast",
-		"south": "betterbeginnings:blocks/workbenchFront",
-		"west": "betterbeginnings:blocks/workbenchWestIfNorth"
+		"up": "betterbeginnings:blocks/workbench_top_if_north",
+		"north": "betterbeginnings:blocks/workbench_front",
+		"east": "betterbeginnings:blocks/workbench_south_if_east",
+		"south": "betterbeginnings:blocks/workbench_front",
+		"west": "betterbeginnings:blocks/workbench_west_if_north"
 	}
 }

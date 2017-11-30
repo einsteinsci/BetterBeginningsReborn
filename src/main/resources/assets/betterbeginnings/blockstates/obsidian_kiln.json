@@ -1,22 +1,22 @@
 {
 	"variants": {
 		"facing=north": {
-			"model": "betterbeginnings:obsidianKiln"
+			"model": "betterbeginnings:obsidian_kiln"
 		},
 		"facing=south": {
-			"model": "betterbeginnings:obsidianKiln",
+			"model": "betterbeginnings:obsidian_kiln",
 			"y": 180
 		},
 		"facing=west": {
-			"model": "betterbeginnings:obsidianKiln",
+			"model": "betterbeginnings:obsidian_kiln",
 			"y": 270
 		},
 		"facing=east": {
-			"model": "betterbeginnings:obsidianKiln",
+			"model": "betterbeginnings:obsidian_kiln",
 			"y": 90
 		},
 		"inventory": {
-			"model": "betterbeginnings:obsidianKiln"
+			"model": "betterbeginnings:obsidian_kiln"
 		}
 	}
 }

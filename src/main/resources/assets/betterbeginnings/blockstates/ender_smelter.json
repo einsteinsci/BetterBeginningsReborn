@@ -1,22 +1,22 @@
 {
 	"variants": {
 		"facing=north": {
-			"model": "betterbeginnings:enderSmelter"
+			"model": "betterbeginnings:ender_smelter"
 		},
 		"facing=south": {
-			"model": "betterbeginnings:enderSmelter",
+			"model": "betterbeginnings:ender_smelter",
 			"y": 180
 		},
 		"facing=west": {
-			"model": "betterbeginnings:enderSmelter",
+			"model": "betterbeginnings:ender_smelter",
 			"y": 270
 		},
 		"facing=east": {
-			"model": "betterbeginnings:enderSmelter",
+			"model": "betterbeginnings:ender_smelter",
 			"y": 90
 		},
 		"inventory": {
-			"model": "betterbeginnings:enderSmelter"
+			"model": "betterbeginnings:ender_smelter"
 		}
 	}
 }

@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "betterbeginnings:items/infusionScroll"
+		"layer0": "betterbeginnings:items/infusion_scroll"
 	}
 }

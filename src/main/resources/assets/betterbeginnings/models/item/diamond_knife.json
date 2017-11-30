@@ -1,7 +1,7 @@
 {
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "betterbeginnings:items/diamondKnife"
+		"layer0": "betterbeginnings:items/diamond_knife"
 	},
     "overrides":
     [

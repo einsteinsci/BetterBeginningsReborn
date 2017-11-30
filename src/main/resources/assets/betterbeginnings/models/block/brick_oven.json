@@ -1,8 +1,8 @@
 {
 	"parent": "block/orientable",
 	"textures": {
-		"top": "betterbeginnings:blocks/brickOvenTop",
-		"front": "betterbeginnings:blocks/brickOvenUnlit",
-		"side": "betterbeginnings:blocks/brickOvenSide"
+		"top": "betterbeginnings:blocks/brick_oven_top",
+		"front": "betterbeginnings:blocks/brick_oven_unlit",
+		"side": "betterbeginnings:blocks/brick_oven_side"
 	}
 }

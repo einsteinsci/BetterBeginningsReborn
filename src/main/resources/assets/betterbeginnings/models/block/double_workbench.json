@@ -3,10 +3,10 @@
 	"textures": {
 		"particle": "blocks/planks_oak",
 		"down": "blocks/planks_oak",
-		"up": "betterbeginnings:blocks/workbenchTop",
-		"north": "betterbeginnings:blocks/workbenchFront",
-		"east": "betterbeginnings:blocks/workbenchSide",
-		"south": "betterbeginnings:blocks/workbenchFront",
-		"west": "betterbeginnings:blocks/workbenchSide"
+		"up": "betterbeginnings:blocks/workbench_top",
+		"north": "betterbeginnings:blocks/workbench_front",
+		"east": "betterbeginnings:blocks/workbench_side",
+		"south": "betterbeginnings:blocks/workbench_front",
+		"west": "betterbeginnings:blocks/workbench_side"
 	}
 }

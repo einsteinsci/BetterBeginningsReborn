@@ -1,8 +1,8 @@
 {
 	"parent": "block/orientable",
 	"textures": {
-		"top": "betterbeginnings:blocks/obsidianKilnTop",
-		"front": "betterbeginnings:blocks/obsidianKilnLit",
-		"side": "betterbeginnings:blocks/obsidianKilnSide"
+		"top": "betterbeginnings:blocks/obsidian_kiln_top",
+		"front": "betterbeginnings:blocks/obsidian_kiln_lit",
+		"side": "betterbeginnings:blocks/obsidian_kiln_side"
 	}
 }

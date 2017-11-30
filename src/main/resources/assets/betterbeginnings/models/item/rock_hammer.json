@@ -1,7 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "betterbeginnings:items/rockHammer"
+		"layer0": "betterbeginnings:items/rock_hammer"
 	},
 	"display": {
         "thirdperson_righthand": {

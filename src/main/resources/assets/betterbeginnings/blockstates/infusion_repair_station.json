@@ -1,10 +1,10 @@
 {
 	"variants": {
 		"normal": {
-			"model": "betterbeginnings:infusionRepairStation"
+			"model": "betterbeginnings:infusion_repair_station"
 		},
 		"inventory": {
-			"model": "betterbeginnings:infusionRepairStation"
+			"model": "betterbeginnings:infusion_repair_station"
 		}
 	}
 }

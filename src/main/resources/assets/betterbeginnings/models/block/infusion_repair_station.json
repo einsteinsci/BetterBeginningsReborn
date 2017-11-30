@@ -1,12 +1,12 @@
 {
 	"parent": "block/cube",
 	"textures": {
-		"particle": "betterbeginnings:blocks/RepairTableTop",
-		"down": "betterbeginnings:blocks/RepairTableBottom",
-		"up": "betterbeginnings:blocks/RepairTableTop",
-		"north": "betterbeginnings:blocks/RepairTableSide",
-		"south": "betterbeginnings:blocks/RepairTableSide",
-		"east": "betterbeginnings:blocks/RepairTableSide",
-		"west": "betterbeginnings:blocks/RepairTableSide"
+		"particle": "betterbeginnings:blocks/repair_table_top",
+		"down": "betterbeginnings:blocks/repair_table_bottom",
+		"up": "betterbeginnings:blocks/repair_table_top",
+		"north": "betterbeginnings:blocks/repair_table_side",
+		"south": "betterbeginnings:blocks/repair_table_side",
+		"east": "betterbeginnings:blocks/repair_table_side",
+		"west": "betterbeginnings:blocks/repair_table_side"
 	}
 }
