@@ -5,21 +5,33 @@ import net.einsteinsci.betterbeginnings.entity.EntityMinecartKiln;
 import net.einsteinsci.betterbeginnings.entity.projectile.EntityThrownKnife;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.*;
+import net.minecraftforge.registries.IForgeRegistry;
 
+@Mod.EventBusSubscriber(modid = ModMain.MODID)
 public class RegisterEntities 
 {
 	private static int nextId = 0;
 
-	public static void register()
+	@SubscribeEvent
+	public static void registerEntities(RegistryEvent.Register<EntityEntry> e)
 	{
-		registerEntity(EntityThrownKnife.class, "thrownKnife");
-		registerEntity(EntityMinecartKiln.class, "kilnCart");
+		registerEntity(e.getRegistry(), EntityThrownKnife.class, "thrownKnife", 64, 10, true);
+		registerEntity(e.getRegistry(), EntityMinecartKiln.class, "kilnCart", 80, 3, true);
 	}
 
-	private static void registerEntity(Class<? extends Entity> entityClass, String entityName)
+	private static void registerEntity(IForgeRegistry<EntityEntry> entityRegistry, Class<? extends Entity> entityClass, String entityName
+			, int range, int updateFrequency, boolean sendVelocityUpdates)
 	{
-		EntityRegistry.registerModEntity(new ResourceLocation(ModMain.MODID, entityName), entityClass, entityName
-				, nextId++, ModMain.modInstance, 80, 1, true);
+		entityRegistry.register(
+		EntityEntryBuilder.create()
+			.entity(entityClass)
+			.id(new ResourceLocation(ModMain.MODID, entityName), nextId++)
+			.name(entityName)
+			.tracker(range, updateFrequency, sendVelocityUpdates)
+			.build());
 	}
 }

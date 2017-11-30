@@ -14,7 +14,7 @@ public class ServerProxy
 {
 	public void preInit(FMLPreInitializationEvent e)
 	{
-		registerModels();
+		
 	}
 
 	public void init(FMLInitializationEvent e)
@@ -36,6 +36,4 @@ public class ServerProxy
 				return null;
 		}
 	}
-
-	public void registerModels() {}
 }

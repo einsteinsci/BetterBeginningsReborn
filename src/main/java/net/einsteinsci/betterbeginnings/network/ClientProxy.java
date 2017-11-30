@@ -2,6 +2,7 @@ package net.einsteinsci.betterbeginnings.network;
 
 import org.apache.logging.log4j.Level;
 
+import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.client.*;
 import net.einsteinsci.betterbeginnings.entity.projectile.EntityThrownKnife;
 import net.einsteinsci.betterbeginnings.register.RegisterModels;
@@ -12,13 +13,16 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.fml.client.registry.*;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
+@Mod.EventBusSubscriber(value = Side.CLIENT, modid = ModMain.MODID)
 public class ClientProxy extends ServerProxy
 {
 	private Minecraft mc = Minecraft.getMinecraft();
@@ -50,9 +54,10 @@ public class ClientProxy extends ServerProxy
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWickerBasket.class, new WickerBasketRender());
 	}
 	
-	@Override
-	public void registerModels()
+	@SubscribeEvent
+	public static void registerModels(ModelRegistryEvent e)
 	{
+		System.out.println("Model registration");
 		RegisterModels.register();
 		RegisterMetaItemRenders.init();
 	}

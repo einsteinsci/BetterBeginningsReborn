@@ -3,11 +3,25 @@ package net.einsteinsci.betterbeginnings.register;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.einsteinsci.betterbeginnings.blocks.*;
+import net.einsteinsci.betterbeginnings.ModMain;
+import net.einsteinsci.betterbeginnings.blocks.BlockBrickOven;
+import net.einsteinsci.betterbeginnings.blocks.BlockCampfire;
+import net.einsteinsci.betterbeginnings.blocks.BlockDoubleWorkbench;
+import net.einsteinsci.betterbeginnings.blocks.BlockEnderSmelter;
+import net.einsteinsci.betterbeginnings.blocks.BlockInfusionRepairStation;
+import net.einsteinsci.betterbeginnings.blocks.BlockKiln;
+import net.einsteinsci.betterbeginnings.blocks.BlockNetherBrickOven;
+import net.einsteinsci.betterbeginnings.blocks.BlockObsidianKiln;
+import net.einsteinsci.betterbeginnings.blocks.BlockSmelter;
+import net.einsteinsci.betterbeginnings.blocks.BlockWickerBasket;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
 
+@Mod.EventBusSubscriber(modid = ModMain.MODID)
 public class RegisterBlocks
 {
     public static final BlockKiln kiln = new BlockKiln(false);
@@ -32,37 +46,38 @@ public class RegisterBlocks
 
     public static final List<Block> allBlocks = new ArrayList<>();
 
-    public static void register()
+    @SubscribeEvent
+    public static void registerBlocks(RegistryEvent.Register<Block> e)
     {
-        RegisterHelper.registerBlock(kiln);
-        RegisterHelper.registerBlock(kilnLit);
+        RegisterHelper.registerBlock(e.getRegistry(), kiln);
+        RegisterHelper.registerBlock(e.getRegistry(), kilnLit);
 
-        RegisterHelper.registerBlock(doubleWorkbench);
+        RegisterHelper.registerBlock(e.getRegistry(), doubleWorkbench);
 
-        RegisterHelper.registerBlock(brickOven);
-        RegisterHelper.registerBlock(brickOvenLit);
+        RegisterHelper.registerBlock(e.getRegistry(), brickOven);
+        RegisterHelper.registerBlock(e.getRegistry(), brickOvenLit);
 
-        RegisterHelper.registerBlock(smelter);
-        RegisterHelper.registerBlock(smelterLit);
+        RegisterHelper.registerBlock(e.getRegistry(), smelter);
+        RegisterHelper.registerBlock(e.getRegistry(), smelterLit);
 
-        RegisterHelper.registerBlock(infusionRepairStation);
+        RegisterHelper.registerBlock(e.getRegistry(), infusionRepairStation);
 
-        RegisterHelper.registerBlock(campfire);
-        RegisterHelper.registerBlock(campfireLit);
+        RegisterHelper.registerBlock(e.getRegistry(), campfire);
+        RegisterHelper.registerBlock(e.getRegistry(), campfireLit);
 
-        RegisterHelper.registerBlock(obsidianKiln);
-        RegisterHelper.registerBlock(obsidianKilnLit);
+        RegisterHelper.registerBlock(e.getRegistry(), obsidianKiln);
+        RegisterHelper.registerBlock(e.getRegistry(), obsidianKilnLit);
 
-        RegisterHelper.registerBlock(netherBrickOven);
-        RegisterHelper.registerBlock(netherBrickOvenLit);
+        RegisterHelper.registerBlock(e.getRegistry(), netherBrickOven);
+        RegisterHelper.registerBlock(e.getRegistry(), netherBrickOvenLit);
 
-        RegisterHelper.registerBlock(enderSmelter);
-        RegisterHelper.registerBlock(enderSmelterLit);
+        RegisterHelper.registerBlock(e.getRegistry(), enderSmelter);
+        RegisterHelper.registerBlock(e.getRegistry(), enderSmelterLit);
 
-        //RegisterHelper.registerBlock(redstoneKiln);
-        //RegisterHelper.registerBlock(redstoneKilnLit);
+        //RegisterHelper.registerBlock(e.getRegistry(), redstoneKiln);
+        //RegisterHelper.registerBlock(e.getRegistry(), redstoneKilnLit);
 
-        RegisterHelper.registerBlock(wickerBasket);
+        RegisterHelper.registerBlock(e.getRegistry(), wickerBasket);
         
         oreDictionary();
     }

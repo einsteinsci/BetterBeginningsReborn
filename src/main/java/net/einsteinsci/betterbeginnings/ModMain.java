@@ -1,8 +1,5 @@
 package net.einsteinsci.betterbeginnings;
 
-import java.io.File;
-
-import net.minecraft.item.ItemStack;
 import org.apache.logging.log4j.Level;
 
 import net.einsteinsci.betterbeginnings.commands.JsonGenerateCommand;
@@ -15,10 +12,10 @@ import net.einsteinsci.betterbeginnings.register.*;
 //import net.einsteinsci.betterbeginnings.register.achievement.RegisterAchievements;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.ElementRegistry;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntitySmelterBase;
-import net.einsteinsci.betterbeginnings.util.*;
-import net.minecraft.client.Minecraft;
+import net.einsteinsci.betterbeginnings.util.InfusionRepairUtil;
+import net.einsteinsci.betterbeginnings.util.LogUtil;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 //import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -91,9 +88,6 @@ public class ModMain
         network.registerMessage(PacketCampfireState.PacketHandler.class,
             PacketCampfireState.class, 1, Side.CLIENT);
 
-        RegisterItems.register();
-        RegisterBlocks.register();
-        RegisterEntities.register();
         RegisterTileEntities.register();
         FuelRegistry.addDefaultFuels();
         ElementRegistry.init();
