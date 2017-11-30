@@ -120,7 +120,7 @@ public class JsonLoadedItemStack
 		List<ItemStack> stacks = getItemStacks();
 		if (stacks.isEmpty())
 		{
-			return null;
+			return ItemStack.EMPTY;
 		}
 
 		return stacks.get(0);

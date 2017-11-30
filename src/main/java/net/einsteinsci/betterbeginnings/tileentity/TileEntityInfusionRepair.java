@@ -82,7 +82,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		    {
 			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY() + 1, pos.getZ(), mainHandler.getStackInSlot(SLOT_ENCH_ITEM)));
 		    }
-		    mainHandler.setStackInSlot(SLOT_ENCH_ITEM, null);
+		    mainHandler.setStackInSlot(SLOT_ENCH_ITEM, ItemStack.EMPTY);
 		    mode = Mode.NONE;
 		    pendingIngredients.clear();
 		    markDirty();
@@ -204,7 +204,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 	default:
 	    break;
 	}	
-	if(newStack == null) return false;
+	if(newStack.isEmpty()) return false;
 	boolean slotFound = false;
 	if(newStack.isItemEnchanted())
 	{
@@ -300,7 +300,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		    if(enchItem.isItemStackDamageable())
 			enchItem.damageItem(enchItem.getMaxDamage() / 5, null);
 		    if(enchItem.getItemDamage() > enchItem.getMaxDamage())
-			mainHandler.setStackInSlot(SLOT_ENCH_ITEM, null);
+			mainHandler.setStackInSlot(SLOT_ENCH_ITEM, ItemStack.EMPTY);
 
 		    //Create an enchanted book for the enchantment
 		    ItemStack enchBook = new ItemStack(Items.ENCHANTED_BOOK);
@@ -320,7 +320,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		    //Consume everything else in the inventory
 		    for(int s = 0; s < mainHandler.getSlots(); s++)
 		    {
-			mainHandler.setStackInSlot(s, null);
+			mainHandler.setStackInSlot(s, ItemStack.EMPTY);
 		    }
 		    world.notifyBlockUpdate(pos, state, state, 8);
 		    markDirty();
@@ -344,7 +344,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		{
 		    world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY() + 1, pos.getZ(), mainHandler.getStackInSlot(SLOT_ENCH_ITEM)));
 		}
-		mainHandler.setStackInSlot(SLOT_ENCH_ITEM, null);
+		mainHandler.setStackInSlot(SLOT_ENCH_ITEM, ItemStack.EMPTY);
 		mode = Mode.NONE;
 		markDirty();
 		world.notifyBlockUpdate(pos, state, state, 8);
@@ -387,7 +387,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		//Consume everything else in the inventory
 		for(int s = 0; s < mainHandler.getSlots(); s++)
 		{
-		    mainHandler.setStackInSlot(s, null);
+		    mainHandler.setStackInSlot(s, ItemStack.EMPTY);
 		}
 		mode = Mode.NONE;
 
@@ -423,7 +423,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 
     private boolean hasEnchItem()
     {
-	return mainHandler.getStackInSlot(SLOT_ENCH_ITEM) != null;//STACKNULL
+	return !mainHandler.getStackInSlot(SLOT_ENCH_ITEM).isEmpty();//STACKNULL
     }
 
     public Stack<RecipeElement> getPendingIngredients()

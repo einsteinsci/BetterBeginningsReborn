@@ -153,15 +153,15 @@ public class AdvancedCraftingHandler
 		InventoryWorkbenchAdditionalMaterials materials, World world)
 	{
 		int i = 0;
-		ItemStack itemstack = null;
-		ItemStack itemstack1 = null;
+		ItemStack itemstack = ItemStack.EMPTY;
+		ItemStack itemstack1 = ItemStack.EMPTY;
 		int j;
 
 		for (j = 0; j < crafting.getSizeInventory(); ++j)
 		{
 			ItemStack itemstack2 = crafting.getStackInSlot(j);
 
-			if (itemstack2 != null)
+			if (!itemstack2.isEmpty())
 			{
 				if (i == 0)
 				{
@@ -205,7 +205,7 @@ public class AdvancedCraftingHandler
 				}
 			}
 
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
@@ -213,15 +213,15 @@ public class AdvancedCraftingHandler
 		InventoryWorkbenchAdditionalMaterials materials, World world)
 	{
 		int i = 0;
-		ItemStack itemstack = null;
-		ItemStack itemstack1 = null;
+		ItemStack itemstack = ItemStack.EMPTY;
+		ItemStack itemstack1 = ItemStack.EMPTY;
 		int j;
 
 		for (j = 0; j < crafting.getSizeInventory(); ++j)
 		{
 			ItemStack itemstack2 = crafting.getStackInSlot(j);
 
-			if (itemstack2 != null)
+			if (!itemstack2.isEmpty())
 			{
 				if (i == 0)
 				{

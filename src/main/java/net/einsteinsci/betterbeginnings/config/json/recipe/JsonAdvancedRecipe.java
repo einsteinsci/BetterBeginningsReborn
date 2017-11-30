@@ -202,7 +202,7 @@ public class JsonAdvancedRecipe
 			else
 			{
 				ItemStack stack = entry.getValue().getFirstItemStackOrNull();
-				if (stack != null)
+				if (!stack.isEmpty())
 				{
 					res.add(stack);
 				}

@@ -75,7 +75,7 @@ public class FuelRegistry
 
     public static int getBurnTime(FuelConsumerType type, ItemStack stack)
     {
-	if(stack == null) return 0;
+	if(stack.isEmpty()) return 0;
 	return consumerTypeToFuelMap.get(type).getBurnTime(stack);
     }
 

@@ -43,7 +43,7 @@ public class ItemHammer extends ItemTool
         }
         else
         {
-            return null;
+            return ItemStack.EMPTY;
         }
     }
 }

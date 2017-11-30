@@ -91,7 +91,7 @@ public class ContainerDoubleWorkbench extends Container
 
 			if (!ItemStack.areItemStacksEqual(itemstack1, itemstack))
 			{
-				itemstack1 = itemstack == null ? null : itemstack.copy();
+				itemstack1 = itemstack.isEmpty() ? null : itemstack.copy();
 				inventoryItemStacks.set(i, itemstack1);
 
 				for (IContainerListener listener : listeners)
@@ -109,7 +109,7 @@ public class ContainerDoubleWorkbench extends Container
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotId)
 	{
-		ItemStack itemstack = null;
+		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = (Slot)inventorySlots.get(slotId);
 
 		if (slot != null && slot.getHasStack())
@@ -121,7 +121,7 @@ public class ContainerDoubleWorkbench extends Container
 			{
 				if (!mergeItemStack(itemstack1, 10, 46, true))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 				slot.onSlotChange(itemstack1, itemstack);
@@ -132,12 +132,12 @@ public class ContainerDoubleWorkbench extends Container
 				{
 					if (!mergeItemStack(itemstack1, 46, 50, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (!mergeItemStack(itemstack1, 37, 46, false))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 			else if (slotId >= 37 && slotId < 46)
@@ -146,22 +146,22 @@ public class ContainerDoubleWorkbench extends Container
 				{
 					if (!mergeItemStack(itemstack1, 46, 50, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (!mergeItemStack(itemstack1, 10, 37, false))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 			else if (!mergeItemStack(itemstack1, 10, 46, false))
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if (itemstack1.getCount() == 0)
 			{
-				slot.putStack(null);
+				slot.putStack(ItemStack.EMPTY);
 			}
 			else
 			{
@@ -170,7 +170,7 @@ public class ContainerDoubleWorkbench extends Container
 
 			if (itemstack1.getCount() == itemstack.getCount())
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			slot.onTake(player, itemstack1);
@@ -200,7 +200,7 @@ public class ContainerDoubleWorkbench extends Container
 			{
 				ItemStack itemstack = craftMatrix.removeStackFromSlot(i);
 
-				if (itemstack != null)
+				if (!itemstack.isEmpty())
 				{
 					player.dropItem(itemstack, false);
 				}
@@ -210,7 +210,7 @@ public class ContainerDoubleWorkbench extends Container
 			{
 				ItemStack itemstack = addedMats.removeStackFromSlot(i);
 
-				if (itemstack != null)
+				if (!itemstack.isEmpty())
 				{
 					player.dropItem(itemstack, false);
 				}
@@ -227,18 +227,18 @@ public class ContainerDoubleWorkbench extends Container
 		boolean hasAddedMats = false;
 		ItemStack result = AdvancedCraftingHandler.crafting()
 			.findMatchingRecipeResult(craftMatrix, addedMats, worldObj);
-		if (result != null)
+		if (!result.isEmpty())
 		{
 			lastAdvancedRecipe = AdvancedCraftingHandler.crafting().findMatchingRecipe(craftMatrix,
 				addedMats, worldObj);
 		}
 
-		if (result == null)
+		if (result.isEmpty())
 		{
 			result = CraftingManager.findMatchingRecipe(craftMatrix, worldObj).getCraftingResult(craftMatrix);
 		}
 
-		if (result != null)
+		if (!result.isEmpty())
 		{
 			hasAddedMats = true;
 		}
@@ -249,7 +249,7 @@ public class ContainerDoubleWorkbench extends Container
 		}
 		else
 		{
-			craftResult.setInventorySlotContents(0, null);
+			craftResult.setInventorySlotContents(0, ItemStack.EMPTY);
 		}
 	}
 

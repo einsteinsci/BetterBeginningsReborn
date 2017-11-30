@@ -87,9 +87,9 @@ public class BrickOvenShapedRecipe implements IBrickOvenRecipe
 
 				ItemStack itemstack1 = oven.getStackInRowAndColumn(k, l);
 
-				if (itemstack1 != null || recipeIngredient != null)
+				if (!itemstack1.isEmpty() || recipeIngredient != null)
 				{
-					if (itemstack1 == null && recipeIngredient != null || itemstack1 != null && recipeIngredient == null)
+					if (itemstack1.isEmpty() && recipeIngredient != null || !itemstack1.isEmpty() && recipeIngredient == null)
 					{
 						return false;
 					}
@@ -120,7 +120,7 @@ public class BrickOvenShapedRecipe implements IBrickOvenRecipe
 			{
 				ItemStack itemstack1 = itemHandler.getStackInSlot(i);
 
-				if (itemstack1 != null && itemstack1.hasTagCompound())
+				if (!itemstack1.isEmpty() && itemstack1.hasTagCompound())
 				{
 					itemstack.setTagCompound((NBTTagCompound)itemstack1.getTagCompound().copy());
 				}

@@ -97,7 +97,7 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotId)
 	{
-		ItemStack itemstack = null;
+		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = (Slot)inventorySlots.get(slotId);
 
 		if (slot != null && slot.getHasStack())
@@ -109,7 +109,7 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 			{
 				if (!mergeItemStack(itemstack1, 11, 47, true)) // move to inventory (all, avoid hotbar)
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 
 				slot.onSlotChange(itemstack1, itemstack);
@@ -121,7 +121,7 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 					if (!mergeItemStack(itemstack1, TileEntityNetherBrickOven.FUEL,
 					                    TileEntityNetherBrickOven.FUEL + 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (BrickOvenRecipeHandler.instance().isInRecipe(itemstack1))
@@ -129,12 +129,12 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 					if (!mergeItemStack(itemstack1, TileEntityNetherBrickOven.INPUTSTART,
 					                    TileEntityNetherBrickOven.INPUTSTART + 9, false)) // move to craft matrix
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (!mergeItemStack(itemstack1, 38, 47, false)) // move to hotbar
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 			else if (slotId > 37 && slotId <= 46) // hotbar
@@ -144,7 +144,7 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 					if (!mergeItemStack(itemstack1, TileEntityNetherBrickOven.FUEL,
 					                    TileEntityNetherBrickOven.FUEL + 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (BrickOvenRecipeHandler.instance().isInRecipe(itemstack1))
@@ -152,22 +152,22 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 					if (!mergeItemStack(itemstack1, TileEntityNetherBrickOven.INPUTSTART,
 					                    TileEntityNetherBrickOven.INPUTSTART + 9, false)) // move to craft matrix
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (!mergeItemStack(itemstack1, 11, 38, false)) // move to inventory (non-hotbar)
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 			else if (!mergeItemStack(itemstack1, 11, 47, false)) // move to inventory (all)
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if (itemstack1.getCount() == 0)
 			{
-				slot.putStack(null);
+				slot.putStack(ItemStack.EMPTY);
 			}
 			else
 			{
@@ -176,7 +176,7 @@ public class ContainerNetherBrickOven extends ContainerSpecializedFurnace<TileEn
 
 			if (itemstack1.getCount() == itemstack.getCount())
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			slot.onTake(player, itemstack1);

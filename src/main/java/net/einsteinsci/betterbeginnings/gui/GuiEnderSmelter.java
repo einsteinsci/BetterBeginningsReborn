@@ -43,7 +43,7 @@ public class GuiEnderSmelter extends GuiContainer
 		int l = (height - ySize) / 2;
 
 		ItemStack input = CapUtils.getItemHandler(tileSmelter).getStackInSlot(TileEntityEnderSmelter.INPUT); 
-		if (input != null && SmelterRecipeHandler.instance().getSmeltingResult(input) != null)//STACKNULL
+		if (!input.isEmpty() && !SmelterRecipeHandler.instance().getSmeltingResult(input).isEmpty())//STACKNULL
 		{
 			if (mouseX >= 46 + k && mouseX < 62 + k && mouseY >= 17 + l && mouseY < 33 + l)
 			{

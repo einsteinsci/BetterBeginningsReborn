@@ -101,7 +101,7 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 
 	private static boolean isCampfireUtensil(ItemStack stack)
 	{
-		if (stack == null)
+		if (stack.isEmpty())
 		{
 			return false;
 		}
@@ -168,7 +168,7 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 
 				if (burning)
 				{
-					if (stackFuel() != null)
+					if (!stackFuel().isEmpty())
 					{
 						stackFuel().shrink(1);
 
@@ -233,23 +233,23 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 
 	public boolean canCook()
 	{
-		if (stackInput() == null)
+		if (stackInput().isEmpty())
 		{
 			return false;
 		}
 
 		ItemStack potentialResult = CampfirePanRecipeHandler.instance().getSmeltingResult(stackInput());
-		if (potentialResult == null || stackUtensil() == null)
+		if (potentialResult.isEmpty() || stackUtensil().isEmpty())
 		{
 			potentialResult = CampfireRecipeHandler.instance().getSmeltingResult(stackInput());
 		}
 
-		if (potentialResult == null)
+		if (potentialResult.isEmpty())
 		{
 			return false; // instant no if there's no recipe
 		}
 
-		if (stackOutput() == null)
+		if (stackOutput().isEmpty())
 		{
 			return true; // instant yes if output is open
 		}
@@ -280,12 +280,12 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 		if (canCook())
 		{
 			ItemStack potentialResult = CampfirePanRecipeHandler.instance().getSmeltingResult(stackInput());
-			if (potentialResult == null || stackUtensil() == null)
+			if (potentialResult.isEmpty() || stackUtensil().isEmpty())
 			{
 				potentialResult = CampfireRecipeHandler.instance().getSmeltingResult(stackInput());
 			}
 
-			if (stackOutput() == null)
+			if (stackOutput().isEmpty())
 			{
 				mainHandler.setStackInSlot(SLOT_OUTPUT, potentialResult.copy());
 			}
@@ -298,10 +298,10 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 
 			if (stackInput().getCount() <= 0)
 			{
-				mainHandler.setStackInSlot(SLOT_INPUT, null);
+				mainHandler.setStackInSlot(SLOT_INPUT, ItemStack.EMPTY);
 			}
 
-			if (stackUtensil() != null)
+			if (!stackUtensil().isEmpty())
 			{
 				if (stackUtensil().getItem() instanceof ICampfireUtensil)
 				{
@@ -310,7 +310,7 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 
 					if (destroy)
 					{
-						mainHandler.setStackInSlot(SLOT_UTENSIL, null);
+						mainHandler.setStackInSlot(SLOT_UTENSIL, ItemStack.EMPTY);
 					}
 				}
 			}
@@ -350,7 +350,7 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 
 				// consume fuel
 				currentItemBurnTime = burnTime;
-				if (stackFuel() != null)
+				if (!stackFuel().isEmpty())
 				{
 					stackFuel().shrink(1);
 

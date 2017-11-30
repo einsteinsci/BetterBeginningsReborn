@@ -22,11 +22,11 @@ public class Util
     
     public static boolean areItemStacksEqualIgnoreSize(ItemStack template, ItemStack tested)
     {
-	if (template == null)//STACKNULL
+	if (template.isEmpty())//STACKNULL
 	{
-	    return tested == null;
+	    return tested.isEmpty();
 	}
-	else if (tested == null)//STACKNULL
+	else if (tested.isEmpty())//STACKNULL
 	{
 	    return false;
 	}
@@ -51,7 +51,7 @@ public class Util
     public static boolean isEmptyFluidContainer(ItemStack stack)
     {
 	//If the stack has a fluid cap, but no contained fluid, it's probably empty
-	if(stack != null && CapUtils.hasFluidHandler(stack) && FluidUtil.getFluidContained(stack) == null)
+	if(!stack.isEmpty() && CapUtils.hasFluidHandler(stack) && FluidUtil.getFluidContained(stack) == null)
 	    return true;
 	else
 	    return false;
@@ -61,7 +61,7 @@ public class Util
     {
 	for(int i = 0; i < itemHandler.getSlots(); i++)
 	{
-	    if(itemHandler.getStackInSlot(i) != null)
+	    if(!itemHandler.getStackInSlot(i).isEmpty())
 	    {
 		InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), itemHandler.getStackInSlot(i));
 	    }

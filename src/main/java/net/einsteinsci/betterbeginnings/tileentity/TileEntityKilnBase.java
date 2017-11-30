@@ -40,7 +40,7 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 				if (burnTime > 0)
 				{
 					flag1 = true;
-					if (mainHandler.getStackInSlot(SLOT_FUEL) != null)
+					if (!mainHandler.getStackInSlot(SLOT_FUEL).isEmpty())
 					{
 						CapUtils.decrementStack(mainHandler, SLOT_FUEL, 1);
 						
@@ -84,19 +84,19 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 	@Override
 	public boolean canSmelt()
 	{
-		if (mainHandler.getStackInSlot(SLOT_INPUT) == null)
+		if (mainHandler.getStackInSlot(SLOT_INPUT).isEmpty())
 		{
 			return false;
 		}
 		else
 		{
 			ItemStack stack = KilnRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(SLOT_INPUT));
-			if (stack == null)
+			if (stack.isEmpty())
 			{
 				return false;
 			}
 
-			if (mainHandler.getStackInSlot(SLOT_OUTPUT) == null)
+			if (mainHandler.getStackInSlot(SLOT_OUTPUT).isEmpty())
 			{
 				return true;
 			}
@@ -117,7 +117,7 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 		{
 			ItemStack itemStack = KilnRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(SLOT_INPUT));
 
-			if (mainHandler.getStackInSlot(SLOT_OUTPUT) == null)
+			if (mainHandler.getStackInSlot(SLOT_OUTPUT).isEmpty())
 			{
 				mainHandler.setStackInSlot(SLOT_OUTPUT, itemStack.copy());
 			}
@@ -130,7 +130,7 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 
 			if (mainHandler.getStackInSlot(SLOT_INPUT).getCount() <= 0)
 			{
-				mainHandler.setStackInSlot(SLOT_INPUT, null);
+				mainHandler.setStackInSlot(SLOT_INPUT, ItemStack.EMPTY);
 			}
 		}
 	}

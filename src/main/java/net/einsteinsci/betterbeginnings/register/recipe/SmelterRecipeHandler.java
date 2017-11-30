@@ -77,7 +77,7 @@ public class SmelterRecipeHandler
 			}
 		}
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	public int getBoosterCount(ItemStack stack)

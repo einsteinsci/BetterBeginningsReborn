@@ -50,7 +50,7 @@ public class ContainerObsidianKiln extends ContainerSpecializedFurnace<TileEntit
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int par2)
 	{
-		ItemStack itemstack = null;
+		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = (Slot)inventorySlots.get(par2);
 
 		if (slot != null && slot.getHasStack())
@@ -62,45 +62,45 @@ public class ContainerObsidianKiln extends ContainerSpecializedFurnace<TileEntit
 			{
 				if (!mergeItemStack(itemstack1, 3, 39, true))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 				slot.onSlotChange(itemstack1, itemstack);
 			}
 			else if (par2 != 1 && par2 != 0)
 			{
-				if (KilnRecipeHandler.instance().getSmeltingResult(itemstack1) != null)
+				if (!KilnRecipeHandler.instance().getSmeltingResult(itemstack1).isEmpty())
 				{
 					if (!mergeItemStack(itemstack1, 0, 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (FuelRegistry.getBurnTime(FuelConsumerType.KILN, itemstack1) > 0)
 				{
 					if (!mergeItemStack(itemstack1, 1, 2, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (par2 >= 3 && par2 < 30)
 				{
 					if (!mergeItemStack(itemstack1, 30, 39, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (par2 >= 30 && par2 < 39 && !mergeItemStack(itemstack1, 3, 30, false))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 			else if (!mergeItemStack(itemstack1, 3, 39, false))
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 			if (itemstack1.getCount() == 0)
 			{
-				slot.putStack(null);
+				slot.putStack(ItemStack.EMPTY);
 			}
 			else
 			{
@@ -108,7 +108,7 @@ public class ContainerObsidianKiln extends ContainerSpecializedFurnace<TileEntit
 			}
 			if (itemstack1.getCount() == itemstack.getCount())
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 			slot.onTake(player, itemstack1);
 		}

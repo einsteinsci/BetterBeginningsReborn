@@ -86,7 +86,7 @@ public class TileEntityNetherBrickOven extends TileEntityOvenBase
 			}
 			updateBlockState();
 			//STACKNULL
-			if (mainHandler.getStackInSlot(FUEL) != null)
+			if (!mainHandler.getStackInSlot(FUEL).isEmpty())
 			{	
 				if (fuelTank.fillFromContainer(mainHandler.getStackInSlot(FUEL)))
 				{
@@ -176,7 +176,7 @@ public class TileEntityNetherBrickOven extends TileEntityOvenBase
 	public static boolean isItemFuelContainer(ItemStack stack)
 	{
 		//STACKNULL
-		if(stack == null) return false;
+		if(stack.isEmpty()) return false;
 		return stack.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
 	}
 

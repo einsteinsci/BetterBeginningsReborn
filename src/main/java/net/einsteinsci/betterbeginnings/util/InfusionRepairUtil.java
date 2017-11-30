@@ -69,7 +69,7 @@ public class InfusionRepairUtil
 	{
 		ArrayList<RecipeElement> requiredItems = new ArrayList<>();
 
-		if (repaired == null)
+		if (repaired.isEmpty())
 		{
 			return requiredItems;
 		}
@@ -251,7 +251,7 @@ public class InfusionRepairUtil
 
 	public static int getTakenLevels(ItemStack infusedItem)
 	{
-		if (infusedItem == null)
+		if (infusedItem.isEmpty())
 		{
 			return 0;
 		}

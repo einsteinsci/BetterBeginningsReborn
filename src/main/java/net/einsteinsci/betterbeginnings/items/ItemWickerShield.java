@@ -16,6 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.item.ItemStack;
 
 @SuppressWarnings("deprecation") // TODO: Rework so that this annotation is not necessary.
 public class ItemWickerShield extends ItemShield implements IBBName
@@ -78,7 +79,7 @@ public class ItemWickerShield extends ItemShield implements IBBName
 
     void damageShield(EntityLivingBase attacked, EntityLivingBase attacker, float f)
     {
-        ItemStack shield = null;
+        ItemStack shield = ItemStack.EMPTY;
         if(Prep1_11.isValid(attacked.getHeldItemOffhand()) && attacked.getHeldItemOffhand().getItem() == RegisterItems.wickerShield)
         shield = attacked.getHeldItemOffhand();
         else if(Prep1_11.isValid(attacked.getHeldItemMainhand()) && attacked.getHeldItemMainhand().getItem() == RegisterItems.wickerShield)

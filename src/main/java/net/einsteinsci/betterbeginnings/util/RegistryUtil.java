@@ -35,7 +35,7 @@ public class RegistryUtil
 
 	public static String getForgeName(ItemStack stack)
 	{
-		if (stack == null)
+		if (stack.isEmpty())
 		{
 			return null;
 		}

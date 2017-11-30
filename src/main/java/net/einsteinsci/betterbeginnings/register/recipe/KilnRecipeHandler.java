@@ -66,7 +66,7 @@ public class KilnRecipeHandler
 		{
 			if (!iterator.hasNext())
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			entry = iterator.next();

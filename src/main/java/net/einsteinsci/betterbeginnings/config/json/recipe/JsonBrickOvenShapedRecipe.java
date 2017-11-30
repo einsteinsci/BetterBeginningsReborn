@@ -142,7 +142,7 @@ public class JsonBrickOvenShapedRecipe
 			else
 			{
 				ItemStack stack = jli.getFirstItemStackOrNull();
-				if (stack != null)
+				if (!stack.isEmpty())
 				{
 					res.add(stack);
 				}

@@ -285,7 +285,7 @@ public class BrickOvenConfig implements IJsonConfig
 			IRecipe r = (IRecipe)obj;
 			ItemStack output = r.getRecipeOutput();
 
-			if (output == null)
+			if (output.isEmpty())
 			{
 				continue; // no idea why this happens
 			}
@@ -346,7 +346,7 @@ public class BrickOvenConfig implements IJsonConfig
 	{
 		for (Map.Entry<ItemStack, ItemStack> kvp : FurnaceRecipes.instance().getSmeltingList().entrySet())
 		{
-			if (kvp.getValue() == null)
+			if (kvp.getValue().isEmpty())
 			{
 				continue;
 			}
@@ -389,7 +389,7 @@ public class BrickOvenConfig implements IJsonConfig
 	{
 		for (Map.Entry<ItemStack, ItemStack> kvp : FurnaceRecipes.instance().getSmeltingList().entrySet())
 		{
-			if (kvp.getValue() == null)
+			if (kvp.getValue().isEmpty())
 			{
 				continue;
 			}

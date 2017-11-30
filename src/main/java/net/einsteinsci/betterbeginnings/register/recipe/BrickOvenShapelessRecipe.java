@@ -38,7 +38,7 @@ public class BrickOvenShapelessRecipe implements IBrickOvenRecipe
 			{
 				ItemStack itemstack = oven.getStackInRowAndColumn(row, col);
 
-				if (itemstack != null)
+				if (!itemstack.isEmpty())
 				{
 					boolean flag = false;
 					Iterator<RecipeElement> iterator = arraylist.iterator();
