@@ -57,7 +57,6 @@ public class ClientProxy extends ServerProxy
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent e)
 	{
-		System.out.println("Model registration");
 		RegisterModels.register();
 		RegisterMetaItemRenders.init();
 	}
