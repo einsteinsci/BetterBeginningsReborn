@@ -168,6 +168,8 @@ public class ContainerSimpleWorkbench extends Container
 		IRecipe recipe = CraftingManager.findMatchingRecipe(craftMatrix, worldObj);
 		if (recipe != null)
 			craftResult.setInventorySlotContents(0, recipe.getCraftingResult(craftMatrix));
+		else
+			craftResult.setInventorySlotContents(0, ItemStack.EMPTY);
 	}
 
 	@Override

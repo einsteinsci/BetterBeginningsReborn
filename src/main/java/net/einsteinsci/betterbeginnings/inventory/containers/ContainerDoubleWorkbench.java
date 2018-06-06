@@ -237,8 +237,7 @@ public class ContainerDoubleWorkbench extends Container
 		if (result.isEmpty())
 		{
 			IRecipe recipe = CraftingManager.findMatchingRecipe(craftMatrix, worldObj);
-			if (recipe != null)
-				result = recipe.getCraftingResult(craftMatrix);
+			result = recipe == null ? ItemStack.EMPTY : recipe.getCraftingResult(craftMatrix);
 		}
 
 		if (!result.isEmpty())
