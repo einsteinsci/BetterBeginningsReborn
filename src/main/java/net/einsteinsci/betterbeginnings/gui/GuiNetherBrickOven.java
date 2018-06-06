@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class GuiNetherBrickOven extends GuiContainer
 {
 	private static final ResourceLocation ovenGuiTextures =
-			new ResourceLocation(ModMain.MODID + ":textures/gui/container/netherBrickOven.png");
+			new ResourceLocation(ModMain.MODID + ":textures/gui/container/nether_brick_oven.png");
 
 	private TileEntityNetherBrickOven tileBrickOven;
 

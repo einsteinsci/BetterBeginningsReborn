@@ -31,7 +31,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class GuiDoubleWorkbench extends GuiContainer
 {
 	private static final ResourceLocation workbenchGuiTextures = new ResourceLocation(ModMain.MODID +
-		":textures/gui/container/doubleWorkbench_MC18.png");
+		":textures/gui/container/double_workbench_mc18.png");
 
 	private final ContainerDoubleWorkbench container;
 	private boolean needsCatalystItems = false;

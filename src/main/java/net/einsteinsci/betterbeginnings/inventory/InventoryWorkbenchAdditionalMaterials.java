@@ -4,62 +4,57 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 
 public class InventoryWorkbenchAdditionalMaterials implements IInventory
 {
-	private ItemStack[] stackList;
+	private NonNullList<ItemStack> stackList;
 
 	private Container container;
 
 	public InventoryWorkbenchAdditionalMaterials(Container container_, int size)
 	{
-		stackList = new ItemStack[size];
+		stackList = NonNullList.withSize(size, ItemStack.EMPTY);
 		container = container_;
 	}
 
 	@Override
 	public int getSizeInventory()
 	{
-		return stackList.length;
+		return stackList.size();
 	}
 
 	@Override
 	public ItemStack getStackInSlot(int slot)
 	{
 		if (getSizeInventory() <= slot)
-		{
 			return ItemStack.EMPTY;
-		}
 		else
-		{
-			return stackList[slot];
-		}
+			return stackList.get(slot);
 	}
 
 	@Override
 	public ItemStack decrStackSize(int slot, int amount)
 	{
-		if (!stackList[slot].isEmpty())
+		if (!stackList.get(slot).isEmpty())
 		{
 			ItemStack itemstack;
 
-			if (stackList[slot].getCount() <= amount)
+			if (stackList.get(slot).getCount() <= amount)
 			{
-				itemstack = stackList[slot];
-				stackList[slot] = ItemStack.EMPTY;
+				itemstack = stackList.get(slot);
+				stackList.set(slot, ItemStack.EMPTY);
 				container.onCraftMatrixChanged(this);
 				return itemstack;
 			}
 			else
 			{
-				itemstack = stackList[slot].splitStack(amount);
+				itemstack = stackList.get(slot).splitStack(amount);
 
-				if (stackList[slot].getCount() == 0)
-				{
-					stackList[slot] = ItemStack.EMPTY;
-				}
+				if (stackList.get(slot).getCount() == 0)
+					stackList.set(slot, ItemStack.EMPTY);
 
 				container.onCraftMatrixChanged(this);
 				return itemstack;
@@ -74,22 +69,16 @@ public class InventoryWorkbenchAdditionalMaterials implements IInventory
 	@Override
 	public ItemStack removeStackFromSlot(int slot)
 	{
-		if (!stackList[slot].isEmpty())
-		{
-			ItemStack itemstack = stackList[slot];
-			stackList[slot] = ItemStack.EMPTY;
-			return itemstack;
-		}
+		if (!stackList.get(slot).isEmpty())
+			return stackList.set(slot, ItemStack.EMPTY);
 		else
-		{
 			return ItemStack.EMPTY;
-		}
 	}
 
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack stack)
 	{
-		stackList[slot] = stack;
+		stackList.set(slot, ItemStack.EMPTY);
 		container.onCraftMatrixChanged(this);
 	}
 	
@@ -172,9 +161,6 @@ public class InventoryWorkbenchAdditionalMaterials implements IInventory
 	@Override
 	public void clear()
 	{
-		for (int i = 0; i < stackList.length; i++)
-		{
-			stackList[i] = ItemStack.EMPTY;
-		}
+		stackList = NonNullList.withSize(stackList.size(), ItemStack.EMPTY);
 	}
 }
