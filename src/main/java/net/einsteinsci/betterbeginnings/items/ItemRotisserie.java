@@ -15,9 +15,9 @@ public class ItemRotisserie extends Item implements ICampfireUtensil
     }
 
     @Override
-    public float getCampfireSpeedModifier(ItemStack stack)
+    public float getCampfireSpeedModifier()
     {
-        return 0.67f;
+        return 0.5f;
     }
 
     @Override

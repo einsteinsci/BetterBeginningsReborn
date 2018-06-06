@@ -41,7 +41,7 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 	public static final int SLOT_FUEL = 2;
 	public static final int SLOT_UTENSIL = 3;
 
-	public int cookTime;
+	public float cookTime;
 	public int burnTime;
 	public int currentItemBurnTime;
 	public int decayTime;
@@ -114,99 +114,28 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 		return FuelRegistry.getBurnTime(FuelConsumerType.CAMPFIRE, itemstack1) > 0;
 	}
 
-	public int getMaxCookTime()
-	{
-		float modifier = 1.0f;
-		if (isCampfireUtensil(stackUtensil()))
-		{
-			ICampfireUtensil item = (ICampfireUtensil)stackUtensil().getItem();
-			modifier = item.getCampfireSpeedModifier(stackUtensil());
-		}
-
-		float resf = (float)MAX_COOK_TIME_UNMODIFIED / modifier;
-		return (int)resf;
-	}
-
 	@Override
 	public void update()
 	{
 		if (!world.isRemote)
 		{
-			boolean burning = burnTime > 0;
-			boolean dirty = false;
+			boolean clean = false;
 
-			if (burning)
-			{
-				burnTime--;
-				decayTime = MAX_DECAY_TIME;
-				campfireState = STATE_BURNING;
-			}
-			else
-			{
-				decayTime = Math.max(0, decayTime - 1);
+			boolean burning = processBurning();
 
-				if (decayTime > 0)
-				{
-					campfireState = STATE_DECAYING;
-				}
-				else
-				{
-					campfireState = STATE_OFF;
+			if (campfireState != STATE_OFF && canCook()) {
+				boolean finished = processCooking();
+				if (!finished) {
+					clean = false;
 				}
 			}
-
-			//only start fuel if lit (w/ F&S or Fire Bow)
-			if (burnTime == 0 && canCook() && campfireState != STATE_OFF)
-			{
-				burnTime = FuelRegistry.getBurnTime(FuelConsumerType.CAMPFIRE, stackFuel());
-				currentItemBurnTime = burnTime;
-				if (burnTime > 0)
-				{
-					decayTime = MAX_DECAY_TIME;
-					burning = true;
-				}
-
-				if (burning)
-				{
-					if (!stackFuel().isEmpty())
-					{
-						stackFuel().shrink(1);
-
-						if (stackFuel().getCount() == 0)
-						{
-							mainHandler.setStackInSlot(SLOT_FUEL, stackFuel().getItem().getContainerItem(stackFuel()));
-						}
-					}
-				}
-
-				dirty = true;
-			}
-
-			if (campfireState != STATE_OFF && canCook())
-			{
-				cookTime++;
-				if (cookTime == getMaxCookTime())
-				{
-					cookTime = 0;
-					cookItem();     // Tadaaa!
-					dirty = true;
-				}
-			}
-			else
-			{
+			else {
 				cookTime = 0;
-				dirty = true;
-			}
-
-			if (burning != decayTime > 0)
-			{
-				dirty = true;
 			}
 
 			BlockCampfire.updateBlockState(campfireState == STATE_BURNING, world, pos);
 
-			if (dirty)
-			{
+			if (!clean || burning != decayTime > 0)	{
 				markDirty();
 			}
 
@@ -219,16 +148,71 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 				// Light idiots on fire
 				List<EntityLivingBase> idiots = world.getEntitiesWithinAABB(EntityLivingBase.class,
 					new AxisAlignedBB(pos, pos.add(1, 1, 1)));
-				for (Object obj : idiots)
-				{
-					if (obj instanceof EntityLivingBase)
-					{
+				for (Object obj : idiots) {
+					if (obj instanceof EntityLivingBase) {
 						EntityLivingBase idiot = (EntityLivingBase)obj;
 						idiot.setFire(5);
 					}
 				}
 			}
 		}
+	}
+	
+	
+	//returns true if it's still burning
+	private boolean processBurning() {
+		boolean burning = burnTime > 0;
+		if (burning) {
+			burnTime--;
+			decayTime = MAX_DECAY_TIME;
+			campfireState = STATE_BURNING;
+		}
+		else {
+			decayTime = Math.max(0, decayTime - 1);
+
+			if (decayTime > 0) {
+				campfireState = STATE_DECAYING;
+			}
+			else {
+				campfireState = STATE_OFF;
+			}
+		}
+
+		//only start fuel if lit (w/ F&S or Fire Bow)
+		if (campfireState == STATE_DECAYING && canCook())
+		{
+			burnTime = FuelRegistry.getBurnTime(FuelConsumerType.CAMPFIRE, stackFuel());
+			currentItemBurnTime = burnTime;
+			if (burnTime > 0) {
+				burning = true;
+				decayTime = MAX_DECAY_TIME;
+				
+				if (!stackFuel().isEmpty())	{
+					stackFuel().shrink(1);
+
+					if (stackFuel().getCount() == 0) {
+						mainHandler.setStackInSlot(SLOT_FUEL, stackFuel().getItem().getContainerItem(stackFuel()));
+					}
+				}
+			}
+		}
+		return burning;
+	}
+	
+	//returns true if cooling finished
+	private boolean processCooking() {
+		float increase = 1.0f;
+		if (isCampfireUtensil(stackUtensil())) {
+			increase = ((ICampfireUtensil)stackUtensil().getItem()).getCampfireSpeedModifier();
+		}
+		cookTime += increase;
+		
+		if (cookTime >= MAX_COOK_TIME_UNMODIFIED) {
+			cookItem();     // Tadaaa!
+			cookTime = 0;
+			return true;
+		}
+		return false;
 	}
 
 	public boolean canCook()
@@ -371,7 +355,7 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 	@SideOnly(Side.CLIENT)
 	public int getCookProgressScaled(int i)
 	{
-		return cookTime * i / getMaxCookTime();
+		return Math.round(cookTime * i / MAX_COOK_TIME_UNMODIFIED);
 	}
 
 	@SideOnly(Side.CLIENT)

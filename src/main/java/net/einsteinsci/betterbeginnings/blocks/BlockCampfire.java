@@ -2,8 +2,6 @@ package net.einsteinsci.betterbeginnings.blocks;
 
 import java.util.Random;
 
-import javax.annotation.Nullable;
-
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.gui.BBGuiHandler;
 import net.einsteinsci.betterbeginnings.items.ItemFireBow;

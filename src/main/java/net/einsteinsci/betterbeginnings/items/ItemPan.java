@@ -15,7 +15,7 @@ public class ItemPan extends Item implements ICampfireUtensil
     }
 
     @Override
-    public float getCampfireSpeedModifier(ItemStack stack)
+    public float getCampfireSpeedModifier()
     {
         return 2.0f;
     }
