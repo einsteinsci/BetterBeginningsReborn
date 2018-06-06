@@ -79,7 +79,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 				if (burnTime > 0)
 				{
 					flag1 = true;
-					if (mainHandler.getStackInSlot(FUEL) != null)
+					if (!mainHandler.getStackInSlot(FUEL).isEmpty())
 					{
 						CapUtils.decrementStack(mainHandler, FUEL, 1);
 
@@ -122,7 +122,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 	@Override
 	public boolean canSmelt()
 	{
-		if (mainHandler.getStackInSlot(INPUT) == null || mainHandler.getStackInSlot(BOOSTER) == null)
+		if (mainHandler.getStackInSlot(INPUT).isEmpty() || mainHandler.getStackInSlot(BOOSTER).isEmpty())
 		{
 			return false;
 		}
@@ -130,7 +130,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 		{
 			ItemStack stack = SmelterRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(INPUT));
 			int boostersNeeded = SmelterRecipeHandler.instance().getBoosterCount(mainHandler.getStackInSlot(INPUT));
-			if (stack == null)
+			if (stack.isEmpty())
 			{
 				return false;
 			}
@@ -140,7 +140,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 				return false;
 			}
 
-			if (mainHandler.getStackInSlot(OUTPUT) == null)
+			if (mainHandler.getStackInSlot(OUTPUT).isEmpty())
 			{
 				return true;
 			}
@@ -162,7 +162,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 			ItemStack result = SmelterRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(INPUT));
 			int outputCount = getNextOutputCount();
 			
-			if (mainHandler.getStackInSlot(OUTPUT) == null)
+			if (mainHandler.getStackInSlot(OUTPUT).isEmpty())
 			{
 				ItemStack stack = result.copy();
 				stack.setCount(outputCount);
@@ -179,13 +179,13 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 
 			if (mainHandler.getStackInSlot(INPUT).getCount() <= 0)
 			{
-				mainHandler.setStackInSlot(INPUT, null);
+				mainHandler.setStackInSlot(INPUT, ItemStack.EMPTY);
 			}
 			CapUtils.decrementStack(mainHandler, BOOSTER, gravelUsed);
 
 			if (mainHandler.getStackInSlot(BOOSTER).getCount() <= 0)
 			{
-				mainHandler.setStackInSlot(BOOSTER, null);
+				mainHandler.setStackInSlot(BOOSTER, ItemStack.EMPTY);
 			}
 		}
 	}
@@ -257,7 +257,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 
 	public static float getBoostFromBooster(ItemStack stack)
 	{
-		if (stack == null)
+		if (stack.isEmpty())
 		{
 			return Float.NaN;
 		}

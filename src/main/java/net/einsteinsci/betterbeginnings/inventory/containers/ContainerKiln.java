@@ -42,7 +42,7 @@ public class ContainerKiln extends ContainerSpecializedFurnace<TileEntityKiln>
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int par2)
 	{
-		ItemStack itemstack = null;
+		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = (Slot)inventorySlots.get(par2);
 
 		if (slot != null && slot.getHasStack())
@@ -54,45 +54,45 @@ public class ContainerKiln extends ContainerSpecializedFurnace<TileEntityKiln>
 			{
 				if (!mergeItemStack(itemstack1, TileEntityKilnBase.SLOT_OUTPUT + 1, 39, true))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 				slot.onSlotChange(itemstack1, itemstack);
 			}
 			else if (par2 != TileEntityKiln.SLOT_FUEL && par2 != TileEntityKiln.SLOT_INPUT)
 			{
-				if (KilnRecipeHandler.instance().getSmeltingResult(itemstack1) != null)
+				if (!KilnRecipeHandler.instance().getSmeltingResult(itemstack1).isEmpty())
 				{
 					if (!mergeItemStack(itemstack1, TileEntityKiln.SLOT_INPUT, TileEntityKiln.SLOT_INPUT + 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (FuelRegistry.getBurnTime(FuelConsumerType.KILN, itemstack1) > 0)
 				{
 					if (!mergeItemStack(itemstack1, TileEntityKiln.SLOT_FUEL, TileEntityKiln.SLOT_FUEL + 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (par2 > TileEntityKiln.SLOT_OUTPUT && par2 < 30)
 				{
 					if (!mergeItemStack(itemstack1, 30, 39, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (par2 >= 30 && par2 < 39 && !mergeItemStack(itemstack1, TileEntityKiln.SLOT_OUTPUT + 1, 30, false))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 			else if (!mergeItemStack(itemstack1, TileEntityKiln.SLOT_OUTPUT + 1, 39, true))
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 			if (itemstack1.getCount() == 0)
 			{
-				slot.putStack(null);
+				slot.putStack(ItemStack.EMPTY);
 			}
 			else
 			{
@@ -100,7 +100,7 @@ public class ContainerKiln extends ContainerSpecializedFurnace<TileEntityKiln>
 			}
 			if (itemstack1.getCount() == itemstack.getCount())
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 			slot.onTake(player, itemstack1);
 		}

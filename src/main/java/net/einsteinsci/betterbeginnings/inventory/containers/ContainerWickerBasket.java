@@ -42,7 +42,7 @@ public class ContainerWickerBasket extends ContainerInvTileEntity<TileEntityWick
 
     public ItemStack transferStackInSlot(EntityPlayer playerIn, int index)
     {
-	ItemStack newStack = null;
+	ItemStack newStack = ItemStack.EMPTY;
 	Slot slot = (Slot)this.inventorySlots.get(index);
 
 	if (slot != null && slot.getHasStack())
@@ -54,12 +54,12 @@ public class ContainerWickerBasket extends ContainerInvTileEntity<TileEntityWick
 	    {
 		if (!this.mergeItemStack(containedStack, TileEntityWickerBasket.INV_SIZE, this.inventorySlots.size(), true))
 		{
-		    return null;
+		    return ItemStack.EMPTY;
 		}
 	    }
 	    else if (!this.mergeItemStack(containedStack, 0, TileEntityWickerBasket.INV_SIZE, false))
 	    {
-		return null;
+		return ItemStack.EMPTY;
 	    }
 
 	    if (containedStack.getCount() == 0)

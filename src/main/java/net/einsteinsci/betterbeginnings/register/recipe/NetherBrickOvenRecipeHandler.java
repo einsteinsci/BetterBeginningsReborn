@@ -28,6 +28,6 @@ public class NetherBrickOvenRecipeHandler extends BrickOvenRecipeHandler
 			}
 		}
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 }

@@ -167,7 +167,7 @@ public class BrickOvenRecipeHandler
 			}
 		}
 
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	public boolean isInRecipe(ItemStack stack)

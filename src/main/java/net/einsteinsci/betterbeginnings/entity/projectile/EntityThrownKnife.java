@@ -133,7 +133,7 @@ public class EntityThrownKnife extends EntityThrowable implements IEntityAdditio
 	public void writeEntityToNBT(NBTTagCompound tagCompound) 
 	{
 		super.writeEntityToNBT(tagCompound);
-		if(knife != null)
+		if(!knife.isEmpty())
 		{
 			NBTTagCompound thrownKnife = knife.writeToNBT(new NBTTagCompound());
 			tagCompound.setTag(TAG_THROWN_KNIFE, thrownKnife);

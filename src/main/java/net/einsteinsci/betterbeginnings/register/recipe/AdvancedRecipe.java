@@ -103,7 +103,7 @@ public class AdvancedRecipe
 
 				ItemStack craftingStackInQuestion = crafting.getStackInRowAndColumn(k, l);
 
-				if (craftingStackInQuestion != null && neededCraftingStack != null)
+				if (!craftingStackInQuestion.isEmpty() && neededCraftingStack != null)
 				{
 					if (!neededCraftingStack.matches(craftingStackInQuestion))
 					{
@@ -129,7 +129,7 @@ public class AdvancedRecipe
 			for (int i2 = 0; i2 < materials.getSizeInventory(); ++i2)
 			{
 				ItemStack testedMatStack = materials.getStackInSlot(i2);
-				if (testedMatStack != null)
+				if (!testedMatStack.isEmpty())
 				{
 					foundIt = requiredMatStack.matchesCheckSize(testedMatStack);
 				}
@@ -194,7 +194,7 @@ public class AdvancedRecipe
 
 				ItemStack craftingStackInQuestion = crafting.getStackInRowAndColumn(k, l);
 
-				if (craftingStackInQuestion != null && neededCraftingStack != null)
+				if (!craftingStackInQuestion.isEmpty() && neededCraftingStack != null)
 				{
 					if (!neededCraftingStack.matches(craftingStackInQuestion))
 					{
@@ -240,7 +240,7 @@ public class AdvancedRecipe
 			{
 				ItemStack itemstack1 = crafting.getStackInSlot(i);
 
-				if (itemstack1 != null && itemstack1.hasTagCompound())
+				if (!itemstack1.isEmpty() && itemstack1.hasTagCompound())
 				{
 					itemstack.setTagCompound((NBTTagCompound)itemstack1.getTagCompound().copy());
 				}

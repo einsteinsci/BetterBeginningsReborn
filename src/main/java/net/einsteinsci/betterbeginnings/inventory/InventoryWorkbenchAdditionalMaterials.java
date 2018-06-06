@@ -30,7 +30,7 @@ public class InventoryWorkbenchAdditionalMaterials implements IInventory
 	{
 		if (getSizeInventory() <= slot)
 		{
-			return null;
+			return ItemStack.EMPTY;
 		}
 		else
 		{
@@ -41,14 +41,14 @@ public class InventoryWorkbenchAdditionalMaterials implements IInventory
 	@Override
 	public ItemStack decrStackSize(int slot, int amount)
 	{
-		if (stackList[slot] != null)
+		if (!stackList[slot].isEmpty())
 		{
 			ItemStack itemstack;
 
 			if (stackList[slot].getCount() <= amount)
 			{
 				itemstack = stackList[slot];
-				stackList[slot] = null;
+				stackList[slot] = ItemStack.EMPTY;
 				container.onCraftMatrixChanged(this);
 				return itemstack;
 			}
@@ -58,7 +58,7 @@ public class InventoryWorkbenchAdditionalMaterials implements IInventory
 
 				if (stackList[slot].getCount() == 0)
 				{
-					stackList[slot] = null;
+					stackList[slot] = ItemStack.EMPTY;
 				}
 
 				container.onCraftMatrixChanged(this);
@@ -67,22 +67,22 @@ public class InventoryWorkbenchAdditionalMaterials implements IInventory
 		}
 		else
 		{
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
 	@Override
 	public ItemStack removeStackFromSlot(int slot)
 	{
-		if (stackList[slot] != null)
+		if (!stackList[slot].isEmpty())
 		{
 			ItemStack itemstack = stackList[slot];
-			stackList[slot] = null;
+			stackList[slot] = ItemStack.EMPTY;
 			return itemstack;
 		}
 		else
 		{
-			return null;
+			return ItemStack.EMPTY;
 		}
 	}
 
@@ -174,7 +174,7 @@ public class InventoryWorkbenchAdditionalMaterials implements IInventory
 	{
 		for (int i = 0; i < stackList.length; i++)
 		{
-			stackList[i] = null;
+			stackList[i] = ItemStack.EMPTY;
 		}
 	}
 }

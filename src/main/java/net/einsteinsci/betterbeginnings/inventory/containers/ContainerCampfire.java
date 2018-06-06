@@ -101,7 +101,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotId)
 	{
-		ItemStack itemstackCopy = null;
+		ItemStack itemstackCopy = ItemStack.EMPTY;
 		Slot slot = (Slot)inventorySlots.get(slotId);
 
 		if (slot != null && slot.getHasStack())
@@ -113,7 +113,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 			{
 				if (!mergeItemStack(itemstack, SLOT_PAN + 1, 39, true))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 				slot.onSlotChange(itemstack, itemstackCopy);
 			}
@@ -123,44 +123,44 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 				{
 					if (!mergeItemStack(itemstack, SLOT_PAN, SLOT_PAN + 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (TileEntityCampfire.isItemFuel(itemstack))
 				{
 					if (!mergeItemStack(itemstack, SLOT_FUEL, SLOT_FUEL + 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (CampfireRecipeHandler.instance().getSmeltingResult(itemstack) != null)
 				{
 					if (!mergeItemStack(itemstack, SLOT_INPUT, SLOT_INPUT + 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (slotId > SLOT_OUTPUT && slotId < 30)
 				{
 					if (!mergeItemStack(itemstack, 30, 39, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (slotId >= 30 && slotId < 39 &&
 					!mergeItemStack(itemstack, SLOT_PAN + 1, 30, false))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 			else if (!mergeItemStack(itemstack, SLOT_PAN + 1, 39, false))
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 
 			if (itemstack.getCount() == 0)
 			{
-				slot.putStack(null);
+				slot.putStack(ItemStack.EMPTY);
 			}
 			else
 			{
@@ -168,7 +168,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 			}
 			if (itemstack.getCount() == itemstackCopy.getCount())
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 			slot.onTake(player, itemstack);
 		}

@@ -36,7 +36,7 @@ public class GuiCampfire extends GuiContainer
 		int k = (width - xSize) / 2;
 		int l = (height - ySize) / 2;
 
-		if (tileCampfire.stackFuel() == null)
+		if (tileCampfire.stackFuel().isEmpty())
 		{
 			if (mouseX >= k + 58 && mouseX <= k + 74 && mouseY >= l + 57 && mouseY <= l + 73)
 			{

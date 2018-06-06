@@ -40,7 +40,7 @@ public class JsonBooster
 		    	}
 			for (ItemStack stack : OreDictionary.getOres(boosterItem.getItemName(), false))
 			{
-				if (stack != null)
+				if (!stack.isEmpty())
 				{
 					TileEntitySmelterBase.registerBooster(stack, boostAmount);
 				}
@@ -54,7 +54,7 @@ public class JsonBooster
 		    	    return;
 		    	}
 			ItemStack stack = boosterItem.getFirstItemStackOrNull();
-			if (stack != null)
+			if (!stack.isEmpty())
 			{
 				TileEntitySmelterBase.registerBooster(stack, boostAmount);
 			}

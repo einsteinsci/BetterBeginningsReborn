@@ -77,7 +77,7 @@ public class CampfirePanRecipeHandler
 		{
 			if(entry.getKey().matches(stack)) return entry.getValue();
 		}
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	private boolean canBeSmelted(ItemStack stack, ItemStack stack2)

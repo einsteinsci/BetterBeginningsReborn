@@ -6,6 +6,7 @@ import net.einsteinsci.betterbeginnings.util.CapUtils;
 import net.minecraft.item.*;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraft.item.ItemStack;
 
 public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 {
@@ -24,7 +25,7 @@ public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 	{
 			ItemStack itemStack = findMatchingRecipe();
 
-			if (mainHandler.getStackInSlot(OUTPUT) == null)//STACKNULL
+			if (mainHandler.getStackInSlot(OUTPUT).isEmpty())//STACKNULL
 			{
 				mainHandler.setStackInSlot(OUTPUT, itemStack.copy());
 			}
@@ -36,10 +37,10 @@ public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 			for (int i = INPUTSTART; i < mainHandler.getSlots(); ++i)
 			{
 				ItemStack stack = mainHandler.getStackInSlot(i);
-				if (stack != null)//STACKNULL
+				if (!stack.isEmpty())//STACKNULL
 				{
 					ItemStack containerItem = ForgeHooks.getContainerItem(mainHandler.getStackInSlot(i));
-					if (containerItem != null)//STACKNULL
+					if (!containerItem.isEmpty())//STACKNULL
 					{
 						mainHandler.setStackInSlot(i, containerItem);
 					}
@@ -49,7 +50,7 @@ public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 
 					    if (mainHandler.getStackInSlot(i).getCount() <= 0)
 					    {
-						mainHandler.setStackInSlot(i, null);//STACKNULL
+						mainHandler.setStackInSlot(i, ItemStack.EMPTY);//STACKNULL
 					    }
 					}
 				}
@@ -63,7 +64,7 @@ public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 		for (int i = INPUTSTART; i < mainHandler.getSlots(); ++i)
 		{
 			//STACKNULL
-			if (mainHandler.getStackInSlot(i) != null)
+			if (!mainHandler.getStackInSlot(i).isEmpty())
 			{
 				empty = false;
 				break;
@@ -77,12 +78,12 @@ public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 		else
 		{
 			ItemStack stack = findMatchingRecipe();
-			if (stack == null)//STACKNULL
+			if (stack.isEmpty())//STACKNULL
 			{
 				return false;
 			}
 			//STACKNULL
-			if (mainHandler.getStackInSlot(OUTPUT) == null)
+			if (mainHandler.getStackInSlot(OUTPUT).isEmpty())
 			{
 				return true;
 			}
@@ -116,7 +117,7 @@ public abstract class TileEntityOvenBase extends TileEntitySpecializedFurnace
 				if (burnTime > 0)
 				{
 					flag1 = true;
-					if (mainHandler.getStackInSlot(FUEL) != null)//STACKNULL
+					if (!mainHandler.getStackInSlot(FUEL).isEmpty())//STACKNULL
 					{
 						CapUtils.decrementStack(mainHandler, FUEL, 1);
 						if (mainHandler.getStackInSlot(FUEL).getCount() == 0)

@@ -44,7 +44,7 @@ public class ContainerSmelter extends ContainerSpecializedFurnace<TileEntitySmel
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int fromId)
 	{
-		ItemStack movedStackDupe = null;
+		ItemStack movedStackDupe = ItemStack.EMPTY;
 		Slot slot = (Slot)inventorySlots.get(fromId);
 
 		if (slot != null && slot.getHasStack())
@@ -56,53 +56,53 @@ public class ContainerSmelter extends ContainerSpecializedFurnace<TileEntitySmel
 			{
 				if (!mergeItemStack(movedStack, 4, 40, true))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 				slot.onSlotChange(movedStack, movedStackDupe);
 			}
 			else if (fromId != TileEntitySmelter.FUEL && fromId != TileEntitySmelter.INPUT &&
 					fromId != TileEntitySmelter.BOOSTER)
 			{
-				if (SmelterRecipeHandler.instance().getSmeltingResult(movedStack) != null)
+				if (!SmelterRecipeHandler.instance().getSmeltingResult(movedStack).isEmpty())
 				{
 					if (!mergeItemStack(movedStack, TileEntitySmelter.INPUT, TileEntitySmelter.INPUT + 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (movedStack.getItem() == Item.getItemFromBlock(Blocks.GRAVEL))
 				{
 					if (!mergeItemStack(movedStack, TileEntitySmelter.BOOSTER, TileEntitySmelter.BOOSTER + 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (FuelRegistry.getBurnTime(FuelConsumerType.SMELTER, movedStack) > 0)
 				{
 					if (!mergeItemStack(movedStack, TileEntitySmelter.FUEL, TileEntitySmelter.FUEL + 1, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (fromId >= 4 && fromId < 31)
 				{
 					if (!mergeItemStack(movedStack, 31, 40, false))
 					{
-						return null;
+						return ItemStack.EMPTY;
 					}
 				}
 				else if (fromId >= 31 && fromId < 40 && !mergeItemStack(movedStack, 4, 31, false))
 				{
-					return null;
+					return ItemStack.EMPTY;
 				}
 			}
 			else if (!mergeItemStack(movedStack, 4, 40, false))
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 			if (movedStack.getCount() == 0)
 			{
-				slot.putStack(null);
+				slot.putStack(ItemStack.EMPTY);
 			}
 			else
 			{
@@ -110,7 +110,7 @@ public class ContainerSmelter extends ContainerSpecializedFurnace<TileEntitySmel
 			}
 			if (movedStack.getCount() == movedStackDupe.getCount())
 			{
-				return null;
+				return ItemStack.EMPTY;
 			}
 			slot.onTake(player, movedStack);
 		}
