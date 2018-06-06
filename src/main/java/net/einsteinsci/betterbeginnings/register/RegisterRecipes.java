@@ -77,165 +77,165 @@ public class RegisterRecipes
 
     public static void addFurnaceRecipes()
     {
-	addKilnRecipes();
-	addBrickOvenRecipes();
-	addSmelterRecipes();
-	addCampfireRecipes();
+		addKilnRecipes();
+		addBrickOvenRecipes();
+		addSmelterRecipes();
+		addCampfireRecipes();
     }
 
     private static void addKilnRecipes()
     {
-	KilnConfig.addRecipe(Items.CLAY_BALL, new ItemStack(Items.BRICK), 0.35f);
-	KilnConfig.addRecipe(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.1f);
-	KilnConfig.addRecipe("cobblestone", new ItemStack(Blocks.STONE), 0.1f);
-	KilnConfig.addRecipe(new ItemStack(Blocks.STONEBRICK, 1, 0), new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1f);
-	KilnConfig.addRecipe(Blocks.CACTUS, new ItemStack(Items.DYE, 1, 2), 0.1f);
-	KilnConfig.addRecipe("logWood", new ItemStack(Items.COAL, 1, 1), 0.15f);
-	KilnConfig.addRecipe(Blocks.SAND, new ItemStack(Blocks.GLASS), 0.1f);
-	KilnConfig.addRecipe(new ItemStack(Blocks.SPONGE, 1, 1), new ItemStack(Blocks.SPONGE, 1, 0), 0.1f);
-	KilnConfig.addRecipe(Blocks.NETHERRACK, new ItemStack(Items.NETHERBRICK), 0.1f);
-
-	KilnConfig.addRecipe(Items.BEEF, new ItemStack(RegisterItems.charredMeat), 0.1f);
-	KilnConfig.addRecipe(Items.PORKCHOP, new ItemStack(RegisterItems.charredMeat), 0.1f);
-	KilnConfig.addRecipe(Items.CHICKEN, new ItemStack(RegisterItems.charredMeat, 1,
-		ItemCharredMeat.META_CHICKEN), 0.1f);
-	KilnConfig.addRecipe(new ItemStack(Items.FISH, 1, 0), new ItemStack(RegisterItems.charredMeat, 1,
-		ItemCharredMeat.META_FISH), 0.1f);
-	KilnConfig.addRecipe(new ItemStack(Items.FISH, 1, 1), new ItemStack(RegisterItems.charredMeat, 1,
-		ItemCharredMeat.META_FISH), 0.1f);
-	KilnConfig.addRecipe(Items.RABBIT, new ItemStack(RegisterItems.charredMeat, 1,
-		ItemCharredMeat.META_RABBIT), 0.1f);
-	KilnConfig.addRecipe(Items.MUTTON, new ItemStack(RegisterItems.charredMeat, 1,
-		ItemCharredMeat.META_MUTTON), 0.1f);
+		KilnConfig.addRecipe(Items.CLAY_BALL, new ItemStack(Items.BRICK), 0.35f);
+		KilnConfig.addRecipe(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.1f);
+		KilnConfig.addRecipe("cobblestone", new ItemStack(Blocks.STONE), 0.1f);
+		KilnConfig.addRecipe(new ItemStack(Blocks.STONEBRICK, 1, 0), new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1f);
+		KilnConfig.addRecipe(Blocks.CACTUS, new ItemStack(Items.DYE, 1, 2), 0.1f);
+		KilnConfig.addRecipe("logWood", new ItemStack(Items.COAL, 1, 1), 0.15f);
+		KilnConfig.addRecipe(Blocks.SAND, new ItemStack(Blocks.GLASS), 0.1f);
+		KilnConfig.addRecipe(new ItemStack(Blocks.SPONGE, 1, 1), new ItemStack(Blocks.SPONGE, 1, 0), 0.1f);
+		KilnConfig.addRecipe(Blocks.NETHERRACK, new ItemStack(Items.NETHERBRICK), 0.1f);
+	
+		KilnConfig.addRecipe(Items.BEEF, new ItemStack(RegisterItems.charredMeat), 0.1f);
+		KilnConfig.addRecipe(Items.PORKCHOP, new ItemStack(RegisterItems.charredMeat), 0.1f);
+		KilnConfig.addRecipe(Items.CHICKEN, new ItemStack(RegisterItems.charredMeat, 1,
+			ItemCharredMeat.META_CHICKEN), 0.1f);
+		KilnConfig.addRecipe(new ItemStack(Items.FISH, 1, 0), new ItemStack(RegisterItems.charredMeat, 1,
+			ItemCharredMeat.META_FISH), 0.1f);
+		KilnConfig.addRecipe(new ItemStack(Items.FISH, 1, 1), new ItemStack(RegisterItems.charredMeat, 1,
+			ItemCharredMeat.META_FISH), 0.1f);
+		KilnConfig.addRecipe(Items.RABBIT, new ItemStack(RegisterItems.charredMeat, 1,
+			ItemCharredMeat.META_RABBIT), 0.1f);
+		KilnConfig.addRecipe(Items.MUTTON, new ItemStack(RegisterItems.charredMeat, 1,
+			ItemCharredMeat.META_MUTTON), 0.1f);
     }
 
     private static void addBrickOvenRecipes()
     {
-	BrickOvenConfig.addShapedRecipe(new ItemStack(Items.GOLDEN_APPLE), "GGG", "GAG", "GGG", 'G',
-		Items.GOLD_INGOT, 'A', Items.APPLE);
-	BrickOvenConfig.addShapedRecipe(new ItemStack(Items.GOLDEN_APPLE, 1, 1), "###", "#A#", "###", '#',
-		Blocks.GOLD_BLOCK, 'A', Items.APPLE);
-	BrickOvenConfig.addShapedRecipe(new ItemStack(Items.CAKE), "MMM", "SES", "WWW", 'M', Items.MILK_BUCKET,
-		'S', Items.SUGAR, 'E', Items.EGG, 'W', "cropWheat");
-	BrickOvenConfig.addShapedRecipe(new ItemStack(Items.BREAD, 2), "WWW", 'W', "cropWheat");
-	BrickOvenConfig.addShapedRecipe(new ItemStack(Items.COOKIE, 8), "WCW", 'W', "cropWheat", 'C',
-		new ItemStack(Items.DYE, 1, 3)); // Cocoa bean
-	BrickOvenConfig.addShapedRecipe(new ItemStack(Items.RABBIT_STEW), " R ", "CPM", " B ",
-		'R', Items.COOKED_RABBIT, 'C', "cropCarrot", 'P', "cropPotato",
-		'M', Blocks.BROWN_MUSHROOM, 'B', Items.BOWL);
-	BrickOvenConfig.addShapedRecipe(new ItemStack(Items.RABBIT_STEW), " R ", "CPM", " B ",
-		'R', Items.COOKED_RABBIT, 'C', "cropCarrot", 'P', "cropPotato",
-		'M', Blocks.RED_MUSHROOM, 'B', Items.BOWL);
-	BrickOvenConfig.addShapedRecipe(new ItemStack(RegisterItems.marshmallow, 3), " S ", "SSS", " S ",
-		'S', Items.SUGAR);
-
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.MUSHROOM_STEW), Blocks.BROWN_MUSHROOM,
-		Blocks.RED_MUSHROOM, Items.BOWL);
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_BEEF), Items.BEEF);
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_PORKCHOP), Items.PORKCHOP);
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_CHICKEN), Items.CHICKEN);
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_FISH), Items.FISH);
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_FISH, 1, 1),
-		new ItemStack(Items.FISH, 1, 1));
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_RABBIT), Items.RABBIT);
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_MUTTON), Items.MUTTON);
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.BAKED_POTATO), "cropPotato");
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.PUMPKIN_PIE), Items.EGG, Items.SUGAR,
-		Blocks.PUMPKIN);
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.FERMENTED_SPIDER_EYE), Items.SPIDER_EYE,
-		Items.SUGAR, Blocks.BROWN_MUSHROOM);
-	BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.MAGMA_CREAM),
-		Items.SLIME_BALL, Items.BLAZE_POWDER);
+		BrickOvenConfig.addShapedRecipe(new ItemStack(Items.GOLDEN_APPLE), "GGG", "GAG", "GGG", 'G',
+			Items.GOLD_INGOT, 'A', Items.APPLE);
+		BrickOvenConfig.addShapedRecipe(new ItemStack(Items.GOLDEN_APPLE, 1, 1), "###", "#A#", "###", '#',
+			Blocks.GOLD_BLOCK, 'A', Items.APPLE);
+		BrickOvenConfig.addShapedRecipe(new ItemStack(Items.CAKE), "MMM", "SES", "WWW", 'M', Items.MILK_BUCKET,
+			'S', Items.SUGAR, 'E', Items.EGG, 'W', "cropWheat");
+		BrickOvenConfig.addShapedRecipe(new ItemStack(Items.BREAD, 2), "WWW", 'W', "cropWheat");
+		BrickOvenConfig.addShapedRecipe(new ItemStack(Items.COOKIE, 8), "WCW", 'W', "cropWheat", 'C',
+			new ItemStack(Items.DYE, 1, 3)); // Cocoa bean
+		BrickOvenConfig.addShapedRecipe(new ItemStack(Items.RABBIT_STEW), " R ", "CPM", " B ",
+			'R', Items.COOKED_RABBIT, 'C', "cropCarrot", 'P', "cropPotato",
+			'M', Blocks.BROWN_MUSHROOM, 'B', Items.BOWL);
+		BrickOvenConfig.addShapedRecipe(new ItemStack(Items.RABBIT_STEW), " R ", "CPM", " B ",
+			'R', Items.COOKED_RABBIT, 'C', "cropCarrot", 'P', "cropPotato",
+			'M', Blocks.RED_MUSHROOM, 'B', Items.BOWL);
+		BrickOvenConfig.addShapedRecipe(new ItemStack(RegisterItems.marshmallow, 3), " S ", "SSS", " S ",
+			'S', Items.SUGAR);
+	
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.MUSHROOM_STEW), Blocks.BROWN_MUSHROOM,
+			Blocks.RED_MUSHROOM, Items.BOWL);
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_BEEF), Items.BEEF);
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_PORKCHOP), Items.PORKCHOP);
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_CHICKEN), Items.CHICKEN);
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_FISH), Items.FISH);
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_FISH, 1, 1),
+			new ItemStack(Items.FISH, 1, 1));
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_RABBIT), Items.RABBIT);
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.COOKED_MUTTON), Items.MUTTON);
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.BAKED_POTATO), "cropPotato");
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.PUMPKIN_PIE), Items.EGG, Items.SUGAR,
+			Blocks.PUMPKIN);
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.FERMENTED_SPIDER_EYE), Items.SPIDER_EYE,
+			Items.SUGAR, Blocks.BROWN_MUSHROOM);
+		BrickOvenConfig.addShapelessRecipe(new ItemStack(Items.MAGMA_CREAM),
+			Items.SLIME_BALL, Items.BLAZE_POWDER);
     }
 
     private static void addSmelterRecipes()
     {
-	// Vanilla Ore Recipes (keep the result vanilla to prevent weirdness)
-	SmelterConfig.addRecipe("oreIron", new ItemStack(Items.IRON_INGOT), 0.7f, 1, 1);
-	SmelterConfig.addRecipe("oreGold", new ItemStack(Items.GOLD_INGOT), 1.0f, 2, 1);
-
-	// Modded Ore Recipes
-	RegisterHelper.registerSmelterConfigOreRecipe("oreCopper", "ingotCopper", 0.6f, 1, 1);
-	RegisterHelper.registerSmelterConfigOreRecipe("oreTin", "ingotTin", 0.6f, 1, 1);
-	RegisterHelper.registerSmelterConfigOreRecipe("oreAluminum", "ingotAluminum", 0.8f, 1, 1);
-	RegisterHelper.registerSmelterConfigOreRecipe("oreSilver", "ingotSilver", 1.0f, 1, 1);
-	RegisterHelper.registerSmelterConfigOreRecipe("oreLead", "ingotLead", 0.6f, 1, 1);
-	RegisterHelper.registerSmelterConfigOreRecipe("orePlatinum", "ingotPlatinum", 1.0f, 2, 1);
-	RegisterHelper.registerSmelterConfigOreRecipe("oreNickel", "ingotNickel", 0.8f, 1, 1);
-
-	// Recipes that might be better suited in Kiln only
-	if (BBConfig.canSmelterDoKilnStuff)
-	{
-	    SmelterConfig.addRecipe(new ItemStack(Blocks.SAND, 1, 0),
-		    new ItemStack(Blocks.GLASS), 0.1f, 1, 0);
-	    SmelterConfig.addRecipe(new ItemStack(Blocks.SAND, 1, 1),
-		    new ItemStack(Blocks.STAINED_GLASS, 1, 1), 0.1f, 1, 0); // Red sand makes orange stained glass.
-	    SmelterConfig.addRecipe(Blocks.NETHERRACK, new ItemStack(Items.NETHERBRICK), 0.25f, 1, 1);
-	    SmelterConfig.addRecipe(Blocks.STONEBRICK, new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1f, 1, 0);
-
-	    SmelterConfig.addRecipe("cobblestone", new ItemStack(Blocks.STONE), 0.1f, 0, 0);
-	    SmelterConfig.addRecipe(Items.CLAY_BALL, new ItemStack(Items.BRICK), 0.3f, 0, 0);
-	    SmelterConfig.addRecipe(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.35f, 0, 0);
-	    SmelterConfig.addRecipe(new ItemStack(Blocks.SPONGE, 1, 1),
-		    new ItemStack(Blocks.SPONGE, 1, 0), 0.1f, 0, 0);
-	    SmelterConfig.addRecipe(new ItemStack(Blocks.STONEBRICK, 1, 0),
-		    new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1f, 0, 0);
-	}
-
-	// Silk touch recipes
-	SmelterConfig.addRecipe("oreCoal", new ItemStack(Items.COAL, 1), 0.25f, 2, 1);
-	SmelterConfig.addRecipe("oreQuartz", new ItemStack(Items.QUARTZ, 2), 0.4f, 2, 2);
-	SmelterConfig.addRecipe("oreLapis", new ItemStack(Items.DYE, 8, 4), 0.5f, 2, 3);
-	SmelterConfig.addRecipe("oreRedstone", new ItemStack(Items.REDSTONE, 4), 0.8f, 2, 2);
-	SmelterConfig.addRecipe("oreDiamond", new ItemStack(Items.DIAMOND, 1), 1.0f, 3, 1);
-	SmelterConfig.addRecipe("oreEmerald", new ItemStack(Items.EMERALD, 1), 1.0f, 3, 1);
-
-	// Silk touch recipes (modded)
-	RegisterHelper.registerSmelterConfigOreRecipe("oreRuby", "gemRuby", 0.8f, 2, 1);
-	RegisterHelper.registerSmelterConfigOreRecipe("oreSapphire", "gemSapphire", 0.8f, 2, 1);
-	RegisterHelper.registerSmelterConfigOreRecipe("oreOlivine", "gemOlivine", 0.8f, 2, 1);
+		// Vanilla Ore Recipes (keep the result vanilla to prevent weirdness)
+		SmelterConfig.addRecipe("oreIron", new ItemStack(Items.IRON_INGOT), 0.7f, 1, 1);
+		SmelterConfig.addRecipe("oreGold", new ItemStack(Items.GOLD_INGOT), 1.0f, 2, 1);
+	
+		// Modded Ore Recipes
+		RegisterHelper.registerSmelterConfigOreRecipe("oreCopper", "ingotCopper", 0.6f, 1, 1);
+		RegisterHelper.registerSmelterConfigOreRecipe("oreTin", "ingotTin", 0.6f, 1, 1);
+		RegisterHelper.registerSmelterConfigOreRecipe("oreAluminum", "ingotAluminum", 0.8f, 1, 1);
+		RegisterHelper.registerSmelterConfigOreRecipe("oreSilver", "ingotSilver", 1.0f, 1, 1);
+		RegisterHelper.registerSmelterConfigOreRecipe("oreLead", "ingotLead", 0.6f, 1, 1);
+		RegisterHelper.registerSmelterConfigOreRecipe("orePlatinum", "ingotPlatinum", 1.0f, 2, 1);
+		RegisterHelper.registerSmelterConfigOreRecipe("oreNickel", "ingotNickel", 0.8f, 1, 1);
+	
+		// Recipes that might be better suited in Kiln only
+		if (BBConfig.canSmelterDoKilnStuff)
+		{
+		    SmelterConfig.addRecipe(new ItemStack(Blocks.SAND, 1, 0),
+			    new ItemStack(Blocks.GLASS), 0.1f, 1, 0);
+		    SmelterConfig.addRecipe(new ItemStack(Blocks.SAND, 1, 1),
+			    new ItemStack(Blocks.STAINED_GLASS, 1, 1), 0.1f, 1, 0); // Red sand makes orange stained glass.
+		    SmelterConfig.addRecipe(Blocks.NETHERRACK, new ItemStack(Items.NETHERBRICK), 0.25f, 1, 1);
+		    SmelterConfig.addRecipe(Blocks.STONEBRICK, new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1f, 1, 0);
+	
+		    SmelterConfig.addRecipe("cobblestone", new ItemStack(Blocks.STONE), 0.1f, 0, 0);
+		    SmelterConfig.addRecipe(Items.CLAY_BALL, new ItemStack(Items.BRICK), 0.3f, 0, 0);
+		    SmelterConfig.addRecipe(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.35f, 0, 0);
+		    SmelterConfig.addRecipe(new ItemStack(Blocks.SPONGE, 1, 1),
+			    new ItemStack(Blocks.SPONGE, 1, 0), 0.1f, 0, 0);
+		    SmelterConfig.addRecipe(new ItemStack(Blocks.STONEBRICK, 1, 0),
+			    new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1f, 0, 0);
+		}
+	
+		// Silk touch recipes
+		SmelterConfig.addRecipe("oreCoal", new ItemStack(Items.COAL, 1), 0.25f, 2, 1);
+		SmelterConfig.addRecipe("oreQuartz", new ItemStack(Items.QUARTZ, 2), 0.4f, 2, 2);
+		SmelterConfig.addRecipe("oreLapis", new ItemStack(Items.DYE, 8, 4), 0.5f, 2, 3);
+		SmelterConfig.addRecipe("oreRedstone", new ItemStack(Items.REDSTONE, 4), 0.8f, 2, 2);
+		SmelterConfig.addRecipe("oreDiamond", new ItemStack(Items.DIAMOND, 1), 1.0f, 3, 1);
+		SmelterConfig.addRecipe("oreEmerald", new ItemStack(Items.EMERALD, 1), 1.0f, 3, 1);
+	
+		// Silk touch recipes (modded)
+		RegisterHelper.registerSmelterConfigOreRecipe("oreRuby", "gemRuby", 0.8f, 2, 1);
+		RegisterHelper.registerSmelterConfigOreRecipe("oreSapphire", "gemSapphire", 0.8f, 2, 1);
+		RegisterHelper.registerSmelterConfigOreRecipe("oreOlivine", "gemOlivine", 0.8f, 2, 1);
     }
 
     private static void addCampfireRecipes()
     {
-	CampfireConfig.addRecipe("logWood", new ItemStack(Items.COAL, 1, 1), 0.15f);
-	CampfireConfig.addRecipe(new ItemStack(Blocks.SPONGE, 1, 1), new ItemStack(Blocks.SPONGE, 1, 0), 0.1f);
-
-	CampfireConfig.addRecipe(RegisterItems.roastingStickRawMallow,
-		new ItemStack(RegisterItems.roastingStickCookedMallow), 0.5f);
-
-	CampfireConfig.addRecipe(Items.BEEF, new ItemStack(RegisterItems.charredMeat), 0.1f);
-	CampfireConfig.addRecipe(Items.PORKCHOP, new ItemStack(RegisterItems.charredMeat), 0.1f);
-	CampfireConfig.addRecipe(Items.CHICKEN, new ItemStack(RegisterItems.charredMeat, 1,
-		ItemCharredMeat.META_CHICKEN), 0.1f);
-	CampfireConfig.addRecipe(new ItemStack(Items.FISH, 1, 0), new ItemStack(RegisterItems.charredMeat, 1,
-		ItemCharredMeat.META_FISH), 0.1f);
-	CampfireConfig.addRecipe(new ItemStack(Items.FISH, 1, 1), new ItemStack(RegisterItems.charredMeat, 1,
-		ItemCharredMeat.META_FISH), 0.1f);
-	CampfireConfig.addRecipe(Items.RABBIT, new ItemStack(RegisterItems.charredMeat, 1,
-		ItemCharredMeat.META_RABBIT), 0.1f);
-	CampfireConfig.addRecipe(Items.MUTTON, new ItemStack(RegisterItems.charredMeat, 1,
-		ItemCharredMeat.META_MUTTON), 0.1f);
-
-	if (BBConfig.canCampfireDoAllKilnStuff)
-	{
-	    CampfireConfig.addRecipe(Items.CLAY_BALL, new ItemStack(Items.BRICK), 0.35f);
-	    CampfireConfig.addRecipe(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.1f);
-	    CampfireConfig.addRecipe("cobblestone", new ItemStack(Blocks.STONE), 0.1f);
-	    CampfireConfig.addRecipe(new ItemStack(Blocks.STONEBRICK, 1, 0),
-		    new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1f);
-	    CampfireConfig.addRecipe(Blocks.CACTUS, new ItemStack(Items.DYE, 1, 2), 0.1f);
-	    CampfireConfig.addRecipe(Blocks.SAND, new ItemStack(Blocks.GLASS), 0.1f);
-	    CampfireConfig.addRecipe(Blocks.NETHERRACK, new ItemStack(Items.NETHERBRICK), 0.1f);
-	}
-
-	CampfireConfig.addPanRecipe(Items.BEEF, new ItemStack(Items.COOKED_BEEF), 0.1f);
-	CampfireConfig.addPanRecipe(Items.PORKCHOP, new ItemStack(Items.COOKED_PORKCHOP), 0.1f);
-	CampfireConfig.addPanRecipe(Items.CHICKEN, new ItemStack(Items.COOKED_CHICKEN), 0.1f);
-	CampfireConfig.addPanRecipe(new ItemStack(Items.FISH, 1, 0), new ItemStack(Items.COOKED_FISH, 1, 0), 0.1f);
-	CampfireConfig.addPanRecipe(new ItemStack(Items.FISH, 1, 1), new ItemStack(Items.COOKED_FISH, 1, 1), 0.1f);
-	CampfireConfig.addPanRecipe(Items.RABBIT, new ItemStack(Items.COOKED_RABBIT), 0.1f);
-	CampfireConfig.addPanRecipe(Items.MUTTON, new ItemStack(Items.COOKED_MUTTON), 0.1f);
+		CampfireConfig.addRecipe("logWood", new ItemStack(Items.COAL, 1, 1), 0.15f);
+		CampfireConfig.addRecipe(new ItemStack(Blocks.SPONGE, 1, 1), new ItemStack(Blocks.SPONGE, 1, 0), 0.1f);
+	
+		CampfireConfig.addRecipe(RegisterItems.roastingStickRawMallow,
+			new ItemStack(RegisterItems.roastingStickCookedMallow), 0.5f);
+	
+		CampfireConfig.addRecipe(Items.BEEF, new ItemStack(RegisterItems.charredMeat), 0.1f);
+		CampfireConfig.addRecipe(Items.PORKCHOP, new ItemStack(RegisterItems.charredMeat), 0.1f);
+		CampfireConfig.addRecipe(Items.CHICKEN, new ItemStack(RegisterItems.charredMeat, 1,
+			ItemCharredMeat.META_CHICKEN), 0.1f);
+		CampfireConfig.addRecipe(new ItemStack(Items.FISH, 1, 0), new ItemStack(RegisterItems.charredMeat, 1,
+			ItemCharredMeat.META_FISH), 0.1f);
+		CampfireConfig.addRecipe(new ItemStack(Items.FISH, 1, 1), new ItemStack(RegisterItems.charredMeat, 1,
+			ItemCharredMeat.META_FISH), 0.1f);
+		CampfireConfig.addRecipe(Items.RABBIT, new ItemStack(RegisterItems.charredMeat, 1,
+			ItemCharredMeat.META_RABBIT), 0.1f);
+		CampfireConfig.addRecipe(Items.MUTTON, new ItemStack(RegisterItems.charredMeat, 1,
+			ItemCharredMeat.META_MUTTON), 0.1f);
+	
+		if (BBConfig.canCampfireDoAllKilnStuff)
+		{
+		    CampfireConfig.addRecipe(Items.CLAY_BALL, new ItemStack(Items.BRICK), 0.35f);
+		    CampfireConfig.addRecipe(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.1f);
+		    CampfireConfig.addRecipe("cobblestone", new ItemStack(Blocks.STONE), 0.1f);
+		    CampfireConfig.addRecipe(new ItemStack(Blocks.STONEBRICK, 1, 0),
+			    new ItemStack(Blocks.STONEBRICK, 1, 2), 0.1f);
+		    CampfireConfig.addRecipe(Blocks.CACTUS, new ItemStack(Items.DYE, 1, 2), 0.1f);
+		    CampfireConfig.addRecipe(Blocks.SAND, new ItemStack(Blocks.GLASS), 0.1f);
+		    CampfireConfig.addRecipe(Blocks.NETHERRACK, new ItemStack(Items.NETHERBRICK), 0.1f);
+		}
+	
+		CampfireConfig.addPanRecipe(Items.BEEF, new ItemStack(Items.COOKED_BEEF), 0.1f);
+		CampfireConfig.addPanRecipe(Items.PORKCHOP, new ItemStack(Items.COOKED_PORKCHOP), 0.1f);
+		CampfireConfig.addPanRecipe(Items.CHICKEN, new ItemStack(Items.COOKED_CHICKEN), 0.1f);
+		CampfireConfig.addPanRecipe(new ItemStack(Items.FISH, 1, 0), new ItemStack(Items.COOKED_FISH, 1, 0), 0.1f);
+		CampfireConfig.addPanRecipe(new ItemStack(Items.FISH, 1, 1), new ItemStack(Items.COOKED_FISH, 1, 1), 0.1f);
+		CampfireConfig.addPanRecipe(Items.RABBIT, new ItemStack(Items.COOKED_RABBIT), 0.1f);
+		CampfireConfig.addPanRecipe(Items.MUTTON, new ItemStack(Items.COOKED_MUTTON), 0.1f);
     }
 
     public static void addAdvancedRecipes()
@@ -562,7 +562,7 @@ public class RegisterRecipes
 
 	// Fishing rod
 	AdvancedCraftingConfig.addAdvancedRecipe(new ItemStack(Items.FISHING_ROD),
-		new Object[] {new ItemStack(RegisterItems.ironNugget)},
+		new Object[] {new ItemStack(Items.IRON_NUGGET)},
 		"  /", " /s", "/ s",
 		'/', "stickWood",
 		's', "itemString");

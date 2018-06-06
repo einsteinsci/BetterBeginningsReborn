@@ -78,13 +78,5 @@ public class RegisterBlocks
         //RegisterHelper.registerBlock(e.getRegistry(), redstoneKilnLit);
 
         RegisterHelper.registerBlock(e.getRegistry(), wickerBasket);
-        
-        oreDictionary();
-    }
-
-    public static void oreDictionary()
-    {
-        OreDictionary.registerOre("craftingTableWood", doubleWorkbench);
-        OreDictionary.registerOre("craftingTableWood", Blocks.CRAFTING_TABLE);
     }
 }

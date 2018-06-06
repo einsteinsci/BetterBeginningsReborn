@@ -94,10 +94,10 @@ public class BBEventHandler
 	    }
 	}
 
-	if (item == RegisterItems.ironNugget)
-	{
-	    e.getToolTip().add("Good for hinges and rivets");
-	}
+	//if (item == RegisterItems.ironNugget)
+	//{
+	//    e.getToolTip().add("Good for hinges and rivets");
+	//}
 
 	if (item == RegisterItems.flintKnife)
 	{
