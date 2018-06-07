@@ -7,24 +7,21 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import java.io.File;
 import java.util.List;
 
-public class BBConfigFolderLoader
-{
+public class BBConfigFolderLoader {
 	public static final String FOLDERNAME = "betterbeginnings";
 	public static final String CONFIG_FILENAME = "betterbeginnings.cfg";
 
 	private static File configFolder;
 	private static boolean success = true;
 
-	public static Configuration getConfigFile(FMLPreInitializationEvent e)
-	{
+	public static Configuration getConfigFile(FMLPreInitializationEvent e) {
 		configFolder = new File(e.getModConfigurationDirectory(), FOLDERNAME);
 
 		File file = new File(e.getModConfigurationDirectory(), FOLDERNAME + "/" + CONFIG_FILENAME);
 		return new Configuration(file);
 	}
 
-	public static void loadRecipes(FMLInitializationEvent e)
-	{
+	public static void loadRecipes(FMLInitializationEvent e) {
 		loadJsonConfig(e, KilnConfig.INSTANCE);
 		loadJsonConfig(e, SmelterConfig.INSTANCE);
 		loadJsonConfig(e, BrickOvenConfig.INSTANCE);
@@ -34,16 +31,7 @@ public class BBConfigFolderLoader
 		loadJsonConfig(e, BoosterConfig.INSTANCE);
 	}
 
-	// Should be run before RemoveRecipes.remove() and .removeFurnaceRecipes()
-	public static void loadRemovedRecipes(FMLInitializationEvent e)
-	{
-		BBJsonLoader.initialize();
-
-		loadJsonConfig(e, RemovalConfig.INSTANCE);
-	}
-
-	public static void loadJsonConfig(FMLInitializationEvent e, IJsonConfig config)
-	{
+	public static void loadJsonConfig(FMLInitializationEvent e, IJsonConfig config) {
 		File subfolder = new File(configFolder, config.getSubFolder());
 		subfolder.mkdirs();
 
@@ -59,21 +47,18 @@ public class BBConfigFolderLoader
 		config.savePostLoad(subfolder);
 	}
 
-	public static void saveAutoJson(IJsonConfig config)
-	{
+	public static void saveAutoJson(IJsonConfig config) {
 		File subfolder = new File(configFolder, config.getSubFolder());
 		subfolder.mkdirs();
 
 		config.saveAutoJson(subfolder);
 	}
-	
-	public static void failLoading()
-	{
-	    success = false;
+
+	public static void failLoading() {
+		success = false;
 	}
-	
-	public static boolean wasLoadingSuccessfull()
-	{
-	    return success;
+
+	public static boolean wasLoadingSuccessfull() {
+		return success;
 	}
 }

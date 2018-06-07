@@ -99,8 +99,6 @@ public class ModMain
     {
         proxy.init(e);
 
-        BBConfigFolderLoader.loadRemovedRecipes(e);
-
         RemoveRecipes.remove();
         if (BBConfig.moduleFurnaces)
         {
