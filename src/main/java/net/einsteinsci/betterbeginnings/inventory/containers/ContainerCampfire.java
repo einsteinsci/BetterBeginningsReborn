@@ -21,7 +21,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 	private static final int SLOT_FUEL = TileEntityCampfire.SLOT_FUEL;
 	private static final int SLOT_PAN = TileEntityCampfire.SLOT_UTENSIL;
 	public int lastItemBurnTime;
-	public int lastCookTime;
+	public float lastCookTime;
 	private int lastBurnTime;
 	private int lastDecayTime;
 
@@ -61,7 +61,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 	{
 		super.addListener(listener);
 
-		listener.sendWindowProperty(this, 0, tileEntity.cookTime);
+		listener.sendWindowProperty(this, 0, (int) tileEntity.cookTime);
 		listener.sendWindowProperty(this, 1, tileEntity.burnTime);
 		listener.sendWindowProperty(this, 2, tileEntity.currentItemBurnTime);
 		listener.sendWindowProperty(this, 3, tileEntity.decayTime);
@@ -76,7 +76,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 		{
 			if (lastCookTime != tileEntity.cookTime)
 			{
-				listener.sendWindowProperty(this, 0, tileEntity.cookTime);
+				listener.sendWindowProperty(this, 0, (int) tileEntity.cookTime);
 			}
 			if (lastBurnTime != tileEntity.burnTime)
 			{
