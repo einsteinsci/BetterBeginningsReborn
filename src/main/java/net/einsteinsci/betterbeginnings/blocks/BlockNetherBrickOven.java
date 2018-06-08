@@ -2,8 +2,6 @@ package net.einsteinsci.betterbeginnings.blocks;
 
 import java.util.Random;
 
-import javax.annotation.Nullable;
-
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.gui.BBGuiHandler;
 import net.einsteinsci.betterbeginnings.register.RegisterBlocks;
@@ -23,109 +21,92 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.*;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 
-public class BlockNetherBrickOven extends BlockSpecializedFurnace
-{
-    static final FluidStack MAX_LAVA = new FluidStack(FluidRegistry.LAVA, Integer.MAX_VALUE);
-    
-    public BlockNetherBrickOven(boolean lit)
-    {
-        super(Material.ROCK);
+public class BlockNetherBrickOven extends BlockSpecializedFurnace {
+	static final FluidStack MAX_LAVA = new FluidStack(FluidRegistry.LAVA, Integer.MAX_VALUE);
 
-        if (lit)
-        {
-            setLightLevel(0.875F);
-        }
-        else
-        {
-            setLightLevel(0F);
-            setCreativeTab(ModMain.tabBetterBeginnings);
-        }
+	public BlockNetherBrickOven(boolean lit) {
+		super(Material.ROCK);
 
-        setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+		if (lit) {
+			setLightLevel(0.875F);
+		} else {
+			setLightLevel(0F);
+			setCreativeTab(ModMain.tabBetterBeginnings);
+		}
 
-        setHardness(4.0f);
-        setResistance(10.0f);
+		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 
-        isLit = lit;
-    }
+		setHardness(4.0f);
+		setResistance(10.0f);
 
-    @Override
-    public String getName()
-    {
-        return isLit ? "nether_brick_oven_lit" : "nether_brick_oven";
-    }
+		isLit = lit;
+	}
 
-    public static void updateBlockState(boolean lit, World world, BlockPos pos)
-    {
-        IBlockState state = world.getBlockState(pos);
-        TileEntity tileEntity = world.getTileEntity(pos);
+	@Override
+	public String getName() {
+		return isLit ? "nether_brick_oven_lit" : "nether_brick_oven";
+	}
 
-        if (lit)
-        {
-            world.setBlockState(pos, RegisterBlocks.netherBrickOvenLit.getDefaultState()
-                    .withProperty(FACING, state.getValue(FACING)), 3);
-        }
-        else
-        {
-            world.setBlockState(pos, RegisterBlocks.netherBrickOven.getDefaultState()
-                    .withProperty(FACING, state.getValue(FACING)), 3);
-        }
+	public static void updateBlockState(boolean lit, World world, BlockPos pos) {
+		IBlockState state = world.getBlockState(pos);
+		TileEntity tileEntity = world.getTileEntity(pos);
 
-        if (tileEntity != null)
-        {
-            tileEntity.validate();
-            world.setTileEntity(pos, tileEntity);
-        }
-    }
+		if (lit) {
+			world.setBlockState(pos,
+					RegisterBlocks.netherBrickOvenLit.getDefaultState().withProperty(FACING, state.getValue(FACING)),
+					3);
+		} else {
+			world.setBlockState(pos,
+					RegisterBlocks.netherBrickOven.getDefaultState().withProperty(FACING, state.getValue(FACING)), 3);
+		}
 
-    @Override
-    public Item getItemDropped(IBlockState state, Random rand, int par3)
-    {
-        return Item.getItemFromBlock(RegisterBlocks.netherBrickOven);
-    }
+		if (tileEntity != null) {
+			tileEntity.validate();
+			world.setTileEntity(pos, tileEntity);
+		}
+	}
 
-    @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side,
-        float hitX, float hitY, float hitZ)
-    {
-        ItemStack heldItem = player.getHeldItem(hand);
-        
-        // TODO: Examine Prep1_11.isValid(). This current snippet always evaluates to true.
-        if(Prep1_11.isValid(heldItem) && CapUtils.hasFluidHandler(heldItem))
-        {
-            IFluidHandler lavaTank = CapUtils.getFluidHandler(world.getTileEntity(pos));
-            if(Util.isEmptyFluidContainer(heldItem))
-            {
-                FluidUtil.tryFillContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player);
-            }
-            else
-            {
-                FluidUtil.tryEmptyContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player);
-            }
-        }
-        else
-            player.openGui(ModMain.modInstance, BBGuiHandler.NETHERBRICKOVEN_ID, world, pos.getX(), pos.getY(), pos.getZ());
-        return true;
-    }
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int par3) {
+		return Item.getItemFromBlock(RegisterBlocks.netherBrickOven);
+	}
 
-    @Override
-    public TileEntity createTileEntity(World world, IBlockState state)
-    {
-        return new TileEntityNetherBrickOven();
-    }
-    
-    @Override
-    public boolean hasComparatorInputOverride(IBlockState state)
-    {
-        return true;
-    }
-    
-    @Override
-    public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos)
-    {
-        IFluidHandler tank = CapUtils.getFluidHandler(world.getTileEntity(pos));
-        FluidStack containedLava = tank.drain(MAX_LAVA, false);
-        if(containedLava == null) return 0;
-        return MathHelper.floor(containedLava.amount / 500.0F);
-    }
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+			EnumFacing side, float hitX, float hitY, float hitZ) {
+		ItemStack heldItem = player.getHeldItem(hand);
+
+		// TODO: Examine Prep1_11.isValid(). This current snippet always evaluates to
+		// true.
+		if (Prep1_11.isValid(heldItem) && CapUtils.hasFluidHandler(heldItem)) {
+			IFluidHandler lavaTank = CapUtils.getFluidHandler(world.getTileEntity(pos));
+			if (Util.isEmptyFluidContainer(heldItem)) {
+				FluidUtil.tryFillContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player);
+			} else {
+				FluidUtil.tryEmptyContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player);
+			}
+		} else
+			player.openGui(ModMain.modInstance, BBGuiHandler.NETHERBRICKOVEN_ID, world, pos.getX(), pos.getY(),
+					pos.getZ());
+		return true;
+	}
+
+	@Override
+	public TileEntity createTileEntity(World world, IBlockState state) {
+		return new TileEntityNetherBrickOven();
+	}
+
+	@Override
+	public boolean hasComparatorInputOverride(IBlockState state) {
+		return true;
+	}
+
+	@Override
+	public int getComparatorInputOverride(IBlockState blockState, World world, BlockPos pos) {
+		IFluidHandler tank = CapUtils.getFluidHandler(world.getTileEntity(pos));
+		FluidStack containedLava = tank.drain(MAX_LAVA, false);
+		if (containedLava == null)
+			return 0;
+		return MathHelper.floor(containedLava.amount / 500.0F);
+	}
 }
