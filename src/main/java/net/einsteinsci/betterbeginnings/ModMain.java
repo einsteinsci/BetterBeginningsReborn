@@ -34,131 +34,120 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 // - Achievements (will be replaced with equivalent advancements)
 // - Item rename snippet (will be replaced with proper lowercase & underscore naming convention)
 
-@Mod(modid = ModMain.MODID, version = ModMain.VERSION, name = ModMain.NAME,
-     guiFactory = "net.einsteinsci.betterbeginnings.config.BBConfigGuiFactory")
-public class ModMain
-{
-    public static final String MODID = "betterbeginnings";
-    public static final String VERSION = "@version@";
-    public static final String NAME = "BetterBeginnings";
-    
-    @Instance(ModMain.MODID)
-    public static ModMain modInstance;
-    
-    public static final CreativeTabs tabBetterBeginnings = new CreativeTabs("tabBetterBeginnings")
-    {
-        @Override
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem()
-        {
-            return new ItemStack(RegisterItems.flintKnife);
-        }
-    };
-    
-    public static Configuration configFile;
-    
-    public BBEventHandler eventHandler = new BBEventHandler();
+@Mod(modid = ModMain.MODID, version = ModMain.VERSION, name = ModMain.NAME, guiFactory = "net.einsteinsci.betterbeginnings.config.BBConfigGuiFactory")
+public class ModMain {
+	public static final String MODID = "betterbeginnings";
+	public static final String VERSION = "@version@";
+	public static final String NAME = "BetterBeginnings";
 
-    @SidedProxy(clientSide = "net.einsteinsci.betterbeginnings.network.ClientProxy",
-                serverSide = "net.einsteinsci.betterbeginnings.network.ServerProxy")
-    public static ServerProxy proxy;
-    public static SimpleNetworkWrapper network;
+	@Instance(ModMain.MODID)
+	public static ModMain modInstance;
 
-    static
-    {
-        //Activate ze universal bucket!
-        FluidRegistry.enableUniversalBucket();
-    }
-    
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent e)
-    {
-        LogUtil.logDebug("Starting pre-initialization...");
+	public static final CreativeTabs tabBetterBeginnings = new CreativeTabs("tabBetterBeginnings") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(RegisterItems.flintKnife);
+		}
+	};
 
-        configFile = BBConfigFolderLoader.getConfigFile(e);
-        configFile.load();
-        BBConfig.initialize();
-        BBConfig.syncConfig(configFile);
-        
-        MinecraftForge.EVENT_BUS.register(eventHandler);
+	public static Configuration configFile;
 
-        network = NetworkRegistry.INSTANCE.newSimpleChannel("bbchannel");
-        network.registerMessage(PacketNetherBrickOvenFuelLevel.PacketHandler.class,
-            PacketNetherBrickOvenFuelLevel.class, 0, Side.CLIENT);
-        network.registerMessage(PacketCampfireState.PacketHandler.class,
-            PacketCampfireState.class, 1, Side.CLIENT);
+	public BBEventHandler eventHandler = new BBEventHandler();
 
-        RegisterTileEntities.register();
-        FuelRegistry.addDefaultFuels();
-        ElementRegistry.init();
-        proxy.preInit(e);
-    }
+	@SidedProxy(clientSide = "net.einsteinsci.betterbeginnings.network.ClientProxy", serverSide = "net.einsteinsci.betterbeginnings.network.ServerProxy")
+	public static ServerProxy proxy;
+	public static SimpleNetworkWrapper network;
 
-    @EventHandler
-    public void init(FMLInitializationEvent e)
-    {
-        proxy.init(e);
+	static {
+		// Activate ze universal bucket!
+		FluidRegistry.enableUniversalBucket();
+	}
 
-        RemoveRecipes.remove();
-        if (BBConfig.moduleFurnaces)
-        {
-            RemoveRecipes.removeFurnaceRecipes();
-        }
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent e) {
+		LogUtil.logDebug("Starting pre-initialization...");
 
-        RegisterRecipes.addAdvancedRecipes();
-        RegisterRecipes.addFurnaceRecipes();
-        InfusionRepairUtil.registerVanillaEnchantsConfig();
-        TileEntitySmelterBase.registerDefaultBoosters();
+		configFile = BBConfigFolderLoader.getConfigFile(e);
+		configFile.load();
+		BBConfig.initialize();
+		BBConfig.syncConfig(configFile);
 
-        BBConfigFolderLoader.loadRecipes(e);
-        if(!BBConfigFolderLoader.wasLoadingSuccessfull())
-        {
-            LogUtil.log(Level.ERROR, "If you have not modified the JSON recipe files, they may be corrupt. Please delete them and relaunch Minecraft, they will be regenerated."
-                + "\n If you have modified them, check your modifications are correct.");
-            FMLCommonHandler.instance().exitJava(0, false);
-        }
-    }
+		MinecraftForge.EVENT_BUS.register(eventHandler);
 
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent e)
-    {
-        BBConfig.fillAlwaysBreakable();
-        BBConfig.fillAlsoPickaxes();
-        BBConfig.fillAlsoAxes();
+		network = NetworkRegistry.INSTANCE.newSimpleChannel("bbchannel");
+		network.registerMessage(PacketNetherBrickOvenFuelLevel.PacketHandler.class,
+				PacketNetherBrickOvenFuelLevel.class, 0, Side.CLIENT);
+		network.registerMessage(PacketCampfireState.PacketHandler.class, PacketCampfireState.class, 1, Side.CLIENT);
 
-        MinecraftForge.EVENT_BUS.register(RegisterItems.wickerShield);
-        RegisterItems.tweakVanilla();
-        // TODO: replace achievement registry with advancements
-        //AchievementPage.registerAchievementPage(new AchievementPage(NAME, RegisterAchievements.getAchievements()));
-        //if(Loader.isModLoaded("MineTweaker3")) CraftTweakerCompat.register();
-        LogUtil.logDebug("Finished post-initialization.");
-    }
+		FuelRegistry.addDefaultFuels();
+		ElementRegistry.init();
+		proxy.preInit(e);
+	}
 
-    @EventHandler
-    public void serverLoad(FMLServerStartingEvent e)
-    {
-        e.registerServerCommand(new JsonGenerateCommand());
-    }
-    
-    // Renames item and block IDs to lowercase. Will be replaced by proper item_name convention with this update.
-    //@EventHandler
-    //public void remapIDs(FMLMissingMappingsEvent e)
-    //{
-    //	for(MissingMapping mapping : e.get())
-    //	{
-    //		switch (mapping.type)
-    //		{
-    //		case BLOCK:
-    //			mapping.remap(RegistryUtil.getBlockFromRegistry(Util.CASE_CONVERTER.convert(mapping.name)));
-    //			break;
-    //
-    //		case ITEM:
-    //			mapping.remap(RegistryUtil.getItemFromRegistry(Util.CASE_CONVERTER.convert(mapping.name)));
-    //			break;
-    //
-    //		default:
-    //			break;
-    //		}
-    //    }
-    //}
+	@EventHandler
+	public void init(FMLInitializationEvent e) {
+		proxy.init(e);
+
+		RemoveRecipes.remove();
+		if (BBConfig.moduleFurnaces) {
+			RemoveRecipes.removeFurnaceRecipes();
+		}
+
+		RegisterRecipes.addAdvancedRecipes();
+		RegisterRecipes.addFurnaceRecipes();
+		InfusionRepairUtil.registerVanillaEnchantsConfig();
+		TileEntitySmelterBase.registerDefaultBoosters();
+
+		BBConfigFolderLoader.loadRecipes(e);
+		if (!BBConfigFolderLoader.wasLoadingSuccessfull()) {
+			LogUtil.log(Level.ERROR,
+					"If you have not modified the JSON recipe files, they may be corrupt. Please delete them and relaunch Minecraft, they will be regenerated."
+							+ "\n If you have modified them, check your modifications are correct.");
+			FMLCommonHandler.instance().exitJava(0, false);
+		}
+	}
+
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent e) {
+		BBConfig.fillAlwaysBreakable();
+		BBConfig.fillAlsoPickaxes();
+		BBConfig.fillAlsoAxes();
+
+		MinecraftForge.EVENT_BUS.register(RegisterItems.wickerShield);
+		RegisterItems.tweakVanilla();
+		// TODO: replace achievement registry with advancements
+		// AchievementPage.registerAchievementPage(new AchievementPage(NAME,
+		// RegisterAchievements.getAchievements()));
+		// if(Loader.isModLoaded("MineTweaker3")) CraftTweakerCompat.register();
+		LogUtil.logDebug("Finished post-initialization.");
+	}
+
+	@EventHandler
+	public void serverLoad(FMLServerStartingEvent e) {
+		e.registerServerCommand(new JsonGenerateCommand());
+	}
+
+	// Renames item and block IDs to lowercase. Will be replaced by proper item_name
+	// convention with this update.
+	// @EventHandler
+	// public void remapIDs(FMLMissingMappingsEvent e)
+	// {
+	// for(MissingMapping mapping : e.get())
+	// {
+	// switch (mapping.type)
+	// {
+	// case BLOCK:
+	// mapping.remap(RegistryUtil.getBlockFromRegistry(Util.CASE_CONVERTER.convert(mapping.name)));
+	// break;
+	//
+	// case ITEM:
+	// mapping.remap(RegistryUtil.getItemFromRegistry(Util.CASE_CONVERTER.convert(mapping.name)));
+	// break;
+	//
+	// default:
+	// break;
+	// }
+	// }
+	// }
 }

@@ -13,7 +13,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.item.crafting.IRecipe;
 
 public class RemoveRecipes {
-	
+
 	private static List<Item> initRemovalList() {
 		List<Item> removedRecipes = new ArrayList<>();
 
@@ -54,7 +54,7 @@ public class RemoveRecipes {
 		}
 		return removedRecipes;
 	}
-	
+
 	private static List<Item> initAdvancedCraftingRemovalList() {
 		List<Item> removedRecipes = new ArrayList<>();
 		if (BBConfig.advancedCraftingForLotsOfThings) {
@@ -155,7 +155,7 @@ public class RemoveRecipes {
 		removedRecipes.add(Items.GOLDEN_CHESTPLATE);
 		removedRecipes.add(Items.GOLDEN_LEGGINGS);
 		removedRecipes.add(Items.GOLDEN_BOOTS);
-		
+
 		return removedRecipes;
 	}
 
