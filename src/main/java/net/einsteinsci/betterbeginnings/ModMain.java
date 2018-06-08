@@ -80,7 +80,6 @@ public class ModMain {
 				PacketNetherBrickOvenFuelLevel.class, 0, Side.CLIENT);
 		network.registerMessage(PacketCampfireState.PacketHandler.class, PacketCampfireState.class, 1, Side.CLIENT);
 
-		FuelRegistry.addDefaultFuels();
 		ElementRegistry.init();
 		proxy.preInit(e);
 	}
