@@ -81,9 +81,9 @@ public class BlockNetherBrickOven extends BlockSpecializedFurnace {
 		if (Prep1_11.isValid(heldItem) && CapUtils.hasFluidHandler(heldItem)) {
 			IFluidHandler lavaTank = CapUtils.getFluidHandler(world.getTileEntity(pos));
 			if (Util.isEmptyFluidContainer(heldItem)) {
-				FluidUtil.tryFillContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player);
+				FluidUtil.tryFillContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player, true);
 			} else {
-				FluidUtil.tryEmptyContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player);
+				FluidUtil.tryEmptyContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player, true);
 			}
 		} else
 			player.openGui(ModMain.modInstance, BBGuiHandler.NETHERBRICKOVEN_ID, world, pos.getX(), pos.getY(),
