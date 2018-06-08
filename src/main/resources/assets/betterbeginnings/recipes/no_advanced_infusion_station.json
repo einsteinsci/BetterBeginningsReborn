@@ -1,0 +1,35 @@
+{
+	"conditions": [
+		{
+			"type": "betterbeginnings:advanced_crafting_enabled",
+			"value": false
+		},
+		{
+			"type": "betterbeginnings:infusion_enabled",
+			"value": true
+		}
+	],
+	"result": {
+		"item": "betterbeginnings:infusion_scroll"
+	},
+	"pattern": [
+		"DID",
+		"OSO",
+		"OOO"
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"S": {
+			"item": "minecraft:bookshelf"
+		},
+		"I": {
+			"item": "#IRONBLOCK"
+		},
+		"D": {
+			"item": "#DIAMOND"
+		},
+		"O": {
+			"item": "minecraft:obsidian"
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "betterbeginnings:twine",
+    "count": 2
+  },
+  "type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:vine"
+		},		
+		{
+			"item": "#KNIFE"
+		}
+	]
+}

@@ -105,8 +105,6 @@ public class ModMain
             RemoveRecipes.removeFurnaceRecipes();
         }
 
-        RegisterRecipes.addShapelessRecipes();
-        RegisterRecipes.addShapedRecipes();
         RegisterRecipes.addAdvancedRecipes();
         RegisterRecipes.addFurnaceRecipes();
         InfusionRepairUtil.registerVanillaEnchantsConfig();

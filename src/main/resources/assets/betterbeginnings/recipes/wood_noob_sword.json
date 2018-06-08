@@ -1,0 +1,29 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"#",
+		"#",
+		"/"
+	],
+	"key": {
+		"#": [
+			{
+				"ingredient": {
+					"type": "forge:ore_dict",
+					"ore": "plankWood"
+				}
+			}
+		],
+		"/": [
+			{
+				"ingredient": {
+					"type": "forge:ore_dict",
+					"ore": "stickWood"
+				}
+			}
+		]
+	},
+	"result": {
+		"item": "betterbeginnings:noob_wood_sword"
+	}
+}

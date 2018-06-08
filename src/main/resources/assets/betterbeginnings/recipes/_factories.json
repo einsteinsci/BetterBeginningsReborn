@@ -1,0 +1,9 @@
+{
+  	"conditions": {
+    	"make_chain_armor": "net.einsteinsci.betterbeginnings.register.recipe.ConditionFactory",
+    	"module_furnace_enabled": "net.einsteinsci.betterbeginnings.register.recipe.ConditionFactory",
+    	"advanced_crafting_enabled": "net.einsteinsci.betterbeginnings.register.recipe.ConditionFactory",
+    	"campfire_enabled": "net.einsteinsci.betterbeginnings.register.recipe.ConditionFactory",
+    	"infusion_enabled": "net.einsteinsci.betterbeginnings.register.recipe.ConditionFactory"
+ 	}
+}

@@ -1,0 +1,13 @@
+{
+	"result": {
+		"item": "minecraft:dye",
+		"data": 15,
+		"count": 2
+	},
+	"type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "betterbeginnings:bone_shard"
+		}
+	]
+}

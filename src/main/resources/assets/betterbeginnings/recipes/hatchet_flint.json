@@ -1,0 +1,34 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"FL",
+		" S"
+	],
+	"key": {
+		"F": [
+			{
+				"ingredient": {
+					"item": "minecraft:flint"
+				}
+			}
+		],
+		"L": [
+			{
+				"ingredient": {
+					"item": "betterbeginnings:leather_strip"
+				}
+			}
+		],
+		"S": [
+			{
+				"ingredient": {
+					"type": "forge:ore_dict",
+					"ore": "stickWood"
+				}
+			}
+		]
+	},
+	"result": {
+		"item": "betterbeginnings:flint_hatchet"
+	}
+}

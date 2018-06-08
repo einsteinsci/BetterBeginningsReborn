@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"B ",
+		" S"
+	],
+	"key": {
+		"B": [
+			{
+				"ingredient": {
+					"item": "betterbeginnings:bone_shard"
+				}
+			}
+		],
+		"S": [
+			{
+				"ingredient": {
+					"type": "forge:ore_dict",
+					"ore": "stickWood"
+				}
+			}
+		]
+	},
+	"result": {
+		"item": "betterbeginnings:knife_bone"
+	}
+}

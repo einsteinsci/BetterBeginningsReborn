@@ -121,6 +121,13 @@ public abstract class ItemKnife extends ItemTool implements IBBName
         return res;
     }
 
+
+    // Allows durability-based crafting.
+    @Override
+    public boolean hasContainerItem(ItemStack stack)
+    {
+        return true;
+    }
     // ...which also requires this...
     @Override
     public ItemStack getContainerItem(ItemStack itemStack)
@@ -130,16 +137,10 @@ public abstract class ItemKnife extends ItemTool implements IBBName
 
         return result;
     }
-
-    // Allows durability-based crafting.
-    @Override
-    public boolean hasContainerItem(ItemStack stack)
-    {
-        return true;
-    }
     
     public float getDamageVsEntity()
     {
+    	//TODO
     	return 5;
     }
 

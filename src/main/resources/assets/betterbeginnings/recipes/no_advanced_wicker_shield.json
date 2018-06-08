@@ -1,0 +1,28 @@
+{
+	"conditions": [
+		{
+			"type": "betterbeginnings:advanced_crafting_enabled",
+			"value": false
+		}
+	],
+	"result": {
+		"item": "betterbeginnings:sugar_cane_strips"
+	},
+	"pattern": [
+		"S/S",
+		"SLS",
+		"S/S"
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"S": {
+			"item": "betterbeginnings:sugar_cane_strip"
+		},
+		"/": {
+			"item": "#STICKS"
+		},
+		"L": {
+			"item": "betterbeginnings:leather_strip"
+		}
+	}
+}

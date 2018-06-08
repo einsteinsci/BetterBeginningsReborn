@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "betterbeginnings:roasting_stick"
+  },
+  "type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "#STICKS"
+		},		
+		{
+			"item": "#STICKS"
+		},
+		{
+			"item": "#KNIFE"
+		}
+	]
+}

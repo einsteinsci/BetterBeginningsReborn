@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "betterbeginnings:twine"
+  },
+  "type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:double_plant"
+		},		
+		{
+			"item": "#KNIFE"
+		}
+	]
+}

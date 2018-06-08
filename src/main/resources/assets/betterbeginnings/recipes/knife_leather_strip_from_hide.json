@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "betterbeginnings:leather_strip"
+  },
+  "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "#KNIFE"
+		},
+		{
+			"item": "minecraft:rabbit_hide"
+		}
+	]
+}

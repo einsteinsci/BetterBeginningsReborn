@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"F ",
+		" S"
+	],
+	"key": {
+		"F": [
+			{
+				"ingredient": {
+					"item": "minecraft:flint"
+				}
+			}
+		],
+		"S": [
+			{
+				"ingredient": {
+					"type": "forge:ore_dict",
+					"ore": "stickWood"
+				}
+			}
+		]
+	},
+	"result": {
+		"item": "betterbeginnings:flint_knife"
+	}
+}
