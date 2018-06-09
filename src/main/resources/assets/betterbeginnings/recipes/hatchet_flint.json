@@ -22,8 +22,7 @@
 		"S": [
 			{
 				"ingredient": {
-					"type": "forge:ore_dict",
-					"ore": "stickWood"
+					"item": "#STICKS"
 				}
 			}
 		]
