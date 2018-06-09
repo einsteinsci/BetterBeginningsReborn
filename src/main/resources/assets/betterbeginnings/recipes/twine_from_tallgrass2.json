@@ -5,7 +5,8 @@
   "type": "forge:ore_shapeless",
 	"ingredients": [
 		{
-			"item": "minecraft:double_plant"
+			"item": "minecraft:double_plant",
+			"data": 32767
 		},		
 		{
 			"item": "#KNIFE"

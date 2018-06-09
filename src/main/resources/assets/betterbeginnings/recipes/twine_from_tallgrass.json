@@ -5,7 +5,8 @@
   "type": "forge:ore_shapeless",
 	"ingredients": [
 		{
-			"item": "minecraft:tallgrass"
+			"item": "minecraft:tallgrass",
+			"data": 32767
 		},		
 		{
 			"item": "#KNIFE"

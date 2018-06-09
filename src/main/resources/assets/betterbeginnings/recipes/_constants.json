@@ -4,111 +4,98 @@
 		"ingredient": {
 			"type": "forge:ore_dict",
       		"ore": "itemKnife",
-      		"data": 0
+      		"data": 32767
 		}
 	},
 	{
 		"name": "PLANKS",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "plankWood",
-      		"data": 0
+      		"ore": "plankWood"
 		}
 	},
 	{
 		"name": "STICKS",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "stickWood",
-      		"data": 0
+      		"ore": "stickWood"
 		}
 	},
 	{
 		"name": "CRAFTTABLE",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "craftingTableWood",
-      		"data": 0
+      		"ore": "craftingTableWood"
 		}
 	},
 	{
 		"name": "IRONINGOT",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "ingotIron",
-      		"data": 0
+      		"ore": "ingotIron"
 		}
 	},
 	{
 		"name": "GOLDINGOT",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "ingotGold",
-      		"data": 0
+      		"ore": "ingotGold"
 		}
 	},
 	{
 		"name": "DIAMOND",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "gemDiamond",
-      		"data": 0
+      		"ore": "gemDiamond"
 		}
 	},
 	{
 		"name": "TOUGHSTRING",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "itemStringTough",
-      		"data": 0
+      		"ore": "itemStringTough"
 		}
 	},
 	{
 		"name": "STRING",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "itemString",
-      		"data": 0
+      		"ore": "itemString"
 		}
 	},
 	{
 		"name": "SLIME",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "slimeball",
-      		"data": 0
+      		"ore": "slimeball"
 		}
 	},
 	{
 		"name": "REDSTONE",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "dustRedstone",
-      		"data": 0
+      		"ore": "dustRedstone"
 		}
 	},
 	{
 		"name": "IRONBLOCK",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "blockIron",
-      		"data": 0
+      		"ore": "blockIron"
 		}
 	},
 	{
 		"name": "KINDLING",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "itemKindling",
-      		"data": 0
+      		"ore": "itemKindling"
 		}
 	},
 	{
 		"name": "SAPLINGS",
 		"ingredient": {
 			"type": "forge:ore_dict",
-      		"ore": "treeSaplings",
-      		"data": 0
+      		"ore": "treeSaplings"
 		}
 	}
 ]
