@@ -53,6 +53,7 @@ public class RegisterBlocks {
 
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> e) {
+		
 		RegisterHelper.registerBlock(e.getRegistry(), kiln);
 		RegisterHelper.registerBlock(e.getRegistry(), kilnLit);
 

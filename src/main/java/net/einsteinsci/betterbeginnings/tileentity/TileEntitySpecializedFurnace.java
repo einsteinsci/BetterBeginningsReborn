@@ -86,9 +86,9 @@ public abstract class TileEntitySpecializedFurnace extends TileEntitySidedInvent
 	public boolean isBurning() {
 		return burnTime > 0;
 	}
-
+	
 	@SubscribeEvent
-	private void onFurnaceFuelTime(final FurnaceFuelBurnTimeEvent event) {
+	public void onFurnaceFuelTime(final FurnaceFuelBurnTimeEvent event) {
 		event.setBurnTime(calculateFuelBurnTime(event.getItemStack()));
 	}
 

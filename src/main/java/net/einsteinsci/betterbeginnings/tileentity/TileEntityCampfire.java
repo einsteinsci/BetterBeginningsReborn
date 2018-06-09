@@ -353,7 +353,7 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 	}
 
 	@SubscribeEvent
-	private void onFurnaceFuelTime(final FurnaceFuelBurnTimeEvent event) {
+	public void onFurnaceFuelTime(final FurnaceFuelBurnTimeEvent event) {
 		ItemStack fuelStack = event.getItemStack();
 		Block block = Block.getBlockFromItem(fuelStack.getItem());
 		Item item = fuelStack.getItem();
