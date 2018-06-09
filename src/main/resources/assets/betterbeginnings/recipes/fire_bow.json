@@ -15,7 +15,7 @@
 	"type": "forge:ore_shaped",
 	"key": {
 		"/": {
-			"item": "#STRICKS"
+			"item": "#STICKS"
 		},		
 		"s": {
 			"item": "#STRING"
