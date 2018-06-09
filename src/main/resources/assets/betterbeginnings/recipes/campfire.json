@@ -1,7 +1,7 @@
 {
 	"conditions": [
 		{
-			"type": "campfire_enabled",
+			"type": "betterbeginnings:campfire_enabled",
 			"value": true
 		}
 	],
