@@ -5,20 +5,12 @@
 		" S"
 	],
 	"key": {
-		"B": [
-			{
-				"ingredient": {
-					"item": "betterbeginnings:bone_shard"
-				}
-			}
-		],
-		"S": [
-			{
-				"ingredient": {
-					"item": "#STICKS"
-				}
-			}
-		]
+		"B": {
+			"item": "betterbeginnings:bone_shard"
+		},
+		"S": {
+			"item": "#STICKS"
+		}
 	},
 	"result": {
 		"item": "betterbeginnings:knife_bone"

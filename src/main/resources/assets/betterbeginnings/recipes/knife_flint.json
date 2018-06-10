@@ -5,20 +5,10 @@
 		" S"
 	],
 	"key": {
-		"F": [
-			{
-				"ingredient": {
-					"item": "minecraft:flint"
-				}
-			}
-		],
-		"S": [
-			{
-				"ingredient": {
-					"item": "#STICKS"
-				}
-			}
-		]
+		"F": {
+			"item": "minecraft:flint"
+		},
+		"S": 
 	},
 	"result": {
 		"item": "betterbeginnings:flint_knife"

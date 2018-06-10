@@ -20,7 +20,8 @@
 			"data": 32767
 		},
 		"C": {
-			"item": "minecraft:coal"
+			"item": "minecraft:coal",
+			"data": 32767
 		}
 	}
 }

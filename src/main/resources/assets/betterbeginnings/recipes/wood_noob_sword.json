@@ -6,20 +6,12 @@
 		"/"
 	],
 	"key": {
-		"#": [
-			{
-				"ingredient": {
-					"item": "#PLANKS"
-				}
-			}
-		],
-		"/": [
-			{
-				"ingredient": {
-					"item": "#STICKS"
-				}
-			}
-		]
+		"#": {
+			"item": "#PLANKS"
+		},
+		"/": {
+			"item": "#STICKS"
+		}
 	},
 	"result": {
 		"item": "betterbeginnings:noob_wood_sword"
