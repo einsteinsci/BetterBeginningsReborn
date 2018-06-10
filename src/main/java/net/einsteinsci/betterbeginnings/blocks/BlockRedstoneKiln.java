@@ -1,6 +1,6 @@
 /*package net.einsteinsci.betterbeginnings.blocks;
 
-import java.util.Random;
+import java.common.Random;
 
 import javax.annotation.Nullable;
 
@@ -14,10 +14,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.common.EnumFacing;
+import net.minecraft.common.EnumHand;
+import net.minecraft.common.EnumParticleTypes;
+import net.minecraft.common.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockRedstoneKiln extends BlockSpecializedFurnace
