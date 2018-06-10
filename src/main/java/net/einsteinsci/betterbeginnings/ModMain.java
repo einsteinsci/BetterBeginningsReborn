@@ -1,10 +1,8 @@
 package net.einsteinsci.betterbeginnings;
 
-import org.apache.logging.log4j.Level;
+import java.io.File;
 
-import net.einsteinsci.betterbeginnings.commands.JsonGenerateCommand;
 import net.einsteinsci.betterbeginnings.config.BBConfig;
-import net.einsteinsci.betterbeginnings.config.BBConfigFolderLoader;
 //import net.einsteinsci.betterbeginnings.crafttweaker.CraftTweakerCompat;
 import net.einsteinsci.betterbeginnings.event.BBEventHandler;
 import net.einsteinsci.betterbeginnings.network.*;
@@ -12,7 +10,6 @@ import net.einsteinsci.betterbeginnings.register.*;
 //import net.einsteinsci.betterbeginnings.register.achievement.RegisterAchievements;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.ElementRegistry;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntitySmelterBase;
-import net.einsteinsci.betterbeginnings.util.InfusionRepairUtil;
 import net.einsteinsci.betterbeginnings.util.LogUtil;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -39,6 +36,7 @@ public class ModMain {
 	public static final String MODID = "betterbeginnings";
 	public static final String VERSION = "@version@";
 	public static final String NAME = "BetterBeginnings";
+	public static final String CONFIG_FILENAME = "betterbeginnings.cfg";
 
 	@Instance(ModMain.MODID)
 	public static ModMain modInstance;
@@ -68,7 +66,8 @@ public class ModMain {
 	public void preInit(FMLPreInitializationEvent e) {
 		LogUtil.logDebug("Starting pre-initialization...");
 
-		configFile = BBConfigFolderLoader.getConfigFile(e);
+		File file = new File(e.getModConfigurationDirectory(), CONFIG_FILENAME);		
+		configFile = new Configuration(file);
 		configFile.load();
 		BBConfig.initialize();
 		BBConfig.syncConfig(configFile);
@@ -93,18 +92,8 @@ public class ModMain {
 			RemoveRecipes.removeFurnaceRecipes();
 		}
 
-		RegisterRecipes.addAdvancedRecipes();
-		RegisterRecipes.addFurnaceRecipes();
-		InfusionRepairUtil.registerVanillaEnchantsConfig();
+		RegisterRecipes.register();
 		TileEntitySmelterBase.registerDefaultBoosters();
-
-		BBConfigFolderLoader.loadRecipes(e);
-		if (!BBConfigFolderLoader.wasLoadingSuccessfull()) {
-			LogUtil.log(Level.ERROR,
-					"If you have not modified the JSON recipe files, they may be corrupt. Please delete them and relaunch Minecraft, they will be regenerated."
-							+ "\n If you have modified them, check your modifications are correct.");
-			FMLCommonHandler.instance().exitJava(0, false);
-		}
 	}
 
 	@EventHandler
@@ -124,7 +113,7 @@ public class ModMain {
 
 	@EventHandler
 	public void serverLoad(FMLServerStartingEvent e) {
-		e.registerServerCommand(new JsonGenerateCommand());
+		//e.registerServerCommand(new JsonGenerateCommand());
 	}
 
 	// Renames item and block IDs to lowercase. Will be replaced by proper item_name

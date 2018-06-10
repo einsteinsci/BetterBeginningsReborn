@@ -2,7 +2,6 @@ package net.einsteinsci.betterbeginnings.tileentity;
 
 import java.util.*;
 
-import net.einsteinsci.betterbeginnings.config.json.BoosterConfig;
 import net.einsteinsci.betterbeginnings.register.recipe.SmelterRecipeHandler;
 import net.einsteinsci.betterbeginnings.util.CapUtils;
 import net.minecraft.init.Blocks;
@@ -29,10 +28,10 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 	}
 
 	public static void registerDefaultBoosters() {
-		BoosterConfig.registerBooster(new ItemStack(Blocks.GRAVEL), 0.0f);
-		BoosterConfig.registerBooster(new ItemStack(Blocks.SOUL_SAND), 0.3f);
-		BoosterConfig.registerBooster(new ItemStack(Items.QUARTZ), 1.0f);
-		BoosterConfig.registerBooster(new ItemStack(Items.PRISMARINE_SHARD), 1.5f);
+		boosterRegistry.put(new ItemStack(Blocks.GRAVEL), 0.0f);
+		boosterRegistry.put(new ItemStack(Blocks.SOUL_SAND), 0.3f);
+		boosterRegistry.put(new ItemStack(Items.QUARTZ), 1.0f);
+		boosterRegistry.put(new ItemStack(Items.PRISMARINE_SHARD), 1.5f);
 		// BoosterConfig.registerBooster(new ItemStack(Items.CRUSHED_PURPUR), 1.3f); //
 		// 1.9+
 	}

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.einsteinsci.betterbeginnings.ModMain;
-import net.einsteinsci.betterbeginnings.config.json.SmelterConfig;
 import net.einsteinsci.betterbeginnings.register.recipe.SmelterRecipeHandler;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -89,18 +88,6 @@ public class RegisterHelper
             if (!valid.isEmpty())
             {
                 SmelterRecipeHandler.addRecipe(stack, valid.get(0), experience, boosters, bonus);
-            }
-        }
-    }
-
-    public static void registerSmelterConfigOreRecipe(String input, String output, float experience, int boosters, int bonus)
-    {
-        for (ItemStack stack : OreDictionary.getOres(input, false))
-        {
-            List<ItemStack> valid = OreDictionary.getOres(output, false);
-            if (!valid.isEmpty())
-            {
-                SmelterConfig.addRecipe(stack, valid.get(0), experience, boosters, bonus);
             }
         }
     }
