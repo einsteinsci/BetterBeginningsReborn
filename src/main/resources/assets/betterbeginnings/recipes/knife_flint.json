@@ -8,7 +8,9 @@
 		"F": {
 			"item": "minecraft:flint"
 		},
-		"S": 
+		"S": {
+			"item": "#STICKS"
+		}
 	},
 	"result": {
 		"item": "betterbeginnings:flint_knife"
