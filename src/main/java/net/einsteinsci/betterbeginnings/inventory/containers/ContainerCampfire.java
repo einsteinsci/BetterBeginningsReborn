@@ -14,185 +14,141 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.PlayerInvWrapper;
 
-public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire>
-{
-	private static final int SLOT_INPUT = TileEntityCampfire.SLOT_INPUT;
-	private static final int SLOT_OUTPUT = TileEntityCampfire.SLOT_OUTPUT;
-	private static final int SLOT_FUEL = TileEntityCampfire.SLOT_FUEL;
-	private static final int SLOT_PAN = TileEntityCampfire.SLOT_UTENSIL;
-	public int lastItemBurnTime;
-	public float lastCookTime;
-	private int lastBurnTime;
-	private int lastDecayTime;
+public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire> {
+    private static final int SLOT_INPUT = TileEntityCampfire.SLOT_INPUT;
+    private static final int SLOT_OUTPUT = TileEntityCampfire.SLOT_OUTPUT;
+    private static final int SLOT_FUEL = TileEntityCampfire.SLOT_FUEL;
+    private static final int SLOT_PAN = TileEntityCampfire.SLOT_UTENSIL;
+    private int lastItemBurnTime;
+    private float lastCookTime;
+    private int lastBurnTime;
+    private int lastDecayTime;
 
-	public ContainerCampfire(EntityPlayer player, TileEntityCampfire campfire)
-	{
-		super(campfire);
-		PlayerInvWrapper playerInv = (PlayerInvWrapper) player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-		addSlotToContainer(new SlotConfigurableAccess(itemHandler, SLOT_INPUT, 58, 12));
-		addSlotToContainer(new SlotConfigurableAccess(itemHandler, SLOT_OUTPUT, 118, 34).setCanInsert(false));
-		addSlotToContainer(new SlotConfigurableAccess(itemHandler, SLOT_FUEL, 58, 57)
-		{
-			@Override
-			public boolean isItemValid(ItemStack stack) 
-			{
-				return TileEntityCampfire.isItemFuel(stack);
-			}
-		});
-		addSlotToContainer(new SlotConfigurableAccess(itemHandler, SLOT_PAN, 32, 35));
+    public ContainerCampfire(EntityPlayer player, TileEntityCampfire campfire) {
+        super(campfire);
+        PlayerInvWrapper playerInv = (PlayerInvWrapper) player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+        addSlotToContainer(new SlotConfigurableAccess(itemHandler, SLOT_INPUT, 58, 12));
+        addSlotToContainer(new SlotConfigurableAccess(itemHandler, SLOT_OUTPUT, 118, 34).setCanInsert(false));
+        addSlotToContainer(new SlotConfigurableAccess(itemHandler, SLOT_FUEL, 58, 57) {
+            @Override
+            public boolean isItemValid(ItemStack stack) {
+                return TileEntityCampfire.isItemFuel(stack);
+            }
+        });
+        addSlotToContainer(new SlotConfigurableAccess(itemHandler, SLOT_PAN, 32, 35));
 
-		int i;
-		for (i = 0; i < 3; ++i)
-		{
-			for (int j = 0; j < 9; ++j)
-			{
-				addSlotToContainer(new SlotItemHandler(playerInv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-			}
-		}
+        int i;
+        for (i = 0; i < 3; ++i) {
+            for (int j = 0; j < 9; ++j) {
+                addSlotToContainer(new SlotItemHandler(playerInv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+            }
+        }
 
-		for (i = 0; i < 9; ++i)
-		{
-			addSlotToContainer(new SlotItemHandler(playerInv, i, 8 + i * 18, 142));
-		}
-	}
+        for (i = 0; i < 9; ++i) {
+            addSlotToContainer(new SlotItemHandler(playerInv, i, 8 + i * 18, 142));
+        }
+    }
 
-	@Override
-	public void addListener(IContainerListener listener)
-	{
-		super.addListener(listener);
+    @Override
+    public void addListener(IContainerListener listener) {
+        super.addListener(listener);
 
-		listener.sendWindowProperty(this, 0, (int) tileEntity.cookTime);
-		listener.sendWindowProperty(this, 1, tileEntity.burnTime);
-		listener.sendWindowProperty(this, 2, tileEntity.currentItemBurnTime);
-		listener.sendWindowProperty(this, 3, tileEntity.decayTime);
-	}
+        listener.sendWindowProperty(this, 0, (int) tileEntity.cookTime);
+        listener.sendWindowProperty(this, 1, tileEntity.burnTime);
+        listener.sendWindowProperty(this, 2, tileEntity.currentItemBurnTime);
+        listener.sendWindowProperty(this, 3, tileEntity.decayTime);
+    }
 
-	@Override
-	public void detectAndSendChanges()
-	{
-		super.detectAndSendChanges();
+    @Override
+    public void detectAndSendChanges() {
+        super.detectAndSendChanges();
 
-		for (IContainerListener listener : listeners)
-		{
-			if (lastCookTime != tileEntity.cookTime)
-			{
-				listener.sendWindowProperty(this, 0, (int) tileEntity.cookTime);
-			}
-			if (lastBurnTime != tileEntity.burnTime)
-			{
-				listener.sendWindowProperty(this, 1, tileEntity.burnTime);
-			}
-			if (lastItemBurnTime != tileEntity.currentItemBurnTime)
-			{
-				listener.sendWindowProperty(this, 2, tileEntity.currentItemBurnTime);
-			}
-			if (lastDecayTime != tileEntity.decayTime)
-			{
-				listener.sendWindowProperty(this, 3, tileEntity.decayTime);
-			}
-		}
+        for (IContainerListener listener : listeners) {
+            if (lastCookTime != tileEntity.cookTime) {
+                listener.sendWindowProperty(this, 0, (int) tileEntity.cookTime);
+            }
+            if (lastBurnTime != tileEntity.burnTime) {
+                listener.sendWindowProperty(this, 1, tileEntity.burnTime);
+            }
+            if (lastItemBurnTime != tileEntity.currentItemBurnTime) {
+                listener.sendWindowProperty(this, 2, tileEntity.currentItemBurnTime);
+            }
+            if (lastDecayTime != tileEntity.decayTime) {
+                listener.sendWindowProperty(this, 3, tileEntity.decayTime);
+            }
+        }
 
-		lastBurnTime = tileEntity.burnTime;
-		lastCookTime = tileEntity.cookTime;
-		lastItemBurnTime = tileEntity.currentItemBurnTime;
-		lastDecayTime = tileEntity.decayTime;
-	}
+        lastBurnTime = tileEntity.burnTime;
+        lastCookTime = tileEntity.cookTime;
+        lastItemBurnTime = tileEntity.currentItemBurnTime;
+        lastDecayTime = tileEntity.decayTime;
+    }
 
-	@Override
-	public ItemStack transferStackInSlot(EntityPlayer player, int slotId)
-	{
-		ItemStack itemstackCopy = ItemStack.EMPTY;
-		Slot slot = (Slot)inventorySlots.get(slotId);
+    @Override
+    public ItemStack transferStackInSlot(EntityPlayer player, int slotId) {
+        ItemStack itemstackCopy = ItemStack.EMPTY;
+        Slot slot = inventorySlots.get(slotId);
 
-		if (slot != null && slot.getHasStack())
-		{
-			ItemStack itemstack = slot.getStack();
-			itemstackCopy = itemstack.copy();
+        if (slot != null && slot.getHasStack()) {
+            ItemStack itemstack = slot.getStack();
+            itemstackCopy = itemstack.copy();
 
-			if (slotId == SLOT_OUTPUT)
-			{
-				if (!mergeItemStack(itemstack, SLOT_PAN + 1, 39, true))
-				{
-					return ItemStack.EMPTY;
-				}
-				slot.onSlotChange(itemstack, itemstackCopy);
-			}
-			else if (slotId != SLOT_INPUT && slotId != SLOT_FUEL && slotId != SLOT_PAN)
-			{
-				if (itemstack.getItem() instanceof ItemPan)
-				{
-					if (!mergeItemStack(itemstack, SLOT_PAN, SLOT_PAN + 1, false))
-					{
-						return ItemStack.EMPTY;
-					}
-				}
-				else if (TileEntityCampfire.isItemFuel(itemstack))
-				{
-					if (!mergeItemStack(itemstack, SLOT_FUEL, SLOT_FUEL + 1, false))
-					{
-						return ItemStack.EMPTY;
-					}
-				}
-				else if (CampfireRecipeHandler.instance().getSmeltingResult(itemstack) != null)
-				{
-					if (!mergeItemStack(itemstack, SLOT_INPUT, SLOT_INPUT + 1, false))
-					{
-						return ItemStack.EMPTY;
-					}
-				}
-				else if (slotId > SLOT_OUTPUT && slotId < 30)
-				{
-					if (!mergeItemStack(itemstack, 30, 39, false))
-					{
-						return ItemStack.EMPTY;
-					}
-				}
-				else if (slotId >= 30 && slotId < 39 &&
-					!mergeItemStack(itemstack, SLOT_PAN + 1, 30, false))
-				{
-					return ItemStack.EMPTY;
-				}
-			}
-			else if (!mergeItemStack(itemstack, SLOT_PAN + 1, 39, false))
-			{
-				return ItemStack.EMPTY;
-			}
+            if (slotId == SLOT_OUTPUT) {
+                if (!mergeItemStack(itemstack, SLOT_PAN + 1, 39, true)) {
+                    return ItemStack.EMPTY;
+                }
+                slot.onSlotChange(itemstack, itemstackCopy);
+            } else if (slotId != SLOT_INPUT && slotId != SLOT_FUEL && slotId != SLOT_PAN) {
+                if (itemstack.getItem() instanceof ItemPan) {
+                    if (!mergeItemStack(itemstack, SLOT_PAN, SLOT_PAN + 1, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (TileEntityCampfire.isItemFuel(itemstack)) {
+                    if (!mergeItemStack(itemstack, SLOT_FUEL, SLOT_FUEL + 1, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (CampfireRecipeHandler.instance().getSmeltingResult(itemstack, false) != null) {
+                    if (!mergeItemStack(itemstack, SLOT_INPUT, SLOT_INPUT + 1, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (slotId > SLOT_OUTPUT && slotId < 30) {
+                    if (!mergeItemStack(itemstack, 30, 39, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (slotId >= 30 && slotId < 39 &&
+                        !mergeItemStack(itemstack, SLOT_PAN + 1, 30, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (!mergeItemStack(itemstack, SLOT_PAN + 1, 39, false)) {
+                return ItemStack.EMPTY;
+            }
 
-			if (itemstack.getCount() == 0)
-			{
-				slot.putStack(ItemStack.EMPTY);
-			}
-			else
-			{
-				slot.onSlotChanged();
-			}
-			if (itemstack.getCount() == itemstackCopy.getCount())
-			{
-				return ItemStack.EMPTY;
-			}
-			slot.onTake(player, itemstack);
-		}
-		return itemstackCopy;
-	}
+            if (itemstack.getCount() == 0) {
+                slot.putStack(ItemStack.EMPTY);
+            } else {
+                slot.onSlotChanged();
+            }
+            if (itemstack.getCount() == itemstackCopy.getCount()) {
+                return ItemStack.EMPTY;
+            }
+            slot.onTake(player, itemstack);
+        }
+        return itemstackCopy;
+    }
 
-	@SideOnly(Side.CLIENT)
-	public void updateProgressBar(int barId, int newValue)
-	{
-		if (barId == 0)
-		{
-			tileEntity.cookTime = newValue;
-		}
-		if (barId == 1)
-		{
-			tileEntity.burnTime = newValue;
-		}
-		if (barId == 2)
-		{
-			tileEntity.currentItemBurnTime = newValue;
-		}
-		if (barId == 3)
-		{
-			tileEntity.decayTime = newValue;
-		}
-	}
+    @SideOnly(Side.CLIENT)
+    public void updateProgressBar(int barId, int newValue) {
+        if (barId == 0) {
+            tileEntity.cookTime = newValue;
+        }
+        if (barId == 1) {
+            tileEntity.burnTime = newValue;
+        }
+        if (barId == 2) {
+            tileEntity.currentItemBurnTime = newValue;
+        }
+        if (barId == 3) {
+            tileEntity.decayTime = newValue;
+        }
+    }
 }

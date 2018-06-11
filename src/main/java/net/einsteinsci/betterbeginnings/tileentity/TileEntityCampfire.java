@@ -8,7 +8,6 @@ import net.einsteinsci.betterbeginnings.inventory.ItemHandlerCampfire;
 import net.einsteinsci.betterbeginnings.items.ICampfireUtensil;
 import net.einsteinsci.betterbeginnings.items.*;
 import net.einsteinsci.betterbeginnings.network.PacketCampfireState;
-import net.einsteinsci.betterbeginnings.register.recipe.CampfirePanRecipeHandler;
 import net.einsteinsci.betterbeginnings.register.recipe.CampfireRecipeHandler;
 import net.einsteinsci.betterbeginnings.util.CapUtils;
 import net.minecraft.block.Block;
@@ -216,15 +215,10 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 			return false;
 		}
 
-		ItemStack potentialResult = CampfirePanRecipeHandler.instance().getSmeltingResult(stackInput());
-		if (potentialResult.isEmpty() || stackUtensil().isEmpty()) {
-			potentialResult = CampfireRecipeHandler.instance().getSmeltingResult(stackInput());
-		}
-
+		ItemStack potentialResult = CampfireRecipeHandler.instance().getSmeltingResult(stackInput(), !stackUtensil().isEmpty());
 		if (potentialResult.isEmpty()) {
 			return false; // instant no if there's no recipe
 		}
-
 		if (stackOutput().isEmpty()) {
 			return true; // instant yes if output is open
 		}
@@ -249,10 +243,7 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 
 	private void cookItem() {
 		if (canCook()) {
-			ItemStack potentialResult = CampfirePanRecipeHandler.instance().getSmeltingResult(stackInput());
-			if (potentialResult.isEmpty() || stackUtensil().isEmpty()) {
-				potentialResult = CampfireRecipeHandler.instance().getSmeltingResult(stackInput());
-			}
+			ItemStack potentialResult = CampfireRecipeHandler.instance().getSmeltingResult(stackInput(), !stackUtensil().isEmpty());
 
 			if (stackOutput().isEmpty()) {
 				inventory.setStackInSlot(SLOT_OUTPUT, potentialResult.copy());

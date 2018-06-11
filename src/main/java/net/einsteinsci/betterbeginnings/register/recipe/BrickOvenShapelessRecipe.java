@@ -108,4 +108,14 @@ public class BrickOvenShapelessRecipe implements IBrickOvenRecipe
 	{
 		return recipeItems;
 	}
+
+	@Override
+	public int getRecipeWidth() {
+		return 0;
+	}
+
+	@Override
+	public int getRecipeHeight() {
+		return 0;
+	}
 }

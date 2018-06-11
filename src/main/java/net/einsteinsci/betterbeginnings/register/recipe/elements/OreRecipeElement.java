@@ -33,7 +33,7 @@ public class OreRecipeElement extends RecipeElement
 		stackSize = size;
 	}
 
-	public OreRecipeElement(String dictionaryEntry)
+	public   OreRecipeElement(String dictionaryEntry)
 	{
 		this(dictionaryEntry, 1);
 	}

@@ -7,8 +7,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.common.HashMap;
+import java.common.Map;
 
 public class RegisterAchievements
 {

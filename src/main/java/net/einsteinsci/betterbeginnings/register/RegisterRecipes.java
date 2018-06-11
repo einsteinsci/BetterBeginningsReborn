@@ -4,7 +4,6 @@ import net.einsteinsci.betterbeginnings.config.BBConfig;
 import net.einsteinsci.betterbeginnings.items.ItemCharredMeat;
 import net.einsteinsci.betterbeginnings.register.recipe.AdvancedCraftingHandler;
 import net.einsteinsci.betterbeginnings.register.recipe.BrickOvenRecipeHandler;
-import net.einsteinsci.betterbeginnings.register.recipe.CampfirePanRecipeHandler;
 import net.einsteinsci.betterbeginnings.register.recipe.CampfireRecipeHandler;
 import net.einsteinsci.betterbeginnings.register.recipe.InfusionRepairRecipeHandler;
 import net.einsteinsci.betterbeginnings.register.recipe.KilnRecipeHandler;
@@ -132,43 +131,43 @@ public class RegisterRecipes {
 	}
 
 	private static void addCampfireRecipes() {
-		CampfireRecipeHandler.addRecipe("logWood", new ItemStack(Items.COAL, 1, 1), 0.15f);
-		CampfireRecipeHandler.addRecipe(new ItemStack(Blocks.SPONGE, 1, 1), new ItemStack(Blocks.SPONGE, 1, 0), 0.1f);
+		CampfireRecipeHandler.addRecipe("logWood", new ItemStack(Items.COAL, 1, 1), 0.15f, false);
+		CampfireRecipeHandler.addRecipe(new ItemStack(Blocks.SPONGE, 1, 1), new ItemStack(Blocks.SPONGE, 1, 0), 0.1f, false);
 
 		CampfireRecipeHandler.addRecipe(RegisterItems.roastingStickRawMallow,
-				new ItemStack(RegisterItems.roastingStickCookedMallow), 0.5f);
+				new ItemStack(RegisterItems.roastingStickCookedMallow), 0.5f, false);
 
-		CampfireRecipeHandler.addRecipe(Items.BEEF, new ItemStack(RegisterItems.charredMeat), 0.1f);
-		CampfireRecipeHandler.addRecipe(Items.PORKCHOP, new ItemStack(RegisterItems.charredMeat), 0.1f);
+		CampfireRecipeHandler.addRecipe(Items.BEEF, new ItemStack(RegisterItems.charredMeat), 0.1f, false);
+		CampfireRecipeHandler.addRecipe(Items.PORKCHOP, new ItemStack(RegisterItems.charredMeat), 0.1f, false);
 		CampfireRecipeHandler.addRecipe(Items.CHICKEN,
-				new ItemStack(RegisterItems.charredMeat, 1, ItemCharredMeat.META_CHICKEN), 0.1f);
+				new ItemStack(RegisterItems.charredMeat, 1, ItemCharredMeat.META_CHICKEN), 0.1f, false);
 		CampfireRecipeHandler.addRecipe(new ItemStack(Items.FISH, 1, 0),
-				new ItemStack(RegisterItems.charredMeat, 1, ItemCharredMeat.META_FISH), 0.1f);
+				new ItemStack(RegisterItems.charredMeat, 1, ItemCharredMeat.META_FISH), 0.1f, false);
 		CampfireRecipeHandler.addRecipe(new ItemStack(Items.FISH, 1, 1),
-				new ItemStack(RegisterItems.charredMeat, 1, ItemCharredMeat.META_FISH), 0.1f);
+				new ItemStack(RegisterItems.charredMeat, 1, ItemCharredMeat.META_FISH), 0.1f, false);
 		CampfireRecipeHandler.addRecipe(Items.RABBIT, new ItemStack(RegisterItems.charredMeat, 1, ItemCharredMeat.META_RABBIT),
-				0.1f);
+				0.1f, false);
 		CampfireRecipeHandler.addRecipe(Items.MUTTON, new ItemStack(RegisterItems.charredMeat, 1, ItemCharredMeat.META_MUTTON),
-				0.1f);
+				0.1f, false);
 
 		if (BBConfig.canCampfireDoAllKilnStuff) {
-			CampfireRecipeHandler.addRecipe(Items.CLAY_BALL, new ItemStack(Items.BRICK), 0.35f);
-			CampfireRecipeHandler.addRecipe(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.1f);
-			CampfireRecipeHandler.addRecipe("cobblestone", new ItemStack(Blocks.STONE), 0.1f);
+			CampfireRecipeHandler.addRecipe(Items.CLAY_BALL, new ItemStack(Items.BRICK), 0.35f, false);
+			CampfireRecipeHandler.addRecipe(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.1f, false);
+			CampfireRecipeHandler.addRecipe("cobblestone", new ItemStack(Blocks.STONE), 0.1f, false);
 			CampfireRecipeHandler.addRecipe(new ItemStack(Blocks.STONEBRICK, 1, 0), new ItemStack(Blocks.STONEBRICK, 1, 2),
-					0.1f);
-			CampfireRecipeHandler.addRecipe(Blocks.CACTUS, new ItemStack(Items.DYE, 1, 2), 0.1f);
-			CampfireRecipeHandler.addRecipe(Blocks.SAND, new ItemStack(Blocks.GLASS), 0.1f);
-			CampfireRecipeHandler.addRecipe(Blocks.NETHERRACK, new ItemStack(Items.NETHERBRICK), 0.1f);
+					0.1f, false);
+			CampfireRecipeHandler.addRecipe(Blocks.CACTUS, new ItemStack(Items.DYE, 1, 2), 0.1f, false);
+			CampfireRecipeHandler.addRecipe(Blocks.SAND, new ItemStack(Blocks.GLASS), 0.1f, false);
+			CampfireRecipeHandler.addRecipe(Blocks.NETHERRACK, new ItemStack(Items.NETHERBRICK), 0.1f, false);
 		}
 
-		CampfirePanRecipeHandler.addRecipe(Items.BEEF, new ItemStack(Items.COOKED_BEEF), 0.1f);
-		CampfirePanRecipeHandler.addRecipe(Items.PORKCHOP, new ItemStack(Items.COOKED_PORKCHOP), 0.1f);
-		CampfirePanRecipeHandler.addRecipe(Items.CHICKEN, new ItemStack(Items.COOKED_CHICKEN), 0.1f);
-		CampfirePanRecipeHandler.addRecipe(new ItemStack(Items.FISH, 1, 0), new ItemStack(Items.COOKED_FISH, 1, 0), 0.1f);
-		CampfirePanRecipeHandler.addRecipe(new ItemStack(Items.FISH, 1, 1), new ItemStack(Items.COOKED_FISH, 1, 1), 0.1f);
-		CampfirePanRecipeHandler.addRecipe(Items.RABBIT, new ItemStack(Items.COOKED_RABBIT), 0.1f);
-		CampfirePanRecipeHandler.addRecipe(Items.MUTTON, new ItemStack(Items.COOKED_MUTTON), 0.1f);
+		CampfireRecipeHandler.addRecipe(Items.BEEF, new ItemStack(Items.COOKED_BEEF), 0.1f, true);
+		CampfireRecipeHandler.addRecipe(Items.PORKCHOP, new ItemStack(Items.COOKED_PORKCHOP), 0.1f, true);
+		CampfireRecipeHandler.addRecipe(Items.CHICKEN, new ItemStack(Items.COOKED_CHICKEN), 0.1f, true);
+		CampfireRecipeHandler.addRecipe(new ItemStack(Items.FISH, 1, 0), new ItemStack(Items.COOKED_FISH, 1, 0), 0.1f, true);
+		CampfireRecipeHandler.addRecipe(new ItemStack(Items.FISH, 1, 1), new ItemStack(Items.COOKED_FISH, 1, 1), 0.1f, true);
+		CampfireRecipeHandler.addRecipe(Items.RABBIT, new ItemStack(Items.COOKED_RABBIT), 0.1f, true);
+		CampfireRecipeHandler.addRecipe(Items.MUTTON, new ItemStack(Items.COOKED_MUTTON), 0.1f, true);
 	}
 
 	private static void addInfusionRepairRecipes() {

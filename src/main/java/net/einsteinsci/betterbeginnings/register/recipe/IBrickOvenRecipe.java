@@ -26,4 +26,7 @@ public interface IBrickOvenRecipe
 	ItemStack getRecipeOutput();
 
 	RecipeElement[] getInputs();
+
+	int getRecipeWidth();
+	int getRecipeHeight();
 }

@@ -3,8 +3,8 @@ package net.einsteinsci.betterbeginnings;
 import java.io.File;
 
 import net.einsteinsci.betterbeginnings.config.BBConfig;
-//import net.einsteinsci.betterbeginnings.crafttweaker.CraftTweakerCompat;
-import net.einsteinsci.betterbeginnings.crafttweaker.CraftTweakerPlugIn;
+//import net.einsteinsci.betterbeginnings.integration.crafttweaker.CraftTweakerCompat;
+import net.einsteinsci.betterbeginnings.integration.crafttweaker.CraftTweakerPlugIn;
 import net.einsteinsci.betterbeginnings.event.BBEventHandler;
 import net.einsteinsci.betterbeginnings.network.*;
 import net.einsteinsci.betterbeginnings.register.*;
@@ -87,7 +87,7 @@ public class ModMain {
         if (Loader.isModLoaded("crafttweaker")) {
             try {
                 CraftTweakerPlugIn.init();
-                //Class.forName("net.einsteinsci.betterbeginnings.crafttweaker.CraftTweakerPlugIn").getMethod("init").invoke(null);
+                //Class.forName("net.einsteinsci.betterbeginnings.integration.crafttweaker.CraftTweakerPlugIn").getMethod("init").invoke(null);
             } catch (Exception ex) {
                 //throw new ReportedException(new CrashReport("Error initializing minetweaker integration", e));
             }
