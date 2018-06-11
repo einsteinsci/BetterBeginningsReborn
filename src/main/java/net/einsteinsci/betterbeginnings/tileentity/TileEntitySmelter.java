@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 
 public class TileEntitySmelter extends TileEntitySmelterBase {
 	public TileEntitySmelter() {
-		super(new ItemHandlerSmelter(4));
+		super(new ItemHandlerSmelter(4, false));
 		processTime = 160;
 	}
 

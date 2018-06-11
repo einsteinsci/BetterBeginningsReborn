@@ -2,7 +2,7 @@ package net.einsteinsci.betterbeginnings.tileentity;
 
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.blocks.BlockNetherBrickOven;
-import net.einsteinsci.betterbeginnings.inventory.ItemHandlerNetherBrickOven;
+import net.einsteinsci.betterbeginnings.inventory.ItemHandlerOven;
 import net.einsteinsci.betterbeginnings.inventory.fluid.TankNetherBrickOvenFuel;
 import net.einsteinsci.betterbeginnings.network.PacketNetherBrickOvenFuelLevel;
 import net.einsteinsci.betterbeginnings.register.recipe.NetherBrickOvenRecipeHandler;
@@ -22,10 +22,9 @@ public class TileEntityNetherBrickOven extends TileEntityOvenBase {
 	public TankNetherBrickOvenFuel fuelTank;
 
 	public TileEntityNetherBrickOven() {
-		super(new ItemHandlerNetherBrickOven(11));
+		super(new ItemHandlerOven(11, true));
 		fuelTank = new TankNetherBrickOvenFuel(this, 8000);
 		processTime = 80;
-		;
 	}
 
 	public FluidStack getFuelStack() {

@@ -1,7 +1,7 @@
 package net.einsteinsci.betterbeginnings.tileentity;
 
 import net.einsteinsci.betterbeginnings.blocks.BlockObsidianKiln;
-import net.einsteinsci.betterbeginnings.inventory.ItemHandlerObsidianKiln;
+import net.einsteinsci.betterbeginnings.inventory.ItemHandlerKiln;
 import net.einsteinsci.betterbeginnings.items.ItemBonePickaxe;
 import net.einsteinsci.betterbeginnings.items.ItemFlintHatchet;
 import net.einsteinsci.betterbeginnings.items.ItemKnifeFlint;
@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 
 public class TileEntityObsidianKiln extends TileEntityKilnBase {
 	public TileEntityObsidianKiln() {
-		super(new ItemHandlerObsidianKiln(3));
+		super(new ItemHandlerKiln(3, true));
 		processTime = 100;
 	}
 

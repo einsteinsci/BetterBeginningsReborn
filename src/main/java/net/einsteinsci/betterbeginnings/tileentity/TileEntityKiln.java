@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 
 public class TileEntityKiln extends TileEntityKilnBase {
 	public TileEntityKiln() {
-		super(new ItemHandlerKiln(3));
+		super(new ItemHandlerKiln(3, false));
 		processTime = 250;
 	}
 

@@ -17,7 +17,7 @@ import net.minecraft.tileentity.TileEntityFurnace;
 
 public class TileEntityBrickOven extends TileEntityOvenBase {
 	public TileEntityBrickOven() {
-		super(new ItemHandlerOven(11));
+		super(new ItemHandlerOven(11, false));
 		processTime = 120;
 	}
 

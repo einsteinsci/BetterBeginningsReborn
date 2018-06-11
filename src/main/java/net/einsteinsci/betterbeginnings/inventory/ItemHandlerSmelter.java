@@ -5,19 +5,26 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class ItemHandlerSmelter extends ItemHandlerBase {
-	public ItemHandlerSmelter(int slots) {
+	boolean adv;
+	public ItemHandlerSmelter(int slots, boolean adv) {
 		super(slots);
+		this.adv = adv;
 	}
 
 	@Override
 	public boolean canInsertItem(int slot, ItemStack stack, boolean simulate) {
+        if (slot == TileEntitySmelterBase.FUEL && TileEntityFurnace.isItemFuel(stack)) {
+            return true;
+        }
+
+        if (adv) {
+            return super.canInsertItem(slot, stack, simulate);
+        }
+
 		if (slot == TileEntitySmelterBase.BOOSTER && TileEntitySmelterBase.isBooster(stack)) {
 			return true;
 		}
 
-		if (slot == TileEntitySmelterBase.FUEL && TileEntityFurnace.isItemFuel(stack)) {
-			return true;
-		}
 		return slot == TileEntitySmelterBase.INPUT;
 	}
 }

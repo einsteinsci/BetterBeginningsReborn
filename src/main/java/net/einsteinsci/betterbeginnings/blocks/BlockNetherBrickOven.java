@@ -76,9 +76,7 @@ public class BlockNetherBrickOven extends BlockSpecializedFurnace {
 			EnumFacing side, float hitX, float hitY, float hitZ) {
 		ItemStack heldItem = player.getHeldItem(hand);
 
-		// TODO: Examine Prep1_11.isValid(). This current snippet always evaluates to
-		// true.
-		if (Prep1_11.isValid(heldItem) && CapUtils.hasFluidHandler(heldItem)) {
+		if (!heldItem.isEmpty() && CapUtils.hasFluidHandler(heldItem)) {
 			IFluidHandler lavaTank = CapUtils.getFluidHandler(world.getTileEntity(pos));
 			if (Util.isEmptyFluidContainer(heldItem)) {
 				FluidUtil.tryFillContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player, true);
