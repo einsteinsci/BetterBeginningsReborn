@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.categories;
+package net.einsteinsci.betterbeginnings.integration.jei.categories;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.*;
@@ -6,7 +6,7 @@ import mezz.jei.api.gui.IDrawableAnimated.StartDirection;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeCategory;
 import net.einsteinsci.betterbeginnings.ModMain;
-import net.einsteinsci.betterbeginnings.jei.wrappers.JEIOvenRecipeWrapper;
+import net.einsteinsci.betterbeginnings.integration.jei.wrappers.JEIOvenRecipeWrapper;
 import net.einsteinsci.betterbeginnings.register.recipe.IBrickOvenRecipe;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityOvenBase;
 import net.minecraft.client.Minecraft;

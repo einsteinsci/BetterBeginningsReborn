@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.jei.categories;
+package net.einsteinsci.betterbeginnings.integration.jei.categories;
 
 import net.einsteinsci.betterbeginnings.ModMain;
 

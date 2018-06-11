@@ -1,11 +1,11 @@
-package net.einsteinsci.betterbeginnings.jei;
+package net.einsteinsci.betterbeginnings.integration.jei;
 
 import mezz.jei.api.*;
 import mezz.jei.api.ingredients.IIngredientBlacklist;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import net.einsteinsci.betterbeginnings.ModMain;
-import net.einsteinsci.betterbeginnings.jei.categories.*;
-import net.einsteinsci.betterbeginnings.jei.wrappers.*;
+import net.einsteinsci.betterbeginnings.integration.jei.categories.*;
+import net.einsteinsci.betterbeginnings.integration.jei.wrappers.*;
 import net.einsteinsci.betterbeginnings.register.RegisterBlocks;
 import net.einsteinsci.betterbeginnings.register.recipe.*;
 import net.minecraft.block.Block;
@@ -40,7 +40,7 @@ public class JEIPlugin implements IModPlugin {
 
         registry.handleRecipes(CampfireRecipe.class, JEICampfireRecipeWrapper::new, JEICategoryUIDs.CAMPFIRE);
         registry.addRecipes(CampfireRecipeHandler.getRecipes(), JEICategoryUIDs.CAMPFIRE);
-        registry.addRecipeCatalyst(new ItemStack(RegisterBlocks.campfire));
+        registry.addRecipeCatalyst(new ItemStack(RegisterBlocks.campfire), JEICategoryUIDs.CAMPFIRE);
 
         registry.handleRecipes(AdvancedRecipe.class, JEIAdvancedRecipeWrapper::new, JEICategoryUIDs.ADV_CRAFTING);
         registry.addRecipes(AdvancedCraftingHandler.getRecipeList(), JEICategoryUIDs.ADV_CRAFTING);

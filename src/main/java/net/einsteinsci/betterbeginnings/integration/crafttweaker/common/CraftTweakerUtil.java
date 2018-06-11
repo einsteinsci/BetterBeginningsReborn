@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.crafttweaker.common;
+package net.einsteinsci.betterbeginnings.integration.crafttweaker.common;
 
 import java.lang.reflect.Field;
 

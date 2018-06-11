@@ -1,4 +1,4 @@
-package net.einsteinsci.betterbeginnings.crafttweaker.tweaker;
+package net.einsteinsci.betterbeginnings.integration.crafttweaker.tweaker;
 
 import java.util.Iterator;
 import java.util.List;
@@ -9,7 +9,7 @@ import crafttweaker.CraftTweakerAPI;
 import crafttweaker.api.item.IIngredient;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.minecraft.CraftTweakerMC;
-import net.einsteinsci.betterbeginnings.crafttweaker.common.*;
+import net.einsteinsci.betterbeginnings.integration.crafttweaker.common.*;
 import net.einsteinsci.betterbeginnings.register.recipe.*;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.RecipeElement;
 import net.minecraft.item.ItemStack;
