@@ -1,0 +1,101 @@
+[
+	{
+		"name": "KNIFE",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "itemKnife",
+      		"data": 32767
+		}
+	},
+	{
+		"name": "PLANKS",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "plankWood"
+		}
+	},
+	{
+		"name": "STICKS",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "stickWood"
+		}
+	},
+	{
+		"name": "CRAFTTABLE",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "craftingTableWood"
+		}
+	},
+	{
+		"name": "IRONINGOT",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "ingotIron"
+		}
+	},
+	{
+		"name": "GOLDINGOT",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "ingotGold"
+		}
+	},
+	{
+		"name": "DIAMOND",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "gemDiamond"
+		}
+	},
+	{
+		"name": "TOUGHSTRING",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "itemStringTough"
+		}
+	},
+	{
+		"name": "STRING",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "itemString"
+		}
+	},
+	{
+		"name": "SLIME",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "slimeball"
+		}
+	},
+	{
+		"name": "REDSTONE",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "dustRedstone"
+		}
+	},
+	{
+		"name": "IRONBLOCK",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "blockIron"
+		}
+	},
+	{
+		"name": "KINDLING",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "itemKindling"
+		}
+	},
+	{
+		"name": "SAPLINGS",
+		"ingredient": {
+			"type": "forge:ore_dict",
+      		"ore": "treeSaplings"
+		}
+	}
+]

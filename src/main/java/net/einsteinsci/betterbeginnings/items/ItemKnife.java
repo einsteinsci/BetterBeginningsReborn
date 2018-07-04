@@ -81,7 +81,7 @@ public abstract class ItemKnife extends ItemTool implements IBBName
         {
             EntityThrownKnife knife = new EntityThrownKnife(worldIn, entityLiving, stack);
             knife.setForce((float) Math.min((this.getMaxItemUseDuration(stack) - timeLeft), ItemKnife.DRAW_TIME) / ItemKnife.DRAW_TIME);
-            knife.setHeadingFromThrower(entityLiving, entityLiving.rotationPitch, entityLiving.rotationYaw, 0.0F, 1.5F, 1.0F);
+            knife.shoot(entityLiving, entityLiving.rotationPitch, entityLiving.rotationYaw, 0.0F, 1.5F, 1.0F);
             worldIn.spawnEntity(knife);
         }
     }
@@ -121,6 +121,13 @@ public abstract class ItemKnife extends ItemTool implements IBBName
         return res;
     }
 
+
+    // Allows durability-based crafting.
+    @Override
+    public boolean hasContainerItem(ItemStack stack)
+    {
+        return true;
+    }
     // ...which also requires this...
     @Override
     public ItemStack getContainerItem(ItemStack itemStack)
@@ -130,17 +137,11 @@ public abstract class ItemKnife extends ItemTool implements IBBName
 
         return result;
     }
-
-    // Allows durability-based crafting.
-    @Override
-    public boolean hasContainerItem(ItemStack stack)
-    {
-        return true;
-    }
     
     public float getDamageVsEntity()
     {
-    	return this.damageVsEntity;
+    	//TODO
+    	return 5;
     }
 
     @Override

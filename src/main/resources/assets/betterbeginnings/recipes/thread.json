@@ -1,0 +1,15 @@
+{
+	"result": {
+		"item": "betterbeginnings:thread"
+	},
+	"pattern": [
+		"ss",
+		"ss"
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"s": {
+			"item": "betterbeginnings:silk"
+		}
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"F ",
+		" S"
+	],
+	"key": {
+		"F": {
+			"item": "minecraft:flint"
+		},
+		"S": {
+			"item": "#STICKS"
+		}
+	},
+	"result": {
+		"item": "betterbeginnings:flint_knife"
+	}
+}

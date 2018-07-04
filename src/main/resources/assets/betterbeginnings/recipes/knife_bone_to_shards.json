@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "betterbeginnings:bone_shard",
+    "count": 2
+  },
+  "type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "#KNIFE"
+		},
+		{
+			"item": "minecraft:bone"
+		}
+	]
+}

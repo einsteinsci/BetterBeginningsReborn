@@ -31,7 +31,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class GuiDoubleWorkbench extends GuiContainer
 {
 	private static final ResourceLocation workbenchGuiTextures = new ResourceLocation(ModMain.MODID +
-		":textures/gui/container/doubleWorkbench_MC18.png");
+		":textures/gui/container/double_workbench_mc18.png");
 
 	private final ContainerDoubleWorkbench container;
 	private boolean needsCatalystItems = false;
@@ -78,7 +78,7 @@ public class GuiDoubleWorkbench extends GuiContainer
 						int _x = slot.xPos + CATALYST_X_OFFSET;
 						int _y = slot.yPos;
 
-						if (container.addedMats.getStackInSlot(i) == null &&
+						if (container.addedMats.getStackInSlot(i).isEmpty() &&
 							mouseX >= k + _x && mouseX < k + _x + 16 &&
 							mouseY >= l + _y && mouseY < l + _y + 16)
 						{
@@ -88,9 +88,9 @@ public class GuiDoubleWorkbench extends GuiContainer
 
 					ItemStack result = recipe.getRecipeOutput();
 					Slot slot = container.resultSlot;
-					if (container.craftResult.getStackInSlot(0) == null)
+					if (container.craftResult.getStackInSlot(0).isEmpty())
 					{
-						if (result != null)
+						if (!result.isEmpty())
 						{
 							// draw result tooltip
 
@@ -112,7 +112,7 @@ public class GuiDoubleWorkbench extends GuiContainer
 
 	private void drawItemTooltip(int x, int y, ItemStack stack, boolean warn)
 	{
-		if (stack == null)
+		if (stack.isEmpty())
 		{
 			return;
 		}
@@ -172,16 +172,16 @@ public class GuiDoubleWorkbench extends GuiContainer
 
 						Slot slot = container.matSlots[i];
 						
-						ItemStack matStack = null;
+						ItemStack matStack = ItemStack.EMPTY;
 						
 						for(int s = 0; s < container.addedMats.getSizeInventory(); ++s)
 						{
 							ItemStack stack = container.addedMats.getStackInSlot(s);
 							
-							if(stack == null){ continue; }
+							if(stack.isEmpty()){ continue; }
 							if(neededElement.matches(stack))
 							{
-								if(matStack != null)
+								if(!matStack.isEmpty())
 								{
 									if(stack.getCount() > matStack.getCount())
 									{
@@ -194,7 +194,7 @@ public class GuiDoubleWorkbench extends GuiContainer
 								}
 							}
 						}
-						boolean hasMatStack = (matStack != null);
+						boolean hasMatStack = (!matStack.isEmpty());
 						if (!hasMatStack ||
 							(matStack.getCount() < needed.getCount() || !neededElement.matches(matStack)))
 						{
@@ -208,9 +208,9 @@ public class GuiDoubleWorkbench extends GuiContainer
 
 					ItemStack result = recipe.getRecipeOutput();
 					Slot slot = container.resultSlot;
-					if (container.craftResult.getStackInSlot(0) == null)
+					if (container.craftResult.getStackInSlot(0).isEmpty())
 					{
-						if (result != null)
+						if (!result.isEmpty())
 						{
 							// Draw red output box
 							mc.getTextureManager().bindTexture(workbenchGuiTextures);
@@ -230,7 +230,7 @@ public class GuiDoubleWorkbench extends GuiContainer
 		this.itemRender.renderItemAndEffectIntoGUI(stack, xPos, yPos);
 
 		FontRenderer font = null;
-		if (stack != null)
+		if (!stack.isEmpty())
 		{
 			font = stack.getItem().getFontRenderer(stack);
 		}

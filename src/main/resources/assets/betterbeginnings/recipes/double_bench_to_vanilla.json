@@ -1,0 +1,17 @@
+{
+	"conditions" : [
+		{
+			"type" : "betterbeginnings:advanced_crafting_enabled",
+			"value" : true
+		} ],
+	"result" : {
+		"item" : "minecraft:crafting_table"
+	},
+	"pattern" : [
+		"#"
+	],
+	"type" : "forge:ore_shaped",
+	"key" : {
+		"#" : { "item" : "betterbeginnings:double_workbench" }
+	}
+}

@@ -1,7 +1,5 @@
 package net.einsteinsci.betterbeginnings.blocks;
 
-import javax.annotation.Nullable;
-
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.register.IBBName;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityInfusionRepair;
@@ -17,80 +15,68 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockInfusionRepairStation extends Block implements IBBName
-{
-    public BlockInfusionRepairStation()
-    {
-        super(Material.ROCK);
+public class BlockInfusionRepairStation extends Block implements IBBName {
+	public BlockInfusionRepairStation() {
+		super(Material.ROCK);
 
-        setCreativeTab(ModMain.tabBetterBeginnings);
-        setHardness(2.0f);
-        setResistance(6000);
-    }
+		setCreativeTab(ModMain.tabBetterBeginnings);
+		setHardness(2.0f);
+		setResistance(6000);
+	}
 
-    @Override
-    public String getName()
-    {
-        return "infusion_repair_station";
-    }
+	@Override
+	public String getName() {
+		return "infusion_repair_station";
+	}
 
-    @Override
-    public EnumBlockRenderType getRenderType(IBlockState state)
-    {
-        return EnumBlockRenderType.MODEL;
-    }
+	@Override
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		return EnumBlockRenderType.MODEL;
+	}
 
-    @Override
-    public boolean isOpaqueCube(IBlockState state)
-    {
-        return false;
-    }
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
 
-    @Override
-    public boolean isFullCube(IBlockState state)
-    {
-        return true;
-    }
-    
-    @Override
-    public boolean hasTileEntity(IBlockState state)
-    {
-        return true;
-    }
+	@Override
+	public boolean isFullCube(IBlockState state) {
+		return true;
+	}
 
-    @Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side,
-        float hitX, float hitY, float hitZ)
-    {
-        ItemStack heldItem = player.getHeldItem(hand);
-        
-        TileEntity te = world.getTileEntity(pos);
-        if(te != null)
-        {
-            ((TileEntityInfusionRepair) te).activate(world, pos, state, player, hand, heldItem, side, hitZ, hitZ, hitZ);
-            return true;
-        }
-        return false;
-    }
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
+		return true;
+	}
 
-    // Drop stuff everywhere
-    @Override
-    public void breakBlock(World world, BlockPos pos, IBlockState state)
-    {
-        TileEntity tileentity = world.getTileEntity(pos);
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+			EnumFacing side, float hitX, float hitY, float hitZ) {
+		ItemStack heldItem = player.getHeldItem(hand);
 
-        if (tileentity instanceof TileEntityInfusionRepair)
-        {
-            Util.dropInventory(world, pos, CapUtils.getItemHandler(tileentity));
-            world.updateComparatorOutputLevel(pos, this);
-        }
+		TileEntity te = world.getTileEntity(pos);
+		if (te != null) {
+			((TileEntityInfusionRepair) te).activate(world, pos, state, player, hand, heldItem, side, hitZ, hitZ, hitZ);
+			return true;
+		}
+		return false;
+	}
 
-        super.breakBlock(world, pos, state);
-    }
+	// Drop stuff everywhere
+	@Override
+	public void breakBlock(World world, BlockPos pos, IBlockState state) {
+		TileEntity tileentity = world.getTileEntity(pos);
 
-    @Override
-    public TileEntity createTileEntity(World world, IBlockState state)
-    {
-        return new TileEntityInfusionRepair();
-    }
+		if (tileentity instanceof TileEntityInfusionRepair) {
+			Util.dropInventory(world, pos, CapUtils.getItemHandler(tileentity));
+			world.updateComparatorOutputLevel(pos, this);
+		}
+
+		super.breakBlock(world, pos, state);
+	}
+
+	@Override
+	public TileEntity createTileEntity(World world, IBlockState state) {
+		return new TileEntityInfusionRepair();
+	}
 }

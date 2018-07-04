@@ -35,7 +35,7 @@ public class ItemCharredMeat extends ItemFood implements IBBName
     @Override
     public String getUnlocalizedName(ItemStack stack)
     {
-        if (stack == null)
+        if (stack.isEmpty())
         {
             return null;
         }

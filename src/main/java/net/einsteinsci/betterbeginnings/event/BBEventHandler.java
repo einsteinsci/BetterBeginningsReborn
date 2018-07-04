@@ -94,10 +94,10 @@ public class BBEventHandler
 	    }
 	}
 
-	if (item == RegisterItems.ironNugget)
-	{
-	    e.getToolTip().add("Good for hinges and rivets");
-	}
+	//if (item == RegisterItems.ironNugget)
+	//{
+	//    e.getToolTip().add("Good for hinges and rivets");
+	//}
 
 	if (item == RegisterItems.flintKnife)
 	{
@@ -197,7 +197,7 @@ public class BBEventHandler
     @SubscribeEvent
     public void onRightClick(PlayerInteractEvent.RightClickBlock e)
     {
-	if (e.getItemStack() != null)
+	if (!e.getItemStack().isEmpty())
 	{
 	    Item item = e.getItemStack().getItem();
 
@@ -234,7 +234,7 @@ public class BBEventHandler
 	// Knife silk-touching for vines
 	if (block == Blocks.VINE && !e.isSilkTouching())
 	{
-	    if (held != null)
+	    if (!held.isEmpty())
 	    {
 		if (held.getItem() instanceof ItemKnife)
 		{
@@ -249,7 +249,7 @@ public class BBEventHandler
 	// Knife silk-touching for grass/bushes
 	if ((block == Blocks.TALLGRASS || block == Blocks.DEADBUSH) && !e.isSilkTouching())
 	{
-	    if (held != null)
+	    if (!held.isEmpty())
 	    {
 		if (held.getItem() instanceof ItemKnife)
 		{
@@ -262,12 +262,12 @@ public class BBEventHandler
 	}
 
 	// Hammer
-	if (held != null)
+	if (!held.isEmpty())
 	{
 	    if (held.getItem() instanceof ItemHammer)
 	    {
 		ItemStack crushResult = ItemHammer.getCrushResult(block, e.getState());
-		if (crushResult != null)
+		if (!crushResult.isEmpty())
 		{
 		    e.getDrops().clear();
 		    e.getDrops().add(crushResult);
@@ -286,7 +286,7 @@ public class BBEventHandler
 	String neededToolClass = block.getHarvestTool(e.getState());
 	int usedHarvestLevel = -1;
 	String usedToolClass = null;
-	if (held != null)
+	if (!held.isEmpty())
 	{
 	    usedHarvestLevel = held.getItem().getHarvestLevel(held, neededToolClass, player, e.getState());
 	    if(usedHarvestLevel != -1) usedToolClass = neededToolClass;
@@ -335,7 +335,7 @@ public class BBEventHandler
 	    for (int i = 0; i < e.craftMatrix.getSizeInventory(); i++)
 	    {
 		ItemStack stack = e.craftMatrix.getStackInSlot(i);
-		if (stack != null)
+		if (!stack.isEmpty())
 		{
 		    if (stack.getItem() instanceof ItemKnife)
 		    {
@@ -343,7 +343,7 @@ public class BBEventHandler
 
 			if (stack.getCount() <= 0)
 			{
-			    e.craftMatrix.setInventorySlotContents(i, null);
+			    e.craftMatrix.setInventorySlotContents(i, ItemStack.EMPTY);
 			}
 			else
 			{

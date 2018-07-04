@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "betterbeginnings:sugar_cane_strips",
+    "count": 2
+  },
+  "type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:reeds"
+		},		
+		{
+			"item": "#KNIFE"
+		}
+	]
+}

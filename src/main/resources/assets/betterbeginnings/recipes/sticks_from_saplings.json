@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "minecraft:stick"
+  },
+  "type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "#SAPLINGS"
+		},		
+		{
+			"item": "#KNIFE"
+		}
+	]
+}

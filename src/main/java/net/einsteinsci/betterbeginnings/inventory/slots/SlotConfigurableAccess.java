@@ -45,13 +45,13 @@ public class SlotConfigurableAccess extends SlotItemHandler
 	@Override
 	public ItemStack decrStackSize(int amount) 
 	{
-		if (getStack() != null)//STACKNULL
+		if (!getStack().isEmpty())//STACKNULL
 		{
 			ItemStack stack;
 			if (getStack().getCount() <= amount)
 			{
 				stack = getStack();
-				((IItemHandlerModifiable)this.getItemHandler()).setStackInSlot(this.getSlotIndex(), null);//STACKNULL
+				((IItemHandlerModifiable)this.getItemHandler()).setStackInSlot(this.getSlotIndex(), ItemStack.EMPTY);//STACKNULL
 				return stack;
 			}
 			else
@@ -60,7 +60,7 @@ public class SlotConfigurableAccess extends SlotItemHandler
 
 				if (getStack().getCount() == 0)
 				{
-					((IItemHandlerModifiable)this.getItemHandler()).setStackInSlot(this.getSlotIndex(), null);//STACKNULL
+					((IItemHandlerModifiable)this.getItemHandler()).setStackInSlot(this.getSlotIndex(), ItemStack.EMPTY);//STACKNULL
 				}
 
 				return stack;
@@ -68,7 +68,7 @@ public class SlotConfigurableAccess extends SlotItemHandler
 		}
 		else
 		{
-			return null;//STACKNULL
+			return ItemStack.EMPTY;//STACKNULL
 		}
 	}
 	
@@ -77,7 +77,7 @@ public class SlotConfigurableAccess extends SlotItemHandler
 	{
 		ItemStack currentStack = getStack();
 		int maxAdd = stack.getMaxStackSize();
-		if(currentStack == null ) return 64;
+		if(currentStack.isEmpty() ) return 64;
 		if(!ItemHandlerHelper.canItemStacksStack(stack, currentStack))  return 64;
 		int stackSize = currentStack.getCount() + stack.getCount();
 		if(stackSize > maxAdd) stackSize = maxAdd;

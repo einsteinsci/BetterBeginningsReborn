@@ -1,0 +1,13 @@
+{
+	"result" : {
+		"item" : "minecraft:flint"
+	},
+	"pattern" : [
+		"##",
+		"##"
+	],
+	"type" : "forge:ore_shaped",
+	"key" : {
+		"#" : { "item" : "minecraft:gravel"}
+	}
+}

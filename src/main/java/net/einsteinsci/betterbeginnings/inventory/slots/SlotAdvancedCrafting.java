@@ -136,7 +136,7 @@ public class SlotAdvancedCrafting extends Slot
 	    {
 		ItemStack ingredientStack = craftMatrix.getStackInSlot(i);
 
-		if (ingredientStack != null)
+		if (!ingredientStack.isEmpty())
 		{
 		    if (ingredientStack.getItem().hasContainerItem(ingredientStack))
 		    {
@@ -144,7 +144,7 @@ public class SlotAdvancedCrafting extends Slot
 
 			craftMatrix.setInventorySlotContents(i, containerStack);
 
-			if (containerStack != null)
+			if (!containerStack.isEmpty())
 			{
 			    boolean isDamageable = containerStack.isItemStackDamageable();
 
@@ -167,7 +167,7 @@ public class SlotAdvancedCrafting extends Slot
 	    {
 		ItemStack matStack = additionalMaterials.getStackInSlot(i);
 
-		if (matStack != null)
+		if (!matStack.isEmpty())
 		{
 		    int amount = 0;
 
@@ -183,7 +183,7 @@ public class SlotAdvancedCrafting extends Slot
 		    {
 			ItemStack containerStack = matStack.getItem().getContainerItem(matStack);
 
-			if (containerStack != null && containerStack.isItemStackDamageable()
+			if (!containerStack.isEmpty() && containerStack.isItemStackDamageable()
 				&& containerStack.getItemDamage() > containerStack.getMaxDamage())
 			{
 			    ForgeEventFactory.onPlayerDestroyItem(thePlayer, containerStack, thePlayer.getActiveHand());
@@ -202,15 +202,15 @@ public class SlotAdvancedCrafting extends Slot
 		ItemStack currentStack = craftMatrix.getStackInSlot(s);
 		ItemStack remnantStack = remainingItems.get(s);
 
-		if (currentStack != null)
+		if (!currentStack.isEmpty())
 		{
 		    craftMatrix.decrStackSize(s, 1);
 		    currentStack = craftMatrix.getStackInSlot(s);
 		}
 
-		if(remnantStack != null)
+		if(!remnantStack.isEmpty())
 		{
-		    if(currentStack == null)
+		    if(currentStack.isEmpty())
 		    {
 			craftMatrix.setInventorySlotContents(s, remnantStack);
 		    }

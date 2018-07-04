@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"FL",
+		" S"
+	],
+	"key": {
+		"F": {
+			"item": "minecraft:flint"
+		},
+		"L": {
+			"item": "betterbeginnings:leather_strip"
+		},
+		"S": {
+			"item": "#STICKS"
+		}
+	},
+	"result": {
+		"item": "betterbeginnings:flint_hatchet"
+	}
+}

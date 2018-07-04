@@ -1,0 +1,20 @@
+{
+	"conditions": [
+		{
+			"type": "betterbeginnings:module_furnace_enabled",
+			"value": true
+		}
+	],
+	"result": {
+		"item": "minecraft:furnace_minecart"
+	},
+	"type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:furnace"
+		},
+		{
+			"item": "betterbeginnings:kiln"
+		}
+	]
+}

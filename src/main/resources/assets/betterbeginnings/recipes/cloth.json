@@ -1,0 +1,15 @@
+{
+	"result": {
+		"item": "betterbeginnings:cloth"
+	},
+	"pattern": [
+		"ttt",
+		"ttt"
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"t": {
+			"item": "betterbeginnings:thread"
+		}
+	}
+}

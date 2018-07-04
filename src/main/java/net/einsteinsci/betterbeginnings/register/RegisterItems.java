@@ -39,7 +39,7 @@ public class RegisterItems
 	public static final ItemResource thread = new ItemResource().setName("thread");
 	public static final ItemResource cloth = new ItemResource().setName("cloth");
 	public static final ItemResource leatherStrip = new ItemResource().setName("leather_strip");
-	public static final ItemResource ironNugget = new ItemResource().setName("iron_nugget");
+	//public static final ItemResource ironNugget = new ItemResource().setName("iron_nugget");
 	public static final ItemCharredMeat charredMeat = new ItemCharredMeat();
 	public static final ItemFireBow fireBow = new ItemFireBow();
 	public static final ItemMarshmallow marshmallow = new ItemMarshmallow();
@@ -77,7 +77,7 @@ public class RegisterItems
 		RegisterHelper.registerItem(e.getRegistry(), cloth);
 		RegisterHelper.registerItem(e.getRegistry(), twine);
 		RegisterHelper.registerItem(e.getRegistry(), leatherStrip);
-		RegisterHelper.registerItem(e.getRegistry(), ironNugget);
+		//RegisterHelper.registerItem(e.getRegistry(), ironNugget);
 		RegisterHelper.registerItem(e.getRegistry(), fireBow);
 		RegisterHelper.registerItem(e.getRegistry(), rockHammer);
 		RegisterHelper.registerItem(e.getRegistry(), pan);
@@ -104,7 +104,7 @@ public class RegisterItems
 
 	public static void oreDictRegistry()
 	{
-		OreDictionary.registerOre("nuggetIron", ironNugget);
+		//OreDictionary.registerOre("nuggetIron", ironNugget);
 
 		OreDictionary.registerOre("itemKnife", new ItemStack(flintKnife, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("itemKnife", new ItemStack(boneKnife, 1, OreDictionary.WILDCARD_VALUE));
@@ -125,6 +125,9 @@ public class RegisterItems
 		OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.LEAVES2, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.VINE));
 		OreDictionary.registerOre("itemKindling", new ItemStack(Blocks.TALLGRASS, 1, OreDictionary.WILDCARD_VALUE));
+		
+        OreDictionary.registerOre("craftingTableWood", RegisterBlocks.doubleWorkbench);
+        OreDictionary.registerOre("craftingTableWood", Blocks.CRAFTING_TABLE);
 	}
 
 	public static void tweakVanilla()

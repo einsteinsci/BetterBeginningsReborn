@@ -54,11 +54,11 @@ public class BlockBreakHelper
 		String neededToolClass = block.getHarvestTool(e.getState());
 		int usedHarvestLevel = 0;
 		String usedToolClass = null;
-		String stackName = heldItemStack != null ? heldItemStack.getDisplayName() : "NULL";
+		String stackName = !heldItemStack.isEmpty() ? heldItemStack.getDisplayName() : "NULL";
 
 		boolean isConfigPickaxe = false, isConfigAxe = false;
 
-		if (heldItemStack != null)
+		if (!heldItemStack.isEmpty())
 		{
 			for (String toolClass : heldItemStack.getItem().getToolClasses(heldItemStack))
 			{
@@ -86,7 +86,7 @@ public class BlockBreakHelper
 
 		boolean cancel = false;
 
-		if (heldItemStack != null)
+		if (!heldItemStack.isEmpty())
 		{
 			if (heldItemStack.getItem() instanceof ItemKnife && ItemKnife.getBreakable().contains(block))
 			{

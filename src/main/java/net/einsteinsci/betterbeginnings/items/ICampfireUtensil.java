@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public interface ICampfireUtensil extends IBBName
 {
-	float getCampfireSpeedModifier(ItemStack stack);
+	float getCampfireSpeedModifier();
 
 	boolean doCookingDamage(ItemStack stack);
 }

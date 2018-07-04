@@ -20,7 +20,7 @@ import java.util.List;
 public class GuiSimpleWorkbench extends GuiContainer
 {
 	private static final ResourceLocation craftingTableGuiTextures =
-			new ResourceLocation(ModMain.MODID + ":textures/gui/container/simpleWorkbench.png");
+			new ResourceLocation(ModMain.MODID + ":textures/gui/container/simple_workbench.png");
 	private ContainerSimpleWorkbench container;
 
 	public GuiSimpleWorkbench(InventoryPlayer invPlayer, World world, BlockPos pos)

@@ -1,0 +1,28 @@
+{
+	"conditions": [
+		{
+			"type": "betterbeginnings:advanced_crafting_enabled",
+			"value": false
+		}
+	],
+	"result": {
+		"item": "betterbeginnings:diamond_knife"
+	},
+	"pattern": [
+		"  I",
+		" S ",
+		"/  "
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"S": {
+			"item": "#TOUGHSTRING"
+		},
+		"/": {
+			"item": "#STICKS"
+		},
+		"I": {
+			"item": "#DIAMOND"
+		}
+	}
+}
