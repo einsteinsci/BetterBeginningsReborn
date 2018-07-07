@@ -25,7 +25,7 @@ public class LogUtil
 
 	public static void log(Level level, String text, Object... formatArgs)
 	{
-		FMLLog.log(ModMain.NAME, level, text, formatArgs);
+		FMLLog.log.log(level, ModMain.NAME + " " + text, formatArgs);
 	}
 
 	public static void log(String text, Object... formatArgs)
