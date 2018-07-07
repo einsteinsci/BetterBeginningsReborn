@@ -2,13 +2,12 @@ package net.einsteinsci.betterbeginnings.inventory.containers;
 
 import net.einsteinsci.betterbeginnings.inventory.slots.SlotConfigurableAccess;
 import net.einsteinsci.betterbeginnings.inventory.slots.SlotOutput;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry.FuelConsumerType;
 import net.einsteinsci.betterbeginnings.register.recipe.BrickOvenRecipeHandler;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityBrickOven;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.PlayerInvWrapper;
@@ -68,7 +67,7 @@ public class ContainerBrickOven extends ContainerSpecializedFurnace<TileEntityBr
 			}
 			else if (slotId >= 11 && slotId < 38) // non-hotbar inventory
 			{
-				if (FuelRegistry.getBurnTime(FuelConsumerType.OVEN, itemstack1) > 0)
+				if (TileEntityFurnace.isItemFuel(itemstack1))
 				{
 					if (!mergeItemStack(itemstack1, TileEntityBrickOven.FUEL, TileEntityBrickOven.FUEL + 1, false))
 					{
@@ -90,7 +89,7 @@ public class ContainerBrickOven extends ContainerSpecializedFurnace<TileEntityBr
 			}
 			else if (slotId > 37 && slotId <= 46) // hotbar
 			{
-				if (FuelRegistry.getBurnTime(FuelConsumerType.OVEN, itemstack1) > 0)
+				if (TileEntityFurnace.isItemFuel(itemstack1))
 				{
 					if (!mergeItemStack(itemstack1, TileEntityBrickOven.FUEL, TileEntityBrickOven.FUEL + 1, false))
 					{

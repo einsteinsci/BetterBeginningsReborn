@@ -2,15 +2,13 @@ package net.einsteinsci.betterbeginnings.tileentity;
 
 import java.util.*;
 
-import net.einsteinsci.betterbeginnings.config.json.BoosterConfig;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry.FuelConsumerType;
 import net.einsteinsci.betterbeginnings.register.recipe.SmelterRecipeHandler;
 import net.einsteinsci.betterbeginnings.util.CapUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.oredict.OreDictionary;
@@ -33,10 +31,10 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 
 	public static void registerDefaultBoosters()
 	{
-		BoosterConfig.registerBooster(new ItemStack(Blocks.GRAVEL), 0.0f);
-		BoosterConfig.registerBooster(new ItemStack(Blocks.SOUL_SAND), 0.3f);
-		BoosterConfig.registerBooster(new ItemStack(Items.QUARTZ), 1.0f);
-		BoosterConfig.registerBooster(new ItemStack(Items.PRISMARINE_SHARD), 1.5f);
+		boosterRegistry.put(new ItemStack(Blocks.GRAVEL), 0.0f);
+		boosterRegistry.put(new ItemStack(Blocks.SOUL_SAND), 0.3f);
+		boosterRegistry.put(new ItemStack(Items.QUARTZ), 1.0f);
+		boosterRegistry.put(new ItemStack(Items.PRISMARINE_SHARD), 1.5f);
 		// BoosterConfig.registerBooster(new ItemStack(Items.CRUSHED_PURPUR), 1.3f); // 1.9+
 	}
 	
@@ -49,7 +47,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 	public void readFromNBT(NBTTagCompound tagCompound)
 	{
 		super.readFromNBT(tagCompound);
-		currentItemBurnLength = FuelRegistry.getBurnTime(FuelConsumerType.getFromInstance(this), mainHandler.getStackInSlot(FUEL));
+		currentItemBurnLength = TileEntityFurnace.getItemBurnTime(inventory.getStackInSlot(FUEL));
 	}
 
 	@Override
@@ -74,18 +72,18 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 
 			if (burnTime == 0 && canSmelt())
 			{
-				currentItemBurnLength = burnTime = FuelRegistry.getBurnTime(FuelConsumerType.getFromInstance(this), mainHandler.getStackInSlot(FUEL));
+				currentItemBurnLength = burnTime = TileEntityFurnace.getItemBurnTime(inventory.getStackInSlot(FUEL));
 
 				if (burnTime > 0)
 				{
 					flag1 = true;
-					if (!mainHandler.getStackInSlot(FUEL).isEmpty())
+					if (!inventory.getStackInSlot(FUEL).isEmpty())
 					{
-						CapUtils.decrementStack(mainHandler, FUEL, 1);
+						CapUtils.decrementStack(inventory, FUEL, 1);
 
-						if (mainHandler.getStackInSlot(FUEL).getCount() == 0)
+						if (inventory.getStackInSlot(FUEL).getCount() == 0)
 						{
-							mainHandler.setStackInSlot(FUEL, ForgeHooks.getContainerItem(mainHandler.getStackInSlot(FUEL)));
+							inventory.setStackInSlot(FUEL, ForgeHooks.getContainerItem(inventory.getStackInSlot(FUEL)));
 						}
 					}
 				}
@@ -122,35 +120,35 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 	@Override
 	public boolean canSmelt()
 	{
-		if (mainHandler.getStackInSlot(INPUT).isEmpty() || mainHandler.getStackInSlot(BOOSTER).isEmpty())
+		if (inventory.getStackInSlot(INPUT).isEmpty() || inventory.getStackInSlot(BOOSTER).isEmpty())
 		{
 			return false;
 		}
 		else
 		{
-			ItemStack stack = SmelterRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(INPUT));
-			int boostersNeeded = SmelterRecipeHandler.instance().getBoosterCount(mainHandler.getStackInSlot(INPUT));
+			ItemStack stack = SmelterRecipeHandler.instance().getSmeltingResult(inventory.getStackInSlot(INPUT));
+			int boostersNeeded = SmelterRecipeHandler.instance().getBoosterCount(inventory.getStackInSlot(INPUT));
 			if (stack.isEmpty())
 			{
 				return false;
 			}
 
-			if (boostersNeeded > mainHandler.getStackInSlot(BOOSTER).getCount())
+			if (boostersNeeded > inventory.getStackInSlot(BOOSTER).getCount())
 			{
 				return false;
 			}
 
-			if (mainHandler.getStackInSlot(OUTPUT).isEmpty())
+			if (inventory.getStackInSlot(OUTPUT).isEmpty())
 			{
 				return true;
 			}
-			if (!mainHandler.getStackInSlot(OUTPUT).isItemEqual(stack))
+			if (!inventory.getStackInSlot(OUTPUT).isItemEqual(stack))
 			{
 				return false;
 			}
 
-			int resultCount = mainHandler.getStackInSlot(OUTPUT).getCount() + getMaxNextOutputCount();
-			return resultCount <= mainHandler.getStackInSlot(OUTPUT).getMaxStackSize();
+			int resultCount = inventory.getStackInSlot(OUTPUT).getCount() + getMaxNextOutputCount();
+			return resultCount <= inventory.getStackInSlot(OUTPUT).getMaxStackSize();
 		}
 	}
 
@@ -159,33 +157,33 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 	{
 		if (canSmelt())
 		{
-			ItemStack result = SmelterRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(INPUT));
+			ItemStack result = SmelterRecipeHandler.instance().getSmeltingResult(inventory.getStackInSlot(INPUT));
 			int outputCount = getNextOutputCount();
 			
-			if (mainHandler.getStackInSlot(OUTPUT).isEmpty())
+			if (inventory.getStackInSlot(OUTPUT).isEmpty())
 			{
 				ItemStack stack = result.copy();
 				stack.setCount(outputCount);
-				mainHandler.setStackInSlot(OUTPUT, stack);
+				inventory.setStackInSlot(OUTPUT, stack);
 			}
-			else if (mainHandler.getStackInSlot(OUTPUT).getItem() == result.getItem())
+			else if (inventory.getStackInSlot(OUTPUT).getItem() == result.getItem())
 			{
-				CapUtils.incrementStack(mainHandler, OUTPUT, outputCount);
+				CapUtils.incrementStack(inventory, OUTPUT, outputCount);
 			}
 
-			int gravelUsed = SmelterRecipeHandler.instance().getBoosterCount(mainHandler.getStackInSlot(INPUT));
+			int gravelUsed = SmelterRecipeHandler.instance().getBoosterCount(inventory.getStackInSlot(INPUT));
 
-			CapUtils.decrementStack(mainHandler, INPUT, 1);
+			CapUtils.decrementStack(inventory, INPUT, 1);
 
-			if (mainHandler.getStackInSlot(INPUT).getCount() <= 0)
+			if (inventory.getStackInSlot(INPUT).getCount() <= 0)
 			{
-				mainHandler.setStackInSlot(INPUT, ItemStack.EMPTY);
+				inventory.setStackInSlot(INPUT, ItemStack.EMPTY);
 			}
-			CapUtils.decrementStack(mainHandler, BOOSTER, gravelUsed);
+			CapUtils.decrementStack(inventory, BOOSTER, gravelUsed);
 
-			if (mainHandler.getStackInSlot(BOOSTER).getCount() <= 0)
+			if (inventory.getStackInSlot(BOOSTER).getCount() <= 0)
 			{
-				mainHandler.setStackInSlot(BOOSTER, ItemStack.EMPTY);
+				inventory.setStackInSlot(BOOSTER, ItemStack.EMPTY);
 			}
 		}
 	}
@@ -223,7 +221,7 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 
 	public final float getTotalBoost()
 	{
-		float booster = getBoostFromBooster(mainHandler.getStackInSlot(BOOSTER));
+		float booster = getBoostFromBooster(inventory.getStackInSlot(BOOSTER));
 		if (Float.isNaN(booster))
 		{
 			booster = 0;
@@ -246,8 +244,8 @@ public abstract class TileEntitySmelterBase extends TileEntitySpecializedFurnace
 
 	public final int getOutputCountFromBoostLevel(int roundedBoost)
 	{
-		int countPerBoost = SmelterRecipeHandler.instance().getBonusPerBoost(mainHandler.getStackInSlot(INPUT));
-		int countUnboosted = SmelterRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(INPUT)).getCount();
+		int countPerBoost = SmelterRecipeHandler.instance().getBonusPerBoost(inventory.getStackInSlot(INPUT));
+		int countUnboosted = SmelterRecipeHandler.instance().getSmeltingResult(inventory.getStackInSlot(INPUT)).getCount();
 		return countUnboosted + (roundedBoost - 1) * countPerBoost;
 	}
 

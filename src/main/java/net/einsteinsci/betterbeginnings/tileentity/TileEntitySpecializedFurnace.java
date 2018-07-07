@@ -1,8 +1,11 @@
 package net.einsteinsci.betterbeginnings.tileentity;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.IItemHandler;
@@ -51,7 +54,7 @@ public abstract class TileEntitySpecializedFurnace extends TileEntitySidedInvent
 	@Override
 	protected IItemHandler getItemHandler(EnumFacing side) 
 	{
-		if(side == null) return mainHandler;
+		if(side == null) return inventory;
 		if(side == EnumFacing.DOWN) return outputHandler;
 		else return inputHandler;
 	}
@@ -89,4 +92,13 @@ public abstract class TileEntitySpecializedFurnace extends TileEntitySidedInvent
 	{
 		return burnTime > 0;
 	}
+	
+	@SubscribeEvent
+	public void onFurnaceFuelTime(final FurnaceFuelBurnTimeEvent event) 
+	{
+		event.setBurnTime(calculateFuelBurnTime(event.getItemStack()));
+	}
+
+	// Set -1 for default
+	protected abstract int calculateFuelBurnTime(final ItemStack fuelStack);
 }

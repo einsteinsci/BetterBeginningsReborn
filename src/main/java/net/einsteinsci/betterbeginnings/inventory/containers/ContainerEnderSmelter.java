@@ -1,8 +1,6 @@
 package net.einsteinsci.betterbeginnings.inventory.containers;
 
 import net.einsteinsci.betterbeginnings.inventory.slots.SlotOutput;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry.FuelConsumerType;
 import net.einsteinsci.betterbeginnings.register.recipe.SmelterRecipeHandler;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityEnderSmelter;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntitySmelterBase;
@@ -11,6 +9,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.PlayerInvWrapper;
@@ -83,7 +82,7 @@ public class ContainerEnderSmelter extends ContainerSpecializedFurnace<TileEntit
 						return ItemStack.EMPTY;
 					}
 				}
-				else if (FuelRegistry.getBurnTime(FuelConsumerType.ENDER_SMELTER, movedStack) > 0)
+				else if (TileEntityFurnace.isItemFuel(movedStack))
 				{
 					if (!mergeItemStack(movedStack,
 					                    TileEntityEnderSmelter.FUEL,

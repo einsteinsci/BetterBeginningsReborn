@@ -23,7 +23,7 @@ public class TankNetherBrickOvenFuel extends FluidTank
 		IFluidHandler fluidHandler = tile.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
 		IItemHandler itemHandler = tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 		int maxAmount = this.fluid != null ? this.capacity - this.fluid.amount : this.capacity;
-		return FluidUtil.tryEmptyContainerAndStow(container, fluidHandler, itemHandler, maxAmount, null).isSuccess();
+		return FluidUtil.tryEmptyContainerAndStow(container, fluidHandler, itemHandler, maxAmount, null, true).isSuccess();
 	}
 
 	@Override

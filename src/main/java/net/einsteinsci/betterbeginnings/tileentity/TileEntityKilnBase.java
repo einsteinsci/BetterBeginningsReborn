@@ -1,11 +1,10 @@
 package net.einsteinsci.betterbeginnings.tileentity;
 
-import net.einsteinsci.betterbeginnings.register.FuelRegistry;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry.FuelConsumerType;
 import net.einsteinsci.betterbeginnings.register.recipe.KilnRecipeHandler;
 import net.einsteinsci.betterbeginnings.util.CapUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
@@ -35,19 +34,19 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 
 			if (burnTime == 0 && canSmelt())
 			{
-				currentItemBurnLength = burnTime = FuelRegistry.getBurnTime(FuelConsumerType.getFromInstance(this), mainHandler.getStackInSlot(SLOT_FUEL));
+				currentItemBurnLength = burnTime = TileEntityFurnace.getItemBurnTime(inventory.getStackInSlot(SLOT_FUEL));
 
 				if (burnTime > 0)
 				{
 					flag1 = true;
-					if (!mainHandler.getStackInSlot(SLOT_FUEL).isEmpty())
+					if (!inventory.getStackInSlot(SLOT_FUEL).isEmpty())
 					{
-						CapUtils.decrementStack(mainHandler, SLOT_FUEL, 1);
+						CapUtils.decrementStack(inventory, SLOT_FUEL, 1);
 						
-						ItemStack fuel = mainHandler.getStackInSlot(SLOT_FUEL);
+						ItemStack fuel = inventory.getStackInSlot(SLOT_FUEL);
 						if (fuel.getCount() == 0)
 						{
-							mainHandler.setStackInSlot(SLOT_FUEL, ForgeHooks.getContainerItem(fuel));
+							inventory.setStackInSlot(SLOT_FUEL, ForgeHooks.getContainerItem(fuel));
 						}
 					}
 				}
@@ -84,29 +83,29 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 	@Override
 	public boolean canSmelt()
 	{
-		if (mainHandler.getStackInSlot(SLOT_INPUT).isEmpty())
+		if (inventory.getStackInSlot(SLOT_INPUT).isEmpty())
 		{
 			return false;
 		}
 		else
 		{
-			ItemStack stack = KilnRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(SLOT_INPUT));
+			ItemStack stack = KilnRecipeHandler.instance().getSmeltingResult(inventory.getStackInSlot(SLOT_INPUT));
 			if (stack.isEmpty())
 			{
 				return false;
 			}
 
-			if (mainHandler.getStackInSlot(SLOT_OUTPUT).isEmpty())
+			if (inventory.getStackInSlot(SLOT_OUTPUT).isEmpty())
 			{
 				return true;
 			}
-			if (!mainHandler.getStackInSlot(SLOT_OUTPUT).isItemEqual(stack))
+			if (!inventory.getStackInSlot(SLOT_OUTPUT).isItemEqual(stack))
 			{
 				return false;
 			}
 
-			int size = mainHandler.getStackInSlot(SLOT_OUTPUT).getCount() + stack.getCount();
-			return size <= mainHandler.getStackInSlot(SLOT_OUTPUT).getMaxStackSize();
+			int size = inventory.getStackInSlot(SLOT_OUTPUT).getCount() + stack.getCount();
+			return size <= inventory.getStackInSlot(SLOT_OUTPUT).getMaxStackSize();
 		}
 	}
 
@@ -115,22 +114,22 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 	{
 		if (canSmelt())
 		{
-			ItemStack itemStack = KilnRecipeHandler.instance().getSmeltingResult(mainHandler.getStackInSlot(SLOT_INPUT));
+			ItemStack itemStack = KilnRecipeHandler.instance().getSmeltingResult(inventory.getStackInSlot(SLOT_INPUT));
 
-			if (mainHandler.getStackInSlot(SLOT_OUTPUT).isEmpty())
+			if (inventory.getStackInSlot(SLOT_OUTPUT).isEmpty())
 			{
-				mainHandler.setStackInSlot(SLOT_OUTPUT, itemStack.copy());
+				inventory.setStackInSlot(SLOT_OUTPUT, itemStack.copy());
 			}
-			else if (mainHandler.getStackInSlot(SLOT_OUTPUT).getItem() == itemStack.getItem())
+			else if (inventory.getStackInSlot(SLOT_OUTPUT).getItem() == itemStack.getItem())
 			{
-				CapUtils.incrementStack(mainHandler, SLOT_OUTPUT, itemStack.getCount());
+				CapUtils.incrementStack(inventory, SLOT_OUTPUT, itemStack.getCount());
 			}
 
-			CapUtils.decrementStack(mainHandler, SLOT_INPUT, 1);
+			CapUtils.decrementStack(inventory, SLOT_INPUT, 1);
 
-			if (mainHandler.getStackInSlot(SLOT_INPUT).getCount() <= 0)
+			if (inventory.getStackInSlot(SLOT_INPUT).getCount() <= 0)
 			{
-				mainHandler.setStackInSlot(SLOT_INPUT, ItemStack.EMPTY);
+				inventory.setStackInSlot(SLOT_INPUT, ItemStack.EMPTY);
 			}
 		}
 	}
@@ -139,7 +138,7 @@ public abstract class TileEntityKilnBase extends TileEntitySpecializedFurnace
 	public void readFromNBT(NBTTagCompound tagCompound)
 	{
 	    super.readFromNBT(tagCompound);
-	    currentItemBurnLength = FuelRegistry.getBurnTime(FuelConsumerType.getFromInstance(this), mainHandler.getStackInSlot(SLOT_FUEL));
+	    currentItemBurnLength = TileEntityFurnace.getItemBurnTime(inventory.getStackInSlot(SLOT_FUEL));
 	}
 
 	public abstract void updateBlockState();

@@ -2,14 +2,13 @@ package net.einsteinsci.betterbeginnings.inventory.containers;
 
 import net.einsteinsci.betterbeginnings.inventory.slots.SlotConfigurableAccess;
 import net.einsteinsci.betterbeginnings.inventory.slots.SlotOutput;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry.FuelConsumerType;
 import net.einsteinsci.betterbeginnings.register.recipe.KilnRecipeHandler;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityKiln;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityKilnBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.PlayerInvWrapper;
@@ -67,7 +66,7 @@ public class ContainerKiln extends ContainerSpecializedFurnace<TileEntityKiln>
 						return ItemStack.EMPTY;
 					}
 				}
-				else if (FuelRegistry.getBurnTime(FuelConsumerType.KILN, itemstack1) > 0)
+				else if (TileEntityFurnace.isItemFuel(itemstack1))
 				{
 					if (!mergeItemStack(itemstack1, TileEntityKiln.SLOT_FUEL, TileEntityKiln.SLOT_FUEL + 1, false))
 					{

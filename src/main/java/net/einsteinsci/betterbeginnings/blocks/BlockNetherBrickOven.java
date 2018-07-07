@@ -2,8 +2,6 @@ package net.einsteinsci.betterbeginnings.blocks;
 
 import java.util.Random;
 
-import javax.annotation.Nullable;
-
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.gui.BBGuiHandler;
 import net.einsteinsci.betterbeginnings.register.RegisterBlocks;
@@ -89,18 +87,17 @@ public class BlockNetherBrickOven extends BlockSpecializedFurnace
         float hitX, float hitY, float hitZ)
     {
         ItemStack heldItem = player.getHeldItem(hand);
-        
-        // TODO: Examine Prep1_11.isValid(). This current snippet always evaluates to true.
-        if(Prep1_11.isValid(heldItem) && CapUtils.hasFluidHandler(heldItem))
+
+        if(!heldItem.isEmpty() && CapUtils.hasFluidHandler(heldItem))
         {
             IFluidHandler lavaTank = CapUtils.getFluidHandler(world.getTileEntity(pos));
             if(Util.isEmptyFluidContainer(heldItem))
             {
-                FluidUtil.tryFillContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player);
+                FluidUtil.tryFillContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player, true);
             }
             else
             {
-                FluidUtil.tryEmptyContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player);
+                FluidUtil.tryEmptyContainerAndStow(heldItem, lavaTank, CapUtils.getItemHandler(player), 1000, player, true);
             }
         }
         else

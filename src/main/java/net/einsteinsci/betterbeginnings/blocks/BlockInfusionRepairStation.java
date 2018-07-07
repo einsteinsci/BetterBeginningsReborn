@@ -1,7 +1,5 @@
 package net.einsteinsci.betterbeginnings.blocks;
 
-import javax.annotation.Nullable;
-
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.register.IBBName;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityInfusionRepair;

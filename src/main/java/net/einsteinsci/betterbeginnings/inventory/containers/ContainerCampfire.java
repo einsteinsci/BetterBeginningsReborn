@@ -20,8 +20,8 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 	private static final int SLOT_OUTPUT = TileEntityCampfire.SLOT_OUTPUT;
 	private static final int SLOT_FUEL = TileEntityCampfire.SLOT_FUEL;
 	private static final int SLOT_PAN = TileEntityCampfire.SLOT_UTENSIL;
-	public int lastItemBurnTime;
-	public int lastCookTime;
+	private int lastItemBurnTime;
+	private float lastCookTime;
 	private int lastBurnTime;
 	private int lastDecayTime;
 
@@ -61,7 +61,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 	{
 		super.addListener(listener);
 
-		listener.sendWindowProperty(this, 0, tileEntity.cookTime);
+		listener.sendWindowProperty(this, 0, (int) tileEntity.cookTime);
 		listener.sendWindowProperty(this, 1, tileEntity.burnTime);
 		listener.sendWindowProperty(this, 2, tileEntity.currentItemBurnTime);
 		listener.sendWindowProperty(this, 3, tileEntity.decayTime);
@@ -76,7 +76,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 		{
 			if (lastCookTime != tileEntity.cookTime)
 			{
-				listener.sendWindowProperty(this, 0, tileEntity.cookTime);
+				listener.sendWindowProperty(this, 0, (int)tileEntity.cookTime);
 			}
 			if (lastBurnTime != tileEntity.burnTime)
 			{
@@ -102,7 +102,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotId)
 	{
 		ItemStack itemstackCopy = ItemStack.EMPTY;
-		Slot slot = (Slot)inventorySlots.get(slotId);
+		Slot slot = inventorySlots.get(slotId);
 
 		if (slot != null && slot.getHasStack())
 		{
@@ -133,7 +133,7 @@ public class ContainerCampfire extends ContainerInvTileEntity<TileEntityCampfire
 						return ItemStack.EMPTY;
 					}
 				}
-				else if (CampfireRecipeHandler.instance().getSmeltingResult(itemstack) != null)
+				else if (CampfireRecipeHandler.instance().getSmeltingResult(itemstack, false) != null)
 				{
 					if (!mergeItemStack(itemstack, SLOT_INPUT, SLOT_INPUT + 1, false))
 					{

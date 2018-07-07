@@ -2,14 +2,13 @@ package net.einsteinsci.betterbeginnings.inventory.containers;
 
 import net.einsteinsci.betterbeginnings.inventory.slots.SlotConfigurableAccess;
 import net.einsteinsci.betterbeginnings.inventory.slots.SlotOutput;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry.FuelConsumerType;
 import net.einsteinsci.betterbeginnings.register.recipe.KilnRecipeHandler;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityKilnBase;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityObsidianKiln;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.SlotItemHandler;
@@ -27,7 +26,7 @@ public class ContainerObsidianKiln extends ContainerSpecializedFurnace<TileEntit
 					@Override
 					public boolean isItemValid(ItemStack stack) 
 					{
-						return FuelRegistry.getBurnTime(FuelConsumerType.OBSIDIAN_KILN, stack) > 0;
+						return TileEntityFurnace.isItemFuel(stack);
 					}
 				});
 		addSlotToContainer(new SlotOutput(itemHandler, TileEntityObsidianKiln.SLOT_OUTPUT, 116, 35));
@@ -75,7 +74,7 @@ public class ContainerObsidianKiln extends ContainerSpecializedFurnace<TileEntit
 						return ItemStack.EMPTY;
 					}
 				}
-				else if (FuelRegistry.getBurnTime(FuelConsumerType.KILN, itemstack1) > 0)
+				else if (TileEntityFurnace.isItemFuel(itemstack1))
 				{
 					if (!mergeItemStack(itemstack1, 1, 2, false))
 					{

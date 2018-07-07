@@ -10,11 +10,11 @@ public abstract class TileEntitySidedInventory extends TileEntityBB
 {
     private static final String INV_TAG = "Inventory";
 
-    protected IItemHandlerModifiable mainHandler;
+    protected IItemHandlerModifiable inventory;
 
     public TileEntitySidedInventory(IItemHandlerModifiable mainHandlerIn) 
     {
-	this.mainHandler = mainHandlerIn;
+	this.inventory = mainHandlerIn;
     }
 
     protected abstract IItemHandler getItemHandler(EnumFacing side);
@@ -40,7 +40,7 @@ public abstract class TileEntitySidedInventory extends TileEntityBB
     {
 	super.readFromNBT(tagCompound);
 	//Deserialise capabilities using the default storage impl
-	CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.getStorage().readNBT(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, mainHandler, null, tagCompound.getTagList(INV_TAG, NBT.TAG_COMPOUND));
+	CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.getStorage().readNBT(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, inventory, null, tagCompound.getTagList(INV_TAG, NBT.TAG_COMPOUND));
     }
 
     @Override
@@ -48,7 +48,7 @@ public abstract class TileEntitySidedInventory extends TileEntityBB
     {
 	super.writeToNBT(tagCompound);
 	//Serialise capabilities using the default storage impl
-	tagCompound.setTag(INV_TAG, CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.getStorage().writeNBT(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, mainHandler, null));
+	tagCompound.setTag(INV_TAG, CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.getStorage().writeNBT(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, inventory, null));
 	return tagCompound;
     }
 }
