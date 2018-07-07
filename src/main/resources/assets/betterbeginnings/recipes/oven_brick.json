@@ -1,0 +1,20 @@
+{
+	"conditions" : [
+		{
+			"type" : "betterbeginnings:module_furnace_enabled",
+			"value" : true
+		} ],
+	"result" : {
+		"item" : "betterbeginnings:brick_oven"
+	},
+	"pattern" : [
+		"BBB",
+		"# #",
+		"###"
+	],
+	"type" : "forge:ore_shaped",
+	"key" : {
+		"#" : { "item" : "minecraft:brick_block"},
+		"B" : { "item" : "minecraft:brick"}
+	}
+}

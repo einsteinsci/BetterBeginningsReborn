@@ -1,0 +1,19 @@
+{
+	"conditions" : [
+		{
+			"type" : "betterbeginnings:make_chain_armor",
+			"value" : true
+		} ],
+	"result" : {
+		"item" : "minecraft:chainmail_leggings"
+	},
+	"pattern" : [
+		"CCC",
+		"C C",
+		"C C"
+	],
+	"type" : "forge:ore_shaped",
+	"key" : {
+		"C" : { "item" : "betterbeginnings:chain"}
+	}
+}

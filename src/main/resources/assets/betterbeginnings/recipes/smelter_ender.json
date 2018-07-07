@@ -1,0 +1,22 @@
+{
+	"conditions" : [
+		{
+			"type" : "betterbeginnings:module_furnace_enabled",
+			"value" : true
+		} ],
+	"result" : {
+		"item" : "betterbeginnings:ender_smelter"
+	},
+	"pattern" : [
+		"#E#",
+		"PSP",
+		"#E#"
+	],
+	"type" : "forge:ore_shaped",
+	"key" : {
+		"#" : { "item" : "minecraft:end_stone"},
+		"E" : { "item" : "minecraft:ender_eye"},
+		"P" : { "item" : "minecraft:ender_pearl"},
+		"S" : { "item" : "betterbeginnings:smelter"}
+	}
+}

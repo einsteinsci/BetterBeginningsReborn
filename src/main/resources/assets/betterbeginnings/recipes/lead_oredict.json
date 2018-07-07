@@ -1,0 +1,19 @@
+{
+	"result": {
+		"item": "betterbeginnings:cloth"
+	},
+	"pattern": [
+		"ss ",
+		"s* ",
+		"  s"
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"s": {
+			"item": "#STRING"
+		},
+		"*": {
+			"item": "#SLIME"
+		}
+	}
+}

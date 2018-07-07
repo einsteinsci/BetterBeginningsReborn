@@ -1,0 +1,24 @@
+{
+	"conditions": [
+		{
+			"type": "betterbeginnings:advanced_crafting_enabled",
+			"value": false
+		}
+	],
+	"result": {
+		"item": "betterbeginnings:pan"
+	},
+	"pattern": [
+		"/ ",
+		"II"
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"/": {
+			"item": "#STICKS"
+		},
+		"I": {
+			"item": "#IRONINGOT"
+		}
+	}
+}

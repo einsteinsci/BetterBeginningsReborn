@@ -1,0 +1,19 @@
+{
+	"conditions" : [
+		{
+			"type" : "betterbeginnings:make_chain_armor",
+			"value" : true
+		} ],
+	"result" : {
+		"item" : "betterbeginnings:chain"
+	},
+	"pattern" : [
+		" NN",
+		"N N",
+		"NN "
+	],
+	"type" : "forge:ore_shaped",
+	"key" : {
+		"N" : { "item" : "minecraft:iron_nugget"}
+	}
+}

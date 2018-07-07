@@ -1,0 +1,32 @@
+{
+	"conditions": [
+		{
+			"type": "betterbeginnings:advanced_crafting_enabled",
+			"value": false
+		},
+		{
+			"type": "betterbeginnings:infusion_enabled",
+			"value": true
+		}
+	],
+	"result": {
+		"item": "betterbeginnings:infusion_scroll"
+	},
+	"pattern": [
+		"PDP",
+		"RPR",
+		"PDP"
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"R": {
+			"item": "#REDSTONE"
+		},
+		"P": {
+			"item": "minecraft:paper"
+		},
+		"D": {
+			"item": "#DIAMOND"
+		}
+	}
+}

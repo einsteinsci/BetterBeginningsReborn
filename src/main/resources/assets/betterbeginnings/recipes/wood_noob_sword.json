@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"#",
+		"#",
+		"/"
+	],
+	"key": {
+		"#": {
+			"item": "#PLANKS"
+		},
+		"/": {
+			"item": "#STICKS"
+		}
+	},
+	"result": {
+		"item": "betterbeginnings:noob_wood_sword"
+	}
+}

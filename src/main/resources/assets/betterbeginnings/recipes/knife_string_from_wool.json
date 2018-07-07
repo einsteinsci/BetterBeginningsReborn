@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "minecraft:string"
+  },
+  "type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "#KNIFE"
+		},
+		{
+			"item": "minecraft:wool",
+			"data": 0
+		}
+	]
+}

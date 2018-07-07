@@ -1,0 +1,21 @@
+{
+	"conditions" : [
+		{
+			"type" : "betterbeginnings:module_furnace_enabled",
+			"value" : true
+		} ],
+	"result" : {
+		"item" : "betterbeginnings:obsidian_kiln"
+	},
+	"pattern" : [
+		"R#R",
+		"#K#",
+		"R#R"
+	],
+	"type" : "forge:ore_shaped",
+	"key" : {
+		"#" : { "item" : "minecraft:obsidian"},
+		"R" : { "item" : "minecraft:redstone"},
+		"K" : { "item" : "betterbeginnings:kiln"}
+	}
+}

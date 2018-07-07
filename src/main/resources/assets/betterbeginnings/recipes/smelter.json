@@ -1,0 +1,27 @@
+{
+	"conditions": [
+		{
+			"type": "betterbeginnings:module_furnace_enabled",
+			"value": true
+		}
+	],
+	"result": {
+		"item": "betterbeginnings:smelter"
+	},
+	"pattern": [
+		"###",
+		"#C#",
+		"###"
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"#": {
+			"item": "minecraft:stonebrick",
+			"data": 32767
+		},
+		"C": {
+			"item": "minecraft:coal",
+			"data": 32767
+		}
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"conditions": [
+		{
+			"type": "betterbeginnings:advanced_crafting_enabled",
+			"value": false
+		}
+	],
+	"result": {
+		"item": "betterbeginnings:rock_hammer"
+	},
+	"pattern": [
+		"I#I",
+		" L ",
+		" / "
+	],
+	"type": "forge:ore_shaped",
+	"key": {
+		"L": {
+			"item": "betterbeginnings:leather_strip"
+		},
+		"/": {
+			"item": "#STICKS"
+		},
+		"I": {
+			"item": "#IRONINGOT"
+		},
+		"#": {
+			"item": "minecraft:cobblestone"
+		}
+	}
+}

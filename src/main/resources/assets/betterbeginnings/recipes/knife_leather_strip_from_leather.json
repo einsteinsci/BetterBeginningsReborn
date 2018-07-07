@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "betterbeginnings:leather_strip",
+    "count": 3
+  },
+  "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "#KNIFE"
+		},
+		{
+			"item": "minecraft:leather"
+		}
+	]
+}

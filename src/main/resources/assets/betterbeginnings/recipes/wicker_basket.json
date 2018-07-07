@@ -1,0 +1,14 @@
+{
+	"result" : {
+		"item" : "betterbeginnings:wicker_basket"
+	},
+	"pattern" : [
+		"# #",
+		"# #",
+		"###"
+	],
+	"type" : "forge:ore_shaped",
+	"key" : {
+		"#" : { "item" : "betterbeginnings:sugar_cane_strips"}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"conditions": [
+		{
+			"type": "betterbeginnings:campfire_enabled",
+			"value": true
+		}
+	],
+	"result": {
+		"item": "betterbeginnings:campfire"
+	},
+	"type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"item": "#STICKS"
+		},		
+		{
+			"item": "#STICKS"
+		},		
+		{
+			"item": "#STICKS"
+		},	
+		{
+			"item": "#KINDLING"
+		}
+	]
+}
