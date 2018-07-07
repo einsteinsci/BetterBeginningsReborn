@@ -1,4 +1,4 @@
-/*package net.einsteinsci.betterbeginnings.jei.wrappers;
+package net.einsteinsci.betterbeginnings.jei.wrappers;
 
 import java.awt.Color;
 import java.util.List;
@@ -6,14 +6,14 @@ import java.util.List;
 import com.google.common.collect.Lists;
 
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.einsteinsci.betterbeginnings.register.recipe.SmelterRecipe;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntitySmelterBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 
-public class SmelterRecipeWrapper extends BlankRecipeWrapper 
+public class SmelterRecipeWrapper implements IRecipeWrapper
 {
 	SmelterRecipe recipe;
 	List<List<ItemStack>> inputs = Lists.newArrayList();
@@ -31,7 +31,7 @@ public class SmelterRecipeWrapper extends BlankRecipeWrapper
 		for(ItemStack booster : TileEntitySmelterBase.boosterRegistry.keySet())
 		{
 			ItemStack stack = booster.copy();
-			stack.stackSize = reqBoosters;
+			stack.setCount(reqBoosters);
 			boosters.add(stack);
 		}
 		return boosters;
@@ -47,7 +47,7 @@ public class SmelterRecipeWrapper extends BlankRecipeWrapper
 	@Override
 	public void drawInfo(Minecraft mc, int recipeWidth, int recipeHeight, int mouseX, int mouseY) 
 	{
-		mc.fontRendererObj.drawSplitString(I18n.format("smelter.jeiBonusText", recipe.getOutput().stackSize),
+		mc.fontRenderer.drawSplitString(I18n.format("smelter.jeiBonusText", recipe.getOutput().getCount()),
 				75, 48, 48, Color.gray.getRGB());
 	}
-}*/
+}

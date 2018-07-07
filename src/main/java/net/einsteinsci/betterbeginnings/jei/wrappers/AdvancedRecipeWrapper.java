@@ -1,4 +1,4 @@
-/*package net.einsteinsci.betterbeginnings.jei.wrappers;
+package net.einsteinsci.betterbeginnings.jei.wrappers;
 
 import java.util.Collections;
 import java.util.List;
@@ -6,12 +6,12 @@ import java.util.List;
 import com.google.common.collect.Lists;
 
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.einsteinsci.betterbeginnings.register.recipe.AdvancedRecipe;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.RecipeElement;
 import net.minecraft.item.ItemStack;
 
-public class AdvancedRecipeWrapper extends BlankRecipeWrapper 
+public class AdvancedRecipeWrapper implements IRecipeWrapper
 {
 	AdvancedRecipe recipe;
 
@@ -37,7 +37,7 @@ public class AdvancedRecipeWrapper extends BlankRecipeWrapper
 		{
 			if(element == null) 
 			{
-				baseMaterials.add(Collections.<ItemStack>emptyList());
+				baseMaterials.add(Collections.EMPTY_LIST);
 				continue;
 			}
 			baseMaterials.add(element.getValidItems());
@@ -52,7 +52,7 @@ public class AdvancedRecipeWrapper extends BlankRecipeWrapper
 		{
 			if(element == null) 
 			{
-				additionalMaterials.add(Collections.<ItemStack>emptyList());
+				additionalMaterials.add(Collections.EMPTY_LIST);
 				continue;
 			}
 			additionalMaterials.add(element.getValidItems());
@@ -69,4 +69,9 @@ public class AdvancedRecipeWrapper extends BlankRecipeWrapper
 	{
 		return recipe.recipeHeight;
 	}
-}*/
+
+	public AdvancedRecipe getRecipe()
+	{
+		return recipe;
+	}
+}

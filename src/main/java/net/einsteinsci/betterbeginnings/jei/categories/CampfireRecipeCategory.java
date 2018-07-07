@@ -1,10 +1,10 @@
-/*package net.einsteinsci.betterbeginnings.jei.categories;
+package net.einsteinsci.betterbeginnings.jei.categories;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.*;
 import mezz.jei.api.gui.IDrawableAnimated.StartDirection;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeCategory;
+import mezz.jei.api.recipe.IRecipeCategory;
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.jei.wrappers.JEICampfireRecipeWrapper;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityCampfire;
@@ -12,7 +12,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 
-public class CampfireRecipeCategory extends BlankRecipeCategory<JEICampfireRecipeWrapper> 
+public class CampfireRecipeCategory implements IRecipeCategory<JEICampfireRecipeWrapper>
 {
 	private final String localisedName;
 	private final IDrawable background;
@@ -45,6 +45,12 @@ public class CampfireRecipeCategory extends BlankRecipeCategory<JEICampfireRecip
 	}
 
 	@Override
+	public String getModName()
+	{
+		return ModMain.NAME;
+	}
+
+	@Override
 	public IDrawable getBackground() 
 	{
 		return background;
@@ -61,9 +67,9 @@ public class CampfireRecipeCategory extends BlankRecipeCategory<JEICampfireRecip
 	}
 	
 	@Override
-	public void drawAnimations(Minecraft minecraft) 
+	public void drawExtras(Minecraft minecraft)
 	{
 		campfire.draw(minecraft, 34, 28);
 		arrow.draw(minecraft, 58, 29);
 	}
-}*/
+}

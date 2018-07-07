@@ -1,19 +1,20 @@
-/*package net.einsteinsci.betterbeginnings.jei.wrappers;
+package net.einsteinsci.betterbeginnings.jei.wrappers;
 
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeWrapper;
+import net.einsteinsci.betterbeginnings.register.recipe.KilnRecipe;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.RecipeElement;
 import net.minecraft.item.ItemStack;
 
-public class JEIKilnRecipeWrapper extends BlankRecipeWrapper 
+public class JEIKilnRecipeWrapper implements IRecipeWrapper
 {
 	RecipeElement input; 
 	ItemStack output;
 
-	public JEIKilnRecipeWrapper(RecipeElement recipeElement, ItemStack output) 
+	public JEIKilnRecipeWrapper(KilnRecipe recipe)
 	{
-		this.input = recipeElement;
-		this.output = output;
+		this.input = recipe.getInput();
+		this.output = recipe.getOutput();
 	}
 
 	@Override
@@ -22,4 +23,4 @@ public class JEIKilnRecipeWrapper extends BlankRecipeWrapper
 		ingredients.setInputs(ItemStack.class, input.getValidItems());
 		ingredients.setOutput(ItemStack.class, output);
 	}
-}*/
+}

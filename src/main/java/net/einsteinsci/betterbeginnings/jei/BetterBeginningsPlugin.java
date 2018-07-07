@@ -1,76 +1,68 @@
-/*package net.einsteinsci.betterbeginnings.jei;
-
-
-
-import java.util.List;
-
-import com.google.common.collect.Lists;
+package net.einsteinsci.betterbeginnings.jei;
 
 import mezz.jei.api.*;
 import mezz.jei.api.ingredients.IIngredientBlacklist;
+import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.jei.categories.*;
-import net.einsteinsci.betterbeginnings.jei.recipehandlers.*;
+import net.einsteinsci.betterbeginnings.jei.wrappers.*;
 import net.einsteinsci.betterbeginnings.register.RegisterBlocks;
-import net.einsteinsci.betterbeginnings.register.RegisterItems;
 import net.einsteinsci.betterbeginnings.register.recipe.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.IForgeRegistryEntry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 @JEIPlugin
-public class BetterBeginningsPlugin extends BlankModPlugin 
+public class BetterBeginningsPlugin implements IModPlugin
 {
-	IJeiHelpers jeiHelpers;
-	IGuiHelper guiHelper;
-	IIngredientBlacklist blacklist;
-	
 	@Override
 	public void register(IModRegistry registry) 
 	{
-		jeiHelpers = registry.getJeiHelpers();
-		guiHelper = jeiHelpers.getGuiHelper();
-		blacklist = jeiHelpers.getIngredientBlacklist();
-		
 		registerDescriptions(registry);
-		registerRecipeCategories(registry);
-		registerRecipeHandlers(registry);
-		
-		registry.addRecipes(KilnRecipeMaker.getKilnRecipes());
-		registry.addRecipeCategoryCraftingItem(new ItemStack(RegisterBlocks.kiln), CategoryUIDs.KILN);
-		registry.addRecipeCategoryCraftingItem(new ItemStack(RegisterBlocks.obsidianKiln), CategoryUIDs.KILN);
-		
-		registry.addRecipes(BrickOvenRecipeHandler.getRecipeList());
-		registry.addRecipeCategoryCraftingItem(new ItemStack(RegisterBlocks.brickOven), CategoryUIDs.OVEN);
-		registry.addRecipeCategoryCraftingItem(new ItemStack(RegisterBlocks.netherBrickOven), CategoryUIDs.OVEN);
-		
-		registry.addRecipes(SmelterRecipeHandler.getRecipes());
-		registry.addRecipeCategoryCraftingItem(new ItemStack(RegisterBlocks.smelter), CategoryUIDs.SMELTER);
-		registry.addRecipeCategoryCraftingItem(new ItemStack(RegisterBlocks.enderSmelter), CategoryUIDs.SMELTER);
-		
-		registry.addRecipes(CampfireRecipeMaker.getCampfireRecipes());
-		registry.addRecipeCategoryCraftingItem(new ItemStack(RegisterBlocks.campfire), CategoryUIDs.CAMPFIRE);
-		
-		registry.addRecipes(AdvancedCraftingHandler.getRecipeList());
-		registry.addRecipeCategoryCraftingItem(new ItemStack(RegisterBlocks.doubleWorkbench), CategoryUIDs.ADV_CRAFTING);
+		blacklistItems(registry.getJeiHelpers().getIngredientBlacklist());
+
+		registry.handleRecipes(KilnRecipe.class, JEIKilnRecipeWrapper::new, CategoryUIDs.KILN);
+		registry.addRecipes(KilnRecipeHandler.getRecipes(), CategoryUIDs.KILN);
+		registry.addRecipeCatalyst(new ItemStack(RegisterBlocks.kiln), CategoryUIDs.KILN);
+		registry.addRecipeCatalyst(new ItemStack(RegisterBlocks.obsidianKiln), CategoryUIDs.KILN);
+
+		registry.handleRecipes(IBrickOvenRecipe.class, JEIOvenRecipeWrapper::new, CategoryUIDs.OVEN);
+		registry.addRecipes(BrickOvenRecipeHandler.getRecipeList(), CategoryUIDs.OVEN);
+		registry.addRecipeCatalyst(new ItemStack(RegisterBlocks.brickOven), CategoryUIDs.OVEN);
+		registry.addRecipeCatalyst(new ItemStack(RegisterBlocks.netherBrickOven), CategoryUIDs.OVEN);
+
+		registry.handleRecipes(SmelterRecipe.class, SmelterRecipeWrapper::new, CategoryUIDs.SMELTER);
+		registry.addRecipes(SmelterRecipeHandler.getRecipes(), CategoryUIDs.SMELTER);
+		registry.addRecipeCatalyst(new ItemStack(RegisterBlocks.smelter), CategoryUIDs.SMELTER);
+		registry.addRecipeCatalyst(new ItemStack(RegisterBlocks.enderSmelter), CategoryUIDs.SMELTER);
+
+		registry.handleRecipes(CampfireRecipe.class, JEICampfireRecipeWrapper::new, CategoryUIDs.CAMPFIRE);
+		registry.addRecipes(CampfireRecipeHandler.getRecipes(), CategoryUIDs.CAMPFIRE);
+		registry.addRecipeCatalyst(new ItemStack(RegisterBlocks.campfire), CategoryUIDs.CAMPFIRE);
+
+		registry.handleRecipes(AdvancedRecipe.class, AdvancedRecipeWrapper::new, CategoryUIDs.ADV_CRAFTING);
+		registry.addRecipes(AdvancedCraftingHandler.getRecipeList(), CategoryUIDs.ADV_CRAFTING);
+		registry.addRecipeCatalyst(new ItemStack(RegisterBlocks.doubleWorkbench), CategoryUIDs.ADV_CRAFTING);
 	}
-	
-	void registerRecipeHandlers(IModRegistry registry)
+
+	@Override
+	public void registerCategories(IRecipeCategoryRegistration registry)
 	{
-		registry.addRecipeHandlers(new JEIKilnRecipeHandler(), new JEIOvenRecipeHandler(), new JEISmelterRecipeHandler(), new JEICampfireRecipeHandler(), new JEIAdvancedCraftingRecipeHandler());
-	}
-	
-	void registerRecipeCategories(IModRegistry registry)
-	{
-		registry.addRecipeCategories(new KilnRecipeCategory(guiHelper), new OvenRecipeCategory(guiHelper), new SmelterRecipeCategory(guiHelper), new CampfireRecipeCategory(guiHelper), new AdvancedCraftingRecipeCategory(guiHelper));
+		IGuiHelper guiHelper = registry.getJeiHelpers().getGuiHelper();
+		registry.addRecipeCategories(
+				new OvenRecipeCategory(guiHelper),
+				new KilnRecipeCategory(guiHelper),
+				new SmelterRecipeCategory(guiHelper),
+				new CampfireRecipeCategory(guiHelper),
+				new AdvancedCraftingRecipeCategory(guiHelper));
 	}
 
 	void registerDescriptions(IModRegistry registry)
 	{
 		//Register item descriptions
-		List<ItemStack> knifeList = Lists.newArrayList(new ItemStack(RegisterItems.flintKnife), new ItemStack(RegisterItems.boneKnife), new ItemStack(RegisterItems.goldKnife), new ItemStack(RegisterItems.ironKnife), new ItemStack(RegisterItems.diamondKnife));
-		registry.addDescription(knifeList, getDescriptionKey("knives"));
+		/*List<ItemStack> knifeList = Lists.newArrayList(new ItemStack(RegisterItems.flintKnife), new ItemStack(RegisterItems.boneKnife), new ItemStack(RegisterItems.goldKnife), new ItemStack(RegisterItems.ironKnife), new ItemStack(RegisterItems.diamondKnife));
+		registry.addIngredientInfo(knifeList, ItemStack::class, getDescriptionKey("knives"));
 		registerDescription(registry, RegisterItems.infusionScroll, 0);
 		registerDescription(registry, RegisterItems.rockHammer, 0);
 		registerDescription(registry, RegisterItems.rotisserie, 0);
@@ -85,8 +77,10 @@ public class BetterBeginningsPlugin extends BlankModPlugin
 		registerDescription(registry, RegisterBlocks.enderSmelter, 0);
 		registerDescription(registry, RegisterBlocks.infusionRepairStation, 0);
 		registerDescription(registry, RegisterBlocks.campfire, 0);
-		registerDescription(registry, RegisterBlocks.wickerBasket, 0);
-		
+		registerDescription(registry, RegisterBlocks.wickerBasket, 0);*/
+	}
+
+	private void blacklistItems(IIngredientBlacklist blacklist) {
 		//Hide lit kilns, smelters, etc. from JEI
 		blackListBlock(blacklist, RegisterBlocks.kilnLit, 0);
 		blackListBlock(blacklist, RegisterBlocks.obsidianKilnLit, 0);
@@ -96,7 +90,6 @@ public class BetterBeginningsPlugin extends BlankModPlugin
 		blackListBlock(blacklist, RegisterBlocks.enderSmelterLit, 0);
 		blackListBlock(blacklist, RegisterBlocks.campfireLit, 0);
 	}
-
 	void blackListBlock(IIngredientBlacklist blacklist, Block block, int meta)
 	{
 		blacklist.addIngredientToBlacklist(new ItemStack(block));
@@ -126,4 +119,4 @@ public class BetterBeginningsPlugin extends BlankModPlugin
 	{
 		return ModMain.MODID + "." + name + ".jeiDescription";
 	}
-}*/
+}

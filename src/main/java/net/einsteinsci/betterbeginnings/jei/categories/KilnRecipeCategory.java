@@ -1,10 +1,10 @@
-/*package net.einsteinsci.betterbeginnings.jei.categories;
+package net.einsteinsci.betterbeginnings.jei.categories;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.*;
 import mezz.jei.api.gui.IDrawableAnimated.StartDirection;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeCategory;
+import mezz.jei.api.recipe.IRecipeCategory;
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.jei.wrappers.JEIKilnRecipeWrapper;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityKilnBase;
@@ -12,7 +12,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 
-public class KilnRecipeCategory extends BlankRecipeCategory<JEIKilnRecipeWrapper> 
+public class KilnRecipeCategory implements IRecipeCategory<JEIKilnRecipeWrapper>
 {
 	private final String localisedName;
 	private final IDrawable background;
@@ -45,6 +45,12 @@ public class KilnRecipeCategory extends BlankRecipeCategory<JEIKilnRecipeWrapper
 	}
 
 	@Override
+	public String getModName()
+	{
+		return ModMain.NAME;
+	}
+
+	@Override
 	public IDrawable getBackground() 
 	{
 		return background;
@@ -60,9 +66,9 @@ public class KilnRecipeCategory extends BlankRecipeCategory<JEIKilnRecipeWrapper
 	}
 	
 	@Override
-	public void drawAnimations(Minecraft minecraft) 
+	public void drawExtras(Minecraft minecraft)
 	{
 		flame.draw(minecraft, 2, 20);
 		arrow.draw(minecraft, 24, 18);
 	}
-}*/
+}
