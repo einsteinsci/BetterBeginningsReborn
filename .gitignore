@@ -3,6 +3,7 @@
 /asm/*
 /bin/*
 /libs/
+/classes/*
 /.settings/*
 *.psd
 *.iml

@@ -22,8 +22,10 @@ plugins {
 */
 
 // Java level 1.8
-sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.8"
+}
 
 version = "MC" + project.mcversion + "-" + project.modversion
 group= "net.einsteinsci.betterbeginnings" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -50,17 +52,25 @@ minecraft {
 
 repositories 
 {
-    maven 
-	{
-        url "http://dvs1.progwml6.com/files/maven"
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Progwml6 maven"
+        url = "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "modmaven.k-4u.nl"
     }
 }
 
 dependencies {
-  // compile against the JEI API
-  //deobfCompile "mezz.jei:jei_" + project.mcversion + ":" + project.jeiversion + ":api"
-  // at runtime, use the full JEI jar
-  //runtime "mezz.jei:jei_" + project.mcversion + ":" + project.jeiversion
+    // compile against the JEI API but do not include it at runtime
+    deobfProvided "mezz.jei:jei_${project.mcversion}:${project.jeiversion}:api"
+    // at runtime, use the full JEI jar
+    runtime "mezz.jei:jei_${project.mcversion}:${project.jeiversion}"
+
+    compile fileTree(dir: 'libs', include: '*.jar')
 }
 
 processResources
