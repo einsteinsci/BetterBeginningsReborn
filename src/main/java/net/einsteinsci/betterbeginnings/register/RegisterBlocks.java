@@ -14,12 +14,20 @@ import net.einsteinsci.betterbeginnings.blocks.BlockNetherBrickOven;
 import net.einsteinsci.betterbeginnings.blocks.BlockObsidianKiln;
 import net.einsteinsci.betterbeginnings.blocks.BlockSmelter;
 import net.einsteinsci.betterbeginnings.blocks.BlockWickerBasket;
+import net.einsteinsci.betterbeginnings.tileentity.TileEntityBrickOven;
+import net.einsteinsci.betterbeginnings.tileentity.TileEntityCampfire;
+import net.einsteinsci.betterbeginnings.tileentity.TileEntityEnderSmelter;
+import net.einsteinsci.betterbeginnings.tileentity.TileEntityInfusionRepair;
+import net.einsteinsci.betterbeginnings.tileentity.TileEntityKiln;
+import net.einsteinsci.betterbeginnings.tileentity.TileEntityNetherBrickOven;
+import net.einsteinsci.betterbeginnings.tileentity.TileEntityObsidianKiln;
+import net.einsteinsci.betterbeginnings.tileentity.TileEntitySmelter;
+import net.einsteinsci.betterbeginnings.tileentity.TileEntityWickerBasket;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod.EventBusSubscriber(modid = ModMain.MODID)
 public class RegisterBlocks
@@ -41,8 +49,6 @@ public class RegisterBlocks
     public static final BlockEnderSmelter enderSmelter = new BlockEnderSmelter(false);
     public static final BlockEnderSmelter enderSmelterLit = new BlockEnderSmelter(true);
     public static final BlockWickerBasket wickerBasket = new BlockWickerBasket();
-    //public static final BlockRedstoneKiln redstoneKiln = new BlockRedstoneKiln(false);
-    //public static final BlockRedstoneKiln redstoneKilnLit = new BlockRedstoneKiln(true);
 
     public static final List<Block> allBlocks = new ArrayList<>();
 
@@ -74,9 +80,27 @@ public class RegisterBlocks
         RegisterHelper.registerBlock(e.getRegistry(), enderSmelter);
         RegisterHelper.registerBlock(e.getRegistry(), enderSmelterLit);
 
-        //RegisterHelper.registerBlock(e.getRegistry(), redstoneKiln);
-        //RegisterHelper.registerBlock(e.getRegistry(), redstoneKilnLit);
-
         RegisterHelper.registerBlock(e.getRegistry(), wickerBasket);
-    }
+
+		registerTileEntities();
+	}
+
+	private static void registerTileEntities() 
+	{
+		GameRegistry.registerTileEntity(TileEntityKiln.class, RegisterBlocks.kiln.getRegistryName());
+		GameRegistry.registerTileEntity(TileEntityObsidianKiln.class, RegisterBlocks.obsidianKiln.getRegistryName());
+
+		GameRegistry.registerTileEntity(TileEntityBrickOven.class, RegisterBlocks.brickOven.getRegistryName());
+		GameRegistry.registerTileEntity(TileEntityNetherBrickOven.class,
+				RegisterBlocks.netherBrickOven.getRegistryName());
+
+		GameRegistry.registerTileEntity(TileEntitySmelter.class, RegisterBlocks.smelter.getRegistryName());
+		GameRegistry.registerTileEntity(TileEntityEnderSmelter.class, RegisterBlocks.enderSmelter.getRegistryName());
+
+		GameRegistry.registerTileEntity(TileEntityCampfire.class, RegisterBlocks.campfire.getRegistryName());
+
+		GameRegistry.registerTileEntity(TileEntityInfusionRepair.class,
+				RegisterBlocks.infusionRepairStation.getRegistryName());
+		GameRegistry.registerTileEntity(TileEntityWickerBasket.class, RegisterBlocks.wickerBasket.getRegistryName());
+	}
 }

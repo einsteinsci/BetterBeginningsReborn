@@ -13,12 +13,11 @@ public class KilnRecipeHandler
 {
 	private static final KilnRecipeHandler INSTANCE = new KilnRecipeHandler();
 
-	private Map<RecipeElement, ItemStack> smeltingList = new HashMap<RecipeElement, ItemStack>();
-	private Map<ItemStack, Float> experienceList = new HashMap<ItemStack, Float>();
+	private List<KilnRecipe> RECIPES = new ArrayList<>();
 
-	public void addLists(Item input, ItemStack itemStack, float experience)
+	public static void addRecipe(KilnRecipe recipe)
 	{
-		putLists(new StackRecipeElement(input, 1, OreDictionary.WILDCARD_VALUE), itemStack, experience);
+		instance().RECIPES.add(recipe);
 	}
 
 	public static KilnRecipeHandler instance()
@@ -26,41 +25,35 @@ public class KilnRecipeHandler
 		return INSTANCE;
 	}
 
-	public void putLists(RecipeElement recElement, ItemStack itemStack2, float experience)
+	public static void addRecipe(RecipeElement input, ItemStack output, float experience)
 	{
-		smeltingList.put(recElement, itemStack2);
-		experienceList.put(itemStack2, experience);
-	}
-
-	public static void addRecipe(RecipeElement input, ItemStack output, float xp)
-	{
-	    instance().putLists(input, output, xp);
+		addRecipe(new KilnRecipe(input, output, experience));
 	}
 
 	public static void addRecipe(String input, ItemStack output, float experience)
 	{
-		instance().putLists(new OreRecipeElement(input), output, experience);
-	}
-
-	public static void addRecipe(Item input, ItemStack output, float experience)
-	{
-		instance().addLists(input, output, experience);
+		addRecipe(new KilnRecipe(new OreRecipeElement(input), output, experience));
 	}
 
 	public static void addRecipe(Block input, ItemStack output, float experience)
 	{
-		instance().addLists(Item.getItemFromBlock(input), output, experience);
+		addRecipe(new StackRecipeElement(input, 1, OreDictionary.WILDCARD_VALUE), output, experience);
+	}
+
+	public static void addRecipe(Item input, ItemStack output, float experience)
+	{
+		addRecipe(new StackRecipeElement(input, 1, OreDictionary.WILDCARD_VALUE), output, experience);
 	}
 
 	public static void addRecipe(ItemStack input, ItemStack output, float experience)
 	{
-		instance().putLists(new StackRecipeElement(input), output, experience);
+		addRecipe(new StackRecipeElement(input), output, experience);
 	}
 
 	public ItemStack getSmeltingResult(ItemStack stack)
 	{
-		Iterator<Entry<RecipeElement, ItemStack>> iterator = smeltingList.entrySet().iterator();
-		Entry<RecipeElement, ItemStack> entry;
+		Iterator<KilnRecipe> iterator = RECIPES.iterator();
+		KilnRecipe recipe;
 
 		do
 		{
@@ -69,15 +62,15 @@ public class KilnRecipeHandler
 				return ItemStack.EMPTY;
 			}
 
-			entry = iterator.next();
-		} while (!entry.getKey().matches(stack));
+			recipe = iterator.next();
+		} while (!recipe.getInput().matches(stack));
 
-		return entry.getValue();
+		return recipe.getOutput();
 	}
 
-	public static Map<RecipeElement, ItemStack> getSmeltingList()
+	public static List<KilnRecipe> getRecipes()
 	{
-		return instance().smeltingList;
+		return instance().RECIPES;
 	}
 
 	private boolean canBeSmelted(ItemStack stack, ItemStack stack2)
@@ -89,9 +82,9 @@ public class KilnRecipeHandler
 
 	public boolean existsRecipeFrom(ItemStack input)
 	{
-		for (Entry<RecipeElement, ItemStack> entry: smeltingList.entrySet())
+		for (KilnRecipe recipe : RECIPES)
 		{
-			if (entry.getKey().matches(input))
+			if (recipe.getInput().matches(input))
 			{
 				return true;
 			}
@@ -101,8 +94,8 @@ public class KilnRecipeHandler
 
 	public float giveExperience(ItemStack stack)
 	{
-		Iterator<Entry<ItemStack, Float> > iterator = experienceList.entrySet().iterator();
-		Entry<ItemStack, Float> entry;
+		Iterator<KilnRecipe> iterator = RECIPES.iterator();
+		KilnRecipe recipe;
 
 		do
 		{
@@ -111,24 +104,24 @@ public class KilnRecipeHandler
 				return 0.0f;
 			}
 
-			entry = iterator.next();
-		} while (!canBeSmelted(stack, entry.getKey()));
+			recipe = iterator.next();
+		} while (!recipe.getInput().matches(stack));
 
 		if (stack.getItem().getSmeltingExperience(stack) != -1)
 		{
 			return stack.getItem().getSmeltingExperience(stack);
 		}
 
-		return entry.getValue();
+		return recipe.getXP();
 	}
 
 	public static void removeRecipe(RecipeElement input, ItemStack output)
 	{
-	    ItemStack result = instance().smeltingList.get(input);
-	    if(instance().smeltingList.containsKey(input) && ItemStack.areItemStacksEqual(result, output)) return;
-	    {
-		instance().experienceList.remove(result);
-		instance().smeltingList.remove(input);
-	    }
+	    for (KilnRecipe recipe : instance().RECIPES)
+		    if (recipe.getInput().equals(input) && ItemStack.areItemStacksEqual(recipe.getOutput(), output))
+		    {
+			instance().RECIPES.remove((recipe));
+			break;
+		    }
 	}
 }

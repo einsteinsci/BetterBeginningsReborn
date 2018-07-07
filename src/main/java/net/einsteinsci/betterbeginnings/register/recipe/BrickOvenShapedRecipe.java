@@ -184,6 +184,17 @@ public class BrickOvenShapedRecipe implements IBrickOvenRecipe
 		return buf.toArray(new RecipeElement[0]);
 	}
 
+	@Override
+	public int getRecipeWidth() 
+	{
+		return recipeWidth;
+    	}
+
+	@Override
+	public int getRecipeHeight() 
+	{
+		return recipeHeight;
+	}
 	public RecipeElement[] getThreeByThree()
 	{
 		RecipeElement[] res = new RecipeElement[9];

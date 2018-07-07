@@ -1,16 +1,21 @@
 package net.einsteinsci.betterbeginnings.util;
 
 import java.util.List;
+import java.util.Objects;
 
 import com.google.common.base.CaseFormat;
 import com.google.common.base.Converter;
 
+import net.einsteinsci.betterbeginnings.register.recipe.DummyRecipe;
 import net.einsteinsci.betterbeginnings.event.DamageSourceDiffusion;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidUtil;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -76,4 +81,11 @@ public class Util
 	}
 	System.out.println("--------------------");
     }
+
+	// Adds a basic fake recipe for recipes nerfed in game
+	public static void addFakeRecipe(IRecipe recipe) {
+		final ResourceLocation registryName = Objects.requireNonNull(recipe.getRegistryName());
+		final IRecipe replacement = new DummyRecipe().setRegistryName(registryName);
+		ForgeRegistries.RECIPES.register(replacement);
+	}
 }

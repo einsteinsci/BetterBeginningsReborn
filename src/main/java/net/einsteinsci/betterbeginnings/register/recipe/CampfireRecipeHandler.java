@@ -14,18 +14,12 @@ import net.minecraftforge.oredict.OreDictionary;
 public class CampfireRecipeHandler
 {
 	private static final CampfireRecipeHandler INSTANCE = new CampfireRecipeHandler();
+	protected List<CampfireRecipe> RECIPES = new ArrayList<>();
 
-	protected Map<RecipeElement, ItemStack> smeltingList = new HashMap<RecipeElement, ItemStack>();
-	protected Map<ItemStack, Float> experienceList = new HashMap<ItemStack, Float>();
 
-	public static void addRecipe(Item input, ItemStack output, float experience)
+	public static void addRecipe(CampfireRecipe recipe)
 	{
-		instance().putLists(input, output, experience);
-	}
-
-	public void putLists(Item input, ItemStack itemStack, float experience)
-	{
-		putLists(new StackRecipeElement(input, 1, OreDictionary.WILDCARD_VALUE), itemStack, experience);
+		instance().RECIPES.add(recipe);
 	}
 
 	public static CampfireRecipeHandler instance()
@@ -33,50 +27,50 @@ public class CampfireRecipeHandler
 		return INSTANCE;
 	}
 	
-	public static void removeRecipe(RecipeElement input, ItemStack output)
+	public static void removeRecipe(RecipeElement input, ItemStack output, boolean requirePan)
 	{
-	    ItemStack result = instance().smeltingList.get(input);
-	    if(instance().smeltingList.containsKey(input) && ItemStack.areItemStacksEqual(result, output)) return;
-	    {
-		instance().experienceList.remove(result);
-		instance().smeltingList.remove(input);
-	    }
+		for (CampfireRecipe recipe : instance().RECIPES)
+			if (recipe.getInput().equals(input) && ItemStack.areItemStacksEqual(recipe.getOutput(), output) && recipe.requiresPan() == requirePan)
+			{
+				instance().RECIPES.remove(recipe);
+				break;
+			}
 	}
 
-	public void putLists(RecipeElement recElement, ItemStack itemStack2, float experience)
+
+	public static void addRecipe(RecipeElement input, ItemStack output, float experience, boolean requirePan)
 	{
-		smeltingList.put(recElement, itemStack2);
-		experienceList.put(itemStack2, experience);
+		addRecipe(new CampfireRecipe(input, output, experience, requirePan));
 	}
 
-	public static void addRecipe(RecipeElement input, ItemStack output, float experience)
+	public static void addRecipe(String input, ItemStack output, float experience, boolean requirePan)
 	{
-		instance().putLists(input, output, experience);
-	}
-
-	public static void addRecipe(String input, ItemStack output, float experience)
-	{
-		instance().putLists(new OreRecipeElement(input), output, experience);
+		addRecipe(new CampfireRecipe(new OreRecipeElement(input), output, experience, requirePan));
 	}
 	
-	public static void addRecipe(Block input, ItemStack output, float experience)
+	public static void addRecipe(Block input, ItemStack output, float experience, boolean requirePan)
 	{
-		instance().putLists(Item.getItemFromBlock(input), output, experience);
+		addRecipe(new CampfireRecipe(new StackRecipeElement(Item.getItemFromBlock(input)), output, experience, requirePan));
+	}
+	public static void addRecipe(ItemStack input, ItemStack output, float experience, boolean requirePan) 
+	{
+		addRecipe(new CampfireRecipe(new StackRecipeElement(input), output, experience, requirePan));
 	}
 
-	public static void addRecipe(ItemStack input, ItemStack output, float experience)
+	public static void addRecipe(Item input, ItemStack output, float experience, boolean requirePan)
 	{
-		instance().putLists(new StackRecipeElement(input), output, experience);
+		addRecipe(new CampfireRecipe(new StackRecipeElement(input), output, experience, requirePan));
 	}
 
 	@Nullable
-	public ItemStack getSmeltingResult(ItemStack stack)
+	public ItemStack getSmeltingResult(ItemStack stack, boolean hasPan)
 	{
-		for(Map.Entry<RecipeElement, ItemStack> entry : smeltingList.entrySet())
+		for (CampfireRecipe recipe : RECIPES) 
 		{
-			if(entry.getKey().matches(stack)) return entry.getValue();
+			if (recipe.equalByInput(stack, hasPan))
+				return recipe.getOutput();
 		}
-		return null;
+		return ItemStack.EMPTY;
 	}
 
 	private boolean canBeSmelted(ItemStack stack, ItemStack stack2)
@@ -86,10 +80,10 @@ public class CampfireRecipeHandler
 				.getItemDamage());
 	}
 
-	public float giveExperience(ItemStack stack)
+	public float giveExperience(ItemStack stack, boolean requirePan)
 	{
-		Iterator<Map.Entry<ItemStack, Float>> iterator = experienceList.entrySet().iterator();
-		Entry<ItemStack, Float> entry;
+		Iterator<CampfireRecipe> iterator = RECIPES.iterator();
+		CampfireRecipe recipe;
 
 		do
 		{
@@ -98,19 +92,19 @@ public class CampfireRecipeHandler
 				return 0.0f;
 			}
 
-			entry = iterator.next();
-		} while (!canBeSmelted(stack, (ItemStack)entry.getKey()));
+			recipe = iterator.next();
+		} while (!recipe.equalByInput(stack, requirePan));
 
 		if (stack.getItem().getSmeltingExperience(stack) != -1)
 		{
 			return stack.getItem().getSmeltingExperience(stack);
 		}
 
-		return ((Float)entry.getValue()).floatValue();
+		return recipe.getXp();
 	}
 
-	public static Map<RecipeElement, ItemStack> getSmeltingList()
+	public static List<CampfireRecipe> getRecipes()
 	{
-		return instance().smeltingList;
+		return instance().RECIPES;
 	}
 }
