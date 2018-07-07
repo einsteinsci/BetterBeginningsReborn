@@ -1,14 +1,14 @@
-/*package net.einsteinsci.betterbeginnings.crafttweaker;
+package net.einsteinsci.betterbeginnings.crafttweaker;
 
 import java.util.Iterator;
 import java.util.List;
 
 import com.google.common.collect.Lists;
 
-import minetweaker.MineTweakerAPI;
-import minetweaker.api.item.IIngredient;
-import minetweaker.api.item.IItemStack;
-import minetweaker.api.minecraft.MineTweakerMC;
+import crafttweaker.CraftTweakerAPI;
+import crafttweaker.api.item.IIngredient;
+import crafttweaker.api.item.IItemStack;
+import crafttweaker.api.minecraft.CraftTweakerMC;
 import net.einsteinsci.betterbeginnings.crafttweaker.util.*;
 import net.einsteinsci.betterbeginnings.register.recipe.*;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.RecipeElement;
@@ -24,7 +24,7 @@ public class SmelterTweaker
     @ZenMethod
     public static void addRecipe(IItemStack output, IIngredient input, float xp, int boosters, int bonusPerBooster)
     {
-	MineTweakerAPI.apply(new AddSmelterRecipe(output, input, xp, boosters, bonusPerBooster));
+		CraftTweakerAPI.apply(new AddSmelterRecipe(output, input, xp, boosters, bonusPerBooster));
     }
 
     @ZenMethod
@@ -42,13 +42,13 @@ public class SmelterTweaker
     @ZenMethod
     public static void removeRecipe(IItemStack output, IIngredient input)
     {
-	MineTweakerAPI.apply(new RemoveSmelterRecipe(output, input));
+		CraftTweakerAPI.apply(new RemoveSmelterRecipe(output, input));
     }
 
     @ZenMethod
     public static void removeOutput(IItemStack output)
     {
-	MineTweakerAPI.apply(new RemoveSmelterOutput(output));
+		CraftTweakerAPI.apply(new RemoveSmelterOutput(output));
     }
 
     private static class AddSmelterRecipe extends AddRemoveAction
@@ -64,7 +64,7 @@ public class SmelterTweaker
 	public AddSmelterRecipe(IItemStack output, IIngredient input, float xp, int boosters, int bonusPerBooster)
 	{
 	    super(ActionType.ADD, NAME);
-	    this.output = MineTweakerMC.getItemStack(output);
+	    this.output = CraftTweakerMC.getItemStack(output);
 	    this.input = CraftTweakerUtil.convertToRecipeElement(input);
 	    this.xp = xp;
 	    this.boosters = boosters;
@@ -75,14 +75,7 @@ public class SmelterTweaker
 	public void apply()
 	{
 	    recipe = SmelterRecipeHandler.addRecipe(input, output, xp, boosters, bonus);
-	    MineTweakerAPI.getIjeiRecipeRegistry().addRecipe(recipe);
-	}
-
-	@Override
-	public void undo()
-	{
-	    SmelterRecipeHandler.getRecipes().remove(recipe);
-	    MineTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
+		//CraftTweakerAPI.getIjeiRecipeRegistry().addRecipe(recipe);
 	}
 
 	@Override
@@ -103,7 +96,7 @@ public class SmelterTweaker
 	public RemoveSmelterRecipe(IItemStack output, IIngredient input)
 	{
 	    super(ActionType.REMOVE, NAME);
-	    this.output = MineTweakerMC.getItemStack(output);
+	    this.output = CraftTweakerMC.getItemStack(output);
 	    this.input = CraftTweakerUtil.convertToRecipeElement(input);
 	}
 
@@ -111,18 +104,8 @@ public class SmelterTweaker
 	public void apply()
 	{
 	    recipe = SmelterRecipeHandler.removeRecipe(input, output);
-	    if(recipe != null)
-		MineTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
-	}
-
-	@Override
-	public void undo()
-	{
-	    if(recipe != null)
-	    {
-		SmelterRecipeHandler.getRecipes().add(recipe);
-		MineTweakerAPI.getIjeiRecipeRegistry().addRecipe(recipe);
-	    }
+	    //if(recipe != null)
+		//	CraftTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
 	}
 
 	@Override
@@ -142,7 +125,7 @@ public class SmelterTweaker
 	public RemoveSmelterOutput(IItemStack output)
 	{
 	    super(NAME);
-	    this.output = MineTweakerMC.getItemStack(output);
+	    this.output = CraftTweakerMC.getItemStack(output);
 	}
 
 	@Override
@@ -156,20 +139,9 @@ public class SmelterTweaker
 		{
 		    iter.remove();
 		    removedRecipes.add(recipe);
-		    MineTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
+			//CraftTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
 		}
 	    }
-	}
-
-	@Override
-	public void undo()
-	{
-	    for(SmelterRecipe r : removedRecipes)
-	    {
-		SmelterRecipeHandler.getRecipes().add(r);
-		MineTweakerAPI.getIjeiRecipeRegistry().addRecipe(r);
-	    }
-	    removedRecipes.clear();
 	}
 
 	@Override
@@ -178,4 +150,4 @@ public class SmelterTweaker
 	    return output.toString();
 	}
     }
-}*/
+}

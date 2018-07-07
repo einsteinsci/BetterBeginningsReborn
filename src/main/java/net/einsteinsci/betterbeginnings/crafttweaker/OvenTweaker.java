@@ -1,4 +1,4 @@
-/*package net.einsteinsci.betterbeginnings.crafttweaker;
+package net.einsteinsci.betterbeginnings.crafttweaker;
 
 import java.util.Iterator;
 import java.util.List;
@@ -7,10 +7,10 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import com.google.common.collect.Lists;
 
-import minetweaker.MineTweakerAPI;
-import minetweaker.api.item.IIngredient;
-import minetweaker.api.item.IItemStack;
-import minetweaker.api.minecraft.MineTweakerMC;
+import crafttweaker.CraftTweakerAPI;
+import crafttweaker.api.item.IIngredient;
+import crafttweaker.api.item.IItemStack;
+import crafttweaker.api.minecraft.CraftTweakerMC;
 import net.einsteinsci.betterbeginnings.crafttweaker.util.*;
 import net.einsteinsci.betterbeginnings.register.recipe.*;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.RecipeElement;
@@ -26,31 +26,31 @@ public class OvenTweaker
     @ZenMethod
     public static void addShapedRecipe(IItemStack output, IIngredient[][] inputs)
     {
-	MineTweakerAPI.apply(new AddShapedOvenRecipe(output, inputs));
+		CraftTweakerAPI.apply(new AddShapedOvenRecipe(output, inputs));
     }
 
     @ZenMethod
     public static void addShapelessRecipe(IItemStack output, IIngredient[] inputs)
     {
-	MineTweakerAPI.apply(new AddShapelessOvenRecipe(output, inputs));
+		CraftTweakerAPI.apply(new AddShapelessOvenRecipe(output, inputs));
     }
 
     @ZenMethod
     public static void removeShapedRecipe(IItemStack output, IIngredient[][] inputs)
     {
-	MineTweakerAPI.apply(new RemoveShapedOvenRecipe(output, inputs));
+		CraftTweakerAPI.apply(new RemoveShapedOvenRecipe(output, inputs));
     }	
 
     @ZenMethod
     public static void removeShapelessRecipe(IItemStack output, IIngredient[] inputs)
     {
-	MineTweakerAPI.apply(new RemoveShapelessOvenRecipe(output, inputs));
+		CraftTweakerAPI.apply(new RemoveShapelessOvenRecipe(output, inputs));
     }	
 
     @ZenMethod
     public static void removeOutput(IItemStack output)
     {
-	MineTweakerAPI.apply(new RemoveOvenOutput(output));
+		CraftTweakerAPI.apply(new RemoveOvenOutput(output));
     }
 
     private static class AddShapedOvenRecipe extends AddRemoveAction
@@ -63,7 +63,7 @@ public class OvenTweaker
 	public AddShapedOvenRecipe(IItemStack output, IIngredient[][] inputs)
 	{
 	    super(ActionType.ADD, NAME);
-	    this.output = MineTweakerMC.getItemStack(output);
+	    this.output = CraftTweakerMC.getItemStack(output);
 	    this.inputs = CraftTweakerUtil.convertToRecipeElements(inputs);
 	}
 
@@ -72,14 +72,7 @@ public class OvenTweaker
 	{
 	    addedRecipe = new BrickOvenShapedRecipe(CraftTweakerUtil.computeWidth(inputs), CraftTweakerUtil.computeHeight(inputs), CraftTweakerUtil.to1dArray(inputs), output); 
 	    BrickOvenRecipeHandler.getRecipeList().add(addedRecipe);
-	    MineTweakerAPI.getIjeiRecipeRegistry().addRecipe(addedRecipe);
-	}
-
-	@Override
-	public void undo()
-	{
-	    BrickOvenRecipeHandler.getRecipeList().remove(addedRecipe);
-	    MineTweakerAPI.getIjeiRecipeRegistry().removeRecipe(addedRecipe);
+		//CraftTweakerAPI.getIjeiRecipeRegistry().addRecipe(addedRecipe);
 	}
 
 	@Override
@@ -99,7 +92,7 @@ public class OvenTweaker
 	public AddShapelessOvenRecipe(IItemStack output, IIngredient[] inputs)
 	{
 	    super(ActionType.ADD, NAME);
-	    this.output = MineTweakerMC.getItemStack(output);
+	    this.output = CraftTweakerMC.getItemStack(output);
 	    this.inputs = CraftTweakerUtil.convertToRecipeElements(inputs);
 	}
 
@@ -108,14 +101,7 @@ public class OvenTweaker
 	{
 	    addedRecipe = new BrickOvenShapelessRecipe(output, inputs); 
 	    BrickOvenRecipeHandler.getRecipeList().add(addedRecipe);
-	    MineTweakerAPI.getIjeiRecipeRegistry().addRecipe(addedRecipe);
-	}
-
-	@Override
-	public void undo()
-	{
-	    BrickOvenRecipeHandler.getRecipeList().remove(addedRecipe);
-	    MineTweakerAPI.getIjeiRecipeRegistry().removeRecipe(addedRecipe);
+		//CraftTweakerAPI.getIjeiRecipeRegistry().addRecipe(addedRecipe);
 	}
 
 	@Override
@@ -135,7 +121,7 @@ public class OvenTweaker
 	public RemoveShapedOvenRecipe(IItemStack output, IIngredient[][] inputs)
 	{
 	    super(ActionType.REMOVE, NAME);
-	    this.output = MineTweakerMC.getItemStack(output);
+	    this.output = CraftTweakerMC.getItemStack(output);
 	    this.inputs = CraftTweakerUtil.convertToRecipeElements1d(inputs);
 	}
 
@@ -166,20 +152,10 @@ public class OvenTweaker
 		if(inputsMatch && ItemStack.areItemStacksEqual(output, recipe.getRecipeOutput()))
 		{
 		    removedRecipe = (BrickOvenShapedRecipe) recipe;
-		    MineTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
+			//CraftTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
 		    iter.remove();
 		    break;
 		}
-	    }
-	}
-
-	@Override
-	public void undo()
-	{
-	    if(removedRecipe != null)
-	    {
-		BrickOvenRecipeHandler.getRecipeList().add(removedRecipe);
-		MineTweakerAPI.getIjeiRecipeRegistry().addRecipe(removedRecipe);
 	    }
 	}
 
@@ -200,7 +176,7 @@ public class OvenTweaker
 	public RemoveShapelessOvenRecipe(IItemStack output, IIngredient[] inputs)
 	{
 	    super(ActionType.REMOVE, NAME);
-	    this.output = MineTweakerMC.getItemStack(output);
+	    this.output = CraftTweakerMC.getItemStack(output);
 	    this.inputs = CraftTweakerUtil.convertToRecipeElements(inputs);
 	}
 
@@ -223,20 +199,10 @@ public class OvenTweaker
 		if(inputsMatch)
 		{
 		    removedRecipe = (BrickOvenShapelessRecipe) recipe;
-		    MineTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
+		    //MineTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
 		    iter.remove();
 		    break;
 		}
-	    }
-	}
-
-	@Override
-	public void undo()
-	{
-	    if(removedRecipe != null)
-	    {
-		BrickOvenRecipeHandler.getRecipeList().add(removedRecipe);
-		MineTweakerAPI.getIjeiRecipeRegistry().addRecipe(removedRecipe);
 	    }
 	}
 
@@ -256,7 +222,7 @@ public class OvenTweaker
 	public RemoveOvenOutput(IItemStack output)
 	{
 	    super(NAME);
-	    this.output = MineTweakerMC.getItemStack(output);
+	    this.output = CraftTweakerMC.getItemStack(output);
 	}
 
 	@Override
@@ -268,19 +234,9 @@ public class OvenTweaker
 		if(ItemStack.areItemsEqual(output, recipe.getRecipeOutput()) && ItemStack.areItemStackTagsEqual(output, recipe.getRecipeOutput()))
 		{
 		    removedRecipes.add(recipe);
-		    MineTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
+		    //MineTweakerAPI.getIjeiRecipeRegistry().removeRecipe(recipe);
 		    iter.remove();
 		}
-	    }
-	}
-
-	@Override
-	public void undo()
-	{
-	    for(IBrickOvenRecipe recipe : removedRecipes)
-	    {
-		BrickOvenRecipeHandler.getRecipeList().add(recipe);
-		MineTweakerAPI.getIjeiRecipeRegistry().addRecipe(recipe);
 	    }
 	}
 
@@ -290,4 +246,4 @@ public class OvenTweaker
 	    return output.toString();
 	}
     }
-}*/
+}

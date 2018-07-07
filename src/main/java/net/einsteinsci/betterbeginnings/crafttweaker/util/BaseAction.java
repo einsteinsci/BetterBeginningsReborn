@@ -1,8 +1,8 @@
-/*package net.einsteinsci.betterbeginnings.crafttweaker.util;
+package net.einsteinsci.betterbeginnings.crafttweaker.util;
 
-import minetweaker.IUndoableAction;
+import crafttweaker.IAction;
 
-public abstract class BaseAction implements IUndoableAction
+public abstract class BaseAction implements IAction
 {   
     protected String crafterName;
 
@@ -12,16 +12,4 @@ public abstract class BaseAction implements IUndoableAction
     }
     
     public abstract String recipeToString();
-
-    @Override
-    public boolean canUndo()
-    {
-	return true;
-    }
-
-    @Override
-    public Object getOverrideKey()
-    {
-	return null;
-    }
-}*/
+}

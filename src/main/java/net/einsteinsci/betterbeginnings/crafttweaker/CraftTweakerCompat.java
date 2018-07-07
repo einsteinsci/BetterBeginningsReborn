@@ -1,29 +1,18 @@
-/*package net.einsteinsci.betterbeginnings.crafttweaker;
+package net.einsteinsci.betterbeginnings.crafttweaker;
 
-import minetweaker.MineTweakerAPI;
-import minetweaker.MineTweakerImplementationAPI;
-import minetweaker.MineTweakerImplementationAPI.ReloadEvent;
-import minetweaker.util.IEventHandler;
-import net.einsteinsci.betterbeginnings.register.FuelRegistry;
+import crafttweaker.CraftTweakerAPI;
+//import net.einsteinsci.betterbeginnings.register.FuelRegistry;
 public class CraftTweakerCompat 
 {
 	public static void register() 
 	{
-		MineTweakerAPI.registerClass(KilnTweaker.class);
-		MineTweakerAPI.registerClass(OvenTweaker.class);
-		MineTweakerAPI.registerClass(SmelterTweaker.class);
-		MineTweakerAPI.registerClass(AdvancedCraftingTweaker.class);
-		MineTweakerAPI.registerClass(CampfireTweaker.class);
-		MineTweakerAPI.registerClass(FuelTweaker.class);
-		MineTweakerImplementationAPI.onReloadEvent(new IEventHandler<ReloadEvent>() 
-		{
-		    @Override
-		    public void handle(ReloadEvent paramT) 
-		    {
-			FuelRegistry.reset();
-		    }
-		});
+		CraftTweakerAPI.registerClass(KilnTweaker.class);
+		CraftTweakerAPI.registerClass(OvenTweaker.class);
+		CraftTweakerAPI.registerClass(SmelterTweaker.class);
+		CraftTweakerAPI.registerClass(AdvancedCraftingTweaker.class);
+		CraftTweakerAPI.registerClass(CampfireTweaker.class);
+		//CraftTweakerAPI.registerClass(FuelTweaker.class);
 		//MineTweakerAPI.registerClass(InfusionRepairTweaker.class);
 		//MineTweakerAPI.registerClass(RockHammerTweaker.class);
 	}
-}*/
+}

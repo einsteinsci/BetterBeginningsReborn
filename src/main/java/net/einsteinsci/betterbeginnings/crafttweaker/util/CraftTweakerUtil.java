@@ -1,11 +1,11 @@
-/*package net.einsteinsci.betterbeginnings.crafttweaker.util;
+package net.einsteinsci.betterbeginnings.crafttweaker.util;
 
 import java.lang.reflect.Field;
 
-import minetweaker.api.item.*;
-import minetweaker.api.minecraft.MineTweakerMC;
-import minetweaker.api.oredict.IOreDictEntry;
-import minetweaker.api.oredict.IngredientOreDict;
+import crafttweaker.api.item.*;
+import crafttweaker.api.minecraft.CraftTweakerMC;
+import crafttweaker.api.oredict.IOreDictEntry;
+import crafttweaker.api.oredict.IngredientOreDict;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.*;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
@@ -22,7 +22,7 @@ public class CraftTweakerUtil
     {
 	if(ingredient instanceof IItemStack || ingredient instanceof IngredientItem)
 	{
-	    return new StackRecipeElement(MineTweakerMC.getItemStack(ingredient));
+	    return new StackRecipeElement(CraftTweakerMC.getItemStack(ingredient));
 	}
 
 	//Oredict entries
@@ -48,7 +48,7 @@ public class CraftTweakerUtil
 		IIngredient internalIngredient = (IIngredient) ingredientStack$ingredient.get(ingredientStack);
 		if(internalIngredient instanceof IItemStack || internalIngredient instanceof IngredientItem)
 		{
-		    StackRecipeElement recElement = new StackRecipeElement(MineTweakerMC.getItemStack(internalIngredient));
+		    StackRecipeElement recElement = new StackRecipeElement(CraftTweakerMC.getItemStack(internalIngredient));
 		    recElement.setStackSize(ingredientStack.getAmount());
 		    return recElement;
 		}
@@ -161,4 +161,4 @@ public class CraftTweakerUtil
 	}
 	return ret;
     }
-}*/
+}
