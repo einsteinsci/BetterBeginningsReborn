@@ -16,7 +16,7 @@ public class TileEntityWickerBasket extends TileEntitySidedInventory
     @Override
     protected IItemHandler getItemHandler(EnumFacing side)
     {
-	return mainHandler;
+	return inventory;
     }
 
     @Override

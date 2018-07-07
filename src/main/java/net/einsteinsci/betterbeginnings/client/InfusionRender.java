@@ -5,7 +5,6 @@ import java.util.Stack;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.RecipeElement;
 import net.einsteinsci.betterbeginnings.tileentity.TileEntityInfusionRepair;
 import net.einsteinsci.betterbeginnings.util.CapUtils;
-import net.einsteinsci.betterbeginnings.util.Prep1_11;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
@@ -43,7 +42,7 @@ public class InfusionRender extends TileEntitySpecialRenderer<TileEntityInfusion
     {
 	IItemHandler itemHandler = CapUtils.getItemHandler(te);
 	ItemStack stack = itemHandler.getStackInSlot(TileEntityInfusionRepair.SLOT_ENCH_ITEM);
-	if(Prep1_11.isEmpty(stack)) return;
+	if(stack.isEmpty()) return;
 	GlStateManager.pushMatrix();
 	    GlStateManager.rotate(90.0F, 1.0F, 0.0F, 0.0F);
 	    GlStateManager.translate(-0.25F * PIXEL_SIZE, -1.5F * PIXEL_SIZE, 0.15F);
@@ -59,7 +58,7 @@ public class InfusionRender extends TileEntitySpecialRenderer<TileEntityInfusion
 	{
 	    ItemStack stack = itemHandler.getStackInSlot(TileEntityInfusionRepair.SLOT_ENCH_ITEM + 1 + slot);
 	    Vec2f ingredientPos = ingredientPositions[slot];
-	    if(Prep1_11.isEmpty(stack)) continue;
+	    if(stack.isEmpty()) continue;
 	    
 	    GlStateManager.pushMatrix();
 	    GlStateManager.translate(ingredientPos.x * PIXEL_SIZE, -0.15F, ingredientPos.y * PIXEL_SIZE);

@@ -12,8 +12,6 @@ import net.einsteinsci.betterbeginnings.register.RegisterItems;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.ElementRegistry;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.RecipeElement;
 import net.einsteinsci.betterbeginnings.util.CapUtils;
-import net.einsteinsci.betterbeginnings.util.InfusionRepairUtil;
-import net.einsteinsci.betterbeginnings.util.Prep1_11;
 import net.einsteinsci.betterbeginnings.util.Util;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.Enchantment;
@@ -74,7 +72,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
     {
 	if(player.isSneaking())
 	{
-	    if(Prep1_11.isEmpty(heldItem))
+	    if(heldItem.isEmpty())
 	    {
 		if(hasEnchItem())
 		{
@@ -103,7 +101,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 	}
 	else
 	{
-	    if(Prep1_11.isEmpty(heldItem) || hasEnchItem() || mode != Mode.NONE) return;
+	    if(heldItem.isEmpty() || hasEnchItem() || mode != Mode.NONE) return;
 	    if(heldItem.getItem() == RegisterItems.cloth)
 	    {
 		mode = Mode.DIFFUSION;
@@ -171,7 +169,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 
     private boolean tryAbsorbDroppedItem(EntityItem item, IBlockState state)
     {
-	ItemStack newStack = Prep1_11.getEmptyStack();
+	ItemStack newStack = ItemStack.EMPTY;
 	ItemStack stack = item.getItem();
 	switch(mode)
 	{
@@ -223,7 +221,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		    slotFound = true;
 		    break;
 		}
-		if(Prep1_11.isEmpty(slotStack))
+		if(slotStack.isEmpty())
 		{
 		    mainHandler.setStackInSlot(s, newStack);
 		    slotFound = true;
@@ -310,7 +308,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		    if(!world.isRemote)
 		    {
 			world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY() + 1, pos.getZ(), enchBook));
-			if(Prep1_11.isValid(mainHandler.getStackInSlot(SLOT_ENCH_ITEM)))
+			if(!mainHandler.getStackInSlot(SLOT_ENCH_ITEM).isEmpty())
 			    world.spawnEntity(new EntityItem(world, pos.getX(), pos.getY() + 1, pos.getZ(), mainHandler.getStackInSlot(SLOT_ENCH_ITEM)));
 			world.notifyBlockUpdate(pos, state, state, 8);
 			markDirty();
@@ -405,7 +403,7 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 	for(int s = 0; s < mainHandler.getSlots(); s++)
 	{
 	    ItemStack stack = mainHandler.getStackInSlot(s);
-	    if(Prep1_11.isValid(stack))
+	    if(!stack.isEmpty())
 	    {
 		if(stack.getItem() == Items.BOOK)
 		    foundBook = true;

@@ -3,7 +3,6 @@ package net.einsteinsci.betterbeginnings.items;
 import net.einsteinsci.betterbeginnings.ModMain;
 import net.einsteinsci.betterbeginnings.register.IBBName;
 import net.einsteinsci.betterbeginnings.register.RegisterItems;
-import net.einsteinsci.betterbeginnings.util.Prep1_11;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -80,13 +79,13 @@ public class ItemWickerShield extends ItemShield implements IBBName
     void damageShield(EntityLivingBase attacked, EntityLivingBase attacker, float f)
     {
         ItemStack shield = ItemStack.EMPTY;
-        if(Prep1_11.isValid(attacked.getHeldItemOffhand()) && attacked.getHeldItemOffhand().getItem() == RegisterItems.wickerShield)
+        if(!attacked.getHeldItemOffhand().isEmpty() && attacked.getHeldItemOffhand().getItem() == RegisterItems.wickerShield)
         shield = attacked.getHeldItemOffhand();
-        else if(Prep1_11.isValid(attacked.getHeldItemMainhand()) && attacked.getHeldItemMainhand().getItem() == RegisterItems.wickerShield)
+        else if(!attacked.getHeldItemMainhand().isEmpty() && attacked.getHeldItemMainhand().getItem() == RegisterItems.wickerShield)
         shield = attacked.getHeldItemMainhand();
 
         //Copied from EntityPlayer#damageShield() START
-        if(Prep1_11.isEmpty(shield)) return;
+        if(shield.isEmpty()) return;
         shield.damageItem(1 + MathHelper.floor(f), attacker);
         if (shield.getCount() <= 0)
         {
