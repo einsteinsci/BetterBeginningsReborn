@@ -11,6 +11,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
@@ -91,7 +92,7 @@ public class ContainerDoubleWorkbench extends Container
 
 			if (!ItemStack.areItemStacksEqual(itemstack1, itemstack))
 			{
-				itemstack1 = itemstack.isEmpty() ? null : itemstack.copy();
+				itemstack1 = itemstack.isEmpty() ? ItemStack.EMPTY : itemstack.copy();
 				inventoryItemStacks.set(i, itemstack1);
 
 				for (IContainerListener listener : listeners)
@@ -235,7 +236,8 @@ public class ContainerDoubleWorkbench extends Container
 
 		if (result.isEmpty())
 		{
-			result = CraftingManager.findMatchingRecipe(craftMatrix, worldObj).getCraftingResult(craftMatrix);
+			IRecipe recipe = CraftingManager.findMatchingRecipe(craftMatrix, worldObj);
+			result = recipe == null ? ItemStack.EMPTY : recipe.getCraftingResult(craftMatrix);
 		}
 
 		if (!result.isEmpty())

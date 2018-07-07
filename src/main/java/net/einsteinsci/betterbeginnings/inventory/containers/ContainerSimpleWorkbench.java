@@ -13,6 +13,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
@@ -111,7 +112,7 @@ public class ContainerSimpleWorkbench extends Container
 
 			if (itemstack1.getCount() == 0)
 			{
-				slot.putStack((ItemStack)null);
+				slot.putStack(ItemStack.EMPTY);
 			}
 			else
 			{
@@ -164,8 +165,11 @@ public class ContainerSimpleWorkbench extends Container
 	@Override
 	public void onCraftMatrixChanged(IInventory inventory)
 	{
-		craftResult.setInventorySlotContents(0,
-											 CraftingManager.findMatchingRecipe(craftMatrix, worldObj).getCraftingResult(craftMatrix));
+		IRecipe recipe = CraftingManager.findMatchingRecipe(craftMatrix, worldObj);
+		if (recipe != null)
+			craftResult.setInventorySlotContents(0, recipe.getCraftingResult(craftMatrix));
+		else
+			craftResult.setInventorySlotContents(0, ItemStack.EMPTY);
 	}
 
 	@Override
