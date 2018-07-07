@@ -378,7 +378,7 @@ public class TileEntityCampfire extends TileEntityBB implements ITickable, IWorl
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) 
 	{
 		if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-			return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(mainHandler);
+			return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(inventory);
 		return super.getCapability(capability, facing);
 	}
 

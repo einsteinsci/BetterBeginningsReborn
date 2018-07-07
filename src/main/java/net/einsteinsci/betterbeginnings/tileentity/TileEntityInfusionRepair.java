@@ -9,6 +9,7 @@ import javax.annotation.Nullable;
 import net.einsteinsci.betterbeginnings.config.BBConfig;
 import net.einsteinsci.betterbeginnings.inventory.ItemHandlerInfusionRepair;
 import net.einsteinsci.betterbeginnings.register.RegisterItems;
+import net.einsteinsci.betterbeginnings.register.recipe.InfusionRepairRecipeHandler;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.ElementRegistry;
 import net.einsteinsci.betterbeginnings.register.recipe.elements.RecipeElement;
 import net.einsteinsci.betterbeginnings.util.CapUtils;
@@ -116,8 +117,8 @@ public class TileEntityInfusionRepair extends TileEntityBB implements ITickable
 		}
 		mode = Mode.REPAIR;
 		pendingIngredients.clear();
-		pendingIngredients.addAll(InfusionRepairUtil.getRequiredStacks(heldItem));
-		xpLevelsNeeded = InfusionRepairUtil.getTakenLevels(heldItem);
+		pendingIngredients.addAll(InfusionRepairRecipeHandler.instance().getRequiredStacks(heldItem));
+		xpLevelsNeeded = InfusionRepairRecipeHandler.instance().getTakenLevels(heldItem);
 		markDirty();
 	    }
 	    else
