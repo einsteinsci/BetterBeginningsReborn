@@ -1,178 +1,179 @@
-tile.betterbeginnings.kiln.name=çª‘ç‚‰
-tile.betterbeginnings.kiln_lit.name=çª‘ç‚‰ï¼ˆç‚¹ç‡ƒï¼‰
-tile.betterbeginnings.double_workbench.name=å·¥ä½œå�°
-tile.betterbeginnings.brick_oven.name=çº¢ç –çƒ¤ç‚‰
-tile.betterbeginnings.brick_oven_lit.name=çº¢ç –çƒ¤ç‚‰ï¼ˆç‚¹ç‡ƒï¼‰
-tile.betterbeginnings.smelter.name=å†¶ç‚¼ç‚‰
-tile.betterbeginnings.smelter_lit.name=å†¶ç‚¼ç‚‰ï¼ˆç‚¹ç‡ƒï¼‰
-tile.betterbeginnings.infusion_repair_station.name=é™„é­”ä¿®å¤�å�°
-tile.betterbeginnings.obsidian_kiln.name=é»‘æ›œçŸ³çª‘ç‚‰
-tile.betterbeginnings.obsidian_kiln_lit.name=é»‘æ›œçŸ³çª‘ç‚‰ï¼ˆç‚¹ç‡ƒï¼‰
-tile.betterbeginnings.nether_brick_oven.name=åœ°ç‹±ç –çƒ¤ç‚‰
-tile.betterbeginnings.nether_brick_oven_lit.name=åœ°ç‹±ç –çƒ¤ç‚‰ï¼ˆç‚¹ç‡ƒï¼‰
-tile.betterbeginnings.ender_smelter.name=æœ«å½±å†¶ç‚¼ç‚‰
-tile.betterbeginnings.ender_smelter_lit.name=æœ«å½±å†¶ç‚¼ç‚‰ï¼ˆç‚¹ç‡ƒï¼‰
-tile.betterbeginnings.redstone_kiln.name=çº¢çŸ³çª‘ç‚‰
-tile.betterbeginnings.redstone_kiln_lit.name=çº¢çŸ³çª‘ç‚‰ï¼ˆç‚¹ç‡ƒï¼‰
-tile.betterbeginnings.campfire.name=ç¯�ç�«
-tile.betterbeginnings.campfire_lit.name=ç¯�ç�«ï¼ˆç‚¹ç‡ƒï¼‰
-tile.betterbeginnings.wicker_basket.name=æŸ³æ�¡ç¯®
+tile.betterbeginnings.kiln.name=窑炉
+tile.betterbeginnings.kiln_lit.name=窑炉（点燃）
+tile.betterbeginnings.double_workbench.name=工作台
+tile.betterbeginnings.brick_oven.name=红砖烤炉
+tile.betterbeginnings.brick_oven_lit.name=红砖烤炉（点燃）
+tile.betterbeginnings.smelter.name=冶炼炉
+tile.betterbeginnings.smelter_lit.name=冶炼炉（点燃）
+tile.betterbeginnings.infusion_repair_station.name=附魔修复台
+tile.betterbeginnings.obsidian_kiln.name=黑曜石窑炉
+tile.betterbeginnings.obsidian_kiln_lit.name=黑曜石窑炉（点燃）
+tile.betterbeginnings.nether_brick_oven.name=地狱砖烤炉
+tile.betterbeginnings.nether_brick_oven_lit.name=地狱砖烤炉（点燃）
+tile.betterbeginnings.ender_smelter.name=末影冶炼炉
+tile.betterbeginnings.ender_smelter_lit.name=末影冶炼炉（点燃）
+tile.betterbeginnings.redstone_kiln.name=红石窑炉
+tile.betterbeginnings.redstone_kiln_lit.name=红石窑炉（点燃）
+tile.betterbeginnings.campfire.name=篝火
+tile.betterbeginnings.campfire_lit.name=篝火（点燃）
+tile.betterbeginnings.wicker_basket.name=柳条篮
 
-item.betterbeginnings.flint_knife.name=ç‡§çŸ³å°�åˆ€
-item.betterbeginnings.bone_knife.name=éª¨è´¨å°�åˆ€
-item.betterbeginnings.iron_knife.name=é“�è´¨å°�åˆ€
-item.betterbeginnings.gold_knife.name=é‡‘è´¨å°�åˆ€
-item.betterbeginnings.diamond_knife.name=é’»çŸ³å°�åˆ€
-item.betterbeginnings.pan.name=å¹³åº•é”…
-item.betterbeginnings.rotisserie.name=çƒ§çƒ¤æž¶
-item.betterbeginnings.infusion_scroll.name=ä¿®å¤�å�·è½´
-item.betterbeginnings.sugar_cane_strips.name=ç”˜è”—æ�¡
+item.betterbeginnings.flint_knife.name=燧石小刀
+item.betterbeginnings.bone_knife.name=骨质小刀
+item.betterbeginnings.iron_knife.name=铁质小刀
+item.betterbeginnings.gold_knife.name=金质小刀
+item.betterbeginnings.diamond_knife.name=钻石小刀
+item.betterbeginnings.pan.name=平底锅
+item.betterbeginnings.rotisserie.name=烧烤架
+item.betterbeginnings.infusion_scroll.name=修复卷轴
+item.betterbeginnings.sugar_cane_strips.name=甘蔗条
 
-item.betterbeginnings.flint_hatchet.name=ç‡§çŸ³æ–§å¤´
-item.betterbeginnings.bone_pickaxe.name=éª¨é•�
-item.betterbeginnings.noob_wood_sword.name=æœ¨å‰‘
+item.betterbeginnings.flint_hatchet.name=燧石斧头
+item.betterbeginnings.bone_pickaxe.name=骨镐
+item.betterbeginnings.noob_wood_sword.name=木剑
 
-item.betterbeginnings.bone_shard.name=éª¨å¤´ç¢Žç‰‡
-item.betterbeginnings.leather_strip.name=çš®é�©æ�¡
-item.betterbeginnings.fire_bow.name=ç‚¹ç�«å¼“
-item.betterbeginnings.silk.name=è››ä¸�
-item.betterbeginnings.thread.name=ä¸�çº¿
-item.betterbeginnings.twine.name=éº»ç»³
-item.betterbeginnings.cloth.name=å¸ƒåŒ¹
-item.betterbeginnings.chain.name=é”�é“¾
-item.betterbeginnings.marshmallow.name=æ£‰èŠ±ç³–
-item.betterbeginnings.marshmallow_cooked.name=çƒ¤æ£‰èŠ±ç³–
-item.betterbeginnings.roasting_stick.name=çƒ§çƒ¤æ£�
-item.betterbeginnings.roasting_stick_raw_mallow.name=å�‰åœ¨çƒ§çƒ¤æ£�ä¸Šçš„æ£‰èŠ±ç³–
-item.betterbeginnings.roasting_stick_cooked_mallow.name=å�‰åœ¨çƒ§çƒ¤æ£�ä¸Šçš„çƒ¤æ£‰èŠ±ç³–
-item.betterbeginnings.rock_hammer.name=ç¢ŽçŸ³é”¤
-item.betterbeginnings.wicker_shield.name=æŸ³æ�¡ç›¾
+item.betterbeginnings.bone_shard.name=骨头碎片
+item.betterbeginnings.leather_strip.name=皮革条
+item.betterbeginnings.iron_nugget.name=铁粒
+item.betterbeginnings.fire_bow.name=点火弓
+item.betterbeginnings.silk.name=蛛丝
+item.betterbeginnings.thread.name=丝线
+item.betterbeginnings.twine.name=麻绳
+item.betterbeginnings.cloth.name=布匹
+item.betterbeginnings.chain.name=锁链
+item.betterbeginnings.marshmallow.name=棉花糖
+item.betterbeginnings.marshmallow_cooked.name=烤棉花糖
+item.betterbeginnings.roasting_stick.name=烧烤棍
+item.betterbeginnings.roasting_stick_raw_mallow.name=叉在烧烤棍上的棉花糖
+item.betterbeginnings.roasting_stick_cooked_mallow.name=叉在烧烤棍上的烤棉花糖
+item.betterbeginnings.rock_hammer.name=碎石锤
+item.betterbeginnings.wicker_shield.name=柳条盾
 
-item.betterbeginnings.charred_meat.name=çƒ¤ç„¦çš„è‚‰
-item.betterbeginnings.charred_chicken.name=çƒ¤ç„¦çš„é¸¡è‚‰
-item.betterbeginnings.charred_mutton.name=çƒ¤ç„¦çš„ç¾Šè‚‰
-item.betterbeginnings.charred_rabbit.name=çƒ¤ç„¦çš„å…”è‚‰
-item.betterbeginnings.charred_fish.name=çƒ¤ç„¦çš„é±¼
-item.betterbeginnings.charred_unknown.name=çƒ¤ç„¦çš„???
+item.betterbeginnings.charred_meat.name=烤焦的肉
+item.betterbeginnings.charred_chicken.name=烤焦的鸡肉
+item.betterbeginnings.charred_mutton.name=烤焦的羊肉
+item.betterbeginnings.charred_rabbit.name=烤焦的兔肉
+item.betterbeginnings.charred_fish.name=烤焦的鱼
+item.betterbeginnings.charred_unknown.name=烤焦的???
 
-item.betterbeginnings.test_item.name=æµ‹è¯•ç‰©å“�
-item.betterbeginnings.kilnCart.name=çª‘ç‚‰çŸ¿è½¦
+item.betterbeginnings.test_item.name=测试物品
+item.betterbeginnings.kilnCart.name=窑炉矿车
 
-itemGroup.tabBetterBeginnings=æ›´å¥½çš„å¼€å±€
+itemGroup.tabBetterBeginnings=更好的开局
 
-container.craftingdouble=é«˜çº§å·¥ä½œå�°
-container.craftingdouble.warning=éœ€è¦�é¢�å¤–çš„æ��æ–™ï¼�
-container.crafting.needsBigBoyBench=éœ€è¦�é«˜çº§å·¥ä½œå�°ï¼�
-container.kiln=çª‘ç‚‰
-container.brickoven=çº¢ç –çƒ¤ç‚‰
-container.smelter=å†¶ç‚¼ç‚‰
-container.infusion=é™„é­”ä¿®å¤�å�°
-container.infusion.needed=éœ€è¦�
-container.infusion.taken=æ¶ˆè€—
+container.craftingdouble=高级工作台
+container.craftingdouble.warning=需要额外的材料！
+container.crafting.needsBigBoyBench=需要高级工作台！
+container.kiln=窑炉
+container.brickoven=红砖烤炉
+container.smelter=冶炼炉
+container.infusion=附魔修复台
+container.infusion.needed=需要
+container.infusion.taken=消耗
 container.infusion.level=L
-container.obsidianKiln=é»‘æ›œçŸ³çª‘ç‚‰
-container.netherbrickoven=åœ°ç‹±ç –çƒ¤ç‚‰
-container.enderSmelter=æœ«å½±å†¶ç‚¼ç‚‰
-container.redstoneKiln=çº¢çŸ³çª‘ç‚‰
-container.campfire=ç¯�ç�«
-container.campfire.woodFuelsOnly=å�ªæŽ¥å�—æœ¨æ��ç‡ƒæ–™ã€‚
-container.wicker_basket=æŸ³æ�¡ç¯®
+container.obsidianKiln=黑曜石窑炉
+container.netherbrickoven=地狱砖烤炉
+container.enderSmelter=末影冶炼炉
+container.redstoneKiln=红石窑炉
+container.campfire=篝火
+container.campfire.woodFuelsOnly=只接受木材燃料。
+container.wicker_basket=柳条篮
 
-achievement.flintKnife=é€‚è€…ç”Ÿå­˜
-achievement.flintKnife.desc=ç”¨ä¸¤ä¸ªç‡§çŸ³æ�¥å�ˆæˆ�ç‡§çŸ³å°�åˆ€
-achievement.makeString=åˆ¶ä½œä¸�çº¿
-achievement.makeString.desc=ç”¨å°�åˆ€å’Œç¾Šæ¯›åˆ¶ä½œçº¿
-achievement.makeTwine=å�¦ä¸€ç§�çº¿
-achievement.makeTwine.desc=ç”¨å°�åˆ€å’Œè—¤è”“åˆ¶ä½œéº»ç»³
-achievement.upgradeKnife=æµ�è¡€çš„è¾¹ç¼˜
-achievement.upgradeKnife.desc=å�šä¸€æŠŠæ›´å¥½çš„å°�åˆ€
-achievement.makeSticks=æˆ‘æ˜¯ä¸€ä¸ªæ ‘è‹—ï¼Œæˆ‘æ˜¯ä¸€ä¸ªæ ‘è‹—â€¦â€¦
-achievement.makeSticks.desc=ç”¨æ ‘è‹—å’Œå°�åˆ€åˆ¶ä½œä¸€æ ¹æœ¨æ£�
-achievement.makeHatchet=å°�æ–§å¤´
-achievement.makeHatchet.desc=ç”¨ç‡§çŸ³ã€�æœ¨æ£�å’Œçš®é�©æ�¡åˆ¶ä½œä¸€æŠŠç‡§çŸ³æ–§å¤´
-achievement.doubleWorkbench=å�˜å¾—å¤�æ�‚
-achievement.doubleWorkbench.desc=å°†ä¸¤ä¸ªå·¥ä½œå�°æ”¾åœ¨ä¸€èµ·ä»¥å¾—åˆ°é«˜çº§å·¥ä½œå�°
-achievement.makeSword=æ¯”å°�åˆ€æ›´å¤§
-achievement.makeSword.desc=ç”¨é«˜çº§å·¥ä½œå�°å�ˆæˆ�ä¸€æŠŠå‰‘
-achievement.infusionRepair=æ³¨å…¥æŠ—æ°§åŒ–å‰‚ï¼�
-achievement.infusionRepair.desc=å�ˆæˆ�é™„é­”ä¿®å¤�å�°
-achievement.repairNoobSword=ç¥žå¥‡çš„å®žè·µ
-achievement.repairNoobSword.desc=ä¿®å¤�ä½ çš„æœ¨å‰‘
-achievement.boneShards=é¸¡éª¨å¤´
-achievement.boneShards.desc=ç”¨ä½ çš„å°�åˆ€å’Œéª¨å¤´åˆ¶ä½œéª¨ç¢Žç‰‡
-achievement.bonePick=éª·é«…çš„å†�åˆ©ç”¨
-achievement.bonePick.desc=å�ˆæˆ�ä¸€æŠŠéª¨é•�
-achievement.makeKiln=â€œçƒ­â€�èµ·æ�¥çš„è¯�é¢˜
-achievement.makeKiln.desc=å�ˆæˆ�ä¸€ä¸ªçª‘ç‚‰
-achievement.charredMeat=å‘³å¦‚æœ¨ç‚­
-achievement.charredMat.desc=å�ƒè¿‡çƒ¤ç„¦çš„è‚‰
-achievement.obsidianKiln=æ›´â€œçƒ­â€�è¯�é¢˜
-achievement.obsidianKiln.desc=å°†çª‘ç‚‰å�‡çº§ä¸ºé»‘æ›œçŸ³çª‘ç‚‰
-achievement.makeSmelter=æˆ‘åœ¨å†¶ç‚¼ï¼�å†¶ç‚¼ï¼�
-achievement.makeSmelter.desc=å�ˆæˆ�ä¸€ä¸ªå†¶ç‚¼ç‚‰
-achievement.enderSmelter=è·¯çš„å°½å¤´
-achievement.enderSmelter.desc=å°†å†¶ç‚¼ç‚‰å�‡çº§ä¸ºæœ«å½±å†¶ç‚¼ç‚‰
-achievement.oreDoubling=å�Œé‡�éº»çƒ¦
-achievement.oreDoubling.desc=åœ¨æœ«å½±å†¶ç‚¼ç‚‰ä¸­å¾—åˆ°é¢�å¤–çš„çŸ¿ç‰©
-achievement.makeBrickOven=é£Ÿç‰©ç†”ç‚‰
-achievement.makeBrickOven.desc=å�ˆæˆ�ä¸€ä¸ªçº¢ç –çƒ¤ç‚‰
-achievement.cake=æ›´å¤šè°Žè¨€
-achievement.cake.desc=çƒ¤ä¸€ä¸ªè›‹ç³•
-achievement.netherBrickOven=ç†”å²©é©±åŠ¨åž‹é£Ÿç‰©
-achievement.netherBrickOven.desc=å°†çº¢ç –çƒ¤ç‚‰å�‡çº§ä¸ºåœ°ç‹±ç –çƒ¤ç‚‰
-achievement.notchApple=ç¥žçš„é£Ÿç‰©
-achievement.notchApple.desc=çƒ¤åˆ¶é™„é­”é‡‘è‹¹æžœ
+achievement.flintKnife=适者生存
+achievement.flintKnife.desc=用两个燧石来合成燧石小刀
+achievement.makeString=制作丝线
+achievement.makeString.desc=用小刀和羊毛制作线
+achievement.makeTwine=另一种线
+achievement.makeTwine.desc=用小刀和藤蔓制作麻绳
+achievement.upgradeKnife=流血的边缘
+achievement.upgradeKnife.desc=做一把更好的小刀
+achievement.makeSticks=我是一个树苗，我是一个树苗……
+achievement.makeSticks.desc=用树苗和小刀制作一根木棍
+achievement.makeHatchet=小斧头
+achievement.makeHatchet.desc=用燧石、木棍和皮革条制作一把燧石斧头
+achievement.doubleWorkbench=变得复杂
+achievement.doubleWorkbench.desc=将两个工作台放在一起以得到高级工作台
+achievement.makeSword=比小刀更大
+achievement.makeSword.desc=用高级工作台合成一把剑
+achievement.infusionRepair=注入抗氧化剂！
+achievement.infusionRepair.desc=合成附魔修复台
+achievement.repairNoobSword=神奇的实践
+achievement.repairNoobSword.desc=修复你的木剑
+achievement.boneShards=鸡骨头
+achievement.boneShards.desc=用你的小刀和骨头制作骨碎片
+achievement.bonePick=骷髅的再利用
+achievement.bonePick.desc=合成一把骨镐
+achievement.makeKiln=“热”起来的话题
+achievement.makeKiln.desc=合成一个窑炉
+achievement.charredMeat=味如木炭
+achievement.charredMat.desc=吃过烤焦的肉
+achievement.obsidianKiln=更“热”话题
+achievement.obsidianKiln.desc=将窑炉升级为黑曜石窑炉
+achievement.makeSmelter=我在冶炼！冶炼！
+achievement.makeSmelter.desc=合成一个冶炼炉
+achievement.enderSmelter=路的尽头
+achievement.enderSmelter.desc=将冶炼炉升级为末影冶炼炉
+achievement.oreDoubling=双重麻烦
+achievement.oreDoubling.desc=在末影冶炼炉中得到额外的矿物
+achievement.makeBrickOven=食物熔炉
+achievement.makeBrickOven.desc=合成一个红砖烤炉
+achievement.cake=更多谎言
+achievement.cake.desc=烤一个蛋糕
+achievement.netherBrickOven=熔岩驱动型食物
+achievement.netherBrickOven.desc=将红砖烤炉升级为地狱砖烤炉
+achievement.notchApple=神的食物
+achievement.notchApple.desc=烤制附魔金苹果
 
-entity.betterbeginnings.kilnCart.name=çª‘ç‚‰çŸ¿è½¦
+entity.betterbeginnings.kilnCart.name=窑炉矿车
 
-death.face=%1$såœ¨%2$sä¸Šæ‰“äº†ä»–ä»¬çš„è„¸ã€‚
-death.diffusion=%s$så·²ç»�æ¶ˆå¤±ï¼Œä¸�å¤�å­˜åœ¨ã€‚
+death.face=%1$s在%2$s上打了他们的脸。
+death.diffusion=%s$s已经消失，不复存在。
 
-blockbreak.fail=å·®ä¸€ç‚¹ï¼Œå†�æ�¥ä¸€æ¬¡åº”è¯¥èƒ½å�šåˆ°ã€‚
-blockbreak.success=å“Žå“Ÿ! ä½†è‡³å°‘å®ƒèƒ½ç”¨äº†ã€‚
-blockbreak.wrongtool=é”™è¯¯çš„å·¥å…·ï¼�
-blockbreak.wrongtool.message=éœ€è¦� %1$s %2$s.
+blockbreak.fail=差一点，再来一次应该能做到。
+blockbreak.success=哎哟! 但至少它能用了。
+blockbreak.wrongtool=错误的工具！
+blockbreak.wrongtool.message=需要 %1$s %2$s.
 t
-command.jsongen.complete=JSONé…�æ–¹ç”Ÿæˆ�å®Œæˆ�ï¼�
+command.jsongen.complete=JSON配方生成完成！
 
-diffusion.toomanyenchants=è¿™ä¸ªç‰©å“�ä¸Šé™„é­”å¤ªå¤šäº†ï¼�æœ€å¤šä¸º8ä¸ªé™„é­”ã€‚
+diffusion.toomanyenchants=这个物品上附魔太多了！最多为8个附魔。
 
 //JEI Descriptions
-betterbeginnings.knives.jeiDescription=åœ¨ä½¿ç”¨å°�åˆ€ç ´å��æ¤�ç‰©ï¼ˆå¦‚è—¤è”“ã€�è�‰ã€�è•¨ã€�æ ‘å�¶ç­‰ï¼‰æ—¶ä¼šæœ‰å‡ çŽ‡ç²¾å‡†é‡‡é›†æ–¹å�—ã€‚ä½ ä¹Ÿå�¯ä»¥é€šè¿‡é•¿æŒ‰é¼ æ ‡å�³é”®æ�¥æŠ•æŽ·å°�åˆ€ï¼Œæ—¶é—´è¶Šé•¿ï¼Œé€ æˆ�çš„ä¼¤å®³è¶Šå¤šã€‚
+betterbeginnings.knives.jeiDescription=在使用小刀破坏植物（如藤蔓、草、蕨、树叶等）时会有几率精准采集方块。你也可以通过长按鼠标右键来投掷小刀，时间越长，造成的伤害越多。
 
-betterbeginnings.infusion_scroll.jeiDescription=æ‰‹æŒ�ä¿®å¤�å�·è½´å�³å‡»é™„é­”ä¿®å¤�å�°æ—¶ï¼Œå°†ä¼šåœ¨è�Šå¤©æ¡†ä¸­æ˜¾ç¤ºä¿®å¤�å…¶ä¸‹ä¸€ä¸ªç‰©å“�æ—¶æ‰€éœ€çš„å�·è½´æ•°é‡�ã€‚å¦‚æžœéœ€è¦�ç»�éªŒï¼Œåˆ™ä¼šåœ¨è�Šå¤©æ �ä¸­æ˜¾ç¤ºæ‰€éœ€ç»�éªŒç­‰çº§ã€‚
+betterbeginnings.infusion_scroll.jeiDescription=手持修复卷轴右击附魔修复台时，将会在聊天框中显示修复其下一个物品时所需的卷轴数量。如果需要经验，则会在聊天栏中显示所需经验等级。
 
-betterbeginnings.rock_hammer.jeiDescription=å°†çŸ³å¤´æ‰“ç¢Žæˆ�åœ†çŸ³ï¼Œå°†åœ†çŸ³æ‰“ç¢Žæˆ�ç ‚ç ¾ï¼Œå°†ç ‚ç ¾æ‰“ç¢Žæˆ�æ²™å­�ã€‚
+betterbeginnings.rock_hammer.jeiDescription=将石头打碎成圆石，将圆石打碎成砂砾，将砂砾打碎成沙子。
 
-betterbeginnings.rotisserie.jeiDescription=å°†å…¶æ”¾åœ¨ç¯�ç�«GUIçš„é¤�å…·æ§½æ—¶ï¼Œå�¯ä»¥è®©ç¯�ç�«å°†ç”Ÿè‚‰çƒ¤æˆ�ç†Ÿè‚‰ã€‚
+betterbeginnings.rotisserie.jeiDescription=将其放在篝火GUI的餐具槽时，可以让篝火将生肉烤成熟肉。
 
-betterbeginnings.pan.jeiDescription=å°†å…¶æ”¾åœ¨ç¯�ç�«GUIçš„é¤�å…·æ§½æ—¶ï¼Œå�¯ä»¥è®©ç¯�ç�«å°†ç”Ÿè‚‰å�˜æˆ�ç†Ÿè‚‰å¹¶ä¸”æ‹¥æœ‰ä¸¤å€�çš„çƒ¹é¥ªé€Ÿåº¦ã€‚
+betterbeginnings.pan.jeiDescription=将其放在篝火GUI的餐具槽时，可以让篝火将生肉变成熟肉并且拥有两倍的烹饪速度。
 
-betterbeginnings.wicker_shield.jeiDescription=ä¸€ä¸ªç”¨äºŽæ¸¸æˆ�æ—©æœŸçš„ä½Žè€�ä¹…ç›¾ç‰Œã€‚åœ¨æœªæ�¥çš„ç‰ˆæœ¬ä¸­ï¼Œå®ƒä¼šå�—åˆ°ç�«ç„°çš„å½±å“�ã€‚
+betterbeginnings.wicker_shield.jeiDescription=一个用于游戏早期的低耐久盾牌。在未来的版本中，它会受到火焰的影响。
 
-betterbeginnings.kiln.jeiDescription=ä¸“ç”¨äºŽåŸºæœ¬çš„çƒ§åˆ¶ã€‚å¦‚ï¼š\n * å°†æ²™å­�çƒ§æˆ�çŽ»ç’ƒ \n * å°†åœ†çŸ³çƒ§æˆ�çŸ³å¤´ \n\n é™¤äº†çƒˆç„°æ£’å’Œç†”å²©ä¹‹å¤–çš„ä»»ä½•ç‡ƒæ–™éƒ½å�¯ä»¥åœ¨çª‘ç‚‰ä¸­ä½¿ç”¨ã€‚
+betterbeginnings.kiln.jeiDescription=专用于基本的烧制。如：\n * 将沙子烧成玻璃 \n * 将圆石烧成石头 \n\n 除了烈焰棒和熔岩之外的任何燃料都可以在窑炉中使用。
 
-betterbeginnings.obsidian_kiln.jeiDescription=çª‘ç‚‰çš„å�‡çº§ç‰ˆï¼Œçƒ§åˆ¶ç‰©å“�è¦�å¿«å¾—å¤šã€‚å®ƒå�¯ä»¥ä½¿ç”¨çƒˆç„°æ£’å’Œç†”å²©è¿™æ ·çš„æ›´çƒ­çš„ç‡ƒæ–™äº†ã€‚
+betterbeginnings.obsidian_kiln.jeiDescription=窑炉的升级版，烧制物品要快得多。它可以使用烈焰棒和熔岩这样的更热的燃料了。
 
-betterbeginnings.brick_oven.jeiDescription=ä¸€ä¸ªç”¨äºŽçƒ˜ç„™é£Ÿç‰©çš„ç‚‰å­�ã€‚è¿˜æœ‰ä¸€äº›å…¶ä»–çš„ä¸œè¥¿ä¹Ÿéœ€è¦�ç”¨çƒ¤ç‚‰åˆ¶ä½œã€‚
+betterbeginnings.brick_oven.jeiDescription=一个用于烘焙食物的炉子。还有一些其他的东西也需要用烤炉制作。
 
-betterbeginnings.nether_brick_oven.jeiDescription=çº¢ç –çƒ¤ç‚‰çš„å�‡çº§ç‰ˆï¼Œæ¯”çº¢ç –çƒ¤ç‚‰çš„å¤„ç�†é€Ÿåº¦ç¨�å¿«ä¸€äº›ã€‚ä½†æ˜¯å®ƒä¸�å†�ä½¿ç”¨å›ºä½“ç‡ƒæ–™äº†ï¼Œè€Œæ˜¯ä½¿ç”¨ç†”å²©ã€‚
+betterbeginnings.nether_brick_oven.jeiDescription=红砖烤炉的升级版，比红砖烤炉的处理速度稍快一些。但是它不再使用固体燃料了，而是使用熔岩。
 
-betterbeginnings.smelter.jeiDescription=ç”¨äºŽå†¶ç‚¼çŸ¿çŸ³ã€‚å°†çŸ¿ç‰©æ”¾åœ¨å·¦ä¸Šæ–¹çš„æ§½ä¸­ï¼Œå°†ç‡ƒæ–™æ”¾åœ¨åº•éƒ¨çš„æ§½ä¸­ï¼Œåœ¨å�³ä¸Šæ–¹çš„æ§½ä¸­æ”¾å…¥æŸ�ç§�â€œåŠ©ç‡ƒå‰‚â€�ï¼ˆå¦‚æ²™ç ¾ï¼‰ã€‚å¤§å¤šæ•°çš„é…�æ–¹éƒ½éœ€è¦�è‡³å°‘ä¸€ä¸ªâ€œåŠ©ç‡ƒå‰‚â€�æ�¥å†¶ç‚¼çŸ¿çŸ³ï¼Œè€Œè¶Šæœ‰ä»·å€¼çš„çŸ¿çŸ³å°±éœ€è¦�è¶Šå¤šçš„â€œåŠ©ç‡ƒå‰‚â€�æ�¥è¿›è¡Œå†¶ç‚¼ã€‚éœ€è¦�æ³¨æ„�çš„æ˜¯ï¼Œå†¶ç‚¼ç‚‰å�ªæŽ¥å�—æœ¨ç‚­ä½œä¸ºç‡ƒæ–™ã€‚
+betterbeginnings.smelter.jeiDescription=用于冶炼矿石。将矿物放在左上方的槽中，将燃料放在底部的槽中，在右上方的槽中放入某种“助燃剂”（如沙砾）。大多数的配方都需要至少一个“助燃剂”来冶炼矿石，而越有价值的矿石就需要越多的“助燃剂”来进行冶炼。需要注意的是，冶炼炉只接受木炭作为燃料。
 
-betterbeginnings.ender_smelter.jeiDescription=å†¶ç‚¼ç‚‰çš„å�‡çº§ç‰ˆï¼Œç”±æœ«åœ°çŸ³åˆ¶æˆ�ã€‚å®ƒæœ‰ä¸€å®šå‡ çŽ‡ï¼ˆ75ï¼…ï¼‰èƒ½å¤ŸåŠ å€�å¤„ç�†ï¼Œè™½ç„¶å®ƒä»�ç„¶éœ€è¦�ä½¿ç”¨æ²™ç ¾ä½œä¸ºâ€œåŠ©ç‡ƒå‰‚â€�ï¼Œä½†æ˜¯å®ƒçš„å¤„ç�†é€Ÿåº¦è¦�å¿«å¾—å¤šã€‚è€Œä¸”å®ƒå�¯ä»¥ä½¿ç”¨æœ«å½±ç��ç� å’Œæœ«å½±ä¹‹çœ¼ä½œä¸ºç‡ƒæ–™ã€‚
+betterbeginnings.ender_smelter.jeiDescription=冶炼炉的升级版，由末地石制成。它有一定几率（75％）能够加倍处理，虽然它仍然需要使用沙砾作为“助燃剂”，但是它的处理速度要快得多。而且它可以使用末影珍珠和末影之眼作为燃料。
 
-betterbeginnings.campfire.jeiDescription=ç¯�ç�«éœ€è¦�ç”¨ç‚¹ç�«å¼“æˆ–æ‰“ç�«çŸ³ç‚¹ç‡ƒã€‚å½“ç‡ƒæ–™æˆ–è¾“å…¥çš„ç‰©å“�è€—å°½æ—¶ï¼Œå®ƒä¼šå¼€å§‹å†’çƒŸã€‚å¦‚æžœæ²¡æœ‰æ·»åŠ æ›´å¤šçš„ç‡ƒæ–™æˆ–ç‰©å“�ï¼Œå®ƒå°†ä¼šç†„ç�­å¹¶ä¸”éœ€è¦�å†�æ¬¡ç‚¹ç‡ƒã€‚GUIä¸­å¿ƒçš„ç¯�ç�«è¡¨æ˜Žå®ƒèƒ½æŒ�ç»­ç‡ƒçƒ§å¤šä¹…ã€‚
+betterbeginnings.campfire.jeiDescription=篝火需要用点火弓或打火石点燃。当燃料或输入的物品耗尽时，它会开始冒烟。如果没有添加更多的燃料或物品，它将会熄灭并且需要再次点燃。GUI中心的篝火表明它能持续燃烧多久。
 
-betterbeginnings.wicker_basket.jeiDescription=æ¸¸æˆ�æ—©æœŸæ—¶ç®±å­�çš„æ›¿ä»£å“�ã€‚å®ƒæœ‰9ä¸ªæ ¼ï¼Œæ¯�ä¸ªæ ¼å�¯ä»¥å­˜å‚¨ä¸€ç§�ç‰©å“�ã€‚å®ƒçš„æ¨¡åž‹ä¼šæ˜¾ç¤ºå‡ºç¯®å­�ä¸­çš„ç‰©å“�ã€‚å�ªæœ‰çŽ©å®¶å�¯ä»¥å­˜å…¥/å�–å‡ºç‰©å“�ã€‚
+betterbeginnings.wicker_basket.jeiDescription=游戏早期时箱子的替代品。它有9个格，每个格可以存储一种物品。它的模型会显示出篮子中的物品。只有玩家可以存入/取出物品。
 
-betterbeginnings.infusion_repair_station.jeiDescription=æ½œè¡ŒçŠ¶æ€�ä¸‹ç©ºæ‰‹å�³å‡»é™„é­”ä¿®å¤�å�°ï¼Œåˆ™ä¼šåœ¨è�Šå¤©æ¡†ä¸­æ˜¾ç¤ºç›¸å…³ä¿¡æ�¯ã€‚
+betterbeginnings.infusion_repair_station.jeiDescription=潜行状态下空手右击附魔修复台，则会在聊天框中显示相关信息。
 
 //JEI Categories
-betterbeginnings.kilnCategory.name=çª‘ç‚‰
-betterbeginnings.ovenCategory.name=çƒ¤ç‚‰
-betterbeginnings.smelterCategory.name=å†¶ç‚¼ç‚‰
-betterbeginnings.campfireCategory.name=ç¯�ç�«
-betterbeginnings.advCraftingCategory.name=é«˜çº§å�ˆæˆ�
+betterbeginnings.kilnCategory.name=窑炉
+betterbeginnings.ovenCategory.name=烤炉
+betterbeginnings.smelterCategory.name=冶炼炉
+betterbeginnings.campfireCategory.name=篝火
+betterbeginnings.advCraftingCategory.name=高级合成
 
-smelter.jeiBonusText=è¾“å‡º: %d + åŠ©ç‡ƒå‰‚å¥–åŠ±
+smelter.jeiBonusText=输出: %d + 助燃剂奖励
